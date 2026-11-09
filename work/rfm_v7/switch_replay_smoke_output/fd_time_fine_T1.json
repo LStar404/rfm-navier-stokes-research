@@ -1,0 +1,77 @@
+{
+  "status": "complete",
+  "artifact": "fd_time_fine_T1.npz",
+  "artifact_sha256": "35b09665c6e3b2819fe109532c40a6201f518126019b885156adb45b5e7edba9",
+  "runner_sha256": "119e1743fba81025fe232c98eedbdc0dd42c0afe51c26c2276e9eb970c6d40e2",
+  "numeric_protocol": "work/rfm_v7/early_reference_continuation_output/protocol.json",
+  "config": {
+    "n": 448,
+    "k": 144,
+    "grid": "outer",
+    "stretch": 1.0,
+    "angular": "fft",
+    "linear": "native"
+  },
+  "observation_times": [
+    0.5,
+    1.0
+  ],
+  "probe_samples": 9,
+  "metadata": {
+    "steps": 512,
+    "horizon": 1.0,
+    "dt": 0.001953125,
+    "setup_seconds": 0.5206619999953546,
+    "seconds": 7.166318300005514,
+    "time_order": 2,
+    "method": "fd4",
+    "n": 448,
+    "k": 144,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 450,
+    "band_lower": 6,
+    "band_upper": 6,
+    "implementation": "cpu-fused-fd4-csr-avx2",
+    "equilibration": "row_power_of_two",
+    "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+    "equilibration_setup_seconds": 0.16657279996434227,
+    "nonlinear_evaluations": 511,
+    "marching_fft_batches": 1022,
+    "inverse_field_transforms": 2044,
+    "forward_field_transforms": 511,
+    "fft_radial_lines": 447,
+    "priming_fft_batches": 0,
+    "replay_mode": "fd-reference",
+    "replay_numeric_protocol_sha256": "3276378f155180bc047a1418c80dcc403b62f269cf7bf7d024ebabc2a8ed6ccc",
+    "timing_scope": "Reproduction only. Solver times are diagnostic."
+  },
+  "comparison": {
+    "passed": true,
+    "archive": "time_fine_n448_k144_r512.npz",
+    "archive_sha256": "bb6e8d4d80ae6ed09ab83e80e2b1ad4c8e1a1584218d22195eef6a9713d7bbf7",
+    "arrays": {
+      "states": {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "passed": true
+      },
+      "transverse": {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "relative_l2": null,
+        "passed": true
+      },
+      "vorticity": {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "relative_l2": null,
+        "passed": true
+      }
+    },
+    "scope": "Implementation array comparison at matching times. No new physical qualification."
+  }
+}

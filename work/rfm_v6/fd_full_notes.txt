@@ -1,0 +1,71 @@
+Full-annulus fourth-order finite-difference reference
+
+Geometry and forcing follow full_case.py. Azimuthal modes are stored
+as the nonnegative normalized real-Fourier coefficients. For k>0
+the state is the interior streamfunction, with prescribed values at
+both boundaries. The inner slope is zero and the inner vorticity is
+reconstructed by a Hermite formula using the wall value and slope
+and four interior nodes. Outer vorticity is zero, as in the Galerkin
+experiment. Complex coefficients allow the cosine and sine branches.
+
+Mean mode
+---------
+Incompressibility and zero net radial flux give mean u_r=0. The
+azimuthal component of the rotational velocity equation is
+
+  d_t v = -<u_r omega> + nu d_r omega_0,
+  omega_0 = (v_s+v)/r, s=log(r/a).
+
+Azimuthal pressure and kinetic-energy gradients vanish on averaging.
+The zero mode uses v directly, so the calculation can generate
+nonzero circulation. The viscous term is nu*(v_ss-v)/r^2. Enforce
+v=0 at the inner wall and v_s+v=0 at the outer wall. The outer Robin
+value is eliminated with the five-point one-sided derivative stencil.
+Mean nonlinear forcing is evaluated with Fourier Parseval, including
+both members of each Hermitian conjugate pair.
+
+Nonzero modes
+-------------
+The interior curl uses omega_k=-(D_ss-k^2) psi_k/r^2. The same
+stencils act on omega to produce the diffusion operator. The
+advective form is -(u_r omega_s+u_theta omega_theta)/r at every
+interior node. Exact angular de-aliasing uses N>3K. The FD and
+Galerkin nonlinear forms are equivalent in the continuum; FD does
+not inherit the weak Galerkin cancellation at finite radial spacing.
+The standard v6 driver starts from rest and advances with SBDF2.
+
+Grid and practical convergence
+------------------------------
+The original inner-clustered FD grid is unsuitable for precision
+scoring of late shedding. At the outer downstream boundary the
+imposed zero vorticity produces a thin viscous layer. Outer cosine
+stretching s/L=sin(pi*t/2), t in [0,1], improves outflow resolution.
+Both-wall cosine and smoothly inner-clustered configurations are
+also retained as diagnostics. The radial stencil audit measures
+convergence for analytic wall-compatible functions; it does not
+guarantee fourth-order trajectory accuracy for every flow quantity.
+
+Native band accelerator
+-----------------------
+The Python setup builds each radial band operator, factors it with
+LAPACK DGBTRF and passes cached factors and pivots to fd_full_band.c.
+The C routine performs pivoted substitution on both real and
+imaginary RHS. This avoids Python calls for every angular mode.
+Use the shipped x64 DLL on Windows or rebuild with a 64-bit MinGW:
+
+  x86_64-w64-mingw32-gcc -std=c99 -O3 -shared -nostdlib -nodefaultlibs -Wl,--entry,0 -o fd_full_band.dll fd_full_band.c
+
+On Linux use gcc -std=c99 -O3 -shared -fPIC -o fd_full_band.so fd_full_band.c.
+SciPy backend linear='scipy' uses the same factors and provides a
+portable numerical check, with a different runtime. fd_full_audit.py
+checks the factor application and precomputed probes. FD timing
+includes factor assembly and setup, regardless of linear backend.
+
+Dense spatial diagnostic
+------------------------
+fd_full_dense_from54.npz restarts the fine FD200 run at its t=54 state,
+does one backward-Euler step, and then uses SBDF2. It stores late
+quarter-time-unit frames only for wake diagnostics, not accuracy
+scores or timing. Its probe histories are taken from the untouched
+cold-start source. The checkpoint-state relative differences from
+the original solve are 3.24e-7 at t=60 and 2.80e-7 at t=66.

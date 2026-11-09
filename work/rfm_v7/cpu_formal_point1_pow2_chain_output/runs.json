@@ -1,0 +1,956 @@
+{
+  "status": "complete",
+  "parent_pid": 39788,
+  "rows": [
+    {
+      "spec": {
+        "name": "angular_fine",
+        "n": 448,
+        "k": 144,
+        "rate": 384,
+        "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz"
+      },
+      "configuration": {
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 27648,
+        "horizon": 72,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.5280173000064678,
+        "seconds": 384.519719599979,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 0,
+        "method": "fd4",
+        "n": 448,
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 450,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.1587633999879472
+      },
+      "wake": {
+        "analysis_interval": [
+          36.0,
+          72.0
+        ],
+        "diameter": 1.0,
+        "speed": 1.0,
+        "sample_count": 289,
+        "sample_gap_max": 0.125,
+        "probe_x": [
+          1.5,
+          2.5,
+          3.5
+        ],
+        "velocity_floor": 0.005,
+        "vorticity_floor": 0.02,
+        "velocity": [
+          {
+            "centre": 0.03300640463679341,
+            "minimum": -0.4108322818609869,
+            "maximum": 0.4108074863839853,
+            "positive_and_negative": true,
+            "robust_half_swing": 0.40114922789029556,
+            "positive_crossing_times": [
+              41.393378293496625,
+              47.094906436935595,
+              52.79221909524394,
+              58.48728313600115,
+              64.18150964545531,
+              69.875
+            ],
+            "periods": [
+              5.701528143438971,
+              5.697312658308341,
+              5.695064040757217,
+              5.694226509454154,
+              5.693490354544693
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.695064040757217,
+            "period_cv": 0.0005092640304913182,
+            "cycle_half_swing": [
+              0.4060934584933523,
+              0.4079422213566767,
+              0.40981411921219235,
+              0.4098057942240516,
+              0.41058848998963926
+            ],
+            "late_over_early_amplitude": 1.0078112108855393,
+            "peak_trough_alternations": 12,
+            "spectral_frequency": 0.17597349680668883,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.027149447597442186,
+            "minimum": -0.6387135673652409,
+            "maximum": 0.6389080884721664,
+            "positive_and_negative": true,
+            "robust_half_swing": 0.6284554774913287,
+            "positive_crossing_times": [
+              37.37750528399792,
+              43.086787289664954,
+              48.788190603417526,
+              54.48553835688391,
+              60.180299957105674,
+              65.875,
+              71.56795990959321
+            ],
+            "periods": [
+              5.709282005667035,
+              5.7014033137525715,
+              5.6973477534663814,
+              5.694761600221767,
+              5.6947000428943255,
+              5.692959909593213
+            ],
+            "complete_cycles": 6,
+            "median_period": 5.696054676844074,
+            "period_cv": 0.000974619525250584,
+            "cycle_half_swing": [
+              0.6345927992975986,
+              0.6358703247774349,
+              0.6377881986558642,
+              0.6380026159944512,
+              0.6382166749967197,
+              0.6386665554683931
+            ],
+            "late_over_early_amplitude": 1.0050533591006459,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.1759561472270221,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.08456447970748629,
+            "minimum": -0.576295284127983,
+            "maximum": 0.5762556218688087,
+            "positive_and_negative": true,
+            "robust_half_swing": 0.5645745560991928,
+            "positive_crossing_times": [
+              38.678298535852434,
+              44.386276457186135,
+              50.08532738827712,
+              55.78204099895252,
+              61.47687486949341,
+              67.17046051993621
+            ],
+            "periods": [
+              5.7079779213337005,
+              5.699050931090987,
+              5.6967136106753955,
+              5.69483387054089,
+              5.693585650442806
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.6967136106753955,
+            "period_cv": 0.0008978830709511571,
+            "cycle_half_swing": [
+              0.575202436985148,
+              0.574646881637795,
+              0.5761041210751189,
+              0.5747781913451928,
+              0.5762104257544612
+            ],
+            "late_over_early_amplitude": 1.000990824152573,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17596291687167598,
+            "persistent": true,
+            "saturated": true
+          }
+        ],
+        "vorticity": [
+          {
+            "centre": -0.058869805112713794,
+            "minimum": -2.0582142287924654,
+            "maximum": 2.055984314227263,
+            "positive_and_negative": true,
+            "robust_half_swing": 2.0144889879996146,
+            "positive_crossing_times": [
+              37.10172190897286,
+              42.80335157841317,
+              48.50144622933698,
+              54.19587220799049,
+              59.8905274629037,
+              65.58367543938749,
+              71.27733144533813
+            ],
+            "periods": [
+              5.701629669440308,
+              5.698094650923807,
+              5.694425978653513,
+              5.694655254913208,
+              5.693147976483793,
+              5.693656005950643
+            ],
+            "complete_cycles": 6,
+            "median_period": 5.69454061678336,
+            "period_cv": 0.0005265429358974961,
+            "cycle_half_swing": [
+              1.9965941819683324,
+              2.0297441043800983,
+              2.0428369816734775,
+              2.0521814148586515,
+              2.0547879698568385,
+              2.0570992715098644
+            ],
+            "late_over_early_amplitude": 1.021247334161745,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17600954457371282,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.4060888683542762,
+            "minimum": -2.4308551826199056,
+            "maximum": 2.4308727991312673,
+            "positive_and_negative": true,
+            "robust_half_swing": 2.3980409488949035,
+            "positive_crossing_times": [
+              38.25,
+              43.95144649400007,
+              49.64992884609817,
+              55.344249974315055,
+              61.039217590660634,
+              66.73226592686913
+            ],
+            "periods": [
+              5.7014464940000735,
+              5.698482352098097,
+              5.694321128216885,
+              5.694967616345579,
+              5.6930483362084985
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.694967616345579,
+            "period_cv": 0.0005404834028866864,
+            "cycle_half_swing": [
+              2.415369760307083,
+              2.4254858365829692,
+              2.426017439368948,
+              2.429325689080718,
+              2.4298715970974625
+            ],
+            "late_over_early_amplitude": 1.003788935431148,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17596369026892345,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.05084371610938744,
+            "minimum": -2.035417125031585,
+            "maximum": 2.0379552009703814,
+            "positive_and_negative": true,
+            "robust_half_swing": 1.9723998250348354,
+            "positive_crossing_times": [
+              39.532495535198905,
+              45.232974960593396,
+              50.93594828220602,
+              56.62430001985018,
+              62.32533073067722,
+              68.0159421671892
+            ],
+            "periods": [
+              5.700479425394491,
+              5.702973321612625,
+              5.688351737644162,
+              5.701030710827041,
+              5.690611436511972
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.700479425394491,
+            "period_cv": 0.0010507746612976473,
+            "cycle_half_swing": [
+              2.0310886743050403,
+              2.0316382216844544,
+              2.0322025090122233,
+              2.0364126914316074,
+              2.0309209322017012
+            ],
+            "late_over_early_amplitude": 1.0011339003978734,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17592256763926373,
+            "persistent": true,
+            "saturated": true
+          }
+        ],
+        "median_period": 5.696054676844074,
+        "strouhal": 0.17556011252231424,
+        "confirmed_probe_indices": [
+          0,
+          1,
+          2
+        ],
+        "cross_stream_periodic": true,
+        "passed": true,
+        "sustained_alternating_probe_signs": true,
+        "saturated_by_amplitude_test": true,
+        "velocity_downstream_lag": [
+          1.767799187214598,
+          1.3441745070722388
+        ],
+        "vorticity_downstream_lag": [
+          1.3682984958146476,
+          1.4867899622408156
+        ]
+      },
+      "sha256": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+      "status": "complete",
+      "resume_directory": "angular_fine"
+    },
+    {
+      "spec": {
+        "name": "time_fine",
+        "n": 448,
+        "k": 144,
+        "rate": 512,
+        "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz"
+      },
+      "configuration": {
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 36864,
+        "horizon": 72,
+        "dt": 0.001953125,
+        "setup_seconds": 0.5752630000351928,
+        "seconds": 505.6440478999866,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -37,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -37,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 0,
+        "method": "fd4",
+        "n": 448,
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 450,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.1882160000386648
+      },
+      "wake": {
+        "analysis_interval": [
+          36.0,
+          72.0
+        ],
+        "diameter": 1.0,
+        "speed": 1.0,
+        "sample_count": 289,
+        "sample_gap_max": 0.125,
+        "probe_x": [
+          1.5,
+          2.5,
+          3.5
+        ],
+        "velocity_floor": 0.005,
+        "vorticity_floor": 0.02,
+        "velocity": [
+          {
+            "centre": 0.03293318264850232,
+            "minimum": -0.4108301760082894,
+            "maximum": 0.4108084439270295,
+            "positive_and_negative": true,
+            "robust_half_swing": 0.4011599409970785,
+            "positive_crossing_times": [
+              41.39329192140786,
+              47.09483861459425,
+              52.79216841474334,
+              58.48724967177482,
+              64.18149271881063,
+              69.875
+            ],
+            "periods": [
+              5.701546693186394,
+              5.697329800149085,
+              5.695081257031482,
+              5.694243047035812,
+              5.693507281189369
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.695081257031482,
+            "period_cv": 0.0005093727492105848,
+            "cycle_half_swing": [
+              0.4060926981473003,
+              0.407940733402934,
+              0.40981212801798944,
+              0.40980886039654335,
+              0.410585012442156
+            ],
+            "late_over_early_amplitude": 1.0078134890312211,
+            "peak_trough_alternations": 12,
+            "spectral_frequency": 0.17597299850543474,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.02728079012296324,
+            "minimum": -0.6387131782415032,
+            "maximum": 0.6389123350036253,
+            "positive_and_negative": true,
+            "robust_half_swing": 0.6284541154413057,
+            "positive_crossing_times": [
+              37.377418889225204,
+              43.086717763131844,
+              48.78813987565554,
+              54.48550399977256,
+              60.18028290235527,
+              65.875,
+              71.56797617444168
+            ],
+            "periods": [
+              5.70929887390664,
+              5.701422112523694,
+              5.697364124117023,
+              5.694778902582712,
+              5.694717097644727,
+              5.692976174441682
+            ],
+            "complete_cycles": 6,
+            "median_period": 5.696071513349867,
+            "period_cv": 0.0009746551652684584,
+            "cycle_half_swing": [
+              0.6345953925901409,
+              0.6358776248880711,
+              0.6377883156985713,
+              0.6380096872697325,
+              0.638213798512081,
+              0.6386728821351609
+            ],
+            "late_over_early_amplitude": 1.0050482482357324,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.1759556492400522,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.08448671597244893,
+            "minimum": -0.5763046616967411,
+            "maximum": 0.5762616111000987,
+            "positive_and_negative": true,
+            "robust_half_swing": 0.5645737758382785,
+            "positive_crossing_times": [
+              38.67846913329699,
+              44.386458389497214,
+              50.08553495402462,
+              55.78225711657601,
+              61.47711930970404,
+              67.17071104401622
+            ],
+            "periods": [
+              5.7079892562002215,
+              5.699076564527402,
+              5.696722162551396,
+              5.694862193128024,
+              5.693591734312179
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.696722162551396,
+            "period_cv": 0.0008977307064960049,
+            "cycle_half_swing": [
+              0.575213592831302,
+              0.5746439847119332,
+              0.5761128254175412,
+              0.5747831751795143,
+              0.5762161112237236
+            ],
+            "late_over_early_amplitude": 1.0009929132810012,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17596241760282907,
+            "persistent": true,
+            "saturated": true
+          }
+        ],
+        "vorticity": [
+          {
+            "centre": -0.05863935154935712,
+            "minimum": -2.058206464042654,
+            "maximum": 2.055967491033911,
+            "positive_and_negative": true,
+            "robust_half_swing": 2.0144917117449364,
+            "positive_crossing_times": [
+              37.10189824479912,
+              42.803537717650414,
+              48.501644650991956,
+              54.1960907990165,
+              59.8907581041568,
+              65.58392819646235,
+              71.27759518533716
+            ],
+            "periods": [
+              5.701639472851291,
+              5.698106933341542,
+              5.6944461480245465,
+              5.6946673051403,
+              5.69317009230555,
+              5.69366698887481
+            ],
+            "complete_cycles": 6,
+            "median_period": 5.694556726582423,
+            "period_cv": 0.0005260526007928827,
+            "cycle_half_swing": [
+              1.9965897272410489,
+              2.029739668203447,
+              2.0428306198092168,
+              2.052173951859684,
+              2.0547967605974904,
+              2.0570869775382823
+            ],
+            "late_over_early_amplitude": 1.021248719190257,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17600904856954597,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.40657859883852326,
+            "minimum": -2.4308363299026348,
+            "maximum": 2.4308733552813333,
+            "positive_and_negative": true,
+            "robust_half_swing": 2.3980365351383144,
+            "positive_crossing_times": [
+              38.25,
+              43.951462059351215,
+              49.649961971504815,
+              55.344300984220645,
+              61.039282918025826,
+              66.73235274744482
+            ],
+            "periods": [
+              5.701462059351215,
+              5.698499912153601,
+              5.6943390127158295,
+              5.694981933805181,
+              5.693069829418995
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.694981933805181,
+            "period_cv": 0.0005402626311653378,
+            "cycle_half_swing": [
+              2.4153652280806552,
+              2.425477535138949,
+              2.426027354106945,
+              2.429309226345416,
+              2.4298788626106456
+            ],
+            "late_over_early_amplitude": 1.0037896966775794,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.17596319126545545,
+            "persistent": true,
+            "saturated": true
+          },
+          {
+            "centre": -0.050258610775635565,
+            "minimum": -2.0353792304103924,
+            "maximum": 2.037925425637104,
+            "positive_and_negative": true,
+            "robust_half_swing": 1.9723881333062634,
+            "positive_crossing_times": [
+              39.53280167871263,
+              45.233227914227335,
+              50.93625425925425,
+              56.62457723942993,
+              62.325652026398444,
+              68.01638583120716
+            ],
+            "periods": [
+              5.700426235514705,
+              5.703026345026913,
+              5.688322980175684,
+              5.701074786968512,
+              5.6907338048087155
+            ],
+            "complete_cycles": 5,
+            "median_period": 5.700426235514705,
+            "period_cv": 0.0010497649100177267,
+            "cycle_half_swing": [
+              2.0310619938850394,
+              2.0316411328118127,
+              2.032156122541558,
+              2.0364075760473597,
+              2.0309110727538044
+            ],
+            "late_over_early_amplitude": 1.0011360717139244,
+            "peak_trough_alternations": 11,
+            "spectral_frequency": 0.1759220678495309,
+            "persistent": true,
+            "saturated": true
+          }
+        ],
+        "median_period": 5.696071513349867,
+        "strouhal": 0.17555959359995793,
+        "confirmed_probe_indices": [
+          0,
+          1,
+          2
+        ],
+        "cross_stream_periodic": true,
+        "passed": true,
+        "sustained_alternating_probe_signs": true,
+        "saturated_by_amplitude_test": true,
+        "velocity_downstream_lag": [
+          1.7678051401343353,
+          1.3441784067004436
+        ],
+        "vorticity_downstream_lag": [
+          1.3682978439103513,
+          1.486793761301243
+        ]
+      },
+      "sha256": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7",
+      "status": "complete",
+      "resume_directory": "time_fine"
+    }
+  ],
+  "frozen": {
+    "protocol": {
+      "name": "v7 R6 row-equilibrated 0.1% independent reference ladder",
+      "horizon": 72,
+      "checkpoints": [
+        24,
+        36,
+        48,
+        54,
+        60,
+        66,
+        72
+      ],
+      "gate": 0.001,
+      "reference_budget_fraction": 0.25,
+      "scaling": "FP64 power-of-two row equilibration, cached native band LU, fused radial FD4",
+      "reference_path": [
+        {
+          "name": "radial_coarse",
+          "n": 384,
+          "k": 128,
+          "rate": 384,
+          "source": "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz",
+          "sha256": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077"
+        },
+        {
+          "name": "radial_fine",
+          "n": 448,
+          "k": 128,
+          "rate": 384,
+          "source": "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz",
+          "sha256": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4"
+        },
+        {
+          "name": "angular_fine",
+          "n": 448,
+          "k": 144,
+          "rate": 384,
+          "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz"
+        },
+        {
+          "name": "time_fine",
+          "n": 448,
+          "k": 144,
+          "rate": 512,
+          "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz"
+        }
+      ],
+      "scoring": "Original 3 grids, 7 absolute physical times, full/near velocity and curl. No phase alignment. Reference edges are empirical, not continuum bounds.",
+      "candidate_scope": "All frozen 21 cases in CPU 0.5% qualification, five widened-bandwidth RFM49 seeds, all three stored Legendre49 basis variants and saved FD240/280/320 controls. Rescore saved fields only.",
+      "resume": "Each new arm reuses the verified pow2 marcher with its own run directory. The inherited checkpoint filename is local to the arm. Its embedded identity records true n, k, rate and scales."
+    },
+    "source_hashes": {
+      "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+      "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+      "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+      "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+      "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+      "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+      "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+      "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+      "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+      "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+      "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+      "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+      "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+      "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+      "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+      "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+      "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+      "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+      "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+      "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+      "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+      "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+      "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+      "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+      "rfm_v7/protocol_fd_pow2_reference.json": "5badda274fb0478e684e590403f4065ec56a53daa5872bec656b93178294f665",
+      "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+      "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+      "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+      "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432"
+    },
+    "candidate_inputs": [
+      {
+        "name": "rfm37_k72",
+        "seed": 9041,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm37_k72_9041.npz",
+        "sha256": "4cc7a672c1e7cf15deb27a7fbecd5fd92203458a2e51db9eb9e4858214af8d65"
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 8353,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm37_k72_8353.npz",
+        "sha256": "384bbbb06b53b122fbceb7989023736997b55c965dff68ca13b9d6aa0f58de95"
+      },
+      {
+        "name": "rfm41_k80",
+        "seed": 9041,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm41_k80_9041.npz",
+        "sha256": "21e5a99413152e30e14f6980fe993330a447d859b1fd51512fdb69ada7298ad9"
+      },
+      {
+        "name": "rfm41_k80",
+        "seed": 8353,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm41_k80_8353.npz",
+        "sha256": "1fd67175b084bdc4079d38c05f22102805ef6403b4fb6807c91bf59b3e56a395"
+      },
+      {
+        "name": "rfm35_k64",
+        "seed": 9041,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm35_k64_9041.npz",
+        "sha256": "44a8d824e4832151aeda40316c77337517a31cc7ce948e98caa84abd784efa21"
+      },
+      {
+        "name": "rfm35_k64",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm35_k64_7331.npz",
+        "sha256": "7490f17cdce32b18acc5722356a61170c58d1e12d03ce330ba914a50973605ce"
+      },
+      {
+        "name": "rfm35_k64",
+        "seed": 8011,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm35_k64_8011.npz",
+        "sha256": "90565b709c88eee8d912b663c50776f2e07235e5ed0f99d2429973d205299f9a"
+      },
+      {
+        "name": "rfm35_k64",
+        "seed": 7687,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm35_k64_7687.npz",
+        "sha256": "c0e4498f2e41ae510f7125971f2d35ca5c46227070733a3a370ba2858cbf7d96"
+      },
+      {
+        "name": "rfm35_k64",
+        "seed": 8353,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm35_k64_8353.npz",
+        "sha256": "c0607db9b39b2a32b48843fae330369dbf1a8776940b0c088ca4221a6473aed6"
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 7687,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm37_k72_7687.npz",
+        "sha256": "30b1786568b8805e0cfe3af1ca762fae2e7adf9666e0e22cbfaaf6ffdaab93af"
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm37_k72_7331.npz",
+        "sha256": "599d69c1ef11182772cd62fc17bc80a44b785f6eaad44d477836ef180960299a"
+      },
+      {
+        "name": "leg35_k64",
+        "seed": 17,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_leg35_k64_17.npz",
+        "sha256": "665d821529e6f6b346ba8be0a0c33a1f001d9bfdc1bca623576993ff593501e9"
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 8011,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm37_k72_8011.npz",
+        "sha256": "6ec55322d28fd6133838c6ba1ed80e7401d6967a91338747a4f83c05ab24e200"
+      },
+      {
+        "name": "leg37_k72",
+        "seed": 17,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_leg37_k72_17.npz",
+        "sha256": "c7b8da2c4444aa63375544bdc793fc2888f495947a2f4cf1bfa164f5f7aa536e"
+      },
+      {
+        "name": "rfm41_k80",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm41_k80_7331.npz",
+        "sha256": "861f7bcd5533d36bfbf23dc67eef66976ed7708736b0a2bfd9349cf7a940faee"
+      },
+      {
+        "name": "rfm41_k80",
+        "seed": 7687,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm41_k80_7687.npz",
+        "sha256": "3d21b56470c9a078a8fffdfa336b7dda40a17a35abd69dd20e531e1073c9387c"
+      },
+      {
+        "name": "rfm41_k80",
+        "seed": 8011,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_rfm41_k80_8011.npz",
+        "sha256": "efa6dabb22f0c4f8a0cf292c85cfcac520a5e1fe8ba764bd0ef2e1ae7feb1ab9"
+      },
+      {
+        "name": "leg39_k80",
+        "seed": 17,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_leg39_k80_17.npz",
+        "sha256": "50fca4696c40e787cb43be38d2d4da4973677b7de8eadb26d3290711193cba3b"
+      },
+      {
+        "name": "fd152_k80",
+        "seed": 17,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_fd152_k80_17.npz",
+        "sha256": "075fe693bc5ef3953f4b150bdc9a16ed1a8e18d687bd38583d34e9f1b50eb2ab"
+      },
+      {
+        "name": "fd176_k80",
+        "seed": 17,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_fd176_k80_17.npz",
+        "sha256": "4000920eb5f057b21303cef3ec9c6a838f0673f9d6307d67d9d9cdd93d2958ab"
+      },
+      {
+        "name": "fd184_k80",
+        "seed": 17,
+        "path": "rfm_v7/cpu_formal_output/qualify_00_fd184_k80_17.npz",
+        "sha256": "bc76690208c20cb8f4f09bcab5a9b3c84104f51a48c95129b59599f97a909726"
+      },
+      {
+        "name": "rfm49_bandwidth98",
+        "seed": 7687,
+        "path": "rfm_v7/cpu_formal_bandwidth_output/t72_scale98_seed7687.npz",
+        "sha256": "019f5864068bd7b7f49ec6cfeec9b8a1af3f78b142ce385b264a820b939c3669"
+      },
+      {
+        "name": "rfm49_bandwidth98",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_bandwidth_output/t72_scale98_seed7331.npz",
+        "sha256": "a45025617f3ef70aed71dd51408bd8784c467b3f0f3d59be58bb0c9b3c004610"
+      },
+      {
+        "name": "rfm49_bandwidth98",
+        "seed": 8011,
+        "path": "rfm_v7/cpu_formal_bandwidth_output/t72_scale98_seed8011.npz",
+        "sha256": "0f1620360fa2cd61ac1e9e10e8a65c03ae520bb72e34b929dcefe7833cd7e977"
+      },
+      {
+        "name": "rfm49_bandwidth98",
+        "seed": 8353,
+        "path": "rfm_v7/cpu_formal_bandwidth_output/t72_scale98_seed8353.npz",
+        "sha256": "228b6d35cec4b25b2a51e3a7bda95a2806e55dd300ee887c257ddfda44805b37"
+      },
+      {
+        "name": "rfm49_bandwidth98",
+        "seed": 9041,
+        "path": "rfm_v7/cpu_formal_bandwidth_output/t72_scale98_seed9041.npz",
+        "sha256": "84abe7fe6b9379cfee39adb10f4e040a77909258e7527175acf8a60617020031"
+      },
+      {
+        "name": "legendre49_baseline",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_layer_output/legendre_baseline.npz",
+        "sha256": "f1ea0b1241cac92e2174fce699283fdcfc76a0c6749f7a3128284a82e758631c"
+      },
+      {
+        "name": "legendre49_tangent",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_layer_output/legendre_tangent.npz",
+        "sha256": "e34c0834268b64d8fb8fee984f0dfab4654210381fec07a6c7420fa9b898ea7f"
+      },
+      {
+        "name": "legendre49_ordinary",
+        "seed": 7331,
+        "path": "rfm_v7/cpu_formal_layer_output/legendre_ordinary.npz",
+        "sha256": "77ae0ec6e6e86067bd8609e734d53c9bf9d8ff45ae57c972f4729d558cd446b9"
+      },
+      {
+        "name": "fd240_k120_rate320",
+        "seed": null,
+        "path": "rfm_v6/fd_full_n240_k120_rate320_outer1.npz",
+        "sha256": "7bdea6b05f4e567619c0c16383ecf5261eab0a183e58662a11b3b24ce96c9ba7"
+      },
+      {
+        "name": "fd280_k104_rate256",
+        "seed": null,
+        "path": "rfm_v6/parallel_refinement/fd280_ref.npz",
+        "sha256": "5e462ebbcc41eae339496b074c580fa78544d9e9f57c84948af1eafd7695556e"
+      },
+      {
+        "name": "fd320_k104_rate256",
+        "seed": null,
+        "path": "rfm_v6/parallel_refinement/fd320_ref.npz",
+        "sha256": "1bfb877889fb391c7dd083b4606fe9038d485c0179d51fbfdd93ce949e125bc1"
+      },
+      {
+        "name": "fd320_k112_rate320",
+        "seed": null,
+        "path": "rfm_v6/parallel_refinement/fd320_ref_tk.npz",
+        "sha256": "c9469b921f6c3c71b97c5ea766b0c44cdec943c1c82b7bb3ca99b0266e81c5c4"
+      }
+    ]
+  },
+  "reference_screen": false,
+  "composed_difference": 0.00029014373411140326,
+  "reference_audit": "reference_audit.json",
+  "candidate_rescore": "saved_candidate_rescore.json"
+}

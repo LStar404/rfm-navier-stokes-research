@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "input_sha256": {
+    "cuda_prepared_solver_generation.json": "0dd84fd152d52dcdb5c8291c976e51da98325247f3bb92e9d5d9ead36038565c",
+    "make_cuda_prepared_solver.py": "c5496816dbfa4f91cc7f3d53a85d2cb3a8bea4f681b0a2c273c705b395c48bcc",
+    "galerkin_cuda_variable.py": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+    "galerkin_cuda_prepared.py": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+    "galerkin_phase_shared.py": "30d21dc4d3af74c5ca14b2f0d87aa31b0cceb2d70085b315648cac2da4ed17b9",
+    "galerkin_phase_shared_audit.json": "a468a95bc1b559b7032d40f681c255c4569f4ea05bb2f282439480ba297f1d4c",
+    "galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "galerkin_cuda_module_bundle_audit.json": "72752e987e86401b878f46f2be0b9aee2af95579d5608178a4ce08a71033ff33",
+    "galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852"
+  },
+  "body_whitelist": {
+    "replacement_count": 5,
+    "categories": [
+      "solver signature",
+      "preparation validation and dispatch",
+      "phase builder",
+      "runtime construction",
+      "preparation metadata"
+    ],
+    "inverse_substitutions_unique": true,
+    "restored_byte_identical": true,
+    "original_function_sha256": "3c87a4a6c4343f93ce47867cc1e071a62f6b8e7b43731d3d788b81051bdf8403",
+    "restored_function_sha256": "3c87a4a6c4343f93ce47867cc1e071a62f6b8e7b43731d3d788b81051bdf8403",
+    "prefix_ast_exact": true
+  },
+  "direct_unchanged_sections": {
+    "spatial_shapes_observations_and_euler_initialization": {
+      "identical": true,
+      "sha256": "446762d22d8f8b1ac4425eb2a4cfa7155beae49a09eb2f84473b5dfe035c8359",
+      "lines": 12
+    },
+    "buffers_plans_and_launch_arguments": {
+      "identical": true,
+      "sha256": "fcb102d3efb8a919b6d9d3e27882278a48cfa7ecd7646defb8897ac1a297f42a",
+      "lines": 29
+    },
+    "fft_order_graph_schedule_bridge_and_downloads": {
+      "identical": true,
+      "sha256": "2312ccb78216e750de96c461df8821975fe4c3ad629ecd895825978bdc81a6ca",
+      "lines": 42
+    },
+    "step_count_finiteness_and_bridge_bookkeeping": {
+      "identical": true,
+      "sha256": "9aea4d76ceed73f4c608049925cf1f63bc6343ac16af128c98155587b2432e5f",
+      "lines": 5
+    }
+  },
+  "runtime": {
+    "common_cuda_driver_binding_count": 20,
+    "additional_driver_bindings": [
+      "cuCtxGetCurrent",
+      "cuDevicePrimaryCtxRelease_v2",
+      "cuModuleUnload",
+      "cuStreamDestroy_v2"
+    ],
+    "inherited_methods": [
+      "launch",
+      "plan",
+      "upload",
+      "capture",
+      "sync",
+      "Driver.alloc",
+      "Driver.upload",
+      "Driver.download"
+    ],
+    "same_device_context_stream_calls": [
+      "cuDeviceGet",
+      "cuDevicePrimaryCtxRetain",
+      "cuCtxSetCurrent",
+      "cuStreamCreate"
+    ],
+    "same_cufft_bindings": [
+      "plan_many",
+      "set_stream",
+      "d2z",
+      "z2d",
+      "destroy_plan"
+    ],
+    "original_cuda_entry_points": [
+      "spectrum",
+      "products",
+      "advance",
+      "observe",
+      "advance_bridge",
+      "observe_absolute"
+    ],
+    "bundled_translation_unit_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66",
+    "device_source_assembly": "Original CUDA bytes joined with file-specific line directives and one separator.",
+    "changed": "Module compilation/loading and resource acquisition/teardown. Bundled teardown restores the previous context."
+  },
+  "fixed_cpu_host_comparison": {
+    "configurations": 24,
+    "arrays_and_coefficients": 936,
+    "all_bitwise": true
+  },
+  "audit_correction": "The first text assertion omitted cuModuleUnload from bindings introduced in the owned Driver. The legacy Runtime already binds this API at teardown. No source under audit changed.",
+  "scope": "CPU-only exact text and AST verification. No generator, solver, CUDA import, device execution or trajectory was run.",
+  "limitation": "A combined translation unit can change generated device code. Device and trajectory verification is separate."
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Outer-resolution fixed SBDF2 switch qualification",
+  "switch_time": 8,
+  "horizon": 72,
+  "probe_spacing": 0.125,
+  "graph_steps": 24,
+  "cpu_workers_max": 3,
+  "physical_gate": 0.005,
+  "implementation_gate": 0.00001,
+  "reference_budget_fraction": 0.25,
+  "arms": ["cpu_recurrence", "cpu_native_contract", "cuda_graph"],
+  "resolutions": [
+    {"name": "low", "startup_rate": 128, "late_rate": 112, "methods": {"rfm35_k64": [7331], "leg35_k64": [17]}, "scope": "Predeclared lower-resolution failure control only. One fixed RFM seed, no five-seed claim."},
+    {"name": "high", "startup_rate": 152, "late_rate": 136, "methods": {"rfm41_k80": [7331, 7687, 8011, 8353, 9041], "leg39_k80": [17]}, "scope": "All five originally registered RFM seeds plus deterministic Legendre39."}
+  ],
+  "scope": "Accuracy only. Each arm has 21 implementation times including two rate-specific bridge points. The same 19 physical times use the two frozen early and late independent FD fine references and the same normalized triangle guards as the middle resolution. Late uniform CPU anchors are reused only on exact recurrence/configuration/trajectory identity. No timing rankings."
+}

@@ -1,0 +1,433 @@
+{
+  "status": "complete",
+  "frozen": {
+    "horizon": 8,
+    "scenarios": [
+      [
+        12,
+        2,
+        1
+      ],
+      [
+        12,
+        1,
+        2
+      ],
+      [
+        12,
+        1,
+        1
+      ],
+      [
+        12,
+        2,
+        2
+      ]
+    ],
+    "specification": [
+      {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128
+      },
+      {
+        "name": "leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128
+      },
+      {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128
+      }
+    ],
+    "jobs_per_family": 4,
+    "note": "Processes start from scratch, FFT/native band solve stay single-threaded. Short-window mixed-family throughput only, separate from isolated timings."
+  },
+  "samples": [
+    {
+      "workers": 12,
+      "blas_threads": 2,
+      "repetition": 1,
+      "wall_seconds": 7.96978990000207,
+      "completed_jobs": 12,
+      "jobs_per_second": 1.5056858650686493,
+      "rows": [
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.0416421000263654,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.1094306000159122,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 5.637352199992165,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.221702299953904,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.1176273999735713,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 5.468952299968805,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 0.8223421999718994,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.2661620000144467,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 5.869934700021986,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 0.9457067000330426,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.0191273000091314,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 5.740039900003467,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        }
+      ]
+    },
+    {
+      "workers": 12,
+      "blas_threads": 1,
+      "repetition": 2,
+      "wall_seconds": 9.327003799960949,
+      "completed_jobs": 12,
+      "jobs_per_second": 1.2865868029398941,
+      "rows": [
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.6799521000357345,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.7812248999834992,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.261371899978258,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.7359419999993406,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.7902854999992996,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.360761100018863,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.7227507999632508,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.7879208999802358,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.35740259999875,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.8792687999666668,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 2.010768999985885,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.157941299956292,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        }
+      ]
+    },
+    {
+      "workers": 12,
+      "blas_threads": 1,
+      "repetition": 1,
+      "wall_seconds": 9.088162100000773,
+      "completed_jobs": 12,
+      "jobs_per_second": 1.3203989836403753,
+      "rows": [
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.4566759999725036,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.6343399999896064,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.022899700037669,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.6214087000116706,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.6298812999739312,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.130245900014415,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.5956339000258595,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.7280029999674298,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.300382899993565,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.6281890000100248,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.6138301999890245,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.0595747999614105,
+          "observed_blas_threads": 1,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        }
+      ]
+    },
+    {
+      "workers": 12,
+      "blas_threads": 2,
+      "repetition": 2,
+      "wall_seconds": 9.167010399978608,
+      "completed_jobs": 12,
+      "jobs_per_second": 1.3090418224056999,
+      "rows": [
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.692039499990642,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.700854499998968,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.221646199992392,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.6005918000009842,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.7311624000431038,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.1320074000395834,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.661951600050088,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.6676685999846086,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.052313500025775,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        },
+        {
+          "name": "rfm37_k72",
+          "seconds": 1.567554100009147,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.415681555556345
+        },
+        {
+          "name": "leg37_k72",
+          "seconds": 1.7254002999980003,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 1.4156824891795543
+        },
+        {
+          "name": "fd176_k80",
+          "seconds": 6.250693099980708,
+          "observed_blas_threads": 2,
+          "steps": 1024,
+          "state_norm": 23.423016472811728
+        }
+      ]
+    }
+  ]
+}

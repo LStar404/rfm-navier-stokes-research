@@ -1,0 +1,62 @@
+{
+  "status": "complete",
+  "spec": {
+    "name": "radial_coarse",
+    "n": 384,
+    "k": 128,
+    "rate": 384
+  },
+  "artifact": "radial_coarse_n384_k128_r384.npz",
+  "sha256": "4726fac293d66c5c8ff7cf2962471ffcca101e363b253cb8b5d870d1c9cfa934",
+  "configuration": {
+    "k": 128,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "n": 384
+  },
+  "metadata": {
+    "steps": 3072,
+    "horizon": 8,
+    "dt": 0.0026041666666666665,
+    "setup_seconds": 0.42651849996764213,
+    "seconds": 32.899523100000806,
+    "time_order": 2,
+    "row_scale": {
+      "first": {
+        "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+        "shape": [
+          129,
+          383
+        ],
+        "exponent_min": -36,
+        "exponent_max": 0
+      },
+      "bdf": {
+        "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+        "shape": [
+          129,
+          383
+        ],
+        "exponent_min": -36,
+        "exponent_max": 0
+      }
+    },
+    "resumed_from_step": 0,
+    "method": "fd4",
+    "n": 384,
+    "k": 128,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 400,
+    "band_lower": 6,
+    "band_upper": 6,
+    "implementation": "cpu-fused-fd4-csr-avx2",
+    "equilibration": "row_power_of_two",
+    "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+    "equilibration_setup_seconds": 0.13571279996540397
+  }
+}

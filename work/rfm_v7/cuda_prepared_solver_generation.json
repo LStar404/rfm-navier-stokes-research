@@ -1,0 +1,29 @@
+{
+  "source": "galerkin_cuda_variable.py",
+  "source_sha256": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+  "target": "galerkin_cuda_prepared.py",
+  "target_sha256": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+  "allowed_replacements": [
+    {
+      "old": "def solve_cuda_switch(*, startup_rate=",
+      "new": "def solve_cuda_prepared(*, preparation=\"combined\", startup_rate="
+    },
+    {
+      "old": "    start = time.perf_counter()\n",
+      "new": "    start = time.perf_counter()\n    if preparation not in PREPARATIONS:\n        raise ValueError(\"Choose module_only, shared_only, or combined\")\n    runtime_type, phase_builder = PREPARATIONS[preparation]\n"
+    },
+    {
+      "old": "phase_operators(startup_rate, late_rate, config)",
+      "new": "phase_builder(startup_rate, late_rate, config)"
+    },
+    {
+      "old": "SwitchRuntime(toolkit)",
+      "new": "runtime_type(toolkit)"
+    },
+    {
+      "old": "implementation=\"native-fp64-cufft-precontracted-variable-sbdf2\",",
+      "new": "implementation=\"native-fp64-cufft-precontracted-variable-sbdf2-prepared\",\n               preparation=preparation, phase_preparation_shared=(preparation != \"module_only\"),\n               compiled_cuda_modules=(2 if preparation == \"shared_only\" else 1),"
+    }
+  ],
+  "unchanged": "March ordering, buffers, FFT calls, graph scheduling, observations and synchronization."
+}

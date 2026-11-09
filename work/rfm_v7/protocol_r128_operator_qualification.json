@@ -1,0 +1,18 @@
+{
+  "name": "Fixed-rate early and late Galerkin implementation qualification",
+  "rate": 128,
+  "horizon": 72,
+  "early_checkpoints": [0.5, 1, 2, 4, 6, 8],
+  "late_checkpoints": [24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "methods": ["rfm37_k72", "leg37_k72"],
+  "rfm_seeds": [7331, 7687, 8011, 8353, 9041],
+  "deterministic_seed": 17,
+  "arms": ["cpu_recurrence", "cpu_native_contract", "cuda_graph"],
+  "graph_steps": 24,
+  "implementation_tolerance": 0.00001,
+  "late_physical_gate": 0.005,
+  "references": ["angular_fine", "time_fine"],
+  "cpu_workers": 3,
+  "scope": "Accuracy qualification only. All 13 saved states, both full-horizon probes and all three grids compare implementations at the same rate. The 0.5% physical gate against both independent reference snapshots applies only at the seven original late times. Diagnostic solver seconds are not an isolated comparison."
+}

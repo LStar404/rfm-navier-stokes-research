@@ -1,0 +1,184 @@
+[
+  {
+    "name": "rfm35_k64",
+    "kind": "rfm",
+    "engine": "buffered",
+    "rate": 128,
+    "config": {
+      "m": 35,
+      "k": 64,
+      "q": 60,
+      "scale": 62,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft"
+    }
+  },
+  {
+    "name": "rfm37_k72",
+    "kind": "rfm",
+    "engine": "buffered",
+    "rate": 128,
+    "config": {
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft"
+    }
+  },
+  {
+    "name": "rfm41_k80",
+    "kind": "rfm",
+    "engine": "buffered",
+    "rate": 152,
+    "config": {
+      "m": 41,
+      "k": 80,
+      "q": 76,
+      "scale": 62,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft"
+    }
+  },
+  {
+    "name": "rfm35_k64_basic",
+    "kind": "rfm",
+    "engine": "gal",
+    "rate": 128,
+    "config": {
+      "m": 35,
+      "k": 64,
+      "q": 60,
+      "scale": 62,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "basic"
+    }
+  },
+  {
+    "name": "leg35_k64",
+    "kind": "legendre",
+    "engine": "buffered",
+    "rate": 128,
+    "config": {
+      "m": 35,
+      "k": 64,
+      "q": 60,
+      "scale": 62,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "family": "legendre"
+    }
+  },
+  {
+    "name": "leg37_k72",
+    "kind": "legendre",
+    "engine": "buffered",
+    "rate": 128,
+    "config": {
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "family": "legendre"
+    }
+  },
+  {
+    "name": "fd144_k80",
+    "kind": "fd",
+    "engine": "fd",
+    "rate": 128,
+    "config": {
+      "n": 144,
+      "k": 80,
+      "stretch": 1,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    }
+  },
+  {
+    "name": "fd152_k80",
+    "kind": "fd",
+    "engine": "fd",
+    "rate": 128,
+    "config": {
+      "n": 152,
+      "k": 80,
+      "stretch": 1,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    }
+  },
+  {
+    "name": "fd168_k88",
+    "kind": "fd",
+    "engine": "fd",
+    "rate": 160,
+    "config": {
+      "n": 168,
+      "k": 88,
+      "stretch": 1,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    }
+  }
+]

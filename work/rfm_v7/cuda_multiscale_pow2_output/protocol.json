@@ -1,0 +1,1015 @@
+{
+  "mode": "isolated",
+  "horizon": 72.0,
+  "snapshots": [
+    24,
+    36,
+    48,
+    54,
+    60,
+    66,
+    72
+  ],
+  "rounds": 3,
+  "rfm_seeds": [
+    7331,
+    7687,
+    8011
+  ],
+  "deterministic_seed": 17,
+  "schedule": [
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 7331
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg41_k80",
+        "method": "legendre",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "spec": {
+        "name": "matched_leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128,
+        "scale": "low"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "spec": {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128,
+        "scale": "mid"
+      },
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_eager",
+      "spec": {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152,
+        "scale": "high"
+      },
+      "seed": 8011
+    }
+  ],
+  "source_hashes": {
+    "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+    "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+    "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+    "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+    "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+    "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+    "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+    "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+    "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+    "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+    "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+    "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+    "rfm_v7/protocol_fd_pow2_reference.json": "5badda274fb0478e684e590403f4065ec56a53daa5872bec656b93178294f665",
+    "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+    "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+    "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+    "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432",
+    "rfm_v7/cuda_multiscale.py": "ae6b32b85355faa172c33ac8b0efc792faba5dc4aa5bab1ac0ea9ee024392850"
+  },
+  "reference": {
+    "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz",
+    "sha256": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7",
+    "spec": {
+      "name": "time_fine",
+      "n": 448,
+      "k": 144,
+      "rate": 512,
+      "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz"
+    },
+    "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+    "configuration": {
+      "k": 144,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native",
+      "n": 448
+    },
+    "metadata": {
+      "steps": 36864,
+      "horizon": 72,
+      "dt": 0.001953125,
+      "setup_seconds": 0.5752630000351928,
+      "seconds": 505.6440478999866,
+      "time_order": 2,
+      "row_scale": {
+        "first": {
+          "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+          "shape": [
+            145,
+            447
+          ],
+          "exponent_min": -37,
+          "exponent_max": 0
+        },
+        "bdf": {
+          "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+          "shape": [
+            145,
+            447
+          ],
+          "exponent_min": -37,
+          "exponent_max": 0
+        }
+      },
+      "resumed_from_step": 0,
+      "method": "fd4",
+      "n": 448,
+      "k": 144,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native",
+      "ntheta": 450,
+      "band_lower": 6,
+      "band_upper": 6,
+      "implementation": "cpu-fused-fd4-csr-avx2",
+      "equilibration": "row_power_of_two",
+      "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+      "equilibration_setup_seconds": 0.1882160000386648
+    },
+    "chain_sha256": "3a2b47b9f0543b9494e02e35efcf78df36a3835c0b78ce3f6bc54b3e4a10efe4",
+    "audit_sha256": "ae67918d78aa718927188fae0b4e9ac7253610c547e2bf7fa3499890444bb2ff",
+    "independent_axes": true,
+    "empirical_reference_change": 0.00029014373411140326,
+    "screen_0p1": false,
+    "limit_0p1": 0.00025,
+    "screen_0p5": true,
+    "limit_0p5": 0.00125,
+    "evidence_note": "Independent-grid comparisons estimate reference sensitivity. An unmet 0.1% screen does not support a 0.1% speed conclusion."
+  },
+  "reuse_repeats": 3,
+  "graph_steps": 24,
+  "match_tolerance": 1e-05,
+  "purpose": "Matched configuration scaling and CUDA dispatch ablation. Three paired RFM seeds measure hardware trends and do not replace the five-seed method conclusion. Reference accuracy scores alone do not certify a cross-discretization speed claim.",
+  "timing_scope": "Uninstrumented fresh in-process wall clock includes construction, setup, transfer, graph or eager dispatch, synchronization, output and teardown. No process-level cache reset. Profile graphs are separate diagnostics."
+}

@@ -1,0 +1,50 @@
+{
+  "job": {
+    "name": "rfm37_k72",
+    "seed": 9041,
+    "arm": "cuda_graph"
+  },
+  "status": "complete",
+  "artifact": "rfm37_k72_9041_cuda_graph.npz",
+  "sha256": "46c3f13dd91c1f8c951fda279487b4a4ea892183f768f8213e199f2398fb9ff2",
+  "metadata": {
+    "steps": 9216,
+    "horizon": 72,
+    "dt": 0.0078125,
+    "seconds": 1.324723300000187,
+    "time_order": 2,
+    "implementation": "native-fp64-cufft-precontracted",
+    "graph_steps": 24,
+    "host_setup_seconds": 0.02293390000704676,
+    "runtime_init_seconds": 0.25492839998332784,
+    "upload_seconds": 0.00334840000141412,
+    "plan_seconds": 0.0032925999839790165,
+    "graph_setup_seconds": 0.0010784000041894615,
+    "march_seconds": 1.0371262999833561,
+    "download_seconds": 0.00031370000215247273,
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "method": "rfm",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 9041,
+    "rank": 39,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 225,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence"
+  }
+}

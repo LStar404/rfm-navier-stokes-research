@@ -1,0 +1,298 @@
+{
+  "variants": [
+    {
+      "name": "rfm37_k72",
+      "backend": "cpu",
+      "count": 5,
+      "passes": true,
+      "failures": 0,
+      "worst": {
+        "velocity": 0.0003153928004303653,
+        "vorticity": 0.0041111927082215435,
+        "near_velocity": 0.0002775688966171876,
+        "near_vorticity": 0.00210530203257921
+      },
+      "samples_seconds": [
+        11.982700199994724,
+        8.560476400016341,
+        8.534023199987132,
+        8.563700900005642,
+        8.58755719999317
+      ],
+      "median_seconds": 8.563700900005642,
+      "min_seconds": 8.534023199987132,
+      "max_seconds": 11.982700199994724
+    },
+    {
+      "name": "leg37_k72",
+      "backend": "cpu",
+      "count": 5,
+      "passes": true,
+      "failures": 0,
+      "worst": {
+        "velocity": 0.0002697770521221326,
+        "vorticity": 0.00352808901149684,
+        "near_velocity": 0.0002379232018202531,
+        "near_vorticity": 0.0018044480679822795
+      },
+      "samples_seconds": [
+        8.687450999976136,
+        8.633580700028688,
+        8.604310800030362,
+        8.618241499993019,
+        8.23570430005202
+      ],
+      "median_seconds": 8.618241499993019,
+      "min_seconds": 8.23570430005202,
+      "max_seconds": 8.687450999976136
+    },
+    {
+      "name": "fd176_k80",
+      "backend": "cpu",
+      "count": 5,
+      "passes": true,
+      "failures": 0,
+      "worst": {
+        "velocity": 0.0008088518791468581,
+        "vorticity": 0.0038311644828571845,
+        "near_velocity": 0.0009815044302421516,
+        "near_vorticity": 0.0023814514318362848
+      },
+      "samples_seconds": [
+        28.649620400043204,
+        28.226290800026618,
+        28.171030800032895,
+        28.191620300000068,
+        28.10284910001792
+      ],
+      "median_seconds": 28.191620300000068,
+      "min_seconds": 28.10284910001792,
+      "max_seconds": 28.649620400043204
+    },
+    {
+      "name": "rfm37_k72",
+      "backend": "cuda_graph",
+      "count": 5,
+      "passes": true,
+      "failures": 0,
+      "worst": {
+        "velocity": 0.00031539275392791446,
+        "vorticity": 0.004111192698290706,
+        "near_velocity": 0.00027756884130661434,
+        "near_vorticity": 0.002105302029355709
+      },
+      "samples_seconds": [
+        1.3136414000182413,
+        1.309367600013502,
+        1.3037546999985352,
+        1.2893762000021525,
+        1.3009648000006564
+      ],
+      "median_seconds": 1.3037546999985352,
+      "min_seconds": 1.2893762000021525,
+      "max_seconds": 1.3136414000182413
+    },
+    {
+      "name": "leg37_k72",
+      "backend": "cuda_graph",
+      "count": 5,
+      "passes": true,
+      "failures": 0,
+      "worst": {
+        "velocity": 0.0002697770199130439,
+        "vorticity": 0.003528088984786667,
+        "near_velocity": 0.0002379231636734202,
+        "near_vorticity": 0.0018044480621038116
+      },
+      "samples_seconds": [
+        1.5864050000091083,
+        1.3576054999721237,
+        1.3538986000348814,
+        1.3553536999970675,
+        1.3559151000226848
+      ],
+      "median_seconds": 1.3559151000226848,
+      "min_seconds": 1.3538986000348814,
+      "max_seconds": 1.5864050000091083
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "name": "same_rfm_cuda_vs_cpu",
+      "qualifies": true,
+      "ratio_of_medians": 6.568490913218003,
+      "paired_speedups": [
+        9.121743726886448,
+        6.537870953831504,
+        6.545727658735743,
+        6.641739548156191,
+        6.600914336797458
+      ],
+      "median_paired_speedup": 6.600914336797458,
+      "min_paired_speedup": 6.537870953831504,
+      "max_paired_speedup": 9.121743726886448,
+      "faster_blocks": 5
+    },
+    {
+      "name": "same_legendre_cuda_vs_cpu",
+      "qualifies": true,
+      "ratio_of_medians": 6.356033279553294,
+      "paired_speedups": [
+        5.476187354380664,
+        6.359417887012071,
+        6.355210648573448,
+        6.358666007265606,
+        6.073908535950544
+      ],
+      "median_paired_speedup": 6.355210648573448,
+      "min_paired_speedup": 5.476187354380664,
+      "max_paired_speedup": 6.359417887012071,
+      "faster_blocks": 5
+    },
+    {
+      "name": "rfm_vs_legendre_cpu",
+      "qualifies": true,
+      "ratio_of_medians": 1.006368811875172,
+      "paired_speedups": [
+        0.7249994454488614,
+        1.0085397466912247,
+        1.0082361622878335,
+        1.006368811875172,
+        0.9590275916949432
+      ],
+      "median_paired_speedup": 1.006368811875172,
+      "min_paired_speedup": 0.7249994454488614,
+      "max_paired_speedup": 1.0085397466912247,
+      "faster_blocks": 3
+    },
+    {
+      "name": "rfm_vs_legendre_cuda",
+      "qualifies": true,
+      "ratio_of_medians": 1.04000783278036,
+      "paired_speedups": [
+        1.207639314646356,
+        1.0368406091292655,
+        1.0384611461315556,
+        1.0511700929447936,
+        1.0422381143763464
+      ],
+      "median_paired_speedup": 1.0422381143763464,
+      "min_paired_speedup": 1.0368406091292655,
+      "max_paired_speedup": 1.207639314646356,
+      "faster_blocks": 5
+    },
+    {
+      "name": "rfm_vs_fd4_cpu",
+      "qualifies": true,
+      "ratio_of_medians": 3.2919903005932274,
+      "paired_speedups": [
+        2.3909152296120886,
+        3.2972803709817757,
+        3.3010258045789436,
+        3.2919903005932274,
+        3.272507937419068
+      ],
+      "median_paired_speedup": 3.2919903005932274,
+      "min_paired_speedup": 2.3909152296120886,
+      "max_paired_speedup": 3.3010258045789436,
+      "faster_blocks": 5
+    },
+    {
+      "name": "legendre_vs_fd4_cpu",
+      "qualifies": true,
+      "ratio_of_medians": 3.27115691757105,
+      "paired_speedups": [
+        3.2978166323035265,
+        3.2693608574172277,
+        3.2740601141387744,
+        3.27115691757105,
+        3.412318858976082
+      ],
+      "median_paired_speedup": 3.2740601141387744,
+      "min_paired_speedup": 3.2693608574172277,
+      "max_paired_speedup": 3.412318858976082,
+      "faster_blocks": 5
+    },
+    {
+      "name": "cuda_rfm_vs_cpu_fd4_cross_hardware",
+      "qualifies": true,
+      "ratio_of_medians": 21.623408375848417,
+      "paired_speedups": [
+        21.80931599723134,
+        21.557193564080517,
+        21.6076159112328,
+        21.864542171596625,
+        21.601544561393005
+      ],
+      "median_paired_speedup": 21.6076159112328,
+      "min_paired_speedup": 21.557193564080517,
+      "max_paired_speedup": 21.864542171596625,
+      "faster_blocks": 5
+    }
+  ],
+  "median_stage_breakdowns": [
+    {
+      "backend": "cpu",
+      "name": "rfm37_k72",
+      "median_elapsed_seconds": 8.563700900005642,
+      "stages": {
+        "setup_seconds": 0.018839100026525557,
+        "remaining_seconds": 8.544980799953919
+      },
+      "max_trajectory_relative_to_cpu_control": 0.0
+    },
+    {
+      "backend": "cpu",
+      "name": "leg37_k72",
+      "median_elapsed_seconds": 8.618241499993019,
+      "stages": {
+        "setup_seconds": 0.055103100021369755,
+        "remaining_seconds": 8.563990899943747
+      },
+      "max_trajectory_relative_to_cpu_control": 0.0
+    },
+    {
+      "backend": "cpu",
+      "name": "fd176_k80",
+      "median_elapsed_seconds": 28.191620300000068,
+      "stages": {
+        "setup_seconds": 0.13878989999648184,
+        "remaining_seconds": 28.052830400003586
+      },
+      "max_trajectory_relative_to_cpu_control": 0.0
+    },
+    {
+      "backend": "cuda_graph",
+      "name": "rfm37_k72",
+      "median_elapsed_seconds": 1.3037546999985352,
+      "stages": {
+        "host_setup_seconds": 0.02443330001551658,
+        "runtime_init_seconds": 0.23864210001192987,
+        "upload_seconds": 0.0033190000103786588,
+        "plan_seconds": 0.002630900009535253,
+        "graph_setup_seconds": 0.0009686999837867916,
+        "march_seconds": 1.0309657999896444,
+        "download_seconds": 0.0002883999841287732,
+        "other_end_to_end_seconds": 0.002449299965519458
+      },
+      "max_trajectory_relative_to_cpu_control": 1.0874033709106118e-09
+    },
+    {
+      "backend": "cuda_graph",
+      "name": "leg37_k72",
+      "median_elapsed_seconds": 1.3559151000226848,
+      "stages": {
+        "host_setup_seconds": 0.06025500001851469,
+        "runtime_init_seconds": 0.2387359999702312,
+        "upload_seconds": 0.003249900008086115,
+        "plan_seconds": 0.0027461000136099756,
+        "graph_setup_seconds": 0.0009663000237196684,
+        "march_seconds": 1.0472086000372656,
+        "download_seconds": 0.0002734999870881438,
+        "other_end_to_end_seconds": 0.0020445999107323587
+      },
+      "max_trajectory_relative_to_cpu_control": 1.7421813675159047e-10
+    }
+  ],
+  "note": "Relative state/probe checks are supplementary. Only the frozen physical-field error and wake gates qualify timing. Cross-hardware ratios describe implementations."
+}

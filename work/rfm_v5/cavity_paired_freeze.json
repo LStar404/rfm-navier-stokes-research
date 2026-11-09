@@ -1,0 +1,237 @@
+{
+  "seeds": [
+    5101,
+    5419,
+    5737,
+    6047,
+    6353
+  ],
+  "gates": {
+    "496": 0.001,
+    "595": 0.0005
+  },
+  "configs": {
+    "496": {
+      "v4": {
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      "v5": {
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "ladder",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true
+      }
+    },
+    "595": {
+      "v4": {
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ]
+      },
+      "v5": {
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "ladder",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true
+      }
+    }
+  },
+  "schedule": [
+    [
+      5101,
+      595,
+      "v4"
+    ],
+    [
+      5101,
+      595,
+      "v5"
+    ],
+    [
+      5101,
+      496,
+      "v4"
+    ],
+    [
+      5101,
+      496,
+      "v5"
+    ],
+    [
+      5419,
+      595,
+      "v4"
+    ],
+    [
+      5419,
+      496,
+      "v5"
+    ],
+    [
+      5419,
+      595,
+      "v5"
+    ],
+    [
+      5419,
+      496,
+      "v4"
+    ],
+    [
+      5737,
+      496,
+      "v4"
+    ],
+    [
+      5737,
+      496,
+      "v5"
+    ],
+    [
+      5737,
+      595,
+      "v5"
+    ],
+    [
+      5737,
+      595,
+      "v4"
+    ],
+    [
+      6047,
+      595,
+      "v5"
+    ],
+    [
+      6047,
+      496,
+      "v5"
+    ],
+    [
+      6047,
+      496,
+      "v4"
+    ],
+    [
+      6047,
+      595,
+      "v4"
+    ],
+    [
+      6353,
+      496,
+      "v4"
+    ],
+    [
+      6353,
+      595,
+      "v5"
+    ],
+    [
+      6353,
+      595,
+      "v4"
+    ],
+    [
+      6353,
+      496,
+      "v5"
+    ]
+  ],
+  "hashes": {
+    "work/rfm_v5/cavity_paired.py": "19a07a06766a4dacadf557dbc132d43295bc80b027f9346fb1da60c51ce8cb38",
+    "work/rfm_v5/cavity_v5.py": "519d32d0c99093a578dca01731eebe78810ae29cf0cb95524e79cd71cb857d6c",
+    "work/rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "work/rfm_v4/cavity_solver.py": "11daac4a31b58390ab4ccbe7fadbd264c7125b06492da1e58e4d8ebba7b90e7c",
+    "work/rfm_v4/cavity_formal.json": "9329ba516ebf91c861a68ae80dd317ffa5d049cd89135bd23c5ea37624a293de",
+    "work/rfm_v3/cavity_study.py": "f3cf61528a1ee33279dc8f8b3f446ec0d02e77b259a73ecc37ea6d9a04000402",
+    "work/rfm_v3/cavity1000_ref256.npz": "dc0514e7fa786ace9e8965203672f07961287a8dd97b63165a30c5a5d1a299da",
+    "work/rfm_v3/cavity1000_ref384.npz": "cc55f88d85b0bc78e21f7449d393db06607a32605c1b41f8e17a5bab92956beb",
+    "work/rfm_ns/rfm_v2_solver.py": "ce1d4d62c388ad36128bdd50c1ab33138103593ea797af8da8b008c3cf5c9996",
+    "work/rfm_ns/rfm_solver.py": "911350db1bb4ef0cf16cc10226ebdf1b2d0f284432398f97a81f43d711393745"
+  },
+  "cpu": 4,
+  "timing": "Cold single-thread solve. Reference and scoring excluded."
+}

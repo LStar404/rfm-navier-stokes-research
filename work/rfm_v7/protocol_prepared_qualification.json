@@ -1,0 +1,23 @@
+{
+  "study": "Paired full trajectories for prepared CUDA single-bridge operators",
+  "horizon": 72,
+  "switch_time": 8,
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "graph_steps": 24,
+  "physical_gate": 0.005,
+  "implementation_gate": 0.00001,
+  "reference_budget_fraction": 0.25,
+  "guard_roundoff_allowance": 2e-13,
+  "references": ["angular_fine", "time_fine"],
+  "rfm_seeds": [7331, 7687, 8011, 8353, 9041],
+  "legendre_seed": 17,
+  "gpu_workers": 1,
+  "scales": [
+    {"name": "low", "rfm": "rfm35_k64", "legendre": "leg35_k64", "rates": [128, 112], "preparations": ["combined"], "scope": "fixed_failure_control"},
+    {"name": "mid", "rfm": "rfm37_k72", "legendre": "leg37_k72", "rates": [128, 112], "preparations": ["module_only", "shared_only", "combined"], "scope": "full_preparation_ablation"},
+    {"name": "high", "rfm": "rfm41_k80", "legendre": "leg39_k80", "rates": [152, 136], "preparations": ["combined"], "scope": "scale_transfer"}
+  ],
+  "expected_rows": {"low": 2, "mid": 18, "high": 6},
+  "comparison_scope": "Three grids and 21 saved absolute implementation times against CPU Recurrence and old CUDA. Full-horizon probes against both implementations. Two fine physical references and pointwise triangle guards at 19 common times. Low is a registered two-case accuracy failure control. Runtime metadata are diagnostic."
+}

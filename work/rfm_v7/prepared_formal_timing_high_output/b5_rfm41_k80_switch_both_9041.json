@@ -1,0 +1,3202 @@
+{
+  "block": 5,
+  "name": "rfm41_k80",
+  "arm": "switch_both",
+  "seed": 9041,
+  "index": 33,
+  "status": "qualified",
+  "qualified": true,
+  "child_pid": 36904,
+  "child_birth_filetime_100ns": 134387349741279787,
+  "launch_monotonic_ns": 286476001197600,
+  "ready_received_monotonic_ns": 286478548554300,
+  "ready": {
+    "index": 33,
+    "run_token": "f697f5da92964d119f82cc41df2fc278",
+    "inherited_affinity_mask": 16,
+    "pid": 36904,
+    "birth_filetime_100ns": 134387349741279787,
+    "event": "READY"
+  },
+  "go_sent_monotonic_ns": 286478548672300,
+  "return_received_monotonic_ns": 286480371632900,
+  "marker": {
+    "index": 33,
+    "run_token": "f697f5da92964d119f82cc41df2fc278",
+    "inherited_affinity_mask": 16,
+    "pid": 36904,
+    "birth_filetime_100ns": 134387349741279787,
+    "status": "solved",
+    "solver_seconds": 1.8102105999714695,
+    "solver_core_seconds": 1.8101848000078462,
+    "model_release_seconds": 2.5799963623285294e-05,
+    "spatial_sha256": "718af248573c686268f498897b89f8b4040a7fabcdc6c9cfa08a41d0c88c495c",
+    "event": "RETURN"
+  },
+  "solver_seconds": 1.8102105999714695,
+  "solver_core_seconds": 1.8101848000078462,
+  "model_release_seconds": 2.5799963623285294e-05,
+  "fresh_process_return_seconds": 4.3704353,
+  "fresh_process_overhead_seconds": 2.56022470002853,
+  "save_sent_monotonic_ns": 286480371921300,
+  "child_exit_code": 0,
+  "exit_monotonic_ns": 286480638189700,
+  "artifact": "b5_rfm41_k80_switch_both_9041.npz",
+  "sha256": "864f61f3e2df75589129de275580d2c79907fb913747a59f84becb8a6b1d0611",
+  "metadata": {
+    "m": 41,
+    "k": 80,
+    "q": 76,
+    "method": "rfm",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 9041,
+    "rank": 40,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 243,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence",
+    "steps": 9920,
+    "horizon": 72,
+    "time_order": 2,
+    "dt": 0.006578947368421052,
+    "dt_role": "spatial_reconstruction",
+    "step_schedule": "sbdf2_single_bridge",
+    "startup_rate": 152,
+    "late_rate": 136,
+    "switch_time": 8,
+    "switch_step": 1216,
+    "late_dt": 0.007352941176470588,
+    "bridge_ratio": 1.1176470588235294,
+    "bridge_a0": 1.5277777777777777,
+    "bridge_effective_dt": 0.007219251336898397,
+    "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+    "preparation": "combined",
+    "phase_preparation_shared": true,
+    "compiled_cuda_modules": 1,
+    "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+    "graph_steps": 24,
+    "nonlinear_evaluations": 9919,
+    "marching_fft_batches": 19838,
+    "priming_fft_batches": 2,
+    "nonlinear_by_phase": {
+      "startup": 1216,
+      "late": 8703
+    },
+    "inverse_field_transforms": 29757,
+    "forward_field_transforms": 19838,
+    "bridge_extra_fft_batches": 0,
+    "fft_radial_lines": 76,
+    "device_final_step": 9920,
+    "host_setup_seconds": 0.06601740000769496,
+    "runtime_init_seconds": 0.5668680000235327,
+    "upload_seconds": 0.0076475999667309225,
+    "plan_seconds": 0.016548799991142005,
+    "graph_setup_seconds": 0.0024332000175490975,
+    "march_seconds": 1.1445053000352345,
+    "download_seconds": 0.0004967999993823469,
+    "seconds": 1.8086033000145108,
+    "timing_scope": "Diagnostic accuracy run without isolation"
+  },
+  "implementation": {
+    "cpu_switch": {
+      "scores": [
+        {
+          "grid": "gauss123",
+          "time": 0.5,
+          "velocity": 1.0829886757116372e-13,
+          "vorticity": 4.88628012491315e-13,
+          "near_velocity": 6.495042038721895e-14,
+          "near_vorticity": 1.7911317215121877e-13
+        },
+        {
+          "grid": "gauss123",
+          "time": 1.0,
+          "velocity": 2.3922690841222227e-13,
+          "vorticity": 1.233385039322008e-12,
+          "near_velocity": 1.6962908129664337e-13,
+          "near_vorticity": 4.3936547363413623e-13
+        },
+        {
+          "grid": "gauss123",
+          "time": 2.0,
+          "velocity": 1.099374136901663e-12,
+          "vorticity": 3.002901352197412e-12,
+          "near_velocity": 9.068728128036992e-13,
+          "near_vorticity": 1.11765522292672e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 4.0,
+          "velocity": 3.0130954630208535e-12,
+          "vorticity": 7.640214559937037e-12,
+          "near_velocity": 3.4603444705915667e-12,
+          "near_vorticity": 4.311109842079416e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 6.0,
+          "velocity": 3.8129364543995964e-12,
+          "vorticity": 8.929777393203145e-12,
+          "near_velocity": 4.724315745102791e-12,
+          "near_vorticity": 5.144447248339109e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 8.0,
+          "velocity": 4.026192848883261e-12,
+          "vorticity": 1.07842537202182e-11,
+          "near_velocity": 4.150276085726149e-12,
+          "near_vorticity": 5.4605132606695616e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 8.125,
+          "velocity": 3.930906150621187e-12,
+          "vorticity": 1.0438880284130617e-11,
+          "near_velocity": 4.0600067357629235e-12,
+          "near_vorticity": 5.291051308234329e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 8.5,
+          "velocity": 3.669323247052027e-12,
+          "vorticity": 1.0264043762394054e-11,
+          "near_velocity": 3.782453736016616e-12,
+          "near_vorticity": 5.114864247065806e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 9.0,
+          "velocity": 3.4190379323470383e-12,
+          "vorticity": 1.0377181004105516e-11,
+          "near_velocity": 3.432267295068166e-12,
+          "near_vorticity": 4.922919046491617e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 10.0,
+          "velocity": 3.194396902751459e-12,
+          "vorticity": 1.2517470791120395e-11,
+          "near_velocity": 2.9904007565388356e-12,
+          "near_vorticity": 5.48862769665835e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 12.0,
+          "velocity": 3.159446292031373e-12,
+          "vorticity": 1.5820465790824173e-11,
+          "near_velocity": 4.158261278340303e-12,
+          "near_vorticity": 9.899175044369124e-12
+        },
+        {
+          "grid": "gauss123",
+          "time": 16.0,
+          "velocity": 5.2013982286300924e-12,
+          "vorticity": 3.02069897356235e-11,
+          "near_velocity": 5.0770304634323655e-12,
+          "near_vorticity": 1.2306076318419494e-11
+        },
+        {
+          "grid": "gauss123",
+          "time": 24.0,
+          "velocity": 1.0085360116372241e-11,
+          "vorticity": 4.8204585497973847e-11,
+          "near_velocity": 9.762935948256659e-12,
+          "near_vorticity": 2.211260839668871e-11
+        },
+        {
+          "grid": "gauss123",
+          "time": 36.0,
+          "velocity": 2.17899784859384e-11,
+          "vorticity": 1.0076848108315476e-10,
+          "near_velocity": 1.967777539277438e-11,
+          "near_vorticity": 3.9449016128786494e-11
+        },
+        {
+          "grid": "gauss123",
+          "time": 48.0,
+          "velocity": 3.3177344790086874e-11,
+          "vorticity": 1.6136760142878087e-10,
+          "near_velocity": 3.7536835267841963e-11,
+          "near_vorticity": 6.927857786125353e-11
+        },
+        {
+          "grid": "gauss123",
+          "time": 54.0,
+          "velocity": 4.0093542415385085e-11,
+          "vorticity": 1.906383248474458e-10,
+          "near_velocity": 4.920867014393949e-11,
+          "near_vorticity": 9.538060132319618e-11
+        },
+        {
+          "grid": "gauss123",
+          "time": 60.0,
+          "velocity": 4.827781980639435e-11,
+          "vorticity": 2.269592229715429e-10,
+          "near_velocity": 6.005327197662049e-11,
+          "near_vorticity": 1.254424822311057e-10
+        },
+        {
+          "grid": "gauss123",
+          "time": 66.0,
+          "velocity": 5.7050530391774667e-11,
+          "vorticity": 2.67515614302471e-10,
+          "near_velocity": 6.843293202375123e-11,
+          "near_vorticity": 1.5483670824322888e-10
+        },
+        {
+          "grid": "gauss123",
+          "time": 72.0,
+          "velocity": 6.617769434834614e-11,
+          "vorticity": 3.0995268789929603e-10,
+          "near_velocity": 7.355618184063495e-11,
+          "near_vorticity": 1.771626183827333e-10
+        },
+        {
+          "grid": "mid129",
+          "time": 0.5,
+          "velocity": 1.0804906217076934e-13,
+          "vorticity": 4.963070990412602e-13,
+          "near_velocity": 6.709534803910183e-14,
+          "near_vorticity": 1.8006599126668755e-13
+        },
+        {
+          "grid": "mid129",
+          "time": 1.0,
+          "velocity": 2.3911173866910854e-13,
+          "vorticity": 1.2376894556968555e-12,
+          "near_velocity": 1.732652419816376e-13,
+          "near_vorticity": 4.40600202561877e-13
+        },
+        {
+          "grid": "mid129",
+          "time": 2.0,
+          "velocity": 1.0993953419404292e-12,
+          "vorticity": 3.006590825711434e-12,
+          "near_velocity": 9.166284447463435e-13,
+          "near_vorticity": 1.1340668010522398e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 4.0,
+          "velocity": 3.013049393766721e-12,
+          "vorticity": 7.646214023777687e-12,
+          "near_velocity": 3.469758006982959e-12,
+          "near_vorticity": 4.368352125384963e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 6.0,
+          "velocity": 3.812829424645174e-12,
+          "vorticity": 8.93864320043789e-12,
+          "near_velocity": 4.718348508951893e-12,
+          "near_vorticity": 5.1996790950432836e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 8.0,
+          "velocity": 4.0258607716581075e-12,
+          "vorticity": 1.0791964628730948e-11,
+          "near_velocity": 4.187475153195809e-12,
+          "near_vorticity": 5.530250222101826e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 8.125,
+          "velocity": 3.9307725975080826e-12,
+          "vorticity": 1.044809301430685e-11,
+          "near_velocity": 4.095014356740361e-12,
+          "near_vorticity": 5.360097768502751e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 8.5,
+          "velocity": 3.6692531149063945e-12,
+          "vorticity": 1.0272573630771728e-11,
+          "near_velocity": 3.811099932712035e-12,
+          "near_vorticity": 5.188164210493039e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 9.0,
+          "velocity": 3.4189082247396863e-12,
+          "vorticity": 1.0387267474862023e-11,
+          "near_velocity": 3.4548859038730362e-12,
+          "near_vorticity": 4.9871326966539925e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 10.0,
+          "velocity": 3.1941975973204325e-12,
+          "vorticity": 1.2523524087775658e-11,
+          "near_velocity": 3.0090641168394457e-12,
+          "near_vorticity": 5.589485876084984e-12
+        },
+        {
+          "grid": "mid129",
+          "time": 12.0,
+          "velocity": 3.1591397884911507e-12,
+          "vorticity": 1.5837298621211304e-11,
+          "near_velocity": 4.141869607653516e-12,
+          "near_vorticity": 1.0017348629522825e-11
+        },
+        {
+          "grid": "mid129",
+          "time": 16.0,
+          "velocity": 5.201025351369136e-12,
+          "vorticity": 3.021950434811038e-11,
+          "near_velocity": 5.08848263314388e-12,
+          "near_vorticity": 1.2607976394642169e-11
+        },
+        {
+          "grid": "mid129",
+          "time": 24.0,
+          "velocity": 1.0085548873695135e-11,
+          "vorticity": 4.824409039183972e-11,
+          "near_velocity": 9.868565600417627e-12,
+          "near_vorticity": 2.2909644623738623e-11
+        },
+        {
+          "grid": "mid129",
+          "time": 36.0,
+          "velocity": 2.179202530802815e-11,
+          "vorticity": 1.0089885158634664e-10,
+          "near_velocity": 1.9767648886604207e-11,
+          "near_vorticity": 4.10041728347702e-11
+        },
+        {
+          "grid": "mid129",
+          "time": 48.0,
+          "velocity": 3.316194291135082e-11,
+          "vorticity": 1.618691689091401e-10,
+          "near_velocity": 3.736887122424525e-11,
+          "near_vorticity": 7.03691303843455e-11
+        },
+        {
+          "grid": "mid129",
+          "time": 54.0,
+          "velocity": 4.008712643126672e-11,
+          "vorticity": 1.9091876397047912e-10,
+          "near_velocity": 4.919404573164246e-11,
+          "near_vorticity": 9.639171003622283e-11
+        },
+        {
+          "grid": "mid129",
+          "time": 60.0,
+          "velocity": 4.8277236418814366e-11,
+          "vorticity": 2.270862290901625e-10,
+          "near_velocity": 6.042760408992766e-11,
+          "near_vorticity": 1.264868109115577e-10
+        },
+        {
+          "grid": "mid129",
+          "time": 66.0,
+          "velocity": 5.705130283455029e-11,
+          "vorticity": 2.6761503105648696e-10,
+          "near_velocity": 6.927224586516447e-11,
+          "near_vorticity": 1.56760769342962e-10
+        },
+        {
+          "grid": "mid129",
+          "time": 72.0,
+          "velocity": 6.617789073019315e-11,
+          "vorticity": 3.1009230022711063e-10,
+          "near_velocity": 7.481642323233988e-11,
+          "near_vorticity": 1.810435302082565e-10
+        },
+        {
+          "grid": "layer144",
+          "time": 0.5,
+          "velocity": 1.0828325525074349e-13,
+          "vorticity": 4.886155841926105e-13,
+          "near_velocity": 6.443981975357912e-14,
+          "near_vorticity": 1.7909203109267174e-13
+        },
+        {
+          "grid": "layer144",
+          "time": 1.0,
+          "velocity": 2.392382053315803e-13,
+          "vorticity": 1.2334059011014806e-12,
+          "near_velocity": 1.6886907092233167e-13,
+          "near_vorticity": 4.392747983403312e-13
+        },
+        {
+          "grid": "layer144",
+          "time": 2.0,
+          "velocity": 1.0993678462522989e-12,
+          "vorticity": 3.0029148205220312e-12,
+          "near_velocity": 9.046417573096935e-13,
+          "near_vorticity": 1.1140077818436226e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 4.0,
+          "velocity": 3.0130985103412893e-12,
+          "vorticity": 7.640239192957457e-12,
+          "near_velocity": 3.4581127960601364e-12,
+          "near_vorticity": 4.29832834066804e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 6.0,
+          "velocity": 3.812935653697401e-12,
+          "vorticity": 8.929770778603323e-12,
+          "near_velocity": 4.725412453473366e-12,
+          "near_vorticity": 5.1323421910216814e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 8.0,
+          "velocity": 4.026203366991101e-12,
+          "vorticity": 1.0784252151614704e-11,
+          "near_velocity": 4.141631024406157e-12,
+          "near_vorticity": 5.445281323927784e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 8.125,
+          "velocity": 3.930882576400217e-12,
+          "vorticity": 1.0438890362970228e-11,
+          "near_velocity": 4.051764980826808e-12,
+          "near_vorticity": 5.276141056504551e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 8.5,
+          "velocity": 3.669335736672158e-12,
+          "vorticity": 1.0264053704496747e-11,
+          "near_velocity": 3.775738289209388e-12,
+          "near_vorticity": 5.099240439997085e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 9.0,
+          "velocity": 3.4190306498625347e-12,
+          "vorticity": 1.037717051952642e-11,
+          "near_velocity": 3.427025637994231e-12,
+          "near_vorticity": 4.909121308997461e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 10.0,
+          "velocity": 3.194386543309416e-12,
+          "vorticity": 1.2517472424547773e-11,
+          "near_velocity": 2.9860590487572526e-12,
+          "near_vorticity": 5.466842560505558e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 12.0,
+          "velocity": 3.1594451833117134e-12,
+          "vorticity": 1.5820465421878805e-11,
+          "near_velocity": 4.162140556801651e-12,
+          "near_vorticity": 9.873025869106067e-12
+        },
+        {
+          "grid": "layer144",
+          "time": 16.0,
+          "velocity": 5.201387170488669e-12,
+          "vorticity": 3.020699657520901e-11,
+          "near_velocity": 5.074860049693047e-12,
+          "near_vorticity": 1.2240382648335017e-11
+        },
+        {
+          "grid": "layer144",
+          "time": 24.0,
+          "velocity": 1.008536965286218e-11,
+          "vorticity": 4.820456498014151e-11,
+          "near_velocity": 9.739588444827527e-12,
+          "near_vorticity": 2.1937839223950466e-11
+        },
+        {
+          "grid": "layer144",
+          "time": 36.0,
+          "velocity": 2.1789981394763794e-11,
+          "vorticity": 1.0076846466020008e-10,
+          "near_velocity": 1.9660015370992533e-11,
+          "near_vorticity": 3.9118240533875565e-11
+        },
+        {
+          "grid": "layer144",
+          "time": 48.0,
+          "velocity": 3.31773461030621e-11,
+          "vorticity": 1.613675982460567e-10,
+          "near_velocity": 3.7571365461490964e-11,
+          "near_vorticity": 6.904392933844829e-11
+        },
+        {
+          "grid": "layer144",
+          "time": 54.0,
+          "velocity": 4.009354101355293e-11,
+          "vorticity": 1.9063832543103473e-10,
+          "near_velocity": 4.920305984238982e-11,
+          "near_vorticity": 9.517393264663692e-11
+        },
+        {
+          "grid": "layer144",
+          "time": 60.0,
+          "velocity": 4.827781728131825e-11,
+          "vorticity": 2.2695921460198003e-10,
+          "near_velocity": 5.9958543287055e-11,
+          "near_vorticity": 1.2522079976207624e-10
+        },
+        {
+          "grid": "layer144",
+          "time": 66.0,
+          "velocity": 5.705053660643198e-11,
+          "vorticity": 2.675156107616413e-10,
+          "near_velocity": 6.823628370485174e-11,
+          "near_vorticity": 1.544006051001026e-10
+        },
+        {
+          "grid": "layer144",
+          "time": 72.0,
+          "velocity": 6.617769666009177e-11,
+          "vorticity": 3.099526826698199e-10,
+          "near_velocity": 7.326924293305624e-11,
+          "near_vorticity": 1.7627394540016157e-10
+        }
+      ],
+      "worst": {
+        "velocity": 6.617789073019315e-11,
+        "vorticity": 3.1009230022711063e-10,
+        "near_velocity": 7.481642323233988e-11,
+        "near_vorticity": 1.810435302082565e-10
+      },
+      "probes": {
+        "transverse": 2.84643865423374e-10,
+        "vorticity": 3.147069979643814e-10
+      },
+      "passed": true
+    },
+    "cuda_switch_old": {
+      "scores": [
+        {
+          "grid": "gauss123",
+          "time": 0.5,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 1.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 2.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 4.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 6.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 8.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 8.125,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 8.5,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 9.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 10.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 12.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 16.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 24.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 36.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 48.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 54.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 60.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 66.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "gauss123",
+          "time": 72.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 0.5,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 1.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 2.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 4.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 6.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 8.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 8.125,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 8.5,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 9.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 10.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 12.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 16.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 24.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 36.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 48.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 54.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 60.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 66.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "mid129",
+          "time": 72.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 0.5,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 1.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 2.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 4.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 6.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 8.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 8.125,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 8.5,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 9.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 10.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 12.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 16.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 24.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 36.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 48.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 54.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 60.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 66.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        },
+        {
+          "grid": "layer144",
+          "time": 72.0,
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      ],
+      "worst": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "passed": true
+    }
+  },
+  "physical_scores": {
+    "angular_fine": [
+      {
+        "grid": "gauss123",
+        "time": 0.5,
+        "velocity": 4.181087994696494e-06,
+        "vorticity": 9.278741280428367e-05,
+        "near_velocity": 1.009208352057171e-05,
+        "near_vorticity": 9.272135825102738e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 1.0,
+        "velocity": 3.5620015575640867e-06,
+        "vorticity": 5.237621958868975e-05,
+        "near_velocity": 8.653014860682832e-06,
+        "near_vorticity": 5.233174011733615e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 2.0,
+        "velocity": 4.1591864227189235e-06,
+        "vorticity": 4.824088333067473e-05,
+        "near_velocity": 1.0151397142020582e-05,
+        "near_vorticity": 4.823824047969206e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 4.0,
+        "velocity": 2.9165290178339277e-06,
+        "vorticity": 2.556519634150376e-05,
+        "near_velocity": 6.245052714169545e-06,
+        "near_vorticity": 2.3461489383968484e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 6.0,
+        "velocity": 2.0367672112302963e-06,
+        "vorticity": 3.252161892616608e-05,
+        "near_velocity": 2.9610645339748535e-06,
+        "near_vorticity": 1.0336618359978789e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.0,
+        "velocity": 5.456535514730019e-06,
+        "vorticity": 0.0001605021608258805,
+        "near_velocity": 2.9515067223868006e-06,
+        "near_vorticity": 9.03438502001846e-06
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.125,
+        "velocity": 6.0024328834241165e-06,
+        "vorticity": 0.0001750542886055696,
+        "near_velocity": 3.224826881067535e-06,
+        "near_vorticity": 9.824783964079927e-06
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.5,
+        "velocity": 7.906826866146557e-06,
+        "vorticity": 0.00022505616661891637,
+        "near_velocity": 3.930490077403723e-06,
+        "near_vorticity": 1.1412006585620055e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 9.0,
+        "velocity": 1.111410263059397e-05,
+        "vorticity": 0.0003086524056068573,
+        "near_velocity": 4.29766745975089e-06,
+        "near_vorticity": 1.142391143676445e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 10.0,
+        "velocity": 2.0169921398978257e-05,
+        "vorticity": 0.0005440988791134061,
+        "near_velocity": 4.73703115917753e-06,
+        "near_vorticity": 1.2689830854882942e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 12.0,
+        "velocity": 4.8618686449232723e-05,
+        "vorticity": 0.0012734810593668761,
+        "near_velocity": 1.2625413229888262e-05,
+        "near_vorticity": 3.65494943464565e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 16.0,
+        "velocity": 8.448801430290568e-05,
+        "vorticity": 0.0020804127020730917,
+        "near_velocity": 3.332854578434223e-05,
+        "near_vorticity": 0.00017399841772831374
+      },
+      {
+        "grid": "gauss123",
+        "time": 24.0,
+        "velocity": 0.00013750357249605065,
+        "vorticity": 0.0019290241053637504,
+        "near_velocity": 9.745355751303874e-05,
+        "near_vorticity": 0.0006101182980396198
+      },
+      {
+        "grid": "gauss123",
+        "time": 36.0,
+        "velocity": 0.00017414335480830985,
+        "vorticity": 0.0020908622900378425,
+        "near_velocity": 0.00012037572766844813,
+        "near_vorticity": 0.0011932629846784046
+      },
+      {
+        "grid": "gauss123",
+        "time": 48.0,
+        "velocity": 0.00017499278666624772,
+        "vorticity": 0.002925263944604528,
+        "near_velocity": 0.00017098148680310936,
+        "near_vorticity": 0.0017309147949417412
+      },
+      {
+        "grid": "gauss123",
+        "time": 54.0,
+        "velocity": 0.00019108537119217315,
+        "vorticity": 0.003216905984355847,
+        "near_velocity": 0.00018940249272552672,
+        "near_vorticity": 0.0017612416074835474
+      },
+      {
+        "grid": "gauss123",
+        "time": 60.0,
+        "velocity": 0.00021072164792818485,
+        "vorticity": 0.003363217138772023,
+        "near_velocity": 0.00019697450991030315,
+        "near_vorticity": 0.0015734913744979149
+      },
+      {
+        "grid": "gauss123",
+        "time": 66.0,
+        "velocity": 0.0002257473305513325,
+        "vorticity": 0.003316650109921516,
+        "near_velocity": 0.00019820905398541767,
+        "near_vorticity": 0.0012631214762112996
+      },
+      {
+        "grid": "gauss123",
+        "time": 72.0,
+        "velocity": 0.00023428486704848685,
+        "vorticity": 0.003088233798460033,
+        "near_velocity": 0.00019006433764365922,
+        "near_vorticity": 0.0010046512723869657
+      },
+      {
+        "grid": "mid129",
+        "time": 0.5,
+        "velocity": 4.180758479270577e-06,
+        "vorticity": 9.271234278402296e-05,
+        "near_velocity": 9.919550959998046e-06,
+        "near_vorticity": 9.264266179660189e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 1.0,
+        "velocity": 3.561968506123482e-06,
+        "vorticity": 5.227787356768411e-05,
+        "near_velocity": 8.502293362862229e-06,
+        "near_vorticity": 5.222384398540117e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 2.0,
+        "velocity": 4.159302625284735e-06,
+        "vorticity": 4.824581635984285e-05,
+        "near_velocity": 9.974187864751179e-06,
+        "near_vorticity": 4.8242545174235234e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 4.0,
+        "velocity": 2.916609085215161e-06,
+        "vorticity": 2.5577687935777526e-05,
+        "near_velocity": 6.156132031521637e-06,
+        "near_vorticity": 2.3495347554742135e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 6.0,
+        "velocity": 2.036384792238407e-06,
+        "vorticity": 3.253631050755805e-05,
+        "near_velocity": 2.9858064252987144e-06,
+        "near_vorticity": 1.1095949104825686e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.0,
+        "velocity": 5.448686353054271e-06,
+        "vorticity": 0.00016086474717644825,
+        "near_velocity": 2.9455227516627135e-06,
+        "near_vorticity": 9.228092242933065e-06
+      },
+      {
+        "grid": "mid129",
+        "time": 8.125,
+        "velocity": 5.992174744677893e-06,
+        "vorticity": 0.00017551984108621363,
+        "near_velocity": 3.2189063411233414e-06,
+        "near_vorticity": 1.0006854258217355e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.5,
+        "velocity": 7.886471508115403e-06,
+        "vorticity": 0.00022596214823144818,
+        "near_velocity": 3.938540383839462e-06,
+        "near_vorticity": 1.1631255800533307e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 9.0,
+        "velocity": 1.107157779380741e-05,
+        "vorticity": 0.0003105447660073084,
+        "near_velocity": 4.343714881908312e-06,
+        "near_vorticity": 1.1722510006354555e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 10.0,
+        "velocity": 2.0043196346402185e-05,
+        "vorticity": 0.0005498493521434141,
+        "near_velocity": 4.735183868418148e-06,
+        "near_vorticity": 1.296607177956504e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 12.0,
+        "velocity": 4.815915138597716e-05,
+        "vorticity": 0.0012951339307776266,
+        "near_velocity": 1.2806911921196951e-05,
+        "near_vorticity": 3.7326532618190025e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 16.0,
+        "velocity": 8.357265746001637e-05,
+        "vorticity": 0.002128262074176488,
+        "near_velocity": 3.361518387266709e-05,
+        "near_vorticity": 0.00017856259678171983
+      },
+      {
+        "grid": "mid129",
+        "time": 24.0,
+        "velocity": 0.00013741297923971927,
+        "vorticity": 0.0019373263020770021,
+        "near_velocity": 9.904114863917802e-05,
+        "near_vorticity": 0.0006244826789465632
+      },
+      {
+        "grid": "mid129",
+        "time": 36.0,
+        "velocity": 0.00017402661318225498,
+        "vorticity": 0.0021011647880512466,
+        "near_velocity": 0.00012188648500643667,
+        "near_vorticity": 0.001223393409922784
+      },
+      {
+        "grid": "mid129",
+        "time": 48.0,
+        "velocity": 0.00017466772430864953,
+        "vorticity": 0.002939923956700442,
+        "near_velocity": 0.00017155157000039604,
+        "near_vorticity": 0.0017706409803088905
+      },
+      {
+        "grid": "mid129",
+        "time": 54.0,
+        "velocity": 0.00019106328940007603,
+        "vorticity": 0.003228559946653437,
+        "near_velocity": 0.00019102779846548936,
+        "near_vorticity": 0.001813533952374827
+      },
+      {
+        "grid": "mid129",
+        "time": 60.0,
+        "velocity": 0.00021074141855859462,
+        "vorticity": 0.003372502469620387,
+        "near_velocity": 0.00019978313047526057,
+        "near_vorticity": 0.0016392517162798531
+      },
+      {
+        "grid": "mid129",
+        "time": 66.0,
+        "velocity": 0.00022572630721027787,
+        "vorticity": 0.0033240781810201267,
+        "near_velocity": 0.00020174288073781388,
+        "near_vorticity": 0.001326867237771884
+      },
+      {
+        "grid": "mid129",
+        "time": 72.0,
+        "velocity": 0.00023428676619333737,
+        "vorticity": 0.0030951225776149156,
+        "near_velocity": 0.00019455859182948522,
+        "near_vorticity": 0.0010348421689002321
+      },
+      {
+        "grid": "layer144",
+        "time": 0.5,
+        "velocity": 4.18108814013838e-06,
+        "vorticity": 9.27874433018029e-05,
+        "near_velocity": 1.013091295333555e-05,
+        "near_vorticity": 9.272134916471858e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 1.0,
+        "velocity": 3.562001604713294e-06,
+        "vorticity": 5.237624568538379e-05,
+        "near_velocity": 8.686939972936839e-06,
+        "near_vorticity": 5.233172140026335e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 2.0,
+        "velocity": 4.159186443113403e-06,
+        "vorticity": 4.824088445391027e-05,
+        "near_velocity": 1.0191340649553168e-05,
+        "near_vorticity": 4.823823738046103e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 4.0,
+        "velocity": 2.9165290244361468e-06,
+        "vorticity": 2.556519696174046e-05,
+        "near_velocity": 6.264855616830779e-06,
+        "near_vorticity": 2.3456810502845205e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 6.0,
+        "velocity": 2.036767240760503e-06,
+        "vorticity": 3.2521619801299554e-05,
+        "near_velocity": 2.955429679985875e-06,
+        "near_vorticity": 1.017622453670244e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 8.0,
+        "velocity": 5.456535538939393e-06,
+        "vorticity": 0.00016050237183360392,
+        "near_velocity": 2.9527290680303946e-06,
+        "near_vorticity": 8.993526111179822e-06
+      },
+      {
+        "grid": "layer144",
+        "time": 8.125,
+        "velocity": 6.002432911281406e-06,
+        "vorticity": 0.00017505451787531098,
+        "near_velocity": 3.225952124920736e-06,
+        "near_vorticity": 9.785052804602776e-06
+      },
+      {
+        "grid": "layer144",
+        "time": 8.5,
+        "velocity": 7.906826903735945e-06,
+        "vorticity": 0.00022505644671915275,
+        "near_velocity": 3.928263385545793e-06,
+        "near_vorticity": 1.1366951490554108e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 9.0,
+        "velocity": 1.1114102678601553e-05,
+        "vorticity": 0.00030865273707828564,
+        "near_velocity": 4.287041339908178e-06,
+        "near_vorticity": 1.1362244388061922e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 10.0,
+        "velocity": 2.016992145489083e-05,
+        "vorticity": 0.0005440992551729281,
+        "near_velocity": 4.738323233923035e-06,
+        "near_vorticity": 1.2628704788522557e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 12.0,
+        "velocity": 4.861868651435893e-05,
+        "vorticity": 0.0012734814859083502,
+        "near_velocity": 1.2584124124365215e-05,
+        "near_vorticity": 3.6371247809128226e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 16.0,
+        "velocity": 8.44880147364089e-05,
+        "vorticity": 0.002080414234148929,
+        "near_velocity": 3.326216766834079e-05,
+        "near_vorticity": 0.00017314636069141575
+      },
+      {
+        "grid": "layer144",
+        "time": 24.0,
+        "velocity": 0.00013750356681891093,
+        "vorticity": 0.0019290262965238451,
+        "near_velocity": 9.708095736358557e-05,
+        "near_vorticity": 0.0006083062883225988
+      },
+      {
+        "grid": "layer144",
+        "time": 36.0,
+        "velocity": 0.00017414334969290777,
+        "vorticity": 0.0020908643525937446,
+        "near_velocity": 0.00012008423773803787,
+        "near_vorticity": 0.0011900061261796422
+      },
+      {
+        "grid": "layer144",
+        "time": 48.0,
+        "velocity": 0.00017499276542781042,
+        "vorticity": 0.0029252637500951843,
+        "near_velocity": 0.00017082410297046134,
+        "near_vorticity": 0.0017268897727868394
+      },
+      {
+        "grid": "layer144",
+        "time": 54.0,
+        "velocity": 0.00019108536537358676,
+        "vorticity": 0.003216906317905564,
+        "near_velocity": 0.0001890080318380834,
+        "near_vorticity": 0.0017548857452734578
+      },
+      {
+        "grid": "layer144",
+        "time": 60.0,
+        "velocity": 0.000210721655929362,
+        "vorticity": 0.0033632195977721835,
+        "near_velocity": 0.00019631925593740273,
+        "near_vorticity": 0.0015640521712347619
+      },
+      {
+        "grid": "layer144",
+        "time": 66.0,
+        "velocity": 0.00022574734624817178,
+        "vorticity": 0.003316652643887552,
+        "near_velocity": 0.00019737516571032896,
+        "near_vorticity": 0.0012539855919296446
+      },
+      {
+        "grid": "layer144",
+        "time": 72.0,
+        "velocity": 0.00023428485265103593,
+        "vorticity": 0.0030882364815008135,
+        "near_velocity": 0.00018905756010387928,
+        "near_vorticity": 0.0010019241798995741
+      }
+    ],
+    "time_fine": [
+      {
+        "grid": "gauss123",
+        "time": 0.5,
+        "velocity": 4.5225248319411666e-06,
+        "vorticity": 0.00010042909105607115,
+        "near_velocity": 1.0918017507819972e-05,
+        "near_vorticity": 0.00010036808088187681
+      },
+      {
+        "grid": "gauss123",
+        "time": 1.0,
+        "velocity": 3.850842629154805e-06,
+        "vorticity": 5.6617036672410575e-05,
+        "near_velocity": 9.355144669140206e-06,
+        "near_vorticity": 5.657602177908118e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 2.0,
+        "velocity": 4.497206935468454e-06,
+        "vorticity": 5.214185213298597e-05,
+        "near_velocity": 1.0977140152126153e-05,
+        "near_vorticity": 5.2139426848528254e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 4.0,
+        "velocity": 3.156606416753607e-06,
+        "vorticity": 2.761372168838151e-05,
+        "near_velocity": 6.758579721059886e-06,
+        "near_vorticity": 2.5339828945041846e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 6.0,
+        "velocity": 2.193253664540181e-06,
+        "vorticity": 3.296233345928937e-05,
+        "near_velocity": 3.2089594106837085e-06,
+        "near_vorticity": 1.0932955101056667e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.0,
+        "velocity": 5.511013435770462e-06,
+        "vorticity": 0.00016056856828871612,
+        "near_velocity": 3.2007909361173963e-06,
+        "near_vorticity": 9.65382826942648e-06
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.125,
+        "velocity": 6.055949126035812e-06,
+        "vorticity": 0.0001751193782219379,
+        "near_velocity": 3.489270574394809e-06,
+        "near_vorticity": 1.0475889810874753e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.5,
+        "velocity": 7.958645752207063e-06,
+        "vorticity": 0.0002251163714706422,
+        "near_velocity": 4.232906679278252e-06,
+        "near_vorticity": 1.2138522499757497e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 9.0,
+        "velocity": 1.116308470256298e-05,
+        "vorticity": 0.00030870435361040347,
+        "near_velocity": 4.618736850972096e-06,
+        "near_vorticity": 1.219413442396128e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 10.0,
+        "velocity": 2.0214878787513157e-05,
+        "vorticity": 0.0005441470780890316,
+        "near_velocity": 5.078954356091165e-06,
+        "near_vorticity": 1.351403365117625e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 12.0,
+        "velocity": 4.8729792507826996e-05,
+        "vorticity": 0.0012735830193065184,
+        "near_velocity": 1.3452466296763362e-05,
+        "near_vorticity": 3.798328412099718e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 16.0,
+        "velocity": 8.562215642597039e-05,
+        "vorticity": 0.0020815048613895726,
+        "near_velocity": 3.532791427501671e-05,
+        "near_vorticity": 0.00017538507423571386
+      },
+      {
+        "grid": "gauss123",
+        "time": 24.0,
+        "velocity": 0.0001432857074325211,
+        "vorticity": 0.001941481550837521,
+        "near_velocity": 0.00010295429601370684,
+        "near_vorticity": 0.0006158543749776394
+      },
+      {
+        "grid": "gauss123",
+        "time": 36.0,
+        "velocity": 0.00018592213657393344,
+        "vorticity": 0.002117482487787149,
+        "near_velocity": 0.00012930352794762794,
+        "near_vorticity": 0.0011967950165802552
+      },
+      {
+        "grid": "gauss123",
+        "time": 48.0,
+        "velocity": 0.00018821675601993058,
+        "vorticity": 0.0029500841436173853,
+        "near_velocity": 0.00018604894565388922,
+        "near_vorticity": 0.0017356334500789458
+      },
+      {
+        "grid": "gauss123",
+        "time": 54.0,
+        "velocity": 0.00020577222219583121,
+        "vorticity": 0.003239026429677877,
+        "near_velocity": 0.0002088728756769474,
+        "near_vorticity": 0.001769055171463837
+      },
+      {
+        "grid": "gauss123",
+        "time": 60.0,
+        "velocity": 0.0002279981612750158,
+        "vorticity": 0.0033901717924559767,
+        "near_velocity": 0.00022093936392727367,
+        "near_vorticity": 0.0015872388574986991
+      },
+      {
+        "grid": "gauss123",
+        "time": 66.0,
+        "velocity": 0.000246168967729131,
+        "vorticity": 0.00335138967558729,
+        "near_velocity": 0.00022584679850749592,
+        "near_vorticity": 0.0012863121103818599
+      },
+      {
+        "grid": "gauss123",
+        "time": 72.0,
+        "velocity": 0.00025838841569960117,
+        "vorticity": 0.0031345674627920803,
+        "near_velocity": 0.00021979867616728053,
+        "near_vorticity": 0.0010406696841954181
+      },
+      {
+        "grid": "mid129",
+        "time": 0.5,
+        "velocity": 4.522225281008192e-06,
+        "vorticity": 0.00010032782374725078,
+        "near_velocity": 1.0731297175936484e-05,
+        "near_vorticity": 0.0001002635424073195
+      },
+      {
+        "grid": "mid129",
+        "time": 1.0,
+        "velocity": 3.850827112857473e-06,
+        "vorticity": 5.651187918250041e-05,
+        "near_velocity": 9.192226217580954e-06,
+        "near_vorticity": 5.6462514570356935e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 2.0,
+        "velocity": 4.49733404630725e-06,
+        "vorticity": 5.214787309787049e-05,
+        "near_velocity": 1.0785524277593779e-05,
+        "near_vorticity": 5.2144802865435695e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 4.0,
+        "velocity": 3.1566931551167906e-06,
+        "vorticity": 2.762681124191961e-05,
+        "near_velocity": 6.6624888911079355e-06,
+        "near_vorticity": 2.5375588579203933e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 6.0,
+        "velocity": 2.192836688595694e-06,
+        "vorticity": 3.29777330798571e-05,
+        "near_velocity": 3.235369071092055e-06,
+        "near_vorticity": 1.1687748721609927e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.0,
+        "velocity": 5.503244796379469e-06,
+        "vorticity": 0.00016093133394101526,
+        "near_velocity": 3.194463486941906e-06,
+        "near_vorticity": 9.84727376665139e-06
+      },
+      {
+        "grid": "mid129",
+        "time": 8.125,
+        "velocity": 6.045788173271432e-06,
+        "vorticity": 0.00017558496593884934,
+        "near_velocity": 3.4831032578701036e-06,
+        "near_vorticity": 1.0660645673574705e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.5,
+        "velocity": 7.938437322912596e-06,
+        "vorticity": 0.00022602197158016197,
+        "near_velocity": 4.241783159923169e-06,
+        "near_vorticity": 1.236610246939232e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 9.0,
+        "velocity": 1.1120765346281997e-05,
+        "vorticity": 0.000310595954190587,
+        "near_velocity": 4.667963217086335e-06,
+        "near_vorticity": 1.2507897955842054e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 10.0,
+        "velocity": 2.0088451917767407e-05,
+        "vorticity": 0.0005498966527557676,
+        "near_velocity": 5.077038680448777e-06,
+        "near_vorticity": 1.3809857734763198e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 12.0,
+        "velocity": 4.8271339103606956e-05,
+        "vorticity": 0.0012952339044904032,
+        "near_velocity": 1.3646821770449914e-05,
+        "near_vorticity": 3.880762679828064e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 16.0,
+        "velocity": 8.47190675113005e-05,
+        "vorticity": 0.002129312885242946,
+        "near_velocity": 3.5632327881902246e-05,
+        "near_vorticity": 0.00018009634968276815
+      },
+      {
+        "grid": "mid129",
+        "time": 24.0,
+        "velocity": 0.00014319815695871613,
+        "vorticity": 0.0019497376430144175,
+        "near_velocity": 0.00010465630626491035,
+        "near_vorticity": 0.0006305749621370597
+      },
+      {
+        "grid": "mid129",
+        "time": 36.0,
+        "velocity": 0.00018580648702027296,
+        "vorticity": 0.00212780808989689,
+        "near_velocity": 0.00013088703056031008,
+        "near_vorticity": 0.0012273792937086197
+      },
+      {
+        "grid": "mid129",
+        "time": 48.0,
+        "velocity": 0.00018787208972651298,
+        "vorticity": 0.0029652837755490703,
+        "near_velocity": 0.00018650436674226342,
+        "near_vorticity": 0.0017752983566700707
+      },
+      {
+        "grid": "mid129",
+        "time": 54.0,
+        "velocity": 0.00020574479868135928,
+        "vorticity": 0.0032508679331807087,
+        "near_velocity": 0.00021042068994964823,
+        "near_vorticity": 0.0018212930798595316
+      },
+      {
+        "grid": "mid129",
+        "time": 60.0,
+        "velocity": 0.0002280171673120133,
+        "vorticity": 0.0033993994250103824,
+        "near_velocity": 0.00022377667876578844,
+        "near_vorticity": 0.0016527037604642649
+      },
+      {
+        "grid": "mid129",
+        "time": 66.0,
+        "velocity": 0.0002461494403826635,
+        "vorticity": 0.003358768639808507,
+        "near_velocity": 0.00022961403261229855,
+        "near_vorticity": 0.0013497595581442837
+      },
+      {
+        "grid": "mid129",
+        "time": 72.0,
+        "velocity": 0.0002583933982486656,
+        "vorticity": 0.0031414022852555867,
+        "near_velocity": 0.00022478926841287174,
+        "near_vorticity": 0.0010707414658811614
+      },
+      {
+        "grid": "layer144",
+        "time": 0.5,
+        "velocity": 4.522524976806445e-06,
+        "vorticity": 0.00010042911917617129,
+        "near_velocity": 1.096005104747666e-05,
+        "near_vorticity": 0.00010036807256834513
+      },
+      {
+        "grid": "layer144",
+        "time": 1.0,
+        "velocity": 3.850842675354226e-06,
+        "vorticity": 5.6617063469632236e-05,
+        "near_velocity": 9.391821262055302e-06,
+        "near_vorticity": 5.65760046238504e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 2.0,
+        "velocity": 4.4972069534611595e-06,
+        "vorticity": 5.2141852911852616e-05,
+        "near_velocity": 1.1020331691531344e-05,
+        "near_vorticity": 5.2139423940599744e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 4.0,
+        "velocity": 3.156606423612961e-06,
+        "vorticity": 2.7613722060991786e-05,
+        "near_velocity": 6.779975755792106e-06,
+        "near_vorticity": 2.53348772336547e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 6.0,
+        "velocity": 2.1932536897864124e-06,
+        "vorticity": 3.296233418408944e-05,
+        "near_velocity": 3.2029344066604756e-06,
+        "near_vorticity": 1.077347014801208e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 8.0,
+        "velocity": 5.511013456990289e-06,
+        "vorticity": 0.00016056877924533917,
+        "near_velocity": 3.2020715938710103e-06,
+        "near_vorticity": 9.612838216356361e-06
+      },
+      {
+        "grid": "layer144",
+        "time": 8.125,
+        "velocity": 6.055949150332662e-06,
+        "vorticity": 0.0001751196074238851,
+        "near_velocity": 3.4904282875844183e-06,
+        "near_vorticity": 1.0435499666516088e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 8.5,
+        "velocity": 7.958645787280182e-06,
+        "vorticity": 0.00022511665151595637,
+        "near_velocity": 4.230464142832197e-06,
+        "near_vorticity": 1.2091577607594195e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 9.0,
+        "velocity": 1.1163084748483789e-05,
+        "vorticity": 0.00030870468504468486,
+        "near_velocity": 4.607379087057019e-06,
+        "near_vorticity": 1.2128963425168026e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 10.0,
+        "velocity": 2.021487884233609e-05,
+        "vorticity": 0.000544147454128259,
+        "near_velocity": 5.080319189901067e-06,
+        "near_vorticity": 1.3448661257418602e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 12.0,
+        "velocity": 4.872979257253401e-05,
+        "vorticity": 0.001273583445817273,
+        "near_velocity": 1.3408261956556225e-05,
+        "near_vorticity": 3.7794712341202915e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 16.0,
+        "velocity": 8.562215685625074e-05,
+        "vorticity": 0.002081506392815904,
+        "near_velocity": 3.525771369031365e-05,
+        "near_vorticity": 0.0001745010859769971
+      },
+      {
+        "grid": "layer144",
+        "time": 24.0,
+        "velocity": 0.00014328570159197982,
+        "vorticity": 0.0019414837205608616,
+        "near_velocity": 0.00010255619847760459,
+        "near_vorticity": 0.0006139510672615885
+      },
+      {
+        "grid": "layer144",
+        "time": 36.0,
+        "velocity": 0.00018592213180723194,
+        "vorticity": 0.002117484531866671,
+        "near_velocity": 0.00012899788410947153,
+        "near_vorticity": 0.001193437941865996
+      },
+      {
+        "grid": "layer144",
+        "time": 48.0,
+        "velocity": 0.00018821673603647374,
+        "vorticity": 0.0029500839450063584,
+        "near_velocity": 0.00018591631412213558,
+        "near_vorticity": 0.0017316026185563186
+      },
+      {
+        "grid": "layer144",
+        "time": 54.0,
+        "velocity": 0.0002057722165750029,
+        "vorticity": 0.003239026757534352,
+        "near_velocity": 0.0002084927852829639,
+        "near_vorticity": 0.001762696502120727
+      },
+      {
+        "grid": "layer144",
+        "time": 60.0,
+        "velocity": 0.0002279981683963763,
+        "vorticity": 0.0033901742313349223,
+        "near_velocity": 0.0002202743796165047,
+        "near_vorticity": 0.0015778158713867364
+      },
+      {
+        "grid": "layer144",
+        "time": 66.0,
+        "velocity": 0.0002461689827685594,
+        "vorticity": 0.0033513921774375845,
+        "near_velocity": 0.00022495662554099984,
+        "near_vorticity": 0.001277166250128774
+      },
+      {
+        "grid": "layer144",
+        "time": 72.0,
+        "velocity": 0.0002583884019947839,
+        "vorticity": 0.0031345700926583204,
+        "near_velocity": 0.00021867866043053059,
+        "near_vorticity": 0.0010378294776278616
+      }
+    ]
+  },
+  "physical_worst": {
+    "angular_fine": {
+      "velocity": 0.00023428676619333737,
+      "vorticity": 0.003372502469620387,
+      "near_velocity": 0.00020174288073781388,
+      "near_vorticity": 0.001813533952374827
+    },
+    "time_fine": {
+      "velocity": 0.0002583933982486656,
+      "vorticity": 0.0033993994250103824,
+      "near_velocity": 0.00022961403261229855,
+      "near_vorticity": 0.0018212930798595316
+    }
+  },
+  "guard_scores": {
+    "angular_fine": [
+      {
+        "grid": "gauss123",
+        "time": 0.5,
+        "velocity": 4.181088102062084e-06,
+        "vorticity": 9.278741330787943e-05,
+        "near_velocity": 1.0092083584149287e-05,
+        "near_vorticity": 9.272135844545155e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 1.0,
+        "velocity": 3.562001795181194e-06,
+        "vorticity": 5.2376220789641386e-05,
+        "near_velocity": 8.653015031911342e-06,
+        "near_vorticity": 5.233174052642279e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 2.0,
+        "velocity": 4.159187497827741e-06,
+        "vorticity": 4.824088628609872e-05,
+        "near_velocity": 1.0151398022172069e-05,
+        "near_vorticity": 4.823824155170665e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 4.0,
+        "velocity": 2.91653199577948e-06,
+        "vorticity": 2.5565203498309668e-05,
+        "near_velocity": 6.245056093048943e-06,
+        "near_vorticity": 2.3461493386665604e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 6.0,
+        "velocity": 2.036771087379731e-06,
+        "vorticity": 3.2521627652833315e-05,
+        "near_velocity": 2.9610693386466324e-06,
+        "near_vorticity": 1.0336623823080832e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.0,
+        "velocity": 5.456539741074447e-06,
+        "vorticity": 0.00016050217177080413,
+        "near_velocity": 2.9515110249283085e-06,
+        "near_vorticity": 9.03439021124031e-06
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.125,
+        "velocity": 6.032573069346957e-06,
+        "vorticity": 0.00017542950756605942,
+        "near_velocity": 3.2371279746458363e-06,
+        "near_vorticity": 9.952245934602221e-06
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.5,
+        "velocity": 8.021296321685197e-06,
+        "vorticity": 0.00022613501220460931,
+        "near_velocity": 3.957862784453946e-06,
+        "near_vorticity": 1.1628236877271153e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 9.0,
+        "velocity": 1.1317070734943561e-05,
+        "vorticity": 0.00031025684615527163,
+        "near_velocity": 4.329112236891214e-06,
+        "near_vorticity": 1.161432426550976e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 10.0,
+        "velocity": 2.053092806985388e-05,
+        "vorticity": 0.0005466824502080845,
+        "near_velocity": 4.7988297873907755e-06,
+        "near_vorticity": 1.2940942168892788e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 12.0,
+        "velocity": 4.986363671871399e-05,
+        "vorticity": 0.0012808536740279608,
+        "near_velocity": 1.2655519340013455e-05,
+        "near_vorticity": 3.788743955260865e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 16.0,
+        "velocity": 8.882658558887748e-05,
+        "vorticity": 0.0021164329752933206,
+        "near_velocity": 3.367700421168798e-05,
+        "near_vorticity": 0.00018166328695272638
+      },
+      {
+        "grid": "gauss123",
+        "time": 24.0,
+        "velocity": 0.00014286370275237955,
+        "vorticity": 0.0020208939702335733,
+        "near_velocity": 9.885552133959881e-05,
+        "near_vorticity": 0.0006403822369812472
+      },
+      {
+        "grid": "gauss123",
+        "time": 36.0,
+        "velocity": 0.00018038684908431018,
+        "vorticity": 0.00223745813486103,
+        "near_velocity": 0.00012648069593530905,
+        "near_vorticity": 0.0012501186439618254
+      },
+      {
+        "grid": "gauss123",
+        "time": 48.0,
+        "velocity": 0.00018923902936172888,
+        "vorticity": 0.003149523520885955,
+        "near_velocity": 0.0001847895994216987,
+        "near_vorticity": 0.001824294055375013
+      },
+      {
+        "grid": "gauss123",
+        "time": 54.0,
+        "velocity": 0.0002103549717881377,
+        "vorticity": 0.0034752338388673956,
+        "near_velocity": 0.00020556419769309663,
+        "near_vorticity": 0.001885739576049896
+      },
+      {
+        "grid": "gauss123",
+        "time": 60.0,
+        "velocity": 0.00023424264612570845,
+        "vorticity": 0.003657193556655161,
+        "near_velocity": 0.00021215565626070995,
+        "near_vorticity": 0.0017276852738705183
+      },
+      {
+        "grid": "gauss123",
+        "time": 66.0,
+        "velocity": 0.00025232218464835013,
+        "vorticity": 0.003649011883058572,
+        "near_velocity": 0.00020970755729960908,
+        "near_vorticity": 0.001436880644720925
+      },
+      {
+        "grid": "gauss123",
+        "time": 72.0,
+        "velocity": 0.0002615841946829166,
+        "vorticity": 0.003451359603073731,
+        "near_velocity": 0.0001982845441243818,
+        "near_vorticity": 0.0011754937520526176
+      },
+      {
+        "grid": "mid129",
+        "time": 0.5,
+        "velocity": 4.18075858650532e-06,
+        "vorticity": 9.271234329269263e-05,
+        "near_velocity": 9.919551026194214e-06,
+        "near_vorticity": 9.264266199158821e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 1.0,
+        "velocity": 3.5619687437464856e-06,
+        "vorticity": 5.227787476822961e-05,
+        "near_velocity": 8.502293537450956e-06,
+        "near_vorticity": 5.2223844395345655e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 2.0,
+        "velocity": 4.15930370041119e-06,
+        "vorticity": 4.824581931906004e-05,
+        "near_velocity": 9.974188755587838e-06,
+        "near_vorticity": 4.82425462628098e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 4.0,
+        "velocity": 2.9166120630969353e-06,
+        "vorticity": 2.5577695100272476e-05,
+        "near_velocity": 6.156135423123096e-06,
+        "near_vorticity": 2.349535161943722e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 6.0,
+        "velocity": 2.0363886684720918e-06,
+        "vorticity": 3.253631924197199e-05,
+        "near_velocity": 2.985811238044535e-06,
+        "near_vorticity": 1.1095954601545375e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.0,
+        "velocity": 5.448690579534882e-06,
+        "vorticity": 0.0001608647581247215,
+        "near_velocity": 2.9455271166958877e-06,
+        "near_vorticity": 9.228097552011955e-06
+      },
+      {
+        "grid": "mid129",
+        "time": 8.125,
+        "velocity": 6.022301598201657e-06,
+        "vorticity": 0.00017589436432645017,
+        "near_velocity": 3.2314236331517673e-06,
+        "near_vorticity": 1.013543071269946e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.5,
+        "velocity": 8.000864285075386e-06,
+        "vorticity": 0.0002270413824861471,
+        "near_velocity": 3.966412112146354e-06,
+        "near_vorticity": 1.184897448838571e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 9.0,
+        "velocity": 1.1274368136854633e-05,
+        "vorticity": 0.0003121502453756128,
+        "near_velocity": 4.37553054391689e-06,
+        "near_vorticity": 1.1914344161064913e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 10.0,
+        "velocity": 2.040382083127175e-05,
+        "vorticity": 0.0005524343808732401,
+        "near_velocity": 4.79782176805315e-06,
+        "near_vorticity": 1.3220817234854684e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 12.0,
+        "velocity": 4.9401768172225174e-05,
+        "vorticity": 0.0013025126247351226,
+        "near_velocity": 1.2837303535725394e-05,
+        "near_vorticity": 3.8664084750401244e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 16.0,
+        "velocity": 8.787739436180904e-05,
+        "vorticity": 0.0021644623276354013,
+        "near_velocity": 3.397685830835087e-05,
+        "near_vorticity": 0.0001864126632791639
+      },
+      {
+        "grid": "mid129",
+        "time": 24.0,
+        "velocity": 0.00014276161267977054,
+        "vorticity": 0.002029545323779737,
+        "near_velocity": 0.00010043950415252018,
+        "near_vorticity": 0.000655963135181116
+      },
+      {
+        "grid": "mid129",
+        "time": 36.0,
+        "velocity": 0.0001802778798644163,
+        "vorticity": 0.0022482489780753898,
+        "near_velocity": 0.0001279817298744329,
+        "near_vorticity": 0.0012826639494204453
+      },
+      {
+        "grid": "mid129",
+        "time": 48.0,
+        "velocity": 0.0001889443749026092,
+        "vorticity": 0.0031641308644970896,
+        "near_velocity": 0.00018549432243981454,
+        "near_vorticity": 0.0018658115611717744
+      },
+      {
+        "grid": "mid129",
+        "time": 54.0,
+        "velocity": 0.00021033791920694572,
+        "vorticity": 0.003486951460183453,
+        "near_velocity": 0.00020751509376100213,
+        "near_vorticity": 0.0019395326321396602
+      },
+      {
+        "grid": "mid129",
+        "time": 60.0,
+        "velocity": 0.0002342660805641669,
+        "vorticity": 0.0036668475218568516,
+        "near_velocity": 0.00021579804949704853,
+        "near_vorticity": 0.0017956064472151266
+      },
+      {
+        "grid": "mid129",
+        "time": 66.0,
+        "velocity": 0.00025229897691917926,
+        "vorticity": 0.003656703281213515,
+        "near_velocity": 0.00021417804043486006,
+        "near_vorticity": 0.0015040589996977796
+      },
+      {
+        "grid": "mid129",
+        "time": 72.0,
+        "velocity": 0.00026157185173542204,
+        "vorticity": 0.003458581485572955,
+        "near_velocity": 0.0002030417390126752,
+        "near_vorticity": 0.0012128002695215097
+      },
+      {
+        "grid": "layer144",
+        "time": 0.5,
+        "velocity": 4.181088247483164e-06,
+        "vorticity": 9.278744380536075e-05,
+        "near_velocity": 1.0130913016277819e-05,
+        "near_vorticity": 9.272134935909136e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 1.0,
+        "velocity": 3.5620018423420913e-06,
+        "vorticity": 5.2376246886322646e-05,
+        "near_velocity": 8.686940143465129e-06,
+        "near_vorticity": 5.2331721809222186e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 2.0,
+        "velocity": 4.15918751821425e-06,
+        "vorticity": 4.824088740937561e-05,
+        "near_velocity": 1.0191341527254732e-05,
+        "near_vorticity": 4.823823844884808e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 4.0,
+        "velocity": 2.916532002382564e-06,
+        "vorticity": 2.556520411857678e-05,
+        "near_velocity": 6.264858992777926e-06,
+        "near_vorticity": 2.345681449207679e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 6.0,
+        "velocity": 2.036771116911869e-06,
+        "vorticity": 3.252162852795765e-05,
+        "near_velocity": 2.9554344824635782e-06,
+        "near_vorticity": 1.0176229992537672e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 8.0,
+        "velocity": 5.456539765295234e-06,
+        "vorticity": 0.00016050238277852334,
+        "near_velocity": 2.9527333563896186e-06,
+        "near_vorticity": 8.993531276603633e-06
+      },
+      {
+        "grid": "layer144",
+        "time": 8.125,
+        "velocity": 6.032573097223453e-06,
+        "vorticity": 0.00017542973684908823,
+        "near_velocity": 3.2382072666229776e-06,
+        "near_vorticity": 9.912197202864328e-06
+      },
+      {
+        "grid": "layer144",
+        "time": 8.5,
+        "velocity": 8.021296358991804e-06,
+        "vorticity": 0.0002261352923573072,
+        "near_velocity": 3.955528920335628e-06,
+        "near_vorticity": 1.158284397738231e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 9.0,
+        "velocity": 1.1317070782039616e-05,
+        "vorticity": 0.0003102571776846855,
+        "near_velocity": 4.318407318762053e-06,
+        "near_vorticity": 1.1552555947921192e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 10.0,
+        "velocity": 2.0530928124354062e-05,
+        "vorticity": 0.0005466828263169737,
+        "near_velocity": 4.799910899927293e-06,
+        "near_vorticity": 1.287903610178282e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 12.0,
+        "velocity": 4.986363678449014e-05,
+        "vorticity": 0.0012808541006513632,
+        "near_velocity": 1.2614184431793435e-05,
+        "near_vorticity": 3.7708055567292526e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 16.0,
+        "velocity": 8.882658603309917e-05,
+        "vorticity": 0.0021164345090166205,
+        "near_velocity": 3.360795221559252e-05,
+        "near_vorticity": 0.00018077208283852114
+      },
+      {
+        "grid": "layer144",
+        "time": 24.0,
+        "velocity": 0.00014286369783402707,
+        "vorticity": 0.0020208962312709216,
+        "near_velocity": 9.848435049232966e-05,
+        "near_vorticity": 0.0006383331077206189
+      },
+      {
+        "grid": "layer144",
+        "time": 36.0,
+        "velocity": 0.00018038684252580874,
+        "vorticity": 0.002237460257958279,
+        "near_velocity": 0.00012618804702246454,
+        "near_vorticity": 0.0012463421360648635
+      },
+      {
+        "grid": "layer144",
+        "time": 48.0,
+        "velocity": 0.00018923900295090532,
+        "vorticity": 0.0031495233419014516,
+        "near_velocity": 0.00018459949615071115,
+        "near_vorticity": 0.0018199325286857532
+      },
+      {
+        "grid": "layer144",
+        "time": 54.0,
+        "velocity": 0.00021035496525887974,
+        "vorticity": 0.003475234190172455,
+        "near_velocity": 0.00020508915469273013,
+        "near_vorticity": 0.0018791052277132999
+      },
+      {
+        "grid": "layer144",
+        "time": 60.0,
+        "velocity": 0.00023424265794363811,
+        "vorticity": 0.0036571960654050197,
+        "near_velocity": 0.00021130082698803397,
+        "near_vorticity": 0.0017179069616756863
+      },
+      {
+        "grid": "layer144",
+        "time": 66.0,
+        "velocity": 0.0002523222028550364,
+        "vorticity": 0.003649014511919804,
+        "near_velocity": 0.00020866564113990687,
+        "near_vorticity": 0.0014271450936448962
+      },
+      {
+        "grid": "layer144",
+        "time": 72.0,
+        "velocity": 0.0002615841775895511,
+        "vorticity": 0.0034513624516026155,
+        "near_velocity": 0.0001972193665101004,
+        "near_vorticity": 0.0011715263778218422
+      }
+    ],
+    "time_fine": [
+      {
+        "grid": "gauss123",
+        "time": 0.5,
+        "velocity": 4.522524939312803e-06,
+        "vorticity": 0.00010042909155970257,
+        "near_velocity": 1.0918017571405237e-05,
+        "near_vorticity": 0.00010036808107629653
+      },
+      {
+        "grid": "gauss123",
+        "time": 1.0,
+        "velocity": 3.8508428668439835e-06,
+        "vorticity": 5.661703787366213e-05,
+        "near_velocity": 9.355144840369207e-06,
+        "near_vorticity": 5.6576022188217364e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 2.0,
+        "velocity": 4.497208013490222e-06,
+        "vorticity": 5.214185508903824e-05,
+        "near_velocity": 1.0977141032588984e-05,
+        "near_vorticity": 5.2139427920633596e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 4.0,
+        "velocity": 3.1566094251966465e-06,
+        "vorticity": 2.761372885231935e-05,
+        "near_velocity": 6.758583112087067e-06,
+        "near_vorticity": 2.5339832949304503e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 6.0,
+        "velocity": 2.19325762538809e-06,
+        "vorticity": 3.296234218366554e-05,
+        "near_velocity": 3.2089642826253703e-06,
+        "near_vorticity": 1.093296058355212e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.0,
+        "velocity": 5.511017718885815e-06,
+        "vorticity": 0.00016056857924889428,
+        "near_velocity": 3.200795299536675e-06,
+        "near_vorticity": 9.653833453785195e-06
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.125,
+        "velocity": 6.08555488466254e-06,
+        "vorticity": 0.00017549325896203875,
+        "near_velocity": 3.50183303058622e-06,
+        "near_vorticity": 1.0600699887070408e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 8.5,
+        "velocity": 8.071066791916595e-06,
+        "vorticity": 0.0002261913029291732,
+        "near_velocity": 4.261015496860553e-06,
+        "near_vorticity": 1.2346868398160901e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 9.0,
+        "velocity": 1.1362759854970561e-05,
+        "vorticity": 0.0003103038492569057,
+        "near_velocity": 4.651211051428382e-06,
+        "near_vorticity": 1.2378810094009337e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 10.0,
+        "velocity": 2.0571419360687208e-05,
+        "vorticity": 0.0005467246579368833,
+        "near_velocity": 5.141909445521008e-06,
+        "near_vorticity": 1.3757508130842997e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 12.0,
+        "velocity": 4.995741856722641e-05,
+        "vorticity": 0.0012809385759239191,
+        "near_velocity": 1.3480433223533873e-05,
+        "near_vorticity": 3.920723364425724e-05
+      },
+      {
+        "grid": "gauss123",
+        "time": 16.0,
+        "velocity": 8.977961175136344e-05,
+        "vorticity": 0.002117273955497955,
+        "near_velocity": 3.563434187492144e-05,
+        "near_vorticity": 0.00018281940197017944
+      },
+      {
+        "grid": "gauss123",
+        "time": 24.0,
+        "velocity": 0.00014814865488504104,
+        "vorticity": 0.0020309661804303538,
+        "near_velocity": 0.00010419203622870387,
+        "near_vorticity": 0.000645137710392967
+      },
+      {
+        "grid": "gauss123",
+        "time": 36.0,
+        "velocity": 0.00019126408232461673,
+        "vorticity": 0.0022576908647134707,
+        "near_velocity": 0.00013443607449342647,
+        "near_vorticity": 0.0012524572807927307
+      },
+      {
+        "grid": "gauss123",
+        "time": 48.0,
+        "velocity": 0.0002001165558989254,
+        "vorticity": 0.003166051265846583,
+        "near_velocity": 0.0001972408015437122,
+        "near_vorticity": 0.0018270571547603855
+      },
+      {
+        "grid": "gauss123",
+        "time": 54.0,
+        "velocity": 0.000221789395664981,
+        "vorticity": 0.0034884102680280784,
+        "near_velocity": 0.00022148590370136065,
+        "near_vorticity": 0.0018900898213817456
+      },
+      {
+        "grid": "gauss123",
+        "time": 60.0,
+        "velocity": 0.0002473004940154682,
+        "vorticity": 0.0036729679453308237,
+        "near_velocity": 0.00023217448261362905,
+        "near_vorticity": 0.001735049633268032
+      },
+      {
+        "grid": "gauss123",
+        "time": 66.0,
+        "velocity": 0.00026753321037498753,
+        "vorticity": 0.003668833215064451,
+        "near_velocity": 0.00023387413816465226,
+        "near_vorticity": 0.0014486810162512276
+      },
+      {
+        "grid": "gauss123",
+        "time": 72.0,
+        "velocity": 0.00027966487032926384,
+        "vorticity": 0.003477348211237234,
+        "near_velocity": 0.00022517036811693983,
+        "near_vorticity": 0.001194382252434261
+      },
+      {
+        "grid": "mid129",
+        "time": 0.5,
+        "velocity": 4.5222253882400185e-06,
+        "vorticity": 0.00010032782425613827,
+        "near_velocity": 1.073129724212985e-05,
+        "near_vorticity": 0.00010026354260231322
+      },
+      {
+        "grid": "mid129",
+        "time": 1.0,
+        "velocity": 3.850827350541237e-06,
+        "vorticity": 5.65118803836785e-05,
+        "near_velocity": 9.192226392161854e-06,
+        "near_vorticity": 5.6462514980351964e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 2.0,
+        "velocity": 4.497335124342984e-06,
+        "vorticity": 5.2147876057742944e-05,
+        "near_velocity": 1.0785525168764605e-05,
+        "near_vorticity": 5.2144803954105194e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 4.0,
+        "velocity": 3.156696163480025e-06,
+        "vorticity": 2.762681841351649e-05,
+        "near_velocity": 6.662492295085132e-06,
+        "near_vorticity": 2.537559264532814e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 6.0,
+        "velocity": 2.1928406495203636e-06,
+        "vorticity": 3.29777418119623e-05,
+        "near_velocity": 3.235373950399438e-06,
+        "near_vorticity": 1.1687754237861913e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.0,
+        "velocity": 5.503249079689645e-06,
+        "vorticity": 0.00016093134490452392,
+        "near_velocity": 3.194467913928026e-06,
+        "near_vorticity": 9.847279069751424e-06
+      },
+      {
+        "grid": "mid129",
+        "time": 8.125,
+        "velocity": 6.075379923928829e-06,
+        "vorticity": 0.00017595815546493177,
+        "near_velocity": 3.4958826007387015e-06,
+        "near_vorticity": 1.0786373845377118e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 8.5,
+        "velocity": 8.050777380103002e-06,
+        "vorticity": 0.0002270973060368224,
+        "near_velocity": 4.270400171280168e-06,
+        "near_vorticity": 1.2575731767138667e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 9.0,
+        "velocity": 1.1320251578035805e-05,
+        "vorticity": 0.00031219651596304317,
+        "near_velocity": 4.700822539423629e-06,
+        "near_vorticity": 1.2693745738462592e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 10.0,
+        "velocity": 2.0444583524567722e-05,
+        "vorticity": 0.0005524757503680142,
+        "near_velocity": 5.14085002834643e-06,
+        "near_vorticity": 1.4057113318789347e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 12.0,
+        "velocity": 4.9496475645290856e-05,
+        "vorticity": 0.0013025958164800358,
+        "near_velocity": 1.3675037805213941e-05,
+        "near_vorticity": 4.003066208374968e-05
+      },
+      {
+        "grid": "mid129",
+        "time": 16.0,
+        "velocity": 8.88415538789526e-05,
+        "vorticity": 0.002165266635308318,
+        "near_velocity": 3.5950265290194936e-05,
+        "near_vorticity": 0.00018770160876572598
+      },
+      {
+        "grid": "mid129",
+        "time": 24.0,
+        "velocity": 0.0001480502325068159,
+        "vorticity": 0.002039572060340636,
+        "near_velocity": 0.00010589014590840294,
+        "near_vorticity": 0.0006610084795291943
+      },
+      {
+        "grid": "mid129",
+        "time": 36.0,
+        "velocity": 0.00019115427743498272,
+        "vorticity": 0.002268504815683612,
+        "near_velocity": 0.0001360158246819125,
+        "near_vorticity": 0.001285360645221846
+      },
+      {
+        "grid": "mid129",
+        "time": 48.0,
+        "velocity": 0.0001997961240811367,
+        "vorticity": 0.0031811642320527223,
+        "near_velocity": 0.00019783202831201308,
+        "near_vorticity": 0.0018684983182868866
+      },
+      {
+        "grid": "mid129",
+        "time": 54.0,
+        "velocity": 0.000221766863348856,
+        "vorticity": 0.003500314046014304,
+        "near_velocity": 0.00022333100816633377,
+        "near_vorticity": 0.001943859291470557
+      },
+      {
+        "grid": "mid129",
+        "time": 60.0,
+        "velocity": 0.0002473230223249054,
+        "vorticity": 0.0036825808313303747,
+        "near_velocity": 0.0002356850757142854,
+        "near_vorticity": 0.0018028195294391876
+      },
+      {
+        "grid": "mid129",
+        "time": 66.0,
+        "velocity": 0.00026751114800632715,
+        "vorticity": 0.0036764972379399767,
+        "near_velocity": 0.00023833654535876264,
+        "near_vorticity": 0.0015158021429673922
+      },
+      {
+        "grid": "mid129",
+        "time": 72.0,
+        "velocity": 0.0002796581210225908,
+        "vorticity": 0.0034845425803541824,
+        "near_velocity": 0.0002303572008226569,
+        "near_vorticity": 0.0012311719828096155
+      },
+      {
+        "grid": "layer144",
+        "time": 0.5,
+        "velocity": 4.52252508415728e-06,
+        "vorticity": 0.00010042911967976497,
+        "near_velocity": 1.0960051110428928e-05,
+        "near_vorticity": 0.00010036807276271401
+      },
+      {
+        "grid": "layer144",
+        "time": 1.0,
+        "velocity": 3.850842913055054e-06,
+        "vorticity": 5.6617064670870727e-05,
+        "near_velocity": 9.391821432586102e-06,
+        "near_vorticity": 5.657600503285915e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 2.0,
+        "velocity": 4.4972080314749135e-06,
+        "vorticity": 5.214185586794553e-05,
+        "near_velocity": 1.1020332569539305e-05,
+        "near_vorticity": 5.213942500907799e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 4.0,
+        "velocity": 3.1566094320567316e-06,
+        "vorticity": 2.7613729224960972e-05,
+        "near_velocity": 6.7799791438371215e-06,
+        "near_vorticity": 2.5334881224457183e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 6.0,
+        "velocity": 2.1932576506361642e-06,
+        "vorticity": 3.29623429084573e-05,
+        "near_velocity": 3.2029392765649215e-06,
+        "near_vorticity": 1.077347562315593e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 8.0,
+        "velocity": 5.511017740117384e-06,
+        "vorticity": 0.00016056879020551329,
+        "near_velocity": 3.202075942860369e-06,
+        "near_vorticity": 9.612843374768931e-06
+      },
+      {
+        "grid": "layer144",
+        "time": 8.125,
+        "velocity": 6.0855549089704255e-06,
+        "vorticity": 0.00017549348817896745,
+        "near_velocity": 3.5029444944422543e-06,
+        "near_vorticity": 1.0560031494340643e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 8.5,
+        "velocity": 8.071066826685688e-06,
+        "vorticity": 0.00022619158303172882,
+        "near_velocity": 4.25846358814919e-06,
+        "near_vorticity": 1.2299631168235824e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 9.0,
+        "velocity": 1.1362759899990642e-05,
+        "vorticity": 0.0003103041807540267,
+        "near_velocity": 4.639771204893969e-06,
+        "near_vorticity": 1.2313571893370328e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 10.0,
+        "velocity": 2.057141941417938e-05,
+        "vorticity": 0.0005467250340280435,
+        "near_velocity": 5.143059597456217e-06,
+        "near_vorticity": 1.3691319688988354e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 12.0,
+        "velocity": 4.995741863260388e-05,
+        "vorticity": 0.0012809390025215611,
+        "near_velocity": 1.3436189469230525e-05,
+        "near_vorticity": 3.901772383336584e-05
+      },
+      {
+        "grid": "layer144",
+        "time": 16.0,
+        "velocity": 8.977961219327866e-05,
+        "vorticity": 0.0021172754887529774,
+        "near_velocity": 3.5561809772422775e-05,
+        "near_vorticity": 0.00018189949492076882
+      },
+      {
+        "grid": "layer144",
+        "time": 24.0,
+        "velocity": 0.00014814864972374225,
+        "vorticity": 0.0020309684219517515,
+        "near_velocity": 0.00010379532977058937,
+        "near_vorticity": 0.0006430136683860881
+      },
+      {
+        "grid": "layer144",
+        "time": 36.0,
+        "velocity": 0.00019126407628292644,
+        "vorticity": 0.0022576929744161276,
+        "near_velocity": 0.00013412860901791158,
+        "near_vorticity": 0.001248603941385505
+      },
+      {
+        "grid": "layer144",
+        "time": 48.0,
+        "velocity": 0.00020011653115625715,
+        "vorticity": 0.00316605108204002,
+        "near_velocity": 0.00019707544320818403,
+        "near_vorticity": 0.0018226978957409162
+      },
+      {
+        "grid": "layer144",
+        "time": 54.0,
+        "velocity": 0.00022178938932531573,
+        "vorticity": 0.0034884106144051057,
+        "near_velocity": 0.00022103334804162718,
+        "near_vorticity": 0.0018834544306119804
+      },
+      {
+        "grid": "layer144",
+        "time": 60.0,
+        "velocity": 0.0002473005045823878,
+        "vorticity": 0.003672970441623875,
+        "near_velocity": 0.0002313497119201846,
+        "near_vorticity": 0.0017252724268566593
+      },
+      {
+        "grid": "layer144",
+        "time": 66.0,
+        "velocity": 0.0002675332279250654,
+        "vorticity": 0.0036688358218258275,
+        "near_velocity": 0.0002328298420327931,
+        "near_vorticity": 0.0014389211559236897
+      },
+      {
+        "grid": "layer144",
+        "time": 72.0,
+        "velocity": 0.00027966485401729015,
+        "vorticity": 0.0034773510211102486,
+        "near_velocity": 0.00022400698194644712,
+        "near_vorticity": 0.0011904465823467715
+      }
+    ]
+  },
+  "guard_worst": {
+    "angular_fine": {
+      "velocity": 0.0002615841946829166,
+      "vorticity": 0.0036668475218568516,
+      "near_velocity": 0.00021579804949704853,
+      "near_vorticity": 0.0019395326321396602
+    },
+    "time_fine": {
+      "velocity": 0.00027966487032926384,
+      "vorticity": 0.0036825808313303747,
+      "near_velocity": 0.00023833654535876264,
+      "near_vorticity": 0.001943859291470557
+    }
+  },
+  "wake": {
+    "analysis_interval": [
+      36.0,
+      72.0
+    ],
+    "diameter": 1.0,
+    "speed": 1.0,
+    "sample_count": 289,
+    "sample_gap_max": 0.125,
+    "probe_x": [
+      1.5,
+      2.5,
+      3.5
+    ],
+    "velocity_floor": 0.005,
+    "vorticity_floor": 0.02,
+    "velocity": [
+      {
+        "centre": 0.033452425318833655,
+        "minimum": -0.41077703638422575,
+        "maximum": 0.410749190848638,
+        "positive_and_negative": true,
+        "robust_half_swing": 0.4010913813284216,
+        "positive_crossing_times": [
+          41.39361486401879,
+          47.095077267825324,
+          52.79233570478288,
+          58.487362298780646,
+          64.18153461208907,
+          69.875
+        ],
+        "periods": [
+          5.701462403806538,
+          5.697258436957554,
+          5.695026593997767,
+          5.694172313308421,
+          5.693465387910933
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.695026593997767,
+        "period_cv": 0.0005072852246643338,
+        "cycle_half_swing": [
+          0.4060473422153744,
+          0.40789323544405187,
+          0.40976096332465123,
+          0.4097480180281164,
+          0.41053511191639125
+        ],
+        "late_over_early_amplitude": 1.007792402122671,
+        "peak_trough_alternations": 12,
+        "spectral_frequency": 0.17597490165988613,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.02690090592685798,
+        "minimum": -0.6388084405305966,
+        "maximum": 0.6389184785358157,
+        "positive_and_negative": true,
+        "robust_half_swing": 0.6282934332645203,
+        "positive_crossing_times": [
+          37.37766624026389,
+          43.086853548161194,
+          48.78820570355864,
+          54.48558129599247,
+          60.18022516588413,
+          65.875,
+          71.5678081028356
+        ],
+        "periods": [
+          5.709187307897302,
+          5.701352155397444,
+          5.697375592433829,
+          5.694643869891664,
+          5.694774834115869,
+          5.692808102835599
+        ],
+        "complete_cycles": 6,
+        "median_period": 5.696075213274849,
+        "period_cv": 0.000973501599170106,
+        "cycle_half_swing": [
+          0.6346288237970602,
+          0.635840915215041,
+          0.6378811527878101,
+          0.6379248007663474,
+          0.6383450698830289,
+          0.6386282730105357
+        ],
+        "late_over_early_amplitude": 1.0051190545368838,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.17595755526002813,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.08501217802789406,
+        "minimum": -0.5766329020614847,
+        "maximum": 0.57647728219554,
+        "positive_and_negative": true,
+        "robust_half_swing": 0.5648492881220226,
+        "positive_crossing_times": [
+          38.67683227265387,
+          44.38480281808708,
+          50.08374984206901,
+          55.780469403338124,
+          61.475191263946385,
+          67.16879775656679
+        ],
+        "periods": [
+          5.707970545433213,
+          5.69894702398193,
+          5.696719561269113,
+          5.6947218606082615,
+          5.693606492620404
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.696719561269113,
+        "period_cv": 0.0008990219119566811,
+        "cycle_half_swing": [
+          0.575680245442632,
+          0.5748881158504942,
+          0.5764335303070698,
+          0.5750251126401418,
+          0.5764329119548277
+        ],
+        "late_over_early_amplitude": 1.000773238107159,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.17596433054719823,
+        "persistent": true,
+        "saturated": true
+      }
+    ],
+    "vorticity": [
+      {
+        "centre": -0.053116125703734085,
+        "minimum": -2.0510680917989106,
+        "maximum": 2.0510026349430484,
+        "positive_and_negative": true,
+        "robust_half_swing": 2.0168883046090293,
+        "positive_crossing_times": [
+          37.10756739080339,
+          42.8086426953487,
+          48.50714924565987,
+          54.201026112773704,
+          59.895930748479266,
+          65.58883359547092,
+          71.28250973052491
+        ],
+        "periods": [
+          5.701075304545313,
+          5.698506550311166,
+          5.693876867113836,
+          5.694904635705562,
+          5.69290284699165,
+          5.693676135053991
+        ],
+        "complete_cycles": 6,
+        "median_period": 5.694390751409699,
+        "period_cv": 0.0005196082733978142,
+        "cycle_half_swing": [
+          1.9936298104292414,
+          2.022808499092099,
+          2.0393928328254756,
+          2.045250968484835,
+          2.050329556398286,
+          2.050642320506332
+        ],
+        "late_over_early_amplitude": 1.0210468979899137,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.17601085069601485,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.40196507307453294,
+        "minimum": -2.403472327418953,
+        "maximum": 2.403629166518817,
+        "positive_and_negative": true,
+        "robust_half_swing": 2.3837186128873213,
+        "positive_crossing_times": [
+          38.25,
+          43.95134935511746,
+          49.649716528960134,
+          55.34406283970655,
+          61.038910542585214,
+          66.7319884574881
+        ],
+        "periods": [
+          5.701349355117458,
+          5.698367173842676,
+          5.694346310746418,
+          5.694847702878661,
+          5.6930779149028865
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.694847702878661,
+        "period_cv": 0.0005326381232452214,
+        "cycle_half_swing": [
+          2.3899683444492412,
+          2.397887717299292,
+          2.4007695246381795,
+          2.4016031466527696,
+          2.403550746968885
+        ],
+        "late_over_early_amplitude": 1.0036128554513821,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.1759651599781405,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.05883305058753055,
+        "minimum": -2.025902578778601,
+        "maximum": 2.026514561361962,
+        "positive_and_negative": true,
+        "robust_half_swing": 1.9673214685772313,
+        "positive_crossing_times": [
+          39.53251625159299,
+          45.23352323766329,
+          50.9359947522181,
+          56.625,
+          62.32546084050163,
+          68.01636706624305
+        ],
+        "periods": [
+          5.701006986070304,
+          5.702471514554809,
+          5.6890052477819,
+          5.700460840501627,
+          5.690906225741422
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.700460840501627,
+        "period_cv": 0.0009891280863624174,
+        "cycle_half_swing": [
+          2.0193042288356464,
+          2.0225764983719303,
+          2.0195938559670177,
+          2.026208570070281,
+          2.021050740383899
+        ],
+        "late_over_early_amplitude": 1.0013307130045668,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.1759240725986148,
+        "persistent": true,
+        "saturated": true
+      }
+    ],
+    "median_period": 5.696075213274849,
+    "strouhal": 0.1755594795640118,
+    "confirmed_probe_indices": [
+      0,
+      1,
+      2
+    ],
+    "cross_stream_periodic": true,
+    "passed": true,
+    "sustained_alternating_probe_signs": true,
+    "saturated_by_amplitude_test": true,
+    "velocity_downstream_lag": [
+      1.7677879372554295,
+      1.3441055385254366
+    ],
+    "vorticity_downstream_lag": [
+      1.3680379125463535,
+      1.4865661731319235
+    ]
+  },
+  "implementation_pass": true,
+  "physical_pass": true,
+  "guard_pass": true,
+  "work": {
+    "steps": 9920,
+    "nonlinear_evaluations": 9919,
+    "marching_fft_batches": 19838,
+    "inverse_field_transforms": 29757,
+    "forward_field_transforms": 19838,
+    "compiled_cuda_modules": 1,
+    "phase_preparation_shared": true,
+    "source": "verified_device_switch_inventory"
+  }
+}

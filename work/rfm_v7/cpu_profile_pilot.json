@@ -1,0 +1,411 @@
+{
+  "purpose": "diagnostic, not isolated; not an end-to-end benchmark",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+  "numpy": "2.4.1",
+  "scipy": "1.16.3",
+  "rows": [
+    {
+      "spec": {
+        "name": "rfm37_k72",
+        "kind": "rfm",
+        "engine": "buffered",
+        "rate": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft"
+        }
+      },
+      "horizon": 1.0,
+      "steps": 128,
+      "repeats": 3,
+      "plain_cold_seconds": [
+        0.17760009999619797,
+        0.17327569995541126,
+        0.15964039997197688
+      ],
+      "plain_setup_seconds": [
+        0.026800199993886054,
+        0.027134399977512658,
+        0.022242299979552627
+      ],
+      "instrumented_cold_seconds": [
+        0.1859554999973625,
+        0.19542940001701936,
+        0.1610221000155434
+      ],
+      "instrumented_setup_seconds": [
+        0.024217600002884865,
+        0.025276800035499036,
+        0.02218869997886941
+      ],
+      "plain_cold_median_seconds": 0.17327569995541126,
+      "instrumented_cold_median_seconds": 0.1859554999973625,
+      "instrumented_exclusive_categories": {
+        "implicit_apply": {
+          "seconds": 0.0411083,
+          "microseconds_per_step": 321.15859375,
+          "share": 0.26198988408423723,
+          "calls": 384,
+          "explicit_buffer_bytes": 0
+        },
+        "fft_inverse": {
+          "seconds": 0.029193766666666666,
+          "microseconds_per_step": 228.07630208333333,
+          "share": 0.1860566246957979,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "radial_fields": {
+          "seconds": 0.024810866666666667,
+          "microseconds_per_step": 193.83489583333335,
+          "share": 0.15812368991248643,
+          "calls": 405,
+          "explicit_buffer_bytes": 0
+        },
+        "radial_dense_apply": {
+          "seconds": 0.017633366666666667,
+          "microseconds_per_step": 137.76067708333332,
+          "share": 0.11238031465701216,
+          "calls": 1548,
+          "explicit_buffer_bytes": 0
+        },
+        "fft_forward": {
+          "seconds": 0.01652906666666667,
+          "microseconds_per_step": 129.13333333333335,
+          "share": 0.1053424310910602,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "mass_projection_and_bookkeeping": {
+          "seconds": 0.010392333333333335,
+          "microseconds_per_step": 81.19010416666667,
+          "share": 0.06623203113154168,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "explicit_numpy_buffers": {
+          "seconds": 0.0062776333333333335,
+          "microseconds_per_step": 49.04401041666667,
+          "share": 0.040008378583481774,
+          "calls": 3159,
+          "explicit_buffer_bytes": 146916576
+        },
+        "driver_and_profiler_residual": {
+          "seconds": 0.005137966670890649,
+          "microseconds_per_step": 40.140364616333194,
+          "share": 0.03274509752374376,
+          "calls": 0,
+          "explicit_buffer_bytes": 0
+        },
+        "nonlinear_arithmetic": {
+          "seconds": 0.0028564000000000003,
+          "microseconds_per_step": 22.315625,
+          "share": 0.01820430192681807,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "angular_pad_and_pack": {
+          "seconds": 0.0024536333333333334,
+          "microseconds_per_step": 19.16901041666667,
+          "share": 0.015637404431348916,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "angular_output_view": {
+          "seconds": 0.0005146333333333334,
+          "microseconds_per_step": 4.020572916666667,
+          "share": 0.003279841962471925,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        }
+      },
+      "host_device_transfer_seconds": 0.0,
+      "device_synchronization_seconds": 0.0,
+      "bitwise_checks": true
+    },
+    {
+      "spec": {
+        "name": "leg37_k72",
+        "kind": "legendre",
+        "engine": "buffered",
+        "rate": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "family": "legendre"
+        }
+      },
+      "horizon": 1.0,
+      "steps": 128,
+      "repeats": 3,
+      "plain_cold_seconds": [
+        0.22611410001991317,
+        0.3078379000071436,
+        0.3147647000150755
+      ],
+      "plain_setup_seconds": [
+        0.06034840003121644,
+        0.09810160001507029,
+        0.09984239999903366
+      ],
+      "instrumented_cold_seconds": [
+        0.3322879000334069,
+        0.34917600004700944,
+        0.3451548999873921
+      ],
+      "instrumented_setup_seconds": [
+        0.09631789999548346,
+        0.10440860001835972,
+        0.09361489996081218
+      ],
+      "plain_cold_median_seconds": 0.3078379000071436,
+      "instrumented_cold_median_seconds": 0.3451548999873921,
+      "instrumented_exclusive_categories": {
+        "implicit_apply": {
+          "seconds": 0.06580956666666667,
+          "microseconds_per_step": 514.1372395833333,
+          "share": 0.2696091672020536,
+          "calls": 384,
+          "explicit_buffer_bytes": 0
+        },
+        "fft_inverse": {
+          "seconds": 0.04537326666666667,
+          "microseconds_per_step": 354.4786458333333,
+          "share": 0.18588556738564402,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "radial_fields": {
+          "seconds": 0.0363213,
+          "microseconds_per_step": 283.76015625,
+          "share": 0.14880139682876828,
+          "calls": 405,
+          "explicit_buffer_bytes": 0
+        },
+        "fft_forward": {
+          "seconds": 0.0263163,
+          "microseconds_per_step": 205.59609375000002,
+          "share": 0.10781283157169251,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "radial_dense_apply": {
+          "seconds": 0.023448,
+          "microseconds_per_step": 183.1875,
+          "share": 0.09606195683637311,
+          "calls": 1548,
+          "explicit_buffer_bytes": 0
+        },
+        "mass_projection_and_bookkeeping": {
+          "seconds": 0.01825406666666667,
+          "microseconds_per_step": 142.60989583333335,
+          "share": 0.07478340857308131,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "explicit_numpy_buffers": {
+          "seconds": 0.010083233333333334,
+          "microseconds_per_step": 78.77526041666667,
+          "share": 0.04130907221245928,
+          "calls": 3159,
+          "explicit_buffer_bytes": 151411584
+        },
+        "driver_and_profiler_residual": {
+          "seconds": 0.008294466697717707,
+          "microseconds_per_step": 64.80052107591958,
+          "share": 0.033980838531938444,
+          "calls": 0,
+          "explicit_buffer_bytes": 0
+        },
+        "nonlinear_arithmetic": {
+          "seconds": 0.004916433333333334,
+          "microseconds_per_step": 38.40963541666667,
+          "share": 0.02014168400953483,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "angular_pad_and_pack": {
+          "seconds": 0.004146833333333333,
+          "microseconds_per_step": 32.397135416666664,
+          "share": 0.016988780479115485,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "angular_output_view": {
+          "seconds": 0.001129,
+          "microseconds_per_step": 8.8203125,
+          "share": 0.004625296369339187,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        }
+      },
+      "host_device_transfer_seconds": 0.0,
+      "device_synchronization_seconds": 0.0,
+      "bitwise_checks": true
+    },
+    {
+      "spec": {
+        "name": "fd176_k80",
+        "kind": "fd",
+        "engine": "fd",
+        "rate": 128,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "horizon": 1.0,
+      "steps": 128,
+      "repeats": 3,
+      "plain_cold_seconds": [
+        1.0351272000116296,
+        0.7190872000064701,
+        0.7427805999759585
+      ],
+      "plain_setup_seconds": [
+        0.24438559997361153,
+        0.14844049996463582,
+        0.1588867999962531
+      ],
+      "instrumented_cold_seconds": [
+        0.835258100007195,
+        0.74759039998753,
+        0.8137210999848321
+      ],
+      "instrumented_setup_seconds": [
+        0.193091600027401,
+        0.16516129998490214,
+        0.1825239000027068
+      ],
+      "plain_cold_median_seconds": 0.7427805999759585,
+      "instrumented_cold_median_seconds": 0.8137210999848321,
+      "instrumented_exclusive_categories": {
+        "fft_inverse": {
+          "seconds": 0.1465151,
+          "microseconds_per_step": 1144.64921875,
+          "share": 0.23685041778823426,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "fd_native_band_kernel": {
+          "seconds": 0.14435103333333335,
+          "microseconds_per_step": 1127.7424479166668,
+          "share": 0.233352074654171,
+          "calls": 384,
+          "explicit_buffer_bytes": 0
+        },
+        "radial_fields": {
+          "seconds": 0.0961843,
+          "microseconds_per_step": 751.43984375,
+          "share": 0.15548767082484236,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "radial_sparse_apply": {
+          "seconds": 0.055645733333333336,
+          "microseconds_per_step": 434.7322916666667,
+          "share": 0.08995465442219043,
+          "calls": 1524,
+          "explicit_buffer_bytes": 0
+        },
+        "nonlinear_arithmetic": {
+          "seconds": 0.04989403333333334,
+          "microseconds_per_step": 389.79713541666666,
+          "share": 0.08065668753691659,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "driver_and_profiler_residual": {
+          "seconds": 0.04436306665484905,
+          "microseconds_per_step": 346.5864582410082,
+          "share": 0.07171554926125895,
+          "calls": 0,
+          "explicit_buffer_bytes": 0
+        },
+        "fft_forward": {
+          "seconds": 0.02915936666666667,
+          "microseconds_per_step": 227.80755208333335,
+          "share": 0.04713785935675102,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "explicit_numpy_buffers": {
+          "seconds": 0.016405600000000003,
+          "microseconds_per_step": 128.16875000000002,
+          "share": 0.026520633122911263,
+          "calls": 1158,
+          "explicit_buffer_bytes": 266668800
+        },
+        "angular_pad_and_pack": {
+          "seconds": 0.015427666666666668,
+          "microseconds_per_step": 120.52864583333333,
+          "share": 0.02493974542895316,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "mass_projection_and_bookkeeping": {
+          "seconds": 0.012096,
+          "microseconds_per_step": 94.5,
+          "share": 0.01955390709603639,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        },
+        "implicit_apply": {
+          "seconds": 0.0075849666666666675,
+          "microseconds_per_step": 59.25755208333334,
+          "share": 0.012261552044190875,
+          "calls": 384,
+          "explicit_buffer_bytes": 0
+        },
+        "angular_output_view": {
+          "seconds": 0.0009707333333333334,
+          "microseconds_per_step": 7.583854166666668,
+          "share": 0.0015692484635437935,
+          "calls": 381,
+          "explicit_buffer_bytes": 0
+        }
+      },
+      "host_device_transfer_seconds": 0.0,
+      "device_synchronization_seconds": 0.0,
+      "bitwise_checks": true
+    }
+  ],
+  "limits": [
+    "Short rest-start runs preserve actual v6 layout and SBDF2 path.",
+    "Categories are exclusive, with instrumentation overhead in parent/residual clocks.",
+    "Explicit NumPy constructor clocks include copy or zero-fill; bytes are summed, not peak.",
+    "FFT clocks include SciPy transform output allocation; ufunc temporaries remain bundled.",
+    "FD native band kernel is separate; Galerkin implicit apply retains unavoidable operator glue."
+  ]
+}

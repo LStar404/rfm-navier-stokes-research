@@ -1,0 +1,755 @@
+{
+  "status": "frozen",
+  "template": {
+    "name": "Selected-rate native contraction and hardware comparison",
+    "status": "draft_requires_completed_accuracy_and_isolation",
+    "horizon": 72,
+    "gate": 0.005,
+    "implementation_tolerance": 1e-05,
+    "reference_budget_fraction": 0.25,
+    "reference_names": [
+      "angular_fine",
+      "time_fine"
+    ],
+    "galerkin_names": [
+      "rfm37_k72",
+      "leg37_k72"
+    ],
+    "galerkin_rate": 112,
+    "galerkin_arms": [
+      "cpu_recurrence",
+      "cpu_native_contract",
+      "cuda_graph",
+      "cuda_graph_rate128"
+    ],
+    "galerkin_cuda_control_rate": 128,
+    "fd_name": "fd176_k80",
+    "fd_rate": 128,
+    "fd_arms": [
+      "cpu_buffered",
+      "cuda_graph"
+    ],
+    "cuda_graph_steps": 24,
+    "cuda_fd_linear": "dense",
+    "order_seed": 169421,
+    "blocks": 5,
+    "registered_rfm_seeds": [
+      7331,
+      7687,
+      8011,
+      8353,
+      9041
+    ],
+    "deterministic_seed": 17,
+    "schedule": "Five randomized isolated blocks of ten arms. Each block shares its RFM seed across the four RFM arms. Repeat deterministic methods once per block. Pin CPU affinity and use a single BLAS thread.",
+    "requirements": "Before timing, validate the completed selected-rate screen and all six new native CPU accuracy rows, plus independently verified compiler and binary metadata. Freeze the source, C and native binary hashes, actual qualification artifacts, exact two references and audit, and per-block order. Save all raw fields, observations, timings and failures. All timed runs must meet both references, sustained alternating wake and the matched implementation field/probe tolerance. Keep the original rate-screen guards and no retuning.",
+    "timing": "Time a fresh in-process solve, including model setup, coefficients and plan construction, full marching, probes and checkpoint collection, CUDA synchronization, transfer and teardown when applicable. Exclude reference preparation, scoring and artifact serialization. Report five raw times, range, and within-block ratios. Keep any failed arm visible and withhold its matched-accuracy claim.",
+    "contrasts": "CPU native versus recurrence at rate112 isolates the operator implementation. Same-seed CUDA rate128 versus rate112 with the same spatial discretization isolates the rate change. Compare selected Galerkin and FD on the same backend at the shared accuracy gate."
+  },
+  "inputs": {
+    "protocol": {
+      "name": "Native precontracted Galerkin CPU accuracy qualification at the selected rate",
+      "methods": [
+        "rfm37_k72",
+        "leg37_k72"
+      ],
+      "rate": 112,
+      "reference_names": [
+        "angular_fine",
+        "time_fine"
+      ],
+      "implementation_tolerance": 1e-05,
+      "fixed_state_tolerance": 1e-10,
+      "workers": 3,
+      "scope": "Accuracy-only full t=72 trials against both equilibrated references and the corresponding saved r112 CPU Recurrence control. Retain the direct accuracy gate, alternating wake and same-space r128 cancellation guard. CPU parallelism is permitted. Solver diagnostic seconds are not isolated timing evidence."
+    },
+    "solve_protocol": {
+      "name": "v7 full annulus CPU preregistration",
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "deterministic_seed": 17,
+      "order_seed": 116287,
+      "horizon": 72,
+      "checkpoints": [
+        24,
+        36,
+        48,
+        54,
+        60,
+        66,
+        72
+      ],
+      "gate": 0.005,
+      "reference_budget_fraction": 0.25,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "reference_path": [
+        {
+          "name": "radial_coarse",
+          "n": 280,
+          "k": 104,
+          "rate": 256,
+          "source": "rfm_v6/parallel_refinement/fd280_ref.npz"
+        },
+        {
+          "name": "radial_fine",
+          "n": 320,
+          "k": 104,
+          "rate": 256,
+          "source": "rfm_v6/parallel_refinement/fd320_ref.npz"
+        },
+        {
+          "name": "angular_fine",
+          "n": 320,
+          "k": 112,
+          "rate": 256,
+          "source": "rfm_v7/cpu_formal_output/reference_angular_fine.npz"
+        },
+        {
+          "name": "time_fine",
+          "n": 320,
+          "k": 112,
+          "rate": 320,
+          "source": "rfm_v6/parallel_refinement/fd320_ref_tk.npz"
+        }
+      ],
+      "legacy_reference": "rfm_v6/fd_full_n240_k120_rate320_outer1.npz",
+      "variants": [
+        {
+          "name": "rfm35_k64",
+          "method": "rfm",
+          "m": 35,
+          "k": 64,
+          "q": 60,
+          "rate": 128
+        },
+        {
+          "name": "rfm37_k72",
+          "method": "rfm",
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "rate": 128
+        },
+        {
+          "name": "rfm41_k80",
+          "method": "rfm",
+          "m": 41,
+          "k": 80,
+          "q": 76,
+          "rate": 152
+        },
+        {
+          "name": "leg35_k64",
+          "method": "legendre",
+          "m": 35,
+          "k": 64,
+          "q": 60,
+          "rate": 128
+        },
+        {
+          "name": "leg37_k72",
+          "method": "legendre",
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "rate": 128
+        },
+        {
+          "name": "leg39_k80",
+          "method": "legendre",
+          "m": 39,
+          "k": 80,
+          "q": 76,
+          "rate": 152
+        },
+        {
+          "name": "fd152_k80",
+          "method": "fd4",
+          "n": 152,
+          "k": 80,
+          "rate": 128
+        },
+        {
+          "name": "fd176_k80",
+          "method": "fd4",
+          "n": 176,
+          "k": 80,
+          "rate": 128
+        },
+        {
+          "name": "fd184_k80",
+          "method": "fd4",
+          "n": 184,
+          "k": 80,
+          "rate": 128
+        }
+      ]
+    },
+    "specs": {
+      "rfm37_k72": {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128
+      },
+      "leg37_k72": {
+        "name": "leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128
+      }
+    },
+    "jobs": [
+      {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "controls": [
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_7331_r112.json",
+            "sha256": "5192dca423595462d762ef5fe26166af65ff8f9c2cd6193033497ef1e6254360"
+          },
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_7331_r128.json",
+            "sha256": "c3d3c2bb00273ed31c968e2bd7e7d64b17445d3e321d90d3817ac0539079bc04"
+          }
+        ]
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 7687,
+        "controls": [
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_7687_r112.json",
+            "sha256": "d72da7db8ff66e1c688d0304214c24f8549795f98eaf496137b556a55cdf56ee"
+          },
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_7687_r128.json",
+            "sha256": "c391886676a7a22f9abbf84ae565943f9e5fd75ca376ad2ae472d7a6a2769928"
+          }
+        ]
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 8011,
+        "controls": [
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_8011_r112.json",
+            "sha256": "0465e0a65c36cd629c3a5bf0c705b20174e171ca84c579bbe052195c84b779f5"
+          },
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_8011_r128.json",
+            "sha256": "fdc0acf9cc4e03dbeb140f01fd4e52f89b9edb8e266a09a24cc88f4903cc0095"
+          }
+        ]
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 8353,
+        "controls": [
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_8353_r112.json",
+            "sha256": "b8ba0c7cc11e58a4c13b2f358f6e811e8ced3315196f33b37bd67c68a48b4aa4"
+          },
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_8353_r128.json",
+            "sha256": "9275582b2849cc374246670637c40cb2392bf331b747afef7c89c321909922fa"
+          }
+        ]
+      },
+      {
+        "name": "rfm37_k72",
+        "seed": 9041,
+        "controls": [
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_9041_r112.json",
+            "sha256": "b73563c00b236d53f63b30506ea6d336482bcac841d1ba9422acfac000ce7c5d"
+          },
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_rfm37_k72_9041_r128.json",
+            "sha256": "1af9580bdb6702fea671c455ae82fdad34c7b7bf617c7d4ace27a7a853677988"
+          }
+        ]
+      },
+      {
+        "name": "leg37_k72",
+        "seed": 17,
+        "controls": [
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_leg37_k72_17_r112.json",
+            "sha256": "06b78db8d40b835db8d380372575a57cbc5ef931b4f1d0b4182b36efbe678e06"
+          },
+          {
+            "source": "rfm_v7/cpu_formal_step_screen_output/cpu_leg37_k72_17_r128.json",
+            "sha256": "15f3d7617549bf4e94713ce255550a32e85984c6f44d438ed915597cb3d8b64b"
+          }
+        ]
+      }
+    ],
+    "source_hashes": {
+      "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+      "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+      "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+      "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+      "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+      "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+      "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+      "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+      "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+      "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+      "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+      "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+      "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+      "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+      "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+      "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+      "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+      "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+      "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+      "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+      "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+      "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+      "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+      "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+      "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+      "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+      "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+      "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+      "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+      "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+      "rfm_v7/joint_hardware_pow2.py": "486edac66c62fc54975424c57c72ab6eeb9143f8ef8504bcf98cc3449b9d74fa",
+      "rfm_v7/protocol_joint_hardware_pow2.json": "3e4ff883394a5cc5689d28aecec9585daf07993fb2af10d16652875a7bb89258",
+      "rfm_v7/cpu_formal_reference_point1.py": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+      "rfm_v7/cpu_formal_projection.py": "ed95684899c8f44a17d54c79a911a2ef355623095a6d99be3649b2a3b155e023",
+      "rfm_v7/protocol_point1_ref.json": "7c8b19df854cc36dc6f3c0c40c457a3f9e281cbc7f38baf7e18d9975fe547d27",
+      "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+      "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+      "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+      "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+      "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+      "rfm_v7/protocol_fd_pow2_reference.json": "5badda274fb0478e684e590403f4065ec56a53daa5872bec656b93178294f665",
+      "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+      "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+      "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+      "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432",
+      "rfm_v7/protocol_step_screen_draft.json": "ad5c4030a72998c04899e64bf0741cda7abb47341c3eca99e79b21bacc73ca1a",
+      "rfm_v7/cpu_formal_step_screen.py": "ad9eacf286fd4926df9b8faa5490ec3f5b69e425829d25345c1bca53a87331cd",
+      "rfm_v7/cpu_native_qualification.py": "5d545655d099fd0a0bf1b79cf4cf43f16a78dbd2439344fd81b9774ca61a2e09",
+      "rfm_v7/protocol_cpu_native_qualification.json": "ea55954db038fd8f4f88911b1bb768825388dfc4054bff944f91abfd8862bfcc",
+      "rfm_v7/cpu_precontracted.py": "e09a64e23967118e4b0834d415d4b219a5cd8fcda2b610fc0da9c2a60e6419cb",
+      "rfm_v7/cpu_precontracted_native.py": "eb440eee40e82a830e60e378497d5899b9295f5591156e8bfd38382a2c0e8b96",
+      "rfm_v7/galerkin_cpu_contract.c": "6022ac22ae22e513ec00298ebf81398a2d74cf2ee5b9aa4a831c87f7a01baf57",
+      "rfm_v7/galerkin_cpu_contract.dll": "73bd61940a4d9eee5edd8f6cd58e3980f27c8847f7467c33d030276630f378ee"
+    },
+    "qualification_files": {
+      "rfm_v7/cpu_formal_step_screen_output/qualification.json": "eb43b137ba58ced1ac0d96411a882bbafe842838bbcf2848021b47a55e70d15e",
+      "rfm_v7/cpu_formal_step_screen_output/freeze.json": "5e1a6453fc19abde27133d9c5cd9d7f6150847249bc254a727d51b28160c2bd5",
+      "rfm_v7/hardware_pow2_output/protocol.json": "3495c4244323c6fe2d0a98d9f376f4b56e90d8576e98ee475ccd167cb4263925"
+    },
+    "reference_hashes": {
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/runs.json": "3a2b47b9f0543b9494e02e35efcf78df36a3835c0b78ce3f6bc54b3e4a10efe4",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/reference_audit.json": "ae67918d78aa718927188fae0b4e9ac7253610c547e2bf7fa3499890444bb2ff",
+      "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077",
+      "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7"
+    }
+  },
+  "schedule": [
+    {
+      "block": 1,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "name": "rfm37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "name": "leg37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "name": "fd176_k80",
+      "arm": "cpu_buffered",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "name": "leg37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "name": "fd176_k80",
+      "arm": "cuda_graph",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "name": "leg37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "name": "leg37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "name": "rfm37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 7331
+    },
+    {
+      "block": 2,
+      "name": "rfm37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "name": "leg37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "name": "rfm37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "name": "leg37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "name": "fd176_k80",
+      "arm": "cuda_graph",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "name": "leg37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "name": "fd176_k80",
+      "arm": "cpu_buffered",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "name": "leg37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "name": "rfm37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "name": "rfm37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "name": "leg37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "name": "fd176_k80",
+      "arm": "cpu_buffered",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "name": "leg37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "name": "leg37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "name": "leg37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "name": "fd176_k80",
+      "arm": "cuda_graph",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "name": "leg37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "name": "rfm37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 8353
+    },
+    {
+      "block": 4,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 8353
+    },
+    {
+      "block": 4,
+      "name": "leg37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "name": "fd176_k80",
+      "arm": "cpu_buffered",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 8353
+    },
+    {
+      "block": 4,
+      "name": "leg37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "name": "leg37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "name": "rfm37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 8353
+    },
+    {
+      "block": 4,
+      "name": "fd176_k80",
+      "arm": "cuda_graph",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "name": "fd176_k80",
+      "arm": "cpu_buffered",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "name": "fd176_k80",
+      "arm": "cuda_graph",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "name": "rfm37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 9041
+    },
+    {
+      "block": 5,
+      "name": "leg37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "name": "rfm37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 9041
+    },
+    {
+      "block": 5,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph",
+      "rate": 112,
+      "seed": 9041
+    },
+    {
+      "block": 5,
+      "name": "leg37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "name": "rfm37_k72",
+      "arm": "cuda_graph_rate128",
+      "rate": 128,
+      "seed": 9041
+    },
+    {
+      "block": 5,
+      "name": "leg37_k72",
+      "arm": "cpu_native_contract",
+      "rate": 112,
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "name": "leg37_k72",
+      "arm": "cpu_recurrence",
+      "rate": 112,
+      "seed": 17
+    }
+  ],
+  "trajectories": {
+    "rfm_v7/cpu_native_qualification_output/rfm37_k72_7331_r112.npz": "a0fc8494b17501474941ad72e30530b519d5ad83c14a2d672270ac9e30c73013",
+    "rfm_v7/cpu_native_qualification_output/rfm37_k72_7687_r112.npz": "c0f8a525086064649dd131fd3737bb01b93146bbc98eea7d0a00d7f7b3f987e6",
+    "rfm_v7/cpu_native_qualification_output/rfm37_k72_8011_r112.npz": "50eecd04f060b0b8da878d0b2395804601d1f704250ad5d59e1036cab037038d",
+    "rfm_v7/cpu_native_qualification_output/rfm37_k72_8353_r112.npz": "d1a89618d513ac7720993c4d555c0b8911985de287891fba0085be26f20b9e8f",
+    "rfm_v7/cpu_native_qualification_output/rfm37_k72_9041_r112.npz": "2ddec8af00a94458b9df9e996d62db0dbc048aa01d1ca1bfcb08fde5e9344a1e",
+    "rfm_v7/cpu_native_qualification_output/leg37_k72_17_r112.npz": "e3b277b3947ab06e0f74a4ef68cb31ee9222db93067e23b439c34190974af02b",
+    "rfm_v7/hardware_pow2_output/block2_cuda_graph_rfm37_k72_7687.npz": "d50abd76e62d30e0f2e38ae4ab37593533a69d8db6d9a21ef50a1b023df739c6",
+    "rfm_v7/cpu_formal_step_screen_output/cuda_graph_rfm37_k72_7331_r112.npz": "3571de19adbd9ab260e6974d4ab6e32543630cbc53dbac1a15321f026f952a4e",
+    "rfm_v7/cpu_formal_step_screen_output/cuda_graph_rfm37_k72_8353_r112.npz": "959a5233355b38a066436b04b4d1ace534a2281880c8bb5653b58811c4f36097",
+    "rfm_v7/hardware_pow2_output/block1_cuda_graph_rfm37_k72_7331.npz": "0eb992bedec090bcc05bed60cd0c9859c4ddd140577b0c7f1ddec9d6206abf6d",
+    "rfm_v7/cpu_formal_step_screen_output/cuda_graph_leg37_k72_17_r112.npz": "57235915e561b885328040df711d70f7850a502c028a3284168bd7f43c941d7c",
+    "rfm_v7/hardware_pow2_output/block1_cuda_graph_leg37_k72_17.npz": "2da8ebaf36ceabf90ec83a61ada0f980928d941853be2c139072275f634ec0e9",
+    "rfm_v7/cpu_formal_step_screen_output/cuda_graph_rfm37_k72_8011_r112.npz": "515fd587f7003e5a3fba2d125a0caffc874a06823e118ecc4bf501d3c4eddac2",
+    "rfm_v7/hardware_pow2_output/block3_cuda_graph_rfm37_k72_8011.npz": "fb42f45d8d5dc9ee9e7dba8f4adbd40324660eb2f565074592599b78e54f775c",
+    "rfm_v7/cpu_formal_step_screen_output/cuda_graph_rfm37_k72_9041_r112.npz": "8bdfba70961c2266cac06773df2228e22a1e80e3961c6c0fd7a7867c7363541f",
+    "rfm_v7/hardware_pow2_output/block1_cuda_graph_fd176_k80_17.npz": "a373683e4489c8c5dd55eec7841484a20a4c56ed8fcafca78cf17666d5d1af23",
+    "rfm_v7/hardware_pow2_output/block5_cuda_graph_rfm37_k72_9041.npz": "3d89cc7ea1761268ca147e3a6e073765f42fb52e34fb5385bb9856bf96c0d371",
+    "rfm_v7/cpu_formal_step_screen_output/cuda_graph_rfm37_k72_7687_r112.npz": "f0da5ee49e2993ba207405307d0f112bbea1e173084d41eb9eb554c90d58db83",
+    "rfm_v7/hardware_pow2_output/block4_cuda_graph_rfm37_k72_8353.npz": "c949cb73926cc590fb4c544108d41c2aa1bb8aca50e65cc506e8206663c8cf88",
+    "rfm_v7/hardware_pow2_output/block1_cpu_fd176_k80_17.npz": "c562fe26facfdd84d07addd046016061970be3319396922f31796a437f130b98"
+  },
+  "files": {
+    "rfm_v7/cpu_native_joint.py": "04453f547a2dc7fc4a94d729d391cfc5511488a5b5119e56346967044af2464c",
+    "rfm_v7/protocol_cpu_native_joint_draft.json": "e86642e1e9910645b32708ec8935d38d78d9ab32be8976d796c32d42d6af455a",
+    "rfm_v7/cpu_native_qualification_output/qualification.json": "6e49e166f74990796d6d232a3ae26ef02c5fc73b0cf7c9f49774a70347b40004",
+    "rfm_v7/cpu_native_qualification_output/fixed_state_audit.json": "e3c4bd9ac6a9b42ac591cbde0036ebad90de99039db1297946c53dfe4724f441",
+    "rfm_v7/cpu_native_qualification_output/native_build_provenance.json": "31a2f7107252c955d2a85250233a127353ac3bcf4207816ee9f026ce1f80eeac",
+    "rfm_v7/cpu_formal_step_screen_output/cpu_fd176_k80_17_r128.json": "3bd5bd448ae5dff7c0a0b22e4f67a75dd1e69d3e81ab9bb2e63a945350703289"
+  }
+}

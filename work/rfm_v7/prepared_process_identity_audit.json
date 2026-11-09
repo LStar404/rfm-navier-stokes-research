@@ -1,0 +1,90 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "prepared_process_identity.py": "8e57d288e8c9348b1edd3fea641b074020598af734083c5d7fd37e62fbbaa46c",
+    "prepared_process_snapshot.cs": "becd35d8d2744f8c2eb8ff56a27b0d0be4614b9632e875dd7cf320690d7aa3f9",
+    "run_prepared_timing_isolated.ps1": "cf29f4344158ef0f52c27b81e0e5143608aa71ecae46be2c8d8a220ac62c0bfe",
+    "verify_prepared_process_identity.ps1": "832961dfcd1f2346fcb6c988bb5bc26c7e7323c49a8c122bad142d9220089abd"
+  },
+  "scope": "Transport only. No fluid solve, CUDA context, or timing cohort.",
+  "python_and_native_identity_exact": true,
+  "owned_and_retained_terminal_identity_and_counters_exact": true,
+  "raw_controlled_before": [
+    {
+      "pid": 57872,
+      "enumerated_parent_pid": 66676,
+      "birth_filetime_100ns": 134387331684965861,
+      "exit_filetime_100ns": 0,
+      "kernel_cpu_100ns": 625000,
+      "user_cpu_100ns": 0,
+      "observation": "enumerated"
+    },
+    {
+      "pid": 66900,
+      "enumerated_parent_pid": 66676,
+      "birth_filetime_100ns": 134387331685124737,
+      "exit_filetime_100ns": 0,
+      "kernel_cpu_100ns": 312500,
+      "user_cpu_100ns": 312500,
+      "observation": "enumerated"
+    }
+  ],
+  "raw_controlled_after": [
+    {
+      "pid": 57872,
+      "enumerated_parent_pid": 66676,
+      "birth_filetime_100ns": 134387331684965861,
+      "exit_filetime_100ns": 134387331688872707,
+      "kernel_cpu_100ns": 1250000,
+      "user_cpu_100ns": 312500,
+      "observation": "retained_exit"
+    },
+    {
+      "pid": 66900,
+      "enumerated_parent_pid": 66676,
+      "birth_filetime_100ns": 134387331685124737,
+      "exit_filetime_100ns": 134387331691696529,
+      "kernel_cpu_100ns": 2187500,
+      "user_cpu_100ns": 2031250,
+      "observation": "retained_exit"
+    }
+  ],
+  "classifications": [
+    {
+      "pid": 57872,
+      "birth_filetime_100ns": 134387331684965861,
+      "label": "cohort_child",
+      "child_index": 0,
+      "kernel_delta_100ns": 625000,
+      "user_delta_100ns": 312500,
+      "cpu_delta_100ns": 937500,
+      "previous_identity_observed": true,
+      "exited": true
+    },
+    {
+      "pid": 66900,
+      "birth_filetime_100ns": 134387331685124737,
+      "label": "external_python",
+      "child_index": null,
+      "kernel_delta_100ns": 1875000,
+      "user_delta_100ns": 1718750,
+      "cpu_delta_100ns": 3593750,
+      "previous_identity_observed": true,
+      "exited": true
+    }
+  ],
+  "synthetic_pid_reuse": {
+    "pid": 57872,
+    "birth_filetime_100ns": 134387331684965862,
+    "label": "external_python",
+    "child_index": null,
+    "kernel_delta_100ns": 500000,
+    "user_delta_100ns": 1700000,
+    "cpu_delta_100ns": 2200000,
+    "previous_identity_observed": false,
+    "exited": false
+  },
+  "duplicate_ledger_rejected": true,
+  "overlapping_ledger_rejected": true,
+  "mismatched_ready_and_return_rejected_without_partial_exemption": true
+}

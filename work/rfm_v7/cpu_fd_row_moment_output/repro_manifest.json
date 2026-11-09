@@ -1,0 +1,142 @@
+{
+  "variant": "k1_taylor_d2_centered_d1",
+  "setup": {
+    "config": {
+      "n": 448,
+      "k": 144,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    },
+    "rate": 512,
+    "steps": 36864,
+    "horizon": 72.0,
+    "snapshots": [
+      24.0,
+      36.0,
+      48.0,
+      54.0,
+      60.0,
+      66.0,
+      72.0
+    ],
+    "probe_spacing": 0.125
+  },
+  "summary": {
+    "fixed_k1_gradient": {
+      "relative_l2": {
+        "staged_gradient": 3.594856522839772e-05,
+        "row_moment_gradient": 9.13140515396596e-11
+      },
+      "outer8_relative_l2": {
+        "staged_gradient": 0.0001339691257226674,
+        "row_moment_gradient": 7.249186747491685e-10
+      },
+      "max_abs": {
+        "staged_gradient": 0.0027137911796237778,
+        "row_moment_gradient": 8.530792080177542e-09
+      }
+    },
+    "paired_field_worst": {
+      "velocity": 9.52551664135563e-09,
+      "vorticity": 4.468367655757842e-08,
+      "near_velocity": 1.08474634576115e-08,
+      "near_vorticity": 2.625251195650732e-08
+    },
+    "paired_outer_layer_vorticity_worst": 2.193719830624952e-07,
+    "paired_probe_worst": {
+      "transverse": 4.007926613184644e-08,
+      "vorticity": 5.096275305436858e-08
+    },
+    "paired_crossing_worst": 1.1800901233982586e-07,
+    "paired_strouhal": {
+      "original": 0.17555959359995793,
+      "updated": 0.17555959347752348
+    },
+    "paired_same_trajectory_gate": {
+      "fields": true,
+      "probes": true,
+      "crossings": true
+    },
+    "concurrent_cpu_seconds": 439.812002199993
+  },
+  "artifacts": [
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment.py",
+      "sha256": "1546c59d84043ef74f047d6a6f0860dcf284e2028454eb577e01c92b6cb7cc27",
+      "purpose": "CPU model and exact binary-rational row-moment tables"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment.c",
+      "sha256": "d2658124b9f26b285196b0ca6ac674a03ad4855477ab3c02b8d8ec5dd49cc2cf",
+      "purpose": "Mode-one radial kernel and unchanged reduction order"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment.dll",
+      "sha256": "64eee0aa2f17ecab257a65ddd4801709adb2d79e66505d38e324ceeee822fa15",
+      "purpose": "Built x64 AVX2 kernel with FMA contraction disabled"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment_replay.py",
+      "sha256": "f38c41676e0c3813d3d0e2b1357df6a3956af217558ee2ce68fddc6cecb01283",
+      "purpose": "Build, fixed-state audit, one-trajectory runner and absolute-time scoring"
+    },
+    {
+      "path": "work/rfm_v7/fd_row_compensated_audit.py",
+      "sha256": "05722d00884a532ce1bcf8c1e222b007cbf609962214490682118cde07366167",
+      "purpose": "Independent 65-digit fixed-state oracle and stencil identity utilities"
+    },
+    {
+      "path": "work/rfm_v7/fd_row_compensated_audit.json",
+      "sha256": "8cfe87e4afcb3f05f8cbd21abed64737ff16261bf07a4528be9cb9f5ffb01756",
+      "purpose": "Prior mode-by-mode oracle study used to preselect k=1"
+    },
+    {
+      "path": "work/rfm_v7/protocol_fd_cuda_pow2.json",
+      "sha256": "e0d9c14f5323ffaefbcac7c11b69b49f36464a5a1d0ec95bd1388cee5f987602",
+      "purpose": "Original fixed-state checkpoints, pow2 reference identity and replay gates"
+    },
+    {
+      "path": "work/rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz",
+      "sha256": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7",
+      "purpose": "Saved original CPU trajectory used for the fixed-state inputs and the paired replay"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/protocol.json",
+      "sha256": "f448b3121ae57e1e301cd28e3939770ab77aaca29bce064af4b5a654be34ecbf",
+      "purpose": "Frozen CPU selection and SHA256 map of all runtime/scoring dependencies"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/fixed_audit.json",
+      "sha256": "e3613570bc7f859efecb00e85b2400f57d77d0a7f58d768ee462e34e1e5502ae",
+      "purpose": "Seven fixed-state cases, all modes, unchanged boundaries, FFT, mean and history"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.npz",
+      "sha256": "49aecce3f0aed89ba875a275d58dc7001ad4fc1b6fc642a45595ac0dc330a77a",
+      "purpose": "New CPU trajectory with seven states and 577 samples for each of three probes"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.json",
+      "sha256": "d90e2820b2d569ea54b40af2aae20567535557a9baca27cb1f042e3bd87a327f",
+      "purpose": "Paired absolute-time fields, outer layers, probes, wake and trajectory metadata"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/run.log",
+      "sha256": "2dc496045085de1ae0171b8e61e121961516086f593fee3cd4fd8877898030dd",
+      "purpose": "Optional short launch, checkpoint and completion transcript"
+    }
+  ],
+  "reproduction": {
+    "preparation": "Use a fresh output directory in a workspace copy. Keep the archived artifact and protocol for comparison. With the verified DLL present, start at audit.",
+    "commands": [
+      "python -B work/rfm_v7/fd_cpu_row_moment_replay.py build --cc C:/mingw64/bin/gcc.exe",
+      "python -B work/rfm_v7/fd_cpu_row_moment_replay.py audit",
+      "python -B -u work/rfm_v7/fd_cpu_row_moment_replay.py run"
+    ],
+    "runtime_dependency_sha256_map": "source_hashes in the archived output protocol. Its paths are relative to work/.",
+    "resume": "Resume checkpoints are excluded from a clean reproduction. The original reused marcher names its optional checkpoint with legacy K128/r384, while its internal identity and frozen protocol use K144/r512."
+  },
+  "scope": "Fixed-state FP64 evaluation and a single same-discretization CPU trajectory comparison. The paired replay does not validate a 0.1% reference ladder, and the concurrent wall time is diagnostic only."
+}

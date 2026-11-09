@@ -1,0 +1,92 @@
+{
+  "status": "passed",
+  "pre_verification_manifest_sha256": "8bb34a67b989e54f6e5c43d26578d2e3bc8f245211a1ce7a7a6e15c39527c2de",
+  "results": {
+    "manifest": {
+      "command": [
+        "python",
+        "verify_snapshot.py"
+      ],
+      "status": "passed",
+      "result": {
+        "files_verified": 520
+      }
+    },
+    "short_cpu_cuda": {
+      "command": [
+        "python",
+        "verify_v7.py",
+        "--cuda"
+      ],
+      "status": "passed",
+      "result": {
+        "rows": [
+          {
+            "name": "rfm37_k72",
+            "backend": "CPU",
+            "worst_field_error": 6.48e-12
+          },
+          {
+            "name": "rfm37_k72",
+            "backend": "CUDA",
+            "worst_field_error": 1.51e-11
+          },
+          {
+            "name": "leg37_k72",
+            "backend": "CPU",
+            "worst_field_error": 2.85e-10
+          },
+          {
+            "name": "leg37_k72",
+            "backend": "CUDA",
+            "worst_field_error": 2.84e-10
+          },
+          {
+            "name": "fd176_k80",
+            "backend": "CPU",
+            "worst_field_error": 0.0
+          },
+          {
+            "name": "fd176_k80",
+            "backend": "CUDA",
+            "worst_field_error": 2.14e-07
+          }
+        ],
+        "horizon": 8.0,
+        "gate_by_backend": {
+          "CPU": 1e-08,
+          "CUDA": 1e-05
+        }
+      }
+    },
+    "cylinder_saved_fields": {
+      "command": [
+        "python",
+        "work/rfm_v7/verify_v7_hardware.py"
+      ],
+      "status": "passed",
+      "result": {
+        "status": "passed",
+        "reference_edges": 3,
+        "rescored_candidates_audited": 33,
+        "representative_trajectories_rescored": 6,
+        "field_errors_recomputed": 504,
+        "archived_timing_rows": 30,
+        "trajectory_solves_run": 0
+      }
+    },
+    "cavity_saved_fields": {
+      "command": [
+        "python",
+        "work/rfm_v7/verify_released_cavity.py"
+      ],
+      "status": "passed",
+      "result": {
+        "status": "passed",
+        "checked_recorded_rows": 70,
+        "rescored_saved_fields": 10,
+        "scope": "The original v4 freeze is private. Its archived SHA-256 is provenance only. Only the ten published first-seed field arrays were reconstructed."
+      }
+    }
+  }
+}

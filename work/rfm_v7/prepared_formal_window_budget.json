@@ -1,0 +1,2548 @@
+{
+  "status": "prospective_only",
+  "source_sha256": {
+    "prepared_formal_timing.py": "26ffd108f7111411b1e0e91a2e503c7f6a0695beb3a6bdede03a33525cd65996",
+    "prepared_formal_eligibility.py": "9735c1f1a00df5ab5d6f4c80ec7d5b056df01e7c74fd6b0c1ca62bc2f91bca25",
+    "prepared_formal_timing_template.json": "563b2f94e02e3087d852f7fe74cfc6e703a207840380b91adca55f5f7d0583d3",
+    "prepared_formal_scoring_cache_audit.py": "3b4448735eb25e02337f2396f5caccd1cc202451fa2be13da150b836b10dcec5"
+  },
+  "prior_diagnostic_timing_sha256": "66916ff89cfc02b3958bd5dc6e8bb8c2a9d3be30f3c0a28035aba98f4adf1c05",
+  "scope": "Estimates from archived non-isolated solver phases and transport overhead, one scoring/serialization sample per registered scale/family/arm, full-cohort synthetic journal writes, and measured coordinator setup. The arithmetic budget is neither an isolation observation nor a guarantee.",
+  "thresholds_unchanged": true,
+  "scales": {
+    "mid": {
+      "rows": 55,
+      "window_seconds": 600,
+      "window_margin_conservative_seconds": 231.3505759983342,
+      "estimated_seconds": 284.89776110117566,
+      "conservative_planning_seconds": 368.6494240016658,
+      "current_window_supported_by_estimate": true,
+      "assumptions": {
+        "maximum_prior_transport_seconds": 2.164584500033386,
+        "median_prior_transport_seconds": 1.932347200028473,
+        "coordinator_scoring_multiplier": 1.25,
+        "serialization_multiplier": 1.25,
+        "journal_multiplier": 1.25,
+        "context_and_hash_multiplier": 1.25,
+        "unobserved_cleanup_and_release_per_slot_seconds": 0.3,
+        "fixed_window_reserve_seconds": 30.0
+      },
+      "groups": [
+        {
+          "name": "rfm37_k72",
+          "arm": "uniform",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.5630614000256173,
+            1.5467398000182584,
+            1.5149924999568611,
+            1.5385653999983333,
+            1.518483699997887
+          ],
+          "cached_scoring_sample_seconds": 0.9025233000284061,
+          "synthetic_save_and_hash_sample_seconds": 0.07063499995274469
+        },
+        {
+          "name": "rfm37_k72",
+          "arm": "switch_old",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.715118899999652,
+            1.4841700999531895,
+            1.4370646000024863,
+            1.457301100017503,
+            1.4431514999596402
+          ],
+          "cached_scoring_sample_seconds": 0.9261046999599785,
+          "synthetic_save_and_hash_sample_seconds": 0.07212259998777881
+        },
+        {
+          "name": "rfm37_k72",
+          "arm": "switch_module",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.3007820000057109,
+            1.3774734999751672,
+            1.3368539999937639,
+            1.3410654999897815,
+            1.300182799983304
+          ],
+          "cached_scoring_sample_seconds": 1.0310291000059806,
+          "synthetic_save_and_hash_sample_seconds": 0.07332169997971505
+        },
+        {
+          "name": "rfm37_k72",
+          "arm": "switch_host",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.4410823000362143,
+            1.4217691999510862,
+            1.4632319000083953,
+            1.4523349999799393,
+            1.440463999984786
+          ],
+          "cached_scoring_sample_seconds": 0.9188671999727376,
+          "synthetic_save_and_hash_sample_seconds": 0.07275039999512956
+        },
+        {
+          "name": "rfm37_k72",
+          "arm": "switch_both",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.3190583999967203,
+            1.3412821000092663,
+            1.3350076000206172,
+            1.3012158999918029,
+            1.3226828000042588
+          ],
+          "cached_scoring_sample_seconds": 0.9222496000002138,
+          "synthetic_save_and_hash_sample_seconds": 0.06672450003679842
+        },
+        {
+          "name": "leg37_k72",
+          "arm": "uniform",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.588230699999258,
+            1.588230699999258,
+            1.588230699999258,
+            1.588230699999258,
+            1.588230699999258
+          ],
+          "cached_scoring_sample_seconds": 0.9400851000100374,
+          "synthetic_save_and_hash_sample_seconds": 0.07135640003252774
+        },
+        {
+          "name": "leg37_k72",
+          "arm": "switch_old",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.4955353999976069,
+            1.4955353999976069,
+            1.4955353999976069,
+            1.4955353999976069,
+            1.4955353999976069
+          ],
+          "cached_scoring_sample_seconds": 0.9543862999998964,
+          "synthetic_save_and_hash_sample_seconds": 0.06877549999626353
+        },
+        {
+          "name": "leg37_k72",
+          "arm": "switch_module",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.3239076999598183,
+            1.3239076999598183,
+            1.3239076999598183,
+            1.3239076999598183,
+            1.3239076999598183
+          ],
+          "cached_scoring_sample_seconds": 0.9594923999975435,
+          "synthetic_save_and_hash_sample_seconds": 0.07486490003066137
+        },
+        {
+          "name": "leg37_k72",
+          "arm": "switch_host",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.4589230999699794,
+            1.4589230999699794,
+            1.4589230999699794,
+            1.4589230999699794,
+            1.4589230999699794
+          ],
+          "cached_scoring_sample_seconds": 0.9573758999467827,
+          "synthetic_save_and_hash_sample_seconds": 0.07109230000060052
+        },
+        {
+          "name": "leg37_k72",
+          "arm": "switch_both",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.3523775000358,
+            1.3523775000358,
+            1.3523775000358,
+            1.3523775000358,
+            1.3523775000358
+          ],
+          "cached_scoring_sample_seconds": 1.0436639999970794,
+          "synthetic_save_and_hash_sample_seconds": 0.0756485000019893
+        },
+        {
+          "name": "fd176_k80",
+          "arm": "fd",
+          "slots": 5,
+          "solver_sample_seconds": [
+            3.049404699995648,
+            3.049404699995648,
+            3.049404699995648,
+            3.049404699995648,
+            3.049404699995648
+          ],
+          "cached_scoring_sample_seconds": 1.1907502000103705,
+          "synthetic_save_and_hash_sample_seconds": 0.2682384000509046
+        }
+      ],
+      "components_seconds": {
+        "archived_solver_sum": 87.0550314996508,
+        "solver_group_maxima_sum": 88.64273449988104,
+        "cached_coordinator_scoring_projection": 53.73263899964513,
+        "serialization_and_hash_projection": 4.927651000325568,
+        "scoring_context": 28.045371099957265,
+        "frozen_hash_passes": [
+          0.5334727999870665,
+          0.5164051000028849
+        ],
+        "journal_full_cohort": 3.8080946000409313
+      },
+      "diagnostic_phase_sources": [
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm37_k72",
+            "arm": "switch_old",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.715118899999652,
+            "host_setup_seconds": 0.06829279998783022,
+            "runtime_init_seconds": 0.6935815999750048,
+            "upload_seconds": 0.006402099970728159,
+            "plan_seconds": 0.01717040000949055,
+            "graph_setup_seconds": 0.0022403000039048493,
+            "march_seconds": 0.9225185999530368,
+            "download_seconds": 0.0006140000186860561
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_7331_cuda_graph.npz",
+            "sha256": "62afa72d3816af17819f27299de5a7cb28a55a853e93a9add377d1a9fb12dfba"
+          },
+          "raw_sha256": "173b754c1d86689716ec6390e4edd79b8ca494aa32f521c73a379ddf3f502517"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg37_k72",
+            "arm": "switch_module",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3239076999598183,
+            "host_setup_seconds": 0.06990589998895302,
+            "runtime_init_seconds": 0.296863800031133,
+            "upload_seconds": 0.0060415000189095736,
+            "plan_seconds": 0.002996399998664856,
+            "graph_setup_seconds": 0.0019200000097043812,
+            "march_seconds": 0.9414925000164658,
+            "download_seconds": 0.0003863999736495316
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_module_only.npz",
+            "sha256": "3a925cb75fb4588ae9fc35dfb8037cadc8682dfb664b5aaf9f220ada1d2fa73b"
+          },
+          "raw_sha256": "bdf13a865d774c2d66c0f1c9410c5e75d5c86bc88989c9c443537c3fa6e73072"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm37_k72",
+            "arm": "switch_host",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.4410823000362143,
+            "host_setup_seconds": 0.048681800020858645,
+            "runtime_init_seconds": 0.439656600006856,
+            "upload_seconds": 0.005669699981808662,
+            "plan_seconds": 0.002660099999047816,
+            "graph_setup_seconds": 0.0019162999815307558,
+            "march_seconds": 0.9370306999771856,
+            "download_seconds": 0.00042420002864673734
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_shared_only.npz",
+            "sha256": "e32e08f53e31f7dd58d0ccb1303383a6c5683abcbe3fd2bfa78688d45f2d0cf5"
+          },
+          "raw_sha256": "c06fa72f6de1d1223b85652fe2114794bd0ccac7e99bbc9825ef939b2066f5e2"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm37_k72",
+            "arm": "switch_both",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.3190583999967203,
+            "host_setup_seconds": 0.0492140999995172,
+            "runtime_init_seconds": 0.31822690000990406,
+            "upload_seconds": 0.005908499995712191,
+            "plan_seconds": 0.0027216000016778708,
+            "graph_setup_seconds": 0.001913700019940734,
+            "march_seconds": 0.935999300039839,
+            "download_seconds": 0.000470799976028502
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz",
+            "sha256": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd"
+          },
+          "raw_sha256": "37d0bb3bcca24d37633f5a2a313b9faaaa7174da89f4a0dac50dd8add49c4a57"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg37_k72",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4955353999976069,
+            "host_setup_seconds": 0.06863519997568801,
+            "runtime_init_seconds": 0.4722539000213146,
+            "upload_seconds": 0.007705399999395013,
+            "plan_seconds": 0.0030474000377580523,
+            "graph_setup_seconds": 0.0022113999584689736,
+            "march_seconds": 0.936756500042975,
+            "download_seconds": 0.00035119999665766954
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_leg37_k72_17_cuda_graph.npz",
+            "sha256": "5dc9ba4a6872bf23faf0ba91cb2c0bc815496e8a41085b1df38f20530d0df48d"
+          },
+          "raw_sha256": "50434bb898725024de72b709d331852d12aa2feab6a11d0501237d1b6ac61326"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm37_k72",
+            "arm": "uniform",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.5630614000256173,
+            "host_setup_seconds": 0.026374900015071034,
+            "runtime_init_seconds": 0.47609080001711845,
+            "upload_seconds": 0.004072099982295185,
+            "plan_seconds": 0.016993700002785772,
+            "graph_setup_seconds": 0.0009735000203363597,
+            "march_seconds": 1.036493599996902,
+            "download_seconds": 0.0003725999849848449
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b1_rfm37_k72_cuda_graph128_7331.npz",
+            "sha256": "4ff0854d221b9e303bd64666b43aa76a7707f32225add3b8213f2af9f25a2302"
+          },
+          "raw_sha256": "50b707b0a96ec7265c7917b8852470bcd44d35687dcc275b313436f95284bd69"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg37_k72",
+            "arm": "switch_host",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4589230999699794,
+            "host_setup_seconds": 0.051382699981331825,
+            "runtime_init_seconds": 0.4480001999763772,
+            "upload_seconds": 0.007577800017315894,
+            "plan_seconds": 0.0027845000149682164,
+            "graph_setup_seconds": 0.0018876000540331006,
+            "march_seconds": 0.9433588000247255,
+            "download_seconds": 0.00045270001282915473
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_shared_only.npz",
+            "sha256": "c9a22a3042ab5abeebe62fea9eea4cdb735e6dd39fe4496fb0e009de5b1d0769"
+          },
+          "raw_sha256": "712c8551b78332962e5b7c27cc794b49bed13429eb4452f4dc16d82e94e3fb2e"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm37_k72",
+            "arm": "switch_module",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.3007820000057109,
+            "host_setup_seconds": 0.0638397999573499,
+            "runtime_init_seconds": 0.2972690000315197,
+            "upload_seconds": 0.006450299988500774,
+            "plan_seconds": 0.0028865999775007367,
+            "graph_setup_seconds": 0.0019997000345028937,
+            "march_seconds": 0.9246567999944091,
+            "download_seconds": 0.00045730004785582423
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_module_only.npz",
+            "sha256": "3eb0a69703606a7ec95669c72d6f247ec8dbadc4ebe9d19404401a112abfe5d0"
+          },
+          "raw_sha256": "e5a8ab617f47e735d8f36e0f39221e060f62ce886974cb6c11ed9368d98f5764"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg37_k72",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.588230699999258,
+            "host_setup_seconds": 0.030094000045210123,
+            "runtime_init_seconds": 0.48259789997246116,
+            "upload_seconds": 0.0047141999821178615,
+            "plan_seconds": 0.016924800002016127,
+            "graph_setup_seconds": 0.0009956000139936805,
+            "march_seconds": 1.050403599976562,
+            "download_seconds": 0.00033389998134225607
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b1_leg37_k72_cuda_graph128_17.npz",
+            "sha256": "12a4b3d043c92197a568783750aaaea4e8d7134e4e32cd8e9eed29f022b7728e"
+          },
+          "raw_sha256": "bb6ae87ae0362f2ce86dc08cb02de328ee55fbd8ec1128f5a557065682ab9546"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg37_k72",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3523775000358,
+            "host_setup_seconds": 0.051330900052562356,
+            "runtime_init_seconds": 0.30950039997696877,
+            "upload_seconds": 0.008579500019550323,
+            "plan_seconds": 0.0030834999633952975,
+            "graph_setup_seconds": 0.001906600024085492,
+            "march_seconds": 0.9735017999773845,
+            "download_seconds": 0.0003989000106230378
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+            "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+          },
+          "raw_sha256": "83794a32b67dceb79ca425294033cccb8626c9a82bf944207b62df76ebef80b3"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg37_k72",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.588230699999258,
+            "host_setup_seconds": 0.030094000045210123,
+            "runtime_init_seconds": 0.48259789997246116,
+            "upload_seconds": 0.0047141999821178615,
+            "plan_seconds": 0.016924800002016127,
+            "graph_setup_seconds": 0.0009956000139936805,
+            "march_seconds": 1.050403599976562,
+            "download_seconds": 0.00033389998134225607
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b1_leg37_k72_cuda_graph128_17.npz",
+            "sha256": "12a4b3d043c92197a568783750aaaea4e8d7134e4e32cd8e9eed29f022b7728e"
+          },
+          "raw_sha256": "bb6ae87ae0362f2ce86dc08cb02de328ee55fbd8ec1128f5a557065682ab9546"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm37_k72",
+            "arm": "switch_both",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.3412821000092663,
+            "host_setup_seconds": 0.04790750000393018,
+            "runtime_init_seconds": 0.3158388999872841,
+            "upload_seconds": 0.006996500014793128,
+            "plan_seconds": 0.0038172999629750848,
+            "graph_setup_seconds": 0.0019151000306010246,
+            "march_seconds": 0.9596544000087306,
+            "download_seconds": 0.0004284000024199486
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7687_combined.npz",
+            "sha256": "69acbb241aa053c8f5e2f7bc004391fbf0ea4708cd90ad68305a2874408b7c4c"
+          },
+          "raw_sha256": "9afdf13fcc72aa15c85d9ab250342059cd831b1078312085ee461d92f8610c9a"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg37_k72",
+            "arm": "switch_host",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4589230999699794,
+            "host_setup_seconds": 0.051382699981331825,
+            "runtime_init_seconds": 0.4480001999763772,
+            "upload_seconds": 0.007577800017315894,
+            "plan_seconds": 0.0027845000149682164,
+            "graph_setup_seconds": 0.0018876000540331006,
+            "march_seconds": 0.9433588000247255,
+            "download_seconds": 0.00045270001282915473
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_shared_only.npz",
+            "sha256": "c9a22a3042ab5abeebe62fea9eea4cdb735e6dd39fe4496fb0e009de5b1d0769"
+          },
+          "raw_sha256": "712c8551b78332962e5b7c27cc794b49bed13429eb4452f4dc16d82e94e3fb2e"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg37_k72",
+            "arm": "switch_module",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3239076999598183,
+            "host_setup_seconds": 0.06990589998895302,
+            "runtime_init_seconds": 0.296863800031133,
+            "upload_seconds": 0.0060415000189095736,
+            "plan_seconds": 0.002996399998664856,
+            "graph_setup_seconds": 0.0019200000097043812,
+            "march_seconds": 0.9414925000164658,
+            "download_seconds": 0.0003863999736495316
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_module_only.npz",
+            "sha256": "3a925cb75fb4588ae9fc35dfb8037cadc8682dfb664b5aaf9f220ada1d2fa73b"
+          },
+          "raw_sha256": "bdf13a865d774c2d66c0f1c9410c5e75d5c86bc88989c9c443537c3fa6e73072"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm37_k72",
+            "arm": "uniform",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.5467398000182584,
+            "host_setup_seconds": 0.024873999995179474,
+            "runtime_init_seconds": 0.4572642000275664,
+            "upload_seconds": 0.0039456000085920095,
+            "plan_seconds": 0.017269000003580004,
+            "graph_setup_seconds": 0.0011020000092685223,
+            "march_seconds": 1.040018500003498,
+            "download_seconds": 0.0003561999765224755
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b2_rfm37_k72_cuda_graph128_7687.npz",
+            "sha256": "6d6ee3c5129f2e3e9bc5ba249d480447b36ee88ffe80a7c6b6b175d47bb4532d"
+          },
+          "raw_sha256": "73963172a21357ca94bd4329ad6e9bef381f45d792fb0010c6f8fcef5b51356a"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg37_k72",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4955353999976069,
+            "host_setup_seconds": 0.06863519997568801,
+            "runtime_init_seconds": 0.4722539000213146,
+            "upload_seconds": 0.007705399999395013,
+            "plan_seconds": 0.0030474000377580523,
+            "graph_setup_seconds": 0.0022113999584689736,
+            "march_seconds": 0.936756500042975,
+            "download_seconds": 0.00035119999665766954
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_leg37_k72_17_cuda_graph.npz",
+            "sha256": "5dc9ba4a6872bf23faf0ba91cb2c0bc815496e8a41085b1df38f20530d0df48d"
+          },
+          "raw_sha256": "50434bb898725024de72b709d331852d12aa2feab6a11d0501237d1b6ac61326"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg37_k72",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3523775000358,
+            "host_setup_seconds": 0.051330900052562356,
+            "runtime_init_seconds": 0.30950039997696877,
+            "upload_seconds": 0.008579500019550323,
+            "plan_seconds": 0.0030834999633952975,
+            "graph_setup_seconds": 0.001906600024085492,
+            "march_seconds": 0.9735017999773845,
+            "download_seconds": 0.0003989000106230378
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+            "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+          },
+          "raw_sha256": "83794a32b67dceb79ca425294033cccb8626c9a82bf944207b62df76ebef80b3"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm37_k72",
+            "arm": "switch_host",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.4217691999510862,
+            "host_setup_seconds": 0.04669559997273609,
+            "runtime_init_seconds": 0.4349291999824345,
+            "upload_seconds": 0.00565679999999702,
+            "plan_seconds": 0.0027265999815426767,
+            "graph_setup_seconds": 0.001861100026872009,
+            "march_seconds": 0.9253406999632716,
+            "download_seconds": 0.0004211000050418079
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7687_shared_only.npz",
+            "sha256": "1cbaa96bdc50e51657c7027b9a551c01e68a2e52a653dff6ea63edac62a911ef"
+          },
+          "raw_sha256": "df0b9542aca7584a9253aabf95b805461e64b3bbefec7771fc47c85d1efed67c"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm37_k72",
+            "arm": "switch_old",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.4841700999531895,
+            "host_setup_seconds": 0.05916959996102378,
+            "runtime_init_seconds": 0.46626460005063564,
+            "upload_seconds": 0.008378800004720688,
+            "plan_seconds": 0.004599999985657632,
+            "graph_setup_seconds": 0.0018112999969162047,
+            "march_seconds": 0.9393584000063129,
+            "download_seconds": 0.0005327999824658036
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_7687_cuda_graph.npz",
+            "sha256": "1a88c8b112abce24a76d821f63d6b1fb5cc5e2259f57b19b8b1fa5caa4018795"
+          },
+          "raw_sha256": "2f35897bfe2c468702e65f430a1dee9545aec63915fbb1f9fd3def43c3f4a0be"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm37_k72",
+            "arm": "switch_module",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.3774734999751672,
+            "host_setup_seconds": 0.06696309999097139,
+            "runtime_init_seconds": 0.32844290003413334,
+            "upload_seconds": 0.006187599967233837,
+            "plan_seconds": 0.0030203000060282648,
+            "graph_setup_seconds": 0.002022800035774708,
+            "march_seconds": 0.9670014000148512,
+            "download_seconds": 0.0006576000014320016
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7687_module_only.npz",
+            "sha256": "8c99bb1d36c365b9d8ec8efd52f6c7913d5108be506de66a3e60cb118ffedc24"
+          },
+          "raw_sha256": "9976c2510276e344d15ecdba1e795c452c6cdfa2d9a68092070f0d36836a7cef"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg37_k72",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.588230699999258,
+            "host_setup_seconds": 0.030094000045210123,
+            "runtime_init_seconds": 0.48259789997246116,
+            "upload_seconds": 0.0047141999821178615,
+            "plan_seconds": 0.016924800002016127,
+            "graph_setup_seconds": 0.0009956000139936805,
+            "march_seconds": 1.050403599976562,
+            "download_seconds": 0.00033389998134225607
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b1_leg37_k72_cuda_graph128_17.npz",
+            "sha256": "12a4b3d043c92197a568783750aaaea4e8d7134e4e32cd8e9eed29f022b7728e"
+          },
+          "raw_sha256": "bb6ae87ae0362f2ce86dc08cb02de328ee55fbd8ec1128f5a557065682ab9546"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm37_k72",
+            "arm": "switch_both",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.3350076000206172,
+            "host_setup_seconds": 0.049978099996224046,
+            "runtime_init_seconds": 0.32972529996186495,
+            "upload_seconds": 0.006809900049120188,
+            "plan_seconds": 0.0029981000116094947,
+            "graph_setup_seconds": 0.0019711999921128154,
+            "march_seconds": 0.9390782000264153,
+            "download_seconds": 0.0004183999844826758
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_8011_combined.npz",
+            "sha256": "5510a0ecedd638c2b4c709abab74881e679ed3fb03d154fc6ccc4eb961664f61"
+          },
+          "raw_sha256": "bf02cf5d65395c761968df13920c4b84237633e668a2fc7c58362f7a48661aaf"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm37_k72",
+            "arm": "switch_host",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.4632319000083953,
+            "host_setup_seconds": 0.04814640001859516,
+            "runtime_init_seconds": 0.4570036000222899,
+            "upload_seconds": 0.0059405999490991235,
+            "plan_seconds": 0.002835000050254166,
+            "graph_setup_seconds": 0.001982900022994727,
+            "march_seconds": 0.9424943000194617,
+            "download_seconds": 0.0004243999719619751
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_8011_shared_only.npz",
+            "sha256": "1f686440a99a56b0881695df0fd87789420e547498624b9352d94f5ec9409d32"
+          },
+          "raw_sha256": "04b5de1ecb40a387244285bf093215338f1c7e80abc017910e15018ccd31f8bf"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm37_k72",
+            "arm": "uniform",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.5149924999568611,
+            "host_setup_seconds": 0.023391899943817407,
+            "runtime_init_seconds": 0.42863859998760745,
+            "upload_seconds": 0.003933399973902851,
+            "plan_seconds": 0.015534200007095933,
+            "graph_setup_seconds": 0.0011261999607086182,
+            "march_seconds": 1.0400415000040084,
+            "download_seconds": 0.00029959995299577713
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b3_rfm37_k72_cuda_graph128_8011.npz",
+            "sha256": "29f472962c84ae337922b74c8e4be1afcbad81f49da7539f0b169771b723e8d8"
+          },
+          "raw_sha256": "d74a776d41f6a6384dfefddfd6251536777d4c241ead4a73e674a95de0fff703"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm37_k72",
+            "arm": "switch_module",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.3368539999937639,
+            "host_setup_seconds": 0.05874670000048354,
+            "runtime_init_seconds": 0.30942879995564,
+            "upload_seconds": 0.006378000020049512,
+            "plan_seconds": 0.0029334999853745103,
+            "graph_setup_seconds": 0.0020539999823085964,
+            "march_seconds": 0.9530276000150479,
+            "download_seconds": 0.0004501999937929213
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_8011_module_only.npz",
+            "sha256": "0a254fb1f14c7c08ad1b99489cf72f0826b21cce41e65b0f0fdf002adbeb5bfc"
+          },
+          "raw_sha256": "e44efe742a12fb82c33ca981c851419d122d7aa472501a5934f3fa0ee200786e"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg37_k72",
+            "arm": "switch_module",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3239076999598183,
+            "host_setup_seconds": 0.06990589998895302,
+            "runtime_init_seconds": 0.296863800031133,
+            "upload_seconds": 0.0060415000189095736,
+            "plan_seconds": 0.002996399998664856,
+            "graph_setup_seconds": 0.0019200000097043812,
+            "march_seconds": 0.9414925000164658,
+            "download_seconds": 0.0003863999736495316
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_module_only.npz",
+            "sha256": "3a925cb75fb4588ae9fc35dfb8037cadc8682dfb664b5aaf9f220ada1d2fa73b"
+          },
+          "raw_sha256": "bdf13a865d774c2d66c0f1c9410c5e75d5c86bc88989c9c443537c3fa6e73072"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm37_k72",
+            "arm": "switch_old",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.4370646000024863,
+            "host_setup_seconds": 0.05899930000305176,
+            "runtime_init_seconds": 0.437893999973312,
+            "upload_seconds": 0.0061153999995440245,
+            "plan_seconds": 0.002943500003311783,
+            "graph_setup_seconds": 0.0018076999695040286,
+            "march_seconds": 0.9250270000193268,
+            "download_seconds": 0.0004618999664671719
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_8011_cuda_graph.npz",
+            "sha256": "6abf55c56278edf98505f25e3ac08ad1f2dffc51ebbc077a9db487b15e25e311"
+          },
+          "raw_sha256": "f1384c5dc95d5a1c8b570620a8344b0c00b13b5c8349f0f5d695690349cfbad6"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg37_k72",
+            "arm": "switch_host",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4589230999699794,
+            "host_setup_seconds": 0.051382699981331825,
+            "runtime_init_seconds": 0.4480001999763772,
+            "upload_seconds": 0.007577800017315894,
+            "plan_seconds": 0.0027845000149682164,
+            "graph_setup_seconds": 0.0018876000540331006,
+            "march_seconds": 0.9433588000247255,
+            "download_seconds": 0.00045270001282915473
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_shared_only.npz",
+            "sha256": "c9a22a3042ab5abeebe62fea9eea4cdb735e6dd39fe4496fb0e009de5b1d0769"
+          },
+          "raw_sha256": "712c8551b78332962e5b7c27cc794b49bed13429eb4452f4dc16d82e94e3fb2e"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg37_k72",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4955353999976069,
+            "host_setup_seconds": 0.06863519997568801,
+            "runtime_init_seconds": 0.4722539000213146,
+            "upload_seconds": 0.007705399999395013,
+            "plan_seconds": 0.0030474000377580523,
+            "graph_setup_seconds": 0.0022113999584689736,
+            "march_seconds": 0.936756500042975,
+            "download_seconds": 0.00035119999665766954
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_leg37_k72_17_cuda_graph.npz",
+            "sha256": "5dc9ba4a6872bf23faf0ba91cb2c0bc815496e8a41085b1df38f20530d0df48d"
+          },
+          "raw_sha256": "50434bb898725024de72b709d331852d12aa2feab6a11d0501237d1b6ac61326"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg37_k72",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3523775000358,
+            "host_setup_seconds": 0.051330900052562356,
+            "runtime_init_seconds": 0.30950039997696877,
+            "upload_seconds": 0.008579500019550323,
+            "plan_seconds": 0.0030834999633952975,
+            "graph_setup_seconds": 0.001906600024085492,
+            "march_seconds": 0.9735017999773845,
+            "download_seconds": 0.0003989000106230378
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+            "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+          },
+          "raw_sha256": "83794a32b67dceb79ca425294033cccb8626c9a82bf944207b62df76ebef80b3"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg37_k72",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3523775000358,
+            "host_setup_seconds": 0.051330900052562356,
+            "runtime_init_seconds": 0.30950039997696877,
+            "upload_seconds": 0.008579500019550323,
+            "plan_seconds": 0.0030834999633952975,
+            "graph_setup_seconds": 0.001906600024085492,
+            "march_seconds": 0.9735017999773845,
+            "download_seconds": 0.0003989000106230378
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+            "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+          },
+          "raw_sha256": "83794a32b67dceb79ca425294033cccb8626c9a82bf944207b62df76ebef80b3"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm37_k72",
+            "arm": "switch_old",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.457301100017503,
+            "host_setup_seconds": 0.057841200032271445,
+            "runtime_init_seconds": 0.4486571000306867,
+            "upload_seconds": 0.008534399967174977,
+            "plan_seconds": 0.004091800015885383,
+            "graph_setup_seconds": 0.001798400015104562,
+            "march_seconds": 0.9323950000107288,
+            "download_seconds": 0.0005298000178299844
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_8353_cuda_graph.npz",
+            "sha256": "519f2e5fb37ca4538e15c130876bd130882bf952c6ae3fdfb78f1548456bd8b6"
+          },
+          "raw_sha256": "33e35bace4e9d21f2e234f411be959c67d73d242d77eb80a9d6a229c22ff8c47"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm37_k72",
+            "arm": "switch_host",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.4523349999799393,
+            "host_setup_seconds": 0.05182920000515878,
+            "runtime_init_seconds": 0.45493639999767765,
+            "upload_seconds": 0.007762300025206059,
+            "plan_seconds": 0.004116999974939972,
+            "graph_setup_seconds": 0.002339900005608797,
+            "march_seconds": 0.9278942000237294,
+            "download_seconds": 0.00040310004260390997
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_8353_shared_only.npz",
+            "sha256": "a7fd14e3822700fb5649eb742fe9788004eb9da4c29e4c190688ca4bcfe28a7a"
+          },
+          "raw_sha256": "1eb9764d874b80fd086108d75db5bb9ecda206e468df2a4f5c0522b714ca33f5"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm37_k72",
+            "arm": "switch_both",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.3012158999918029,
+            "host_setup_seconds": 0.04646619997220114,
+            "runtime_init_seconds": 0.29406640003435314,
+            "upload_seconds": 0.00557969999499619,
+            "plan_seconds": 0.0030597999575547874,
+            "graph_setup_seconds": 0.0019720999989658594,
+            "march_seconds": 0.9454952999949455,
+            "download_seconds": 0.0003929000231437385
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_8353_combined.npz",
+            "sha256": "0b3b4e6bd7973d99acc57d53f4fb652fad322d80c11a15da4e2e7a320d36c9e6"
+          },
+          "raw_sha256": "687fd3d56a773e6272f79662a762ae2d14f42a4e0655da611116cffadab1b234"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm37_k72",
+            "arm": "switch_module",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.3410654999897815,
+            "host_setup_seconds": 0.057478200003970414,
+            "runtime_init_seconds": 0.30571410001721233,
+            "upload_seconds": 0.006735500006470829,
+            "plan_seconds": 0.003140699991490692,
+            "graph_setup_seconds": 0.001894199987873435,
+            "march_seconds": 0.9612907000118867,
+            "download_seconds": 0.0004488999838940799
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_8353_module_only.npz",
+            "sha256": "efa8ede775608872a46898ce7da223953d1c290024a98b4b50f5c36fff1934e5"
+          },
+          "raw_sha256": "199403f69dffa7bd125ef79e70c384d1f917e5b691ab7b59196d881527d7618d"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg37_k72",
+            "arm": "switch_module",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3239076999598183,
+            "host_setup_seconds": 0.06990589998895302,
+            "runtime_init_seconds": 0.296863800031133,
+            "upload_seconds": 0.0060415000189095736,
+            "plan_seconds": 0.002996399998664856,
+            "graph_setup_seconds": 0.0019200000097043812,
+            "march_seconds": 0.9414925000164658,
+            "download_seconds": 0.0003863999736495316
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_module_only.npz",
+            "sha256": "3a925cb75fb4588ae9fc35dfb8037cadc8682dfb664b5aaf9f220ada1d2fa73b"
+          },
+          "raw_sha256": "bdf13a865d774c2d66c0f1c9410c5e75d5c86bc88989c9c443537c3fa6e73072"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg37_k72",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4955353999976069,
+            "host_setup_seconds": 0.06863519997568801,
+            "runtime_init_seconds": 0.4722539000213146,
+            "upload_seconds": 0.007705399999395013,
+            "plan_seconds": 0.0030474000377580523,
+            "graph_setup_seconds": 0.0022113999584689736,
+            "march_seconds": 0.936756500042975,
+            "download_seconds": 0.00035119999665766954
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_leg37_k72_17_cuda_graph.npz",
+            "sha256": "5dc9ba4a6872bf23faf0ba91cb2c0bc815496e8a41085b1df38f20530d0df48d"
+          },
+          "raw_sha256": "50434bb898725024de72b709d331852d12aa2feab6a11d0501237d1b6ac61326"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg37_k72",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.588230699999258,
+            "host_setup_seconds": 0.030094000045210123,
+            "runtime_init_seconds": 0.48259789997246116,
+            "upload_seconds": 0.0047141999821178615,
+            "plan_seconds": 0.016924800002016127,
+            "graph_setup_seconds": 0.0009956000139936805,
+            "march_seconds": 1.050403599976562,
+            "download_seconds": 0.00033389998134225607
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b1_leg37_k72_cuda_graph128_17.npz",
+            "sha256": "12a4b3d043c92197a568783750aaaea4e8d7134e4e32cd8e9eed29f022b7728e"
+          },
+          "raw_sha256": "bb6ae87ae0362f2ce86dc08cb02de328ee55fbd8ec1128f5a557065682ab9546"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm37_k72",
+            "arm": "uniform",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.5385653999983333,
+            "host_setup_seconds": 0.024494800018146634,
+            "runtime_init_seconds": 0.43924930004868656,
+            "upload_seconds": 0.0053174999775364995,
+            "plan_seconds": 0.017500100017059594,
+            "graph_setup_seconds": 0.0018594999564811587,
+            "march_seconds": 1.041671300015878,
+            "download_seconds": 0.00042150000808760524
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b4_rfm37_k72_cuda_graph128_8353.npz",
+            "sha256": "a720a9283ff44cb17d2979b828dfb5d85db0acb2976fd785a280dcebf19f6868"
+          },
+          "raw_sha256": "c6a788eb3cd2899aa9b42a9d9896766d295b49d46178acbb0700fe783b6b5d24"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg37_k72",
+            "arm": "switch_host",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4589230999699794,
+            "host_setup_seconds": 0.051382699981331825,
+            "runtime_init_seconds": 0.4480001999763772,
+            "upload_seconds": 0.007577800017315894,
+            "plan_seconds": 0.0027845000149682164,
+            "graph_setup_seconds": 0.0018876000540331006,
+            "march_seconds": 0.9433588000247255,
+            "download_seconds": 0.00045270001282915473
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_shared_only.npz",
+            "sha256": "c9a22a3042ab5abeebe62fea9eea4cdb735e6dd39fe4496fb0e009de5b1d0769"
+          },
+          "raw_sha256": "712c8551b78332962e5b7c27cc794b49bed13429eb4452f4dc16d82e94e3fb2e"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm37_k72",
+            "arm": "uniform",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.518483699997887,
+            "host_setup_seconds": 0.024305100028868765,
+            "runtime_init_seconds": 0.4343968000030145,
+            "upload_seconds": 0.004060100007336587,
+            "plan_seconds": 0.015617099998053163,
+            "graph_setup_seconds": 0.0011050999746657908,
+            "march_seconds": 1.0362942999927327,
+            "download_seconds": 0.00035280000884085894
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b5_rfm37_k72_cuda_graph128_9041.npz",
+            "sha256": "a1a869d5c62018c018a8cc2d482495b6e1a6b7e9b138b716a8b1842b1f913226"
+          },
+          "raw_sha256": "63afc803a9245876a2bc5c2daff974356ea6572db6112e79389fc6b247fbec54"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm37_k72",
+            "arm": "switch_both",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.3226828000042588,
+            "host_setup_seconds": 0.051674699992872775,
+            "runtime_init_seconds": 0.3240589000051841,
+            "upload_seconds": 0.006760299962479621,
+            "plan_seconds": 0.0027975999983027577,
+            "graph_setup_seconds": 0.0020821000216528773,
+            "march_seconds": 0.9299881999613717,
+            "download_seconds": 0.0004267999902367592
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_9041_combined.npz",
+            "sha256": "d411e0500c572624d4521a50255f3d722723e5668978b08fd0b2f73121ea53a6"
+          },
+          "raw_sha256": "fd3a21643bf9bb78d0a21dfa0d8ff9c7315f355e5f10f14f71730790b29c621b"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg37_k72",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4955353999976069,
+            "host_setup_seconds": 0.06863519997568801,
+            "runtime_init_seconds": 0.4722539000213146,
+            "upload_seconds": 0.007705399999395013,
+            "plan_seconds": 0.0030474000377580523,
+            "graph_setup_seconds": 0.0022113999584689736,
+            "march_seconds": 0.936756500042975,
+            "download_seconds": 0.00035119999665766954
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_leg37_k72_17_cuda_graph.npz",
+            "sha256": "5dc9ba4a6872bf23faf0ba91cb2c0bc815496e8a41085b1df38f20530d0df48d"
+          },
+          "raw_sha256": "50434bb898725024de72b709d331852d12aa2feab6a11d0501237d1b6ac61326"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm37_k72",
+            "arm": "switch_host",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.440463999984786,
+            "host_setup_seconds": 0.05156669998541474,
+            "runtime_init_seconds": 0.4363815999822691,
+            "upload_seconds": 0.005760400032158941,
+            "plan_seconds": 0.003003000048920512,
+            "graph_setup_seconds": 0.001969600038137287,
+            "march_seconds": 0.9372967999661341,
+            "download_seconds": 0.0003989000106230378
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_9041_shared_only.npz",
+            "sha256": "28abc899f3898f4c0c17244e2f8a2025482f4df7041d0132aaa649cb91b6ade1"
+          },
+          "raw_sha256": "006b9f6bedbe8864dbe21df3c0e587217cdebec7df6861668bb46c07617ecf63"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg37_k72",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.588230699999258,
+            "host_setup_seconds": 0.030094000045210123,
+            "runtime_init_seconds": 0.48259789997246116,
+            "upload_seconds": 0.0047141999821178615,
+            "plan_seconds": 0.016924800002016127,
+            "graph_setup_seconds": 0.0009956000139936805,
+            "march_seconds": 1.050403599976562,
+            "download_seconds": 0.00033389998134225607
+          },
+          "archive": {
+            "path": "rfm_v7/switch_formal_timing_output/b1_leg37_k72_cuda_graph128_17.npz",
+            "sha256": "12a4b3d043c92197a568783750aaaea4e8d7134e4e32cd8e9eed29f022b7728e"
+          },
+          "raw_sha256": "bb6ae87ae0362f2ce86dc08cb02de328ee55fbd8ec1128f5a557065682ab9546"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg37_k72",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3523775000358,
+            "host_setup_seconds": 0.051330900052562356,
+            "runtime_init_seconds": 0.30950039997696877,
+            "upload_seconds": 0.008579500019550323,
+            "plan_seconds": 0.0030834999633952975,
+            "graph_setup_seconds": 0.001906600024085492,
+            "march_seconds": 0.9735017999773845,
+            "download_seconds": 0.0003989000106230378
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+            "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+          },
+          "raw_sha256": "83794a32b67dceb79ca425294033cccb8626c9a82bf944207b62df76ebef80b3"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg37_k72",
+            "arm": "switch_host",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.4589230999699794,
+            "host_setup_seconds": 0.051382699981331825,
+            "runtime_init_seconds": 0.4480001999763772,
+            "upload_seconds": 0.007577800017315894,
+            "plan_seconds": 0.0027845000149682164,
+            "graph_setup_seconds": 0.0018876000540331006,
+            "march_seconds": 0.9433588000247255,
+            "download_seconds": 0.00045270001282915473
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_shared_only.npz",
+            "sha256": "c9a22a3042ab5abeebe62fea9eea4cdb735e6dd39fe4496fb0e009de5b1d0769"
+          },
+          "raw_sha256": "712c8551b78332962e5b7c27cc794b49bed13429eb4452f4dc16d82e94e3fb2e"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm37_k72",
+            "arm": "switch_old",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.4431514999596402,
+            "host_setup_seconds": 0.05651309998938814,
+            "runtime_init_seconds": 0.448701000015717,
+            "upload_seconds": 0.005628000013530254,
+            "plan_seconds": 0.0031708000460639596,
+            "graph_setup_seconds": 0.0018268999992869794,
+            "march_seconds": 0.9233366000116803,
+            "download_seconds": 0.0006249999860301614
+          },
+          "archive": {
+            "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_9041_cuda_graph.npz",
+            "sha256": "c076db03f3550404b606226a97bf14315d44bd83a4ec48682e8283f50c56f960"
+          },
+          "raw_sha256": "6e8c7ba6d2c4080c918ad133cc6e632c9a58b458b546e8a3eb37aaacce1d9822"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg37_k72",
+            "arm": "switch_module",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.3239076999598183,
+            "host_setup_seconds": 0.06990589998895302,
+            "runtime_init_seconds": 0.296863800031133,
+            "upload_seconds": 0.0060415000189095736,
+            "plan_seconds": 0.002996399998664856,
+            "graph_setup_seconds": 0.0019200000097043812,
+            "march_seconds": 0.9414925000164658,
+            "download_seconds": 0.0003863999736495316
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_module_only.npz",
+            "sha256": "3a925cb75fb4588ae9fc35dfb8037cadc8682dfb664b5aaf9f220ada1d2fa73b"
+          },
+          "raw_sha256": "bdf13a865d774c2d66c0f1c9410c5e75d5c86bc88989c9c443537c3fa6e73072"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm37_k72",
+            "arm": "switch_module",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.300182799983304,
+            "host_setup_seconds": 0.061666399997193366,
+            "runtime_init_seconds": 0.29630220000399277,
+            "upload_seconds": 0.007063199998810887,
+            "plan_seconds": 0.0031217000214383006,
+            "graph_setup_seconds": 0.0018482999876141548,
+            "march_seconds": 0.9255590999964625,
+            "download_seconds": 0.0004078999627381563
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_9041_module_only.npz",
+            "sha256": "8c5e100dd01daa3aefab5fbd72357136153b583ca7b7d067f471f8c859d0f71b"
+          },
+          "raw_sha256": "aedfe330992871bdd75903359862052813dc36ba8da1cbb196e6a4a05e17e381"
+        }
+      ]
+    },
+    "high": {
+      "rows": 40,
+      "window_seconds": 480,
+      "window_margin_conservative_seconds": 151.00686912456854,
+      "estimated_seconds": 254.26621940023696,
+      "conservative_planning_seconds": 328.99313087543146,
+      "current_window_supported_by_estimate": true,
+      "assumptions": {
+        "maximum_prior_transport_seconds": 2.164584500033386,
+        "median_prior_transport_seconds": 1.932347200028473,
+        "coordinator_scoring_multiplier": 1.25,
+        "serialization_multiplier": 1.25,
+        "journal_multiplier": 1.25,
+        "context_and_hash_multiplier": 1.25,
+        "unobserved_cleanup_and_release_per_slot_seconds": 0.3,
+        "fixed_window_reserve_seconds": 30.0
+      },
+      "groups": [
+        {
+          "name": "rfm41_k80",
+          "arm": "uniform",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.7608126000268385,
+            1.5778658000053838,
+            1.592347299971152,
+            1.628313299966976,
+            1.6398414999712259
+          ],
+          "cached_scoring_sample_seconds": 1.0124944999697618,
+          "synthetic_save_and_hash_sample_seconds": 0.07642579998355359
+        },
+        {
+          "name": "rfm41_k80",
+          "arm": "switch_old",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.7289082999923266,
+            1.7234499999904074,
+            1.705723199993372,
+            1.7052177000441588,
+            1.7122895999928005
+          ],
+          "cached_scoring_sample_seconds": 1.0410368000157177,
+          "synthetic_save_and_hash_sample_seconds": 0.08512920001521707
+        },
+        {
+          "name": "rfm41_k80",
+          "arm": "switch_both",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.5451631000032648,
+            1.5512215999769978,
+            1.565666600014083,
+            1.512011100014206,
+            1.556287900020834
+          ],
+          "cached_scoring_sample_seconds": 1.1250802999711595,
+          "synthetic_save_and_hash_sample_seconds": 0.08129909995477647
+        },
+        {
+          "name": "leg39_k80",
+          "arm": "uniform",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.8798633000114933,
+            1.8798633000114933,
+            1.8798633000114933,
+            1.8798633000114933,
+            1.8798633000114933
+          ],
+          "cached_scoring_sample_seconds": 1.0351306000375189,
+          "synthetic_save_and_hash_sample_seconds": 0.08598549995804206
+        },
+        {
+          "name": "leg39_k80",
+          "arm": "switch_old",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.9773492999956943,
+            1.9773492999956943,
+            1.9773492999956943,
+            1.9773492999956943,
+            1.9773492999956943
+          ],
+          "cached_scoring_sample_seconds": 1.1737716000061482,
+          "synthetic_save_and_hash_sample_seconds": 0.08408090000739321
+        },
+        {
+          "name": "leg39_k80",
+          "arm": "switch_both",
+          "slots": 5,
+          "solver_sample_seconds": [
+            1.855364200018812,
+            1.855364200018812,
+            1.855364200018812,
+            1.855364200018812,
+            1.855364200018812
+          ],
+          "cached_scoring_sample_seconds": 1.1790005999500863,
+          "synthetic_save_and_hash_sample_seconds": 0.1013027000008151
+        },
+        {
+          "name": "fd176_k80",
+          "arm": "fd",
+          "slots": 5,
+          "solver_sample_seconds": [
+            3.049404699995648,
+            3.049404699995648,
+            3.049404699995648,
+            3.049404699995648,
+            3.049404699995648
+          ],
+          "cached_scoring_sample_seconds": 1.2472328000003472,
+          "synthetic_save_and_hash_sample_seconds": 0.2678734000073746
+        },
+        {
+          "name": "fd184_k80",
+          "arm": "fd",
+          "slots": 5,
+          "solver_sample_seconds": [
+            3.598979599948507,
+            3.598979599948507,
+            3.598979599948507,
+            3.598979599948507,
+            3.598979599948507
+          ],
+          "cached_scoring_sample_seconds": 1.2266066999873146,
+          "synthetic_save_and_hash_sample_seconds": 0.2791704999981448
+        }
+      ],
+      "components_seconds": {
+        "archived_solver_sum": 86.3099250998348,
+        "solver_group_maxima_sum": 87.08174300001701,
+        "cached_coordinator_scoring_projection": 45.20176949969027,
+        "serialization_and_hash_projection": 5.306335499626584,
+        "scoring_context": 37.39475429995218,
+        "frozen_hash_passes": [
+          0.47749970003496855,
+          0.471513899974525
+        ],
+        "journal_full_cohort": 1.8105333999847062
+      },
+      "diagnostic_phase_sources": [
+        {
+          "job": {
+            "block": 1,
+            "name": "leg39_k80",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.855364200018812,
+            "host_setup_seconds": 0.06751250004163012,
+            "runtime_init_seconds": 0.35172869998496026,
+            "upload_seconds": 0.010034500039182603,
+            "plan_seconds": 0.002910099981818348,
+            "graph_setup_seconds": 0.002132499997969717,
+            "march_seconds": 1.4161418000003323,
+            "download_seconds": 0.0009929999941959977
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_leg39_k80_17_combined.npz",
+            "sha256": "17ffa7a71e76a09e184bd5697032d8b6033b4ce9e18a2be6cb47ed125791c1db"
+          },
+          "raw_sha256": "4365d5730081f76bad06ff459ad5a95b8d6705de262d96d14e56ecc3e8f49a53"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm41_k80",
+            "arm": "uniform",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.7608126000268385,
+            "host_setup_seconds": 0.027881900023203343,
+            "runtime_init_seconds": 0.45638699998380616,
+            "upload_seconds": 0.004667499975766987,
+            "plan_seconds": 0.01577150000957772,
+            "graph_setup_seconds": 0.0010728000197559595,
+            "march_seconds": 1.2514729999820702,
+            "download_seconds": 0.0004708000342361629
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_rfm41_k80_7331_uniform.npz",
+            "sha256": "e597ea60377f58e8c4fa9b5969a4205b6df44fa16e7446c7ac361c6c36dcea05"
+          },
+          "raw_sha256": "4a25bdac418a5dd5d1fd5caab707e96c44cebb110ad34086041132d9017454f8"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg39_k80",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.9773492999956943,
+            "host_setup_seconds": 0.09454590000677854,
+            "runtime_init_seconds": 0.4589166000369005,
+            "upload_seconds": 0.007604399987030774,
+            "plan_seconds": 0.0031511999550275505,
+            "graph_setup_seconds": 0.002008700044825673,
+            "march_seconds": 1.4058076000073925,
+            "download_seconds": 0.00043020001612603664
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_leg39_k80_17_cuda_graph_candidate.npz",
+            "sha256": "7a7ab6b947dde0652d90d413e38fd546cfbf7f8be69eb6ca4b78f2a9e6719afe"
+          },
+          "raw_sha256": "f16ae3c06a3758eda04973991eeb9b60a0ffbee8a5c8e8f85c9bf443310adcd0"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm41_k80",
+            "arm": "switch_both",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.5451631000032648,
+            "host_setup_seconds": 0.05089899996528402,
+            "runtime_init_seconds": 0.29835800000000745,
+            "upload_seconds": 0.006896200007759035,
+            "plan_seconds": 0.0028253999771550298,
+            "graph_setup_seconds": 0.0019126000115647912,
+            "march_seconds": 1.1792138000018895,
+            "download_seconds": 0.00039270002162083983
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_rfm41_k80_7331_combined.npz",
+            "sha256": "94840cf70c0a8394f1acd5ae400f16391f0543846d97447a92d5c539e1effab8"
+          },
+          "raw_sha256": "79e69c29e7375f39662f7735e509b0b2b41b869f2a3176b1c4e14a3b68009947"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "leg39_k80",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.8798633000114933,
+            "host_setup_seconds": 0.03219779999926686,
+            "runtime_init_seconds": 0.2663878999883309,
+            "upload_seconds": 0.005578299984335899,
+            "plan_seconds": 0.003526400018017739,
+            "graph_setup_seconds": 0.0010553000029176474,
+            "march_seconds": 1.5681719000567682,
+            "download_seconds": 0.0005472000339068472
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_leg39_k80_17_uniform.npz",
+            "sha256": "eb06249ada8876f190a838e52724c3f0c3e0b6b88c9fecde5f37008fca53b839"
+          },
+          "raw_sha256": "027a700a994228ca3f99f9c4ca5c35aa787be05e07ab05de6ce69868161be01b"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "fd184_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.598979599948507,
+            "host_setup_seconds": 0.1687610999797471,
+            "host_linear_precompute_seconds": 0.0007201000116765499,
+            "runtime_init_seconds": 0.5928826999734156,
+            "upload_seconds": 0.008247199992183596,
+            "plan_seconds": 0.01784739998402074,
+            "graph_setup_seconds": 0.0017342999926768243,
+            "march_seconds": 2.8031986000132747,
+            "download_seconds": 0.0007662000134587288
+          },
+          "archive": {
+            "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+            "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+          },
+          "raw_sha256": "25c355e350cce22aadf24ba87cf40f6f5e814b4b2625456179303e9682ca201a"
+        },
+        {
+          "job": {
+            "block": 1,
+            "name": "rfm41_k80",
+            "arm": "switch_old",
+            "seed": 7331
+          },
+          "phases": {
+            "seconds": 1.7289082999923266,
+            "host_setup_seconds": 0.07804689998738468,
+            "runtime_init_seconds": 0.49374309997074306,
+            "upload_seconds": 0.00624349998543039,
+            "plan_seconds": 0.0029118999955244362,
+            "graph_setup_seconds": 0.0018270000000484288,
+            "march_seconds": 1.141780900012236,
+            "download_seconds": 0.0004602999542839825
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7331_cuda_graph_candidate.npz",
+            "sha256": "b81e22731bb95bb4f503cc26d89fffd5d1c3cc8610453b70c9e3cebeca571214"
+          },
+          "raw_sha256": "66e5f1ac73b9c35f37e4a6aadbd59af3f1f8dab51fa40e4bb262c4e77eeb760d"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm41_k80",
+            "arm": "switch_both",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.5512215999769978,
+            "host_setup_seconds": 0.05512269999599084,
+            "runtime_init_seconds": 0.3250971000525169,
+            "upload_seconds": 0.008842600043863058,
+            "plan_seconds": 0.003580199962016195,
+            "graph_setup_seconds": 0.0019204000127501786,
+            "march_seconds": 1.152593499980867,
+            "download_seconds": 0.00043979997280985117
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_rfm41_k80_7687_combined.npz",
+            "sha256": "de841a5797a1bb87f32213e9e88d8c0690637ddf3b2c055d570e7f87ca47c39e"
+          },
+          "raw_sha256": "cbaf4fa89a15f4089848fbd38f32af42e5005a3bce0d8afee228c5da11a3f428"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm41_k80",
+            "arm": "uniform",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.5778658000053838,
+            "host_setup_seconds": 0.025494400004390627,
+            "runtime_init_seconds": 0.28761800000211224,
+            "upload_seconds": 0.0049008000059984624,
+            "plan_seconds": 0.002969199966173619,
+            "graph_setup_seconds": 0.0013152000028640032,
+            "march_seconds": 1.2525286999880336,
+            "download_seconds": 0.00038600002881139517
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_rfm41_k80_7687_uniform.npz",
+            "sha256": "67f94f7638d39288d5e0588109ee15832231f9cefa25faae49ddbab88e5e1e87"
+          },
+          "raw_sha256": "78265a6388327b5d3f969ff9551691fb7cc3ae3f4fffcca08cdb4bd6f3115eba"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "rfm41_k80",
+            "arm": "switch_old",
+            "seed": 7687
+          },
+          "phases": {
+            "seconds": 1.7234499999904074,
+            "host_setup_seconds": 0.07338130002608523,
+            "runtime_init_seconds": 0.4878465000074357,
+            "upload_seconds": 0.007875400013290346,
+            "plan_seconds": 0.002513999992515892,
+            "graph_setup_seconds": 0.002056199999060482,
+            "march_seconds": 1.1444199999677949,
+            "download_seconds": 0.0006944999913685024
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7687_cuda_graph_candidate.npz",
+            "sha256": "c0266d3270174d5a0a044bd13fa81c917a5418ae23156cc9647da03c11a3695d"
+          },
+          "raw_sha256": "a0a91017ee3aace07b296a8ecbb8cda0966307c0ee8d1d685285726134a07af6"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg39_k80",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.855364200018812,
+            "host_setup_seconds": 0.06751250004163012,
+            "runtime_init_seconds": 0.35172869998496026,
+            "upload_seconds": 0.010034500039182603,
+            "plan_seconds": 0.002910099981818348,
+            "graph_setup_seconds": 0.002132499997969717,
+            "march_seconds": 1.4161418000003323,
+            "download_seconds": 0.0009929999941959977
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_leg39_k80_17_combined.npz",
+            "sha256": "17ffa7a71e76a09e184bd5697032d8b6033b4ce9e18a2be6cb47ed125791c1db"
+          },
+          "raw_sha256": "4365d5730081f76bad06ff459ad5a95b8d6705de262d96d14e56ecc3e8f49a53"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg39_k80",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.8798633000114933,
+            "host_setup_seconds": 0.03219779999926686,
+            "runtime_init_seconds": 0.2663878999883309,
+            "upload_seconds": 0.005578299984335899,
+            "plan_seconds": 0.003526400018017739,
+            "graph_setup_seconds": 0.0010553000029176474,
+            "march_seconds": 1.5681719000567682,
+            "download_seconds": 0.0005472000339068472
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_leg39_k80_17_uniform.npz",
+            "sha256": "eb06249ada8876f190a838e52724c3f0c3e0b6b88c9fecde5f37008fca53b839"
+          },
+          "raw_sha256": "027a700a994228ca3f99f9c4ca5c35aa787be05e07ab05de6ce69868161be01b"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "leg39_k80",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.9773492999956943,
+            "host_setup_seconds": 0.09454590000677854,
+            "runtime_init_seconds": 0.4589166000369005,
+            "upload_seconds": 0.007604399987030774,
+            "plan_seconds": 0.0031511999550275505,
+            "graph_setup_seconds": 0.002008700044825673,
+            "march_seconds": 1.4058076000073925,
+            "download_seconds": 0.00043020001612603664
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_leg39_k80_17_cuda_graph_candidate.npz",
+            "sha256": "7a7ab6b947dde0652d90d413e38fd546cfbf7f8be69eb6ca4b78f2a9e6719afe"
+          },
+          "raw_sha256": "f16ae3c06a3758eda04973991eeb9b60a0ffbee8a5c8e8f85c9bf443310adcd0"
+        },
+        {
+          "job": {
+            "block": 2,
+            "name": "fd184_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.598979599948507,
+            "host_setup_seconds": 0.1687610999797471,
+            "host_linear_precompute_seconds": 0.0007201000116765499,
+            "runtime_init_seconds": 0.5928826999734156,
+            "upload_seconds": 0.008247199992183596,
+            "plan_seconds": 0.01784739998402074,
+            "graph_setup_seconds": 0.0017342999926768243,
+            "march_seconds": 2.8031986000132747,
+            "download_seconds": 0.0007662000134587288
+          },
+          "archive": {
+            "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+            "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+          },
+          "raw_sha256": "25c355e350cce22aadf24ba87cf40f6f5e814b4b2625456179303e9682ca201a"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm41_k80",
+            "arm": "switch_both",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.565666600014083,
+            "host_setup_seconds": 0.05545820004772395,
+            "runtime_init_seconds": 0.2978653000318445,
+            "upload_seconds": 0.006275899999309331,
+            "plan_seconds": 0.0023819999769330025,
+            "graph_setup_seconds": 0.0018851999775506556,
+            "march_seconds": 1.1972794000175782,
+            "download_seconds": 0.0005626999773085117
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_rfm41_k80_8011_combined.npz",
+            "sha256": "e8903b6d4b682c7b1870504d2bfc84bdafffbd2cc7d8a8754f0523df0dc2275b"
+          },
+          "raw_sha256": "6e665b75e56c3b39f120d295a031de082e661cf6178e776e4ba04a298ebb3d7d"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg39_k80",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.9773492999956943,
+            "host_setup_seconds": 0.09454590000677854,
+            "runtime_init_seconds": 0.4589166000369005,
+            "upload_seconds": 0.007604399987030774,
+            "plan_seconds": 0.0031511999550275505,
+            "graph_setup_seconds": 0.002008700044825673,
+            "march_seconds": 1.4058076000073925,
+            "download_seconds": 0.00043020001612603664
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_leg39_k80_17_cuda_graph_candidate.npz",
+            "sha256": "7a7ab6b947dde0652d90d413e38fd546cfbf7f8be69eb6ca4b78f2a9e6719afe"
+          },
+          "raw_sha256": "f16ae3c06a3758eda04973991eeb9b60a0ffbee8a5c8e8f85c9bf443310adcd0"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "fd184_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.598979599948507,
+            "host_setup_seconds": 0.1687610999797471,
+            "host_linear_precompute_seconds": 0.0007201000116765499,
+            "runtime_init_seconds": 0.5928826999734156,
+            "upload_seconds": 0.008247199992183596,
+            "plan_seconds": 0.01784739998402074,
+            "graph_setup_seconds": 0.0017342999926768243,
+            "march_seconds": 2.8031986000132747,
+            "download_seconds": 0.0007662000134587288
+          },
+          "archive": {
+            "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+            "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+          },
+          "raw_sha256": "25c355e350cce22aadf24ba87cf40f6f5e814b4b2625456179303e9682ca201a"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm41_k80",
+            "arm": "uniform",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.592347299971152,
+            "host_setup_seconds": 0.025270999991334975,
+            "runtime_init_seconds": 0.2610041999723762,
+            "upload_seconds": 0.0042569999932311475,
+            "plan_seconds": 0.0032559999963268638,
+            "graph_setup_seconds": 0.001020000025164336,
+            "march_seconds": 1.2946334999869578,
+            "download_seconds": 0.0004126999992877245
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_rfm41_k80_8011_uniform.npz",
+            "sha256": "fc12f1874fd1f5c2044e2ccd9523b20be7f5e39dce37997daa40673c5057e075"
+          },
+          "raw_sha256": "622142102e7be1aa6920e0900a29c0ed014d9865fee7a8d99756c0343ef544d8"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg39_k80",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.855364200018812,
+            "host_setup_seconds": 0.06751250004163012,
+            "runtime_init_seconds": 0.35172869998496026,
+            "upload_seconds": 0.010034500039182603,
+            "plan_seconds": 0.002910099981818348,
+            "graph_setup_seconds": 0.002132499997969717,
+            "march_seconds": 1.4161418000003323,
+            "download_seconds": 0.0009929999941959977
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_leg39_k80_17_combined.npz",
+            "sha256": "17ffa7a71e76a09e184bd5697032d8b6033b4ce9e18a2be6cb47ed125791c1db"
+          },
+          "raw_sha256": "4365d5730081f76bad06ff459ad5a95b8d6705de262d96d14e56ecc3e8f49a53"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "leg39_k80",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.8798633000114933,
+            "host_setup_seconds": 0.03219779999926686,
+            "runtime_init_seconds": 0.2663878999883309,
+            "upload_seconds": 0.005578299984335899,
+            "plan_seconds": 0.003526400018017739,
+            "graph_setup_seconds": 0.0010553000029176474,
+            "march_seconds": 1.5681719000567682,
+            "download_seconds": 0.0005472000339068472
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_leg39_k80_17_uniform.npz",
+            "sha256": "eb06249ada8876f190a838e52724c3f0c3e0b6b88c9fecde5f37008fca53b839"
+          },
+          "raw_sha256": "027a700a994228ca3f99f9c4ca5c35aa787be05e07ab05de6ce69868161be01b"
+        },
+        {
+          "job": {
+            "block": 3,
+            "name": "rfm41_k80",
+            "arm": "switch_old",
+            "seed": 8011
+          },
+          "phases": {
+            "seconds": 1.705723199993372,
+            "host_setup_seconds": 0.07342040003277361,
+            "runtime_init_seconds": 0.46783040004083887,
+            "upload_seconds": 0.009245899971574545,
+            "plan_seconds": 0.003395700012333691,
+            "graph_setup_seconds": 0.002140500000678003,
+            "march_seconds": 1.1455230000428855,
+            "download_seconds": 0.000575199956074357
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_8011_cuda_graph_candidate.npz",
+            "sha256": "e63c8699566894f7d68e8962a79e5113ec191d2e015ced9216739ea4eb1759f6"
+          },
+          "raw_sha256": "5738568304544c8efea037db72324a886e9d4b4379621340b3a0d7479b4121fe"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "fd184_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.598979599948507,
+            "host_setup_seconds": 0.1687610999797471,
+            "host_linear_precompute_seconds": 0.0007201000116765499,
+            "runtime_init_seconds": 0.5928826999734156,
+            "upload_seconds": 0.008247199992183596,
+            "plan_seconds": 0.01784739998402074,
+            "graph_setup_seconds": 0.0017342999926768243,
+            "march_seconds": 2.8031986000132747,
+            "download_seconds": 0.0007662000134587288
+          },
+          "archive": {
+            "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+            "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+          },
+          "raw_sha256": "25c355e350cce22aadf24ba87cf40f6f5e814b4b2625456179303e9682ca201a"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg39_k80",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.9773492999956943,
+            "host_setup_seconds": 0.09454590000677854,
+            "runtime_init_seconds": 0.4589166000369005,
+            "upload_seconds": 0.007604399987030774,
+            "plan_seconds": 0.0031511999550275505,
+            "graph_setup_seconds": 0.002008700044825673,
+            "march_seconds": 1.4058076000073925,
+            "download_seconds": 0.00043020001612603664
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_leg39_k80_17_cuda_graph_candidate.npz",
+            "sha256": "7a7ab6b947dde0652d90d413e38fd546cfbf7f8be69eb6ca4b78f2a9e6719afe"
+          },
+          "raw_sha256": "f16ae3c06a3758eda04973991eeb9b60a0ffbee8a5c8e8f85c9bf443310adcd0"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm41_k80",
+            "arm": "switch_both",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.512011100014206,
+            "host_setup_seconds": 0.04972000000998378,
+            "runtime_init_seconds": 0.29350750002777204,
+            "upload_seconds": 0.008316399995237589,
+            "plan_seconds": 0.0035490000154823065,
+            "graph_setup_seconds": 0.002759800001513213,
+            "march_seconds": 1.1493236999958754,
+            "download_seconds": 0.0007858999888412654
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_rfm41_k80_8353_combined.npz",
+            "sha256": "121aa84249f08d2c26e55dda7d1a7b2cc64c2dba2ad0a0fc3d3d58571be4242e"
+          },
+          "raw_sha256": "4de36f426743ddd239b1fd9d0234c0fd3cfb79224d99ba6666fa8a67c4d9fce9"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm41_k80",
+            "arm": "uniform",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.628313299966976,
+            "host_setup_seconds": 0.025607499992474914,
+            "runtime_init_seconds": 0.2679492000024766,
+            "upload_seconds": 0.005231199960689992,
+            "plan_seconds": 0.003416399995330721,
+            "graph_setup_seconds": 0.0011255000135861337,
+            "march_seconds": 1.3222696000011638,
+            "download_seconds": 0.0004181000404059887
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_rfm41_k80_8353_uniform.npz",
+            "sha256": "e92f7026735c17ee135d2fcbb8a6ca2e459526b9ea63a8a014636fb13af1ae6c"
+          },
+          "raw_sha256": "9fe953a1b6e0a52248888ee37dcfb09d107b4ab921c7965a2d74e5ba220be933"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "rfm41_k80",
+            "arm": "switch_old",
+            "seed": 8353
+          },
+          "phases": {
+            "seconds": 1.7052177000441588,
+            "host_setup_seconds": 0.07433150004362687,
+            "runtime_init_seconds": 0.46823440003208816,
+            "upload_seconds": 0.006357199978083372,
+            "plan_seconds": 0.002802699978929013,
+            "graph_setup_seconds": 0.0018880999996326864,
+            "march_seconds": 1.1460933000198565,
+            "download_seconds": 0.00039299996569752693
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_8353_cuda_graph_candidate.npz",
+            "sha256": "3260a1281bf4e76770537f7331b98a36c4fbc4abf7d1103ab2f7bb41dd762e60"
+          },
+          "raw_sha256": "e2eedd3fd59160bd6bbd5ee61eaf6c92af7b39be68ac9ecd9f340891e2cefd7f"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg39_k80",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.855364200018812,
+            "host_setup_seconds": 0.06751250004163012,
+            "runtime_init_seconds": 0.35172869998496026,
+            "upload_seconds": 0.010034500039182603,
+            "plan_seconds": 0.002910099981818348,
+            "graph_setup_seconds": 0.002132499997969717,
+            "march_seconds": 1.4161418000003323,
+            "download_seconds": 0.0009929999941959977
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_leg39_k80_17_combined.npz",
+            "sha256": "17ffa7a71e76a09e184bd5697032d8b6033b4ce9e18a2be6cb47ed125791c1db"
+          },
+          "raw_sha256": "4365d5730081f76bad06ff459ad5a95b8d6705de262d96d14e56ecc3e8f49a53"
+        },
+        {
+          "job": {
+            "block": 4,
+            "name": "leg39_k80",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.8798633000114933,
+            "host_setup_seconds": 0.03219779999926686,
+            "runtime_init_seconds": 0.2663878999883309,
+            "upload_seconds": 0.005578299984335899,
+            "plan_seconds": 0.003526400018017739,
+            "graph_setup_seconds": 0.0010553000029176474,
+            "march_seconds": 1.5681719000567682,
+            "download_seconds": 0.0005472000339068472
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_leg39_k80_17_uniform.npz",
+            "sha256": "eb06249ada8876f190a838e52724c3f0c3e0b6b88c9fecde5f37008fca53b839"
+          },
+          "raw_sha256": "027a700a994228ca3f99f9c4ca5c35aa787be05e07ab05de6ce69868161be01b"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg39_k80",
+            "arm": "switch_old",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.9773492999956943,
+            "host_setup_seconds": 0.09454590000677854,
+            "runtime_init_seconds": 0.4589166000369005,
+            "upload_seconds": 0.007604399987030774,
+            "plan_seconds": 0.0031511999550275505,
+            "graph_setup_seconds": 0.002008700044825673,
+            "march_seconds": 1.4058076000073925,
+            "download_seconds": 0.00043020001612603664
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_leg39_k80_17_cuda_graph_candidate.npz",
+            "sha256": "7a7ab6b947dde0652d90d413e38fd546cfbf7f8be69eb6ca4b78f2a9e6719afe"
+          },
+          "raw_sha256": "f16ae3c06a3758eda04973991eeb9b60a0ffbee8a5c8e8f85c9bf443310adcd0"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm41_k80",
+            "arm": "switch_both",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.556287900020834,
+            "host_setup_seconds": 0.05358520004665479,
+            "runtime_init_seconds": 0.31554720003623515,
+            "upload_seconds": 0.00933720002649352,
+            "plan_seconds": 0.0027159000164829195,
+            "graph_setup_seconds": 0.0019618000369518995,
+            "march_seconds": 1.1692084000096656,
+            "download_seconds": 0.00044020003406330943
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_rfm41_k80_9041_combined.npz",
+            "sha256": "7528728659f9abb6237ad089a21a9e0381f573727e708ae6ecdfcc46267a4e42"
+          },
+          "raw_sha256": "b2de7e88c5fff521e9e63c8a96ddb04fb4db10e16c901362041a569d96d813c1"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm41_k80",
+            "arm": "uniform",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.6398414999712259,
+            "host_setup_seconds": 0.0248155000153929,
+            "runtime_init_seconds": 0.2698128999909386,
+            "upload_seconds": 0.005418799992185086,
+            "plan_seconds": 0.00315279996721074,
+            "graph_setup_seconds": 0.0012867000186815858,
+            "march_seconds": 1.3322508999845013,
+            "download_seconds": 0.0004181999829597771
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_rfm41_k80_9041_uniform.npz",
+            "sha256": "d7572dcadfe8e154c699b38dcec971d391cf38637a3ecebd35156f990c47e079"
+          },
+          "raw_sha256": "0d7d4b0cd51ec4ea35508d4e827fae394ac28ac19487e3f644a4d9165ef2458b"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg39_k80",
+            "arm": "switch_both",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.855364200018812,
+            "host_setup_seconds": 0.06751250004163012,
+            "runtime_init_seconds": 0.35172869998496026,
+            "upload_seconds": 0.010034500039182603,
+            "plan_seconds": 0.002910099981818348,
+            "graph_setup_seconds": 0.002132499997969717,
+            "march_seconds": 1.4161418000003323,
+            "download_seconds": 0.0009929999941959977
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_qualification_output/high_leg39_k80_17_combined.npz",
+            "sha256": "17ffa7a71e76a09e184bd5697032d8b6033b4ce9e18a2be6cb47ed125791c1db"
+          },
+          "raw_sha256": "4365d5730081f76bad06ff459ad5a95b8d6705de262d96d14e56ecc3e8f49a53"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "leg39_k80",
+            "arm": "uniform",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 1.8798633000114933,
+            "host_setup_seconds": 0.03219779999926686,
+            "runtime_init_seconds": 0.2663878999883309,
+            "upload_seconds": 0.005578299984335899,
+            "plan_seconds": 0.003526400018017739,
+            "graph_setup_seconds": 0.0010553000029176474,
+            "march_seconds": 1.5681719000567682,
+            "download_seconds": 0.0005472000339068472
+          },
+          "archive": {
+            "path": "rfm_v7/prepared_uniform_high_qualification_output/high_leg39_k80_17_uniform.npz",
+            "sha256": "eb06249ada8876f190a838e52724c3f0c3e0b6b88c9fecde5f37008fca53b839"
+          },
+          "raw_sha256": "027a700a994228ca3f99f9c4ca5c35aa787be05e07ab05de6ce69868161be01b"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "rfm41_k80",
+            "arm": "switch_old",
+            "seed": 9041
+          },
+          "phases": {
+            "seconds": 1.7122895999928005,
+            "host_setup_seconds": 0.07693770003970712,
+            "runtime_init_seconds": 0.47094480000669137,
+            "upload_seconds": 0.007305899984203279,
+            "plan_seconds": 0.0025840000016614795,
+            "graph_setup_seconds": 0.0019038000027649105,
+            "march_seconds": 1.1481106999563053,
+            "download_seconds": 0.00047199998516589403
+          },
+          "archive": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_9041_cuda_graph_candidate.npz",
+            "sha256": "50fe0ef8896011d6da16e3dd4a036703a6907213ebe9118b89b643c5714a0394"
+          },
+          "raw_sha256": "20f35e2ac7b45864c8dcf7a93427080d747d4c24c1fc4bf954f1a2e40e2e30aa"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "fd176_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.049404699995648,
+            "host_setup_seconds": 0.17395899997791275,
+            "host_linear_precompute_seconds": 0.07102860003942624,
+            "runtime_init_seconds": 0.3645540999714285,
+            "upload_seconds": 0.00857990002259612,
+            "plan_seconds": 0.002999100019223988,
+            "graph_setup_seconds": 0.0016428999952040613,
+            "march_seconds": 2.422000299964566,
+            "download_seconds": 0.0007844000356271863
+          },
+          "archive": {
+            "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+            "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+          },
+          "raw_sha256": "9f448e23be56437de3e7db182f18f8c92def1c3aed59cb7b957b983b421347d3"
+        },
+        {
+          "job": {
+            "block": 5,
+            "name": "fd184_k80",
+            "arm": "fd",
+            "seed": 17
+          },
+          "phases": {
+            "seconds": 3.598979599948507,
+            "host_setup_seconds": 0.1687610999797471,
+            "host_linear_precompute_seconds": 0.0007201000116765499,
+            "runtime_init_seconds": 0.5928826999734156,
+            "upload_seconds": 0.008247199992183596,
+            "plan_seconds": 0.01784739998402074,
+            "graph_setup_seconds": 0.0017342999926768243,
+            "march_seconds": 2.8031986000132747,
+            "download_seconds": 0.0007662000134587288
+          },
+          "archive": {
+            "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+            "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+          },
+          "raw_sha256": "25c355e350cce22aadf24ba87cf40f6f5e814b4b2625456179303e9682ca201a"
+        }
+      ]
+    }
+  }
+}

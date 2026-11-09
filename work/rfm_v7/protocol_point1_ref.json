@@ -1,0 +1,15 @@
+{
+  "name": "v7 fixed R6 0.1% independent reference ladder",
+  "horizon": 72,
+  "checkpoints": [24, 36, 48, 54, 60, 66, 72],
+  "gate": 0.001,
+  "reference_budget_fraction": 0.25,
+  "reference_path": [
+    {"name": "radial_coarse", "n": 384, "k": 128, "rate": 384, "source": "rfm_v7/cpu_formal_point1_output/fd384_k128_rate384.npz"},
+    {"name": "radial_fine", "n": 448, "k": 128, "rate": 384, "source": "rfm_v7/cpu_formal_point1_output/fd448_k128_rate384.npz"},
+    {"name": "angular_fine", "n": 448, "k": 144, "rate": 384, "source": "rfm_v7/cpu_formal_point1_output/fd448_k144_rate384.npz"},
+    {"name": "time_fine", "n": 448, "k": 144, "rate": 512, "source": "rfm_v7/cpu_formal_point1_output/fd448_k144_rate512.npz"}
+  ],
+  "legacy_reference": "rfm_v6/parallel_refinement/fd320_ref_tk.npz",
+  "scoring": "Identical to v7 0.5% and v6. Three grids, seven physical times, full and near region, velocity and curl, unshifted. Reference changes are empirical, not continuum bounds."
+}

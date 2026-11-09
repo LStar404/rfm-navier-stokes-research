@@ -1,0 +1,435 @@
+{
+  "scope": "Native Windows CUDA pow2 and k1 row-moment cylinder reference replay",
+  "runtime": "Python with NumPy and SciPy, x64 Windows CUDA driver, NVRTC and cuFFT as recorded in the native preflight.",
+  "working_directory": "work/rfm_v7",
+  "note": "File paths are relative to the shared workspace root. The archive excludes intermediates and contains original diagnostic timing only.",
+  "files": [
+    {
+      "path": "work/rfm_v7/protocol_fd_cuda_pow2.json",
+      "sha256": "e0d9c14f5323ffaefbcac7c11b69b49f36464a5a1d0ec95bd1388cee5f987602",
+      "bytes": 922,
+      "group": "protocol",
+      "purpose": "Preregistered CPU-to-CUDA scale and high-resolution replay gate"
+    },
+    {
+      "path": "work/rfm_v7/protocol_fd_cuda_rowcomp.json",
+      "sha256": "f1325800a68b33166ededdb3a3f92f5f0e624f161a99a45cf4280cf740deeea8",
+      "bytes": 1231,
+      "group": "protocol",
+      "purpose": "Preregistered paired k1 row-moment replay and pilot gate"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/protocol.json",
+      "sha256": "f448b3121ae57e1e301cd28e3939770ab77aaca29bce064af4b5a654be34ecbf",
+      "bytes": 4337,
+      "group": "protocol",
+      "purpose": "Frozen CPU row-moment paired trajectory protocol"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_replay_dense.json",
+      "sha256": "03c6e3acf5a4dfc0c9a14836248e373d6b9e929489c2c4f70d5999d8c655e478",
+      "bytes": 30278,
+      "group": "evidence",
+      "purpose": "Failed folded-dense gate with per-grid scores and unshifted probes"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_replay_band.json",
+      "sha256": "8ad0f6a06cf44d890bd4321b8bbec07a6d8503f587dc37793d91dd5390d93d7b",
+      "bytes": 30260,
+      "group": "evidence",
+      "purpose": "Passing explicit-band pow2 gate with per-grid scores and probes"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_rhs_gradient_audit.json",
+      "sha256": "93431727db8f280abd6947ced8c30368ccf804bf4bd9a23e4fb42ceaec145124",
+      "bytes": 29713,
+      "group": "evidence",
+      "purpose": "CPU Decimal original-equation and staged versus composed radial audits"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_device_residual.json",
+      "sha256": "6d3a0da8cb001091440b0a859a28cfba2993a504fc0017e9106005013c1c1d37",
+      "bytes": 14763,
+      "group": "evidence",
+      "purpose": "Actual CUDA linear kernels checked against unscaled Decimal equations"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_results.md",
+      "sha256": "13c5275460b8f6214ab1077c576e49ccfd565eabb60227bb481763273cb157b2",
+      "bytes": 4052,
+      "group": "evidence",
+      "purpose": "Pow2 CUDA methods and evidence interpretation"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp_pilot.json",
+      "sha256": "7c99da01fb3d0b4bbf19656d89dba51e5c659370394c42ff8a501ef07fc5ba02",
+      "bytes": 19906,
+      "group": "evidence",
+      "purpose": "Exact fixed-state selected-mode checks and two short GPU pilots"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp_t72.json",
+      "sha256": "2cdf20de5d8b3b7fd0357d1f854a179b980a5cb86a3193e9804e44cae0e75bf3",
+      "bytes": 5350,
+      "group": "evidence",
+      "purpose": "Full k1 row-moment CUDA trajectory metadata and digest"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp_verification.json",
+      "sha256": "122e9c00ee62309524eff8be96f64a4d8254555e98e37ba00dbfe2eef2bde231",
+      "bytes": 61687,
+      "group": "evidence",
+      "purpose": "Paired CPU and GPU acceptance results plus independent old-arithmetic sensitivity"
+    },
+    {
+      "path": "work/rfm_v7/fd_row_compensated_audit.json",
+      "sha256": "8cfe87e4afcb3f05f8cbd21abed64737ff16261bf07a4528be9cb9f5ffb01756",
+      "bytes": 134369,
+      "group": "evidence",
+      "purpose": "Fixed-state 65-digit numerical cancellation and moment-correction evidence"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/fixed_audit.json",
+      "sha256": "e3613570bc7f859efecb00e85b2400f57d77d0a7f58d768ee462e34e1e5502ae",
+      "bytes": 11594,
+      "group": "evidence",
+      "purpose": "CPU implementation qualification and audited binary moments"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.json",
+      "sha256": "d90e2820b2d569ea54b40af2aae20567535557a9baca27cb1f042e3bd87a327f",
+      "bytes": 35272,
+      "group": "evidence",
+      "purpose": "New CPU trajectory metadata, digest and old-arithmetic sensitivity"
+    },
+    {
+      "path": "work/rfm_v7/cuda_environment_native.json",
+      "sha256": "a584b98a3c6ec61561bde138c3d1e705344f377abe4d07c8b945b8b5d0422a15",
+      "bytes": 477,
+      "group": "evidence",
+      "purpose": "Native Windows FP64 CUDA hardware and runtime preflight"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_replay_dense.npz",
+      "sha256": "3695aa9ebef3fb7fbf107effd366dbc206abd86de2f6734f43273d33171ac835",
+      "bytes": 7093663,
+      "group": "trajectory",
+      "purpose": "Failed dense replay raw checkpoints and probes"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_replay_band.npz",
+      "sha256": "32e2dc5976c9be5e673955f9e53e073e67adc768c2fcad429bb0be0a8f9c159a",
+      "bytes": 7093707,
+      "group": "trajectory",
+      "purpose": "Passing explicit-band pow2 replay raw checkpoints and probes"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp_t72.npz",
+      "sha256": "389f3ecf3f60d2bc95babc45e355c5d7e8c554f4547cfcf15ffa713b0e13a58d",
+      "bytes": 7093894,
+      "group": "trajectory",
+      "purpose": "Paired row-moment CUDA raw checkpoints and probes"
+    },
+    {
+      "path": "work/rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz",
+      "sha256": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7",
+      "bytes": 7094059,
+      "group": "trajectory",
+      "purpose": "Archived original CPU pow2 reference with pinned digest"
+    },
+    {
+      "path": "work/rfm_v7/cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.npz",
+      "sha256": "49aecce3f0aed89ba875a275d58dc7001ad4fc1b6fc642a45595ac0dc330a77a",
+      "bytes": 7094699,
+      "group": "trajectory",
+      "purpose": "Independent matching CPU row-moment checkpoints and probes"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2.py",
+      "sha256": "e3f6e4fc8b148199fd59c185f2a9d5d654f20ee7d71e5737695f9762cbd34b32",
+      "bytes": 11000,
+      "group": "solver_and_audit_source",
+      "purpose": "Resident explicit-band and folded-dense CUDA FD4 implementations"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2.cu",
+      "sha256": "54440e96397a1e409fc72711a20d147d1e010049fee2137cd38549fcaf02489b",
+      "bytes": 5076,
+      "group": "solver_and_audit_source",
+      "purpose": "Resident scale and staged curl kernels"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_replay.py",
+      "sha256": "146c05bd2f03dc74bb4532c9a871a437327e0689bd59533a355c6ea16ce4c7fc",
+      "bytes": 5487,
+      "group": "solver_and_audit_source",
+      "purpose": "Same-discretization replay and scoring driver"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_audit.py",
+      "sha256": "34092e3db704a2a4f2495f1530140f42027baec26d21685427eacc4d42aec385",
+      "bytes": 6408,
+      "group": "solver_and_audit_source",
+      "purpose": "Original-equation and radial derivative precision audit"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_pow2_device_residual.py",
+      "sha256": "8741f6c1c681a65ab982910b497c6d697e0534b63e1257f3141361bde93b0970",
+      "bytes": 4168,
+      "group": "solver_and_audit_source",
+      "purpose": "Actual CUDA linear kernel audit driver"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp.py",
+      "sha256": "9daa8863ecb761a3984fbb1e4d0ffcf485d665b3f1db3f44a8ee749192559fe5",
+      "bytes": 9929,
+      "group": "solver_and_audit_source",
+      "purpose": "Resident selective row-moment CUDA solver"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp.cu",
+      "sha256": "ff27d08314647cb41ed1102304d32d7108cd94b0bdfe49f6f80f03055fdc6069",
+      "bytes": 2987,
+      "group": "solver_and_audit_source",
+      "purpose": "Correctly rounded k1 correction kernels"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_rowcomp_replay.py",
+      "sha256": "07e0e9ab23f53a2763e537efc759ea9decb8f5353ccd8b874c164d24beebc541",
+      "bytes": 10821,
+      "group": "solver_and_audit_source",
+      "purpose": "Pilot, complete march and offline paired verification driver"
+    },
+    {
+      "path": "work/rfm_v7/fd_row_compensated_audit.py",
+      "sha256": "05722d00884a532ce1bcf8c1e222b007cbf609962214490682118cde07366167",
+      "bytes": 12630,
+      "group": "solver_and_audit_source",
+      "purpose": "Independent row-moment fixed-state audit"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment_replay.py",
+      "sha256": "f38c41676e0c3813d3d0e2b1357df6a3956af217558ee2ce68fddc6cecb01283",
+      "bytes": 14304,
+      "group": "solver_and_audit_source",
+      "purpose": "CPU reference build, fixed-state qualification and full trajectory driver"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment.py",
+      "sha256": "1546c59d84043ef74f047d6a6f0860dcf284e2028454eb577e01c92b6cb7cc27",
+      "bytes": 3222,
+      "group": "solver_and_audit_source",
+      "purpose": "Matching CPU solver and exact shared moment construction"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment.c",
+      "sha256": "d2658124b9f26b285196b0ca6ac674a03ad4855477ab3c02b8d8ec5dd49cc2cf",
+      "bytes": 4794,
+      "group": "solver_and_audit_source",
+      "purpose": "Matching CPU FP64 radial kernel source"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_row_moment.dll",
+      "sha256": "64eee0aa2f17ecab257a65ddd4801709adb2d79e66505d38e324ceeee822fa15",
+      "bytes": 19556,
+      "group": "solver_and_audit_source",
+      "purpose": "Verified Windows binary for matching CPU radial evaluation"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_native.py",
+      "sha256": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+      "bytes": 17157,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen CUDA FD4 FFT and cached band launch utilities"
+    },
+    {
+      "path": "work/rfm_v7/fd_cuda_native.cu",
+      "sha256": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+      "bytes": 7917,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen CUDA products, RHS, cached band solve and observation kernels"
+    },
+    {
+      "path": "work/rfm_v7/cuda_environment_native.py",
+      "sha256": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+      "bytes": 10800,
+      "group": "shared_source_and_runtime",
+      "purpose": "Native CUDA driver bindings and NVRTC loader"
+    },
+    {
+      "path": "work/rfm_v7/galerkin_cuda_native.py",
+      "sha256": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+      "bytes": 15803,
+      "group": "shared_source_and_runtime",
+      "purpose": "Shared CUDA runtime, graph and FFT helpers"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_buffered.py",
+      "sha256": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+      "bytes": 9402,
+      "group": "shared_source_and_runtime",
+      "purpose": "Original buffered CPU reference wrapper and build entry point"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_buffered.c",
+      "sha256": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+      "bytes": 3558,
+      "group": "shared_source_and_runtime",
+      "purpose": "Original CPU radial and nonlinear kernel source"
+    },
+    {
+      "path": "work/rfm_v7/fd_cpu_buffered.dll",
+      "sha256": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+      "bytes": 18041,
+      "group": "shared_source_and_runtime",
+      "purpose": "Original verified Windows radial and nonlinear kernels"
+    },
+    {
+      "path": "work/rfm_v7/fd_pow2_long.py",
+      "sha256": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+      "bytes": 9833,
+      "group": "shared_source_and_runtime",
+      "purpose": "Original row-equilibrated CPU model and restartable solver"
+    },
+    {
+      "path": "work/rfm_v7/fd_equilibration_pow2.py",
+      "sha256": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+      "bytes": 1577,
+      "group": "shared_source_and_runtime",
+      "purpose": "Power-of-two cached band factor and RHS scaling"
+    },
+    {
+      "path": "work/rfm_v7/fd_equilibration_precision.py",
+      "sha256": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+      "bytes": 10327,
+      "group": "shared_source_and_runtime",
+      "purpose": "Decimal stencil and unscaled-equation oracle helpers"
+    },
+    {
+      "path": "work/rfm_v7/cpu_formal.py",
+      "sha256": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+      "bytes": 14500,
+      "group": "shared_source_and_runtime",
+      "purpose": "Reference reconstruction, scoring grids, wake and digest helpers"
+    },
+    {
+      "path": "work/rfm_v7/cpu_formal_fd_equilibrate.py",
+      "sha256": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+      "bytes": 7640,
+      "group": "shared_source_and_runtime",
+      "purpose": "Original band capture helper imported by Decimal audit"
+    },
+    {
+      "path": "work/rfm_v7/cpu_formal_reference_point1.py",
+      "sha256": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+      "bytes": 4022,
+      "group": "shared_source_and_runtime",
+      "purpose": "Protocol constants imported by original reference solver"
+    },
+    {
+      "path": "work/rfm_v6/fd_full.py",
+      "sha256": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+      "bytes": 9101,
+      "group": "shared_source_and_runtime",
+      "purpose": "Underlying FD4 model, radial boundary closures and implicit matrices"
+    },
+    {
+      "path": "work/rfm_v6/fd_full_band.c",
+      "sha256": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+      "bytes": 1634,
+      "group": "shared_source_and_runtime",
+      "purpose": "Underlying CPU band solve source"
+    },
+    {
+      "path": "work/rfm_v6/fd_full_band.dll",
+      "sha256": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+      "bytes": 7750,
+      "group": "shared_source_and_runtime",
+      "purpose": "Underlying verified Windows CPU band solve binary"
+    },
+    {
+      "path": "work/rfm_v6/full_case.py",
+      "sha256": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+      "bytes": 6784,
+      "group": "shared_source_and_runtime",
+      "purpose": "Full-circle cylinder definition, integration, scoring and archive format"
+    },
+    {
+      "path": "work/rfm_v6/diagnostic_wake.py",
+      "sha256": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+      "bytes": 11269,
+      "group": "shared_source_and_runtime",
+      "purpose": "Absolute-time probes and persistent wake diagnostics"
+    },
+    {
+      "path": "work/rfm_v6/full_formal.py",
+      "sha256": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+      "bytes": 6621,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen dependency of shared scoring module"
+    },
+    {
+      "path": "work/rfm_v6/full_galerkin.py",
+      "sha256": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+      "bytes": 7170,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen dependency of shared scoring module"
+    },
+    {
+      "path": "work/rfm_v6/full_galerkin_buffered.py",
+      "sha256": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+      "bytes": 3313,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen dependency of shared runtime and scoring modules"
+    },
+    {
+      "path": "work/rfm_v6/full_nonlinear.py",
+      "sha256": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+      "bytes": 4462,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen full-circle Fourier transforms and products"
+    },
+    {
+      "path": "work/rfm_v6/radial_layers.py",
+      "sha256": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+      "bytes": 1329,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen dependency of shared scoring module"
+    },
+    {
+      "path": "work/rfm_v5/timing_v5.py",
+      "sha256": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+      "bytes": 907,
+      "group": "shared_source_and_runtime",
+      "purpose": "Process-affinity helper imported by shared scoring module"
+    },
+    {
+      "path": "work/rfm_v3/cylinder_case.py",
+      "sha256": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+      "bytes": 4960,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen dependency of radial stencil and scoring imports"
+    },
+    {
+      "path": "work/rfm_v3/cylinder_fd.py",
+      "sha256": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+      "bytes": 6340,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen finite-difference stencil assembly helpers"
+    },
+    {
+      "path": "work/rfm_v3/cylinder_rfm.py",
+      "sha256": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+      "bytes": 7690,
+      "group": "shared_source_and_runtime",
+      "purpose": "Frozen dependency of shared scoring module"
+    },
+    {
+      "path": "work/rfm_v7/protocol_cpu.json",
+      "sha256": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+      "bytes": 1647,
+      "group": "protocol",
+      "purpose": "Frozen baseline protocol fingerprint verified by the CPU row-moment runner"
+    }
+  ]
+}

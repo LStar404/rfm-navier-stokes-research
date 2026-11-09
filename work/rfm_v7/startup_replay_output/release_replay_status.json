@@ -1,0 +1,40 @@
+{
+  "status": "archived_verification_passed_startup_replay_failed",
+  "release_manifest_sha256": "a73c96e51972f6f6789f1f0019a23c031b23157289870fac63ce77d2d8126e43",
+  "verifier_source_sha256": "8ff99c69fac7504e9f029fe2545d848184fee668dd90f67c2b6d6219ef5f7e00",
+  "archive": {
+    "command": "python work/rfm_v7/verify_v7_operator_round.py",
+    "exit_code": 0,
+    "result": "released_archive_verification.json",
+    "sha256": "e53e1e8a4b6d4e1009ee34d9414c8733ec0ec9bd7296d673f86ddf85f59714d9"
+  },
+  "original_optional_replay": {
+    "command": "python work/rfm_v7/verify_v7_operator_round.py --replay",
+    "exit_code": 1,
+    "completed_archive_checks": true,
+    "exception": "RuntimeError",
+    "message": "Short implementation gate failed: rfm37_k72/cpu_native_contract",
+    "horizon": 8.0,
+    "rate": 112,
+    "snapshots": [
+      4.0,
+      8.0
+    ],
+    "implementation_tolerance": 1e-05
+  },
+  "followup": {
+    "artifact": "audit.json",
+    "sha256": "57a8855698b97c2981be15eb45cc3c66202a7da2b7c011df49cad6cc283fe8ba",
+    "outcomes": {
+      "112": {
+        "passed": 0,
+        "compared": 4
+      },
+      "128": {
+        "passed": 4,
+        "compared": 4
+      }
+    }
+  },
+  "certificate": "A combined passing V7_OPERATOR_VERIFICATION.json was not created."
+}

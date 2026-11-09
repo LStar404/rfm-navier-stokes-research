@@ -1,0 +1,23 @@
+{
+  "name": "v7 R6 row-equilibrated 0.1% independent reference ladder",
+  "horizon": 72,
+  "checkpoints": [24, 36, 48, 54, 60, 66, 72],
+  "gate": 0.001,
+  "reference_budget_fraction": 0.25,
+  "scaling": "FP64 power-of-two row equilibration, cached native band LU, fused radial FD4",
+  "reference_path": [
+    {"name": "radial_coarse", "n": 384, "k": 128, "rate": 384,
+     "source": "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz",
+     "sha256": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077"},
+    {"name": "radial_fine", "n": 448, "k": 128, "rate": 384,
+     "source": "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz",
+     "sha256": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4"},
+    {"name": "angular_fine", "n": 448, "k": 144, "rate": 384,
+     "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz"},
+    {"name": "time_fine", "n": 448, "k": 144, "rate": 512,
+     "source": "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz"}
+  ],
+  "scoring": "Original 3 grids, 7 absolute physical times, full/near velocity and curl. No phase alignment. Reference edges are empirical, not continuum bounds.",
+  "candidate_scope": "All frozen 21 cases in CPU 0.5% qualification, five widened-bandwidth RFM49 seeds, all three stored Legendre49 basis variants and saved FD240/280/320 controls. Rescore saved fields only.",
+  "resume": "Each new arm reuses the verified pow2 marcher with its own run directory. The inherited checkpoint filename is local to the arm. Its embedded identity records true n, k, rate and scales."
+}

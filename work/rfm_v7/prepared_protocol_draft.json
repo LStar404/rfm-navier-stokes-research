@@ -1,0 +1,69 @@
+{
+  "status": "draft_not_authorized_to_execute",
+  "study": "Merged CUDA switch module and shared Galerkin host spatial preparation",
+  "horizon": 72,
+  "switch_time": 8,
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "implementation_extra_times": "switch_time + (1,2)/late_rate, represented by exact step indices",
+  "probe_spacing": 0.125,
+  "physical_gate": 0.005,
+  "implementation_gate": 0.00001,
+  "reference_budget_fraction": 0.25,
+  "references": ["angular_fine", "time_fine"],
+  "grids": 3,
+  "norms": ["velocity", "vorticity", "near_velocity", "near_vorticity"],
+  "rfm_seeds": [7331, 7687, 8011, 8353, 9041],
+  "deterministic_seed": 17,
+  "cuda_graph_steps": 24,
+  "galerkin_arms": {
+    "uniform": {"schedule": "uniform_startup_rate", "bundle": false, "shared_host": false},
+    "switch_old": {"schedule": "switch", "bundle": false, "shared_host": false},
+    "switch_module": {"schedule": "switch", "bundle": true, "shared_host": false},
+    "switch_host": {"schedule": "switch", "bundle": false, "shared_host": true},
+    "switch_both": {"schedule": "switch", "bundle": true, "shared_host": true}
+  },
+  "scales": [
+    {
+      "name": "low", "rfm": "rfm35_k64", "legendre": "leg35_k64", "rates": [128, 112],
+      "accuracy_only_rfm_seeds": [7331], "new_accuracy_arms": ["switch_both"],
+      "historical_fd": "fd152_k80", "timing_arms": [], "timing_rows": 0
+    },
+    {
+      "name": "mid", "rfm": "rfm37_k72", "legendre": "leg37_k72", "rates": [128, 112],
+      "new_accuracy_arms": ["switch_module", "switch_host", "switch_both"],
+      "timing_arms": ["uniform", "switch_old", "switch_module", "switch_host", "switch_both"],
+      "fd": [{"name": "fd176_k80", "rate": 128, "linear": "dense", "seed": 17, "role": "cheapest_qualified_control"}],
+      "order_seed": 672451, "blocks": 5, "timing_rows": 55, "proposed_window_seconds": 600
+    },
+    {
+      "name": "high", "rfm": "rfm41_k80", "legendre": "leg39_k80", "rates": [152, 136],
+      "new_accuracy_arms": ["switch_both"],
+      "timing_arms": ["uniform", "switch_old", "switch_both"],
+      "fd": [
+        {"name": "fd176_k80", "rate": 128, "linear": "dense", "seed": 17, "role": "cheapest_qualified_control"},
+        {"name": "fd184_k80", "rate": 128, "linear": "band", "seed": 17, "role": "scale_trend_control"}
+      ],
+      "order_seed": 672497, "blocks": 5, "timing_rows": 40, "proposed_window_seconds": 480
+    }
+  ],
+  "new_galerkin_accuracy_rows": 26,
+  "timed_fresh_process_clocks": ["solver_seconds", "fresh_process_return_seconds"],
+  "sample_seconds": 10,
+  "preflight_windows": 2,
+  "isolation_thresholds": {
+    "preflight_gpu_percent": 5,
+    "background_individual_cpu_seconds": 0.5,
+    "background_total_cpu_seconds": 1.0,
+    "unexpected_python_cpu_seconds": 0.2,
+    "maximum_sample_lateness_seconds": 2.0
+  },
+  "identity": ["pid", "creation_filetime_100ns"],
+  "window_attempts_per_scale": 1,
+  "reporting": {
+    "ratio_direction": "baseline_time / candidate_time",
+    "median_minimum_practical_ratio": 1.05,
+    "consistent_improvement_required_wins_per_clock": 5,
+    "required_clocks_for_consistent_improvement": 2,
+    "inference": "Descriptive paired measurements only"
+  }
+}

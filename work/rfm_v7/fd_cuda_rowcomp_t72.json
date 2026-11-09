@@ -1,0 +1,164 @@
+{
+  "protocol": {
+    "purpose": "Replay the k=1 row-moment FD4 trajectory using the same FP64 stencil arithmetic and explicit scaled band solve. Compare the old arithmetic separately as a diagnostic.",
+    "paired_cpu_artifact": "cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.npz",
+    "paired_cpu_record": "cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.json",
+    "paired_cpu_protocol": "cpu_fd_row_moment_output/protocol.json",
+    "prior_cpu_protocol": "protocol_fd_cuda_pow2.json",
+    "radial_variant": "k1_taylor_d2_centered_d1",
+    "config": {
+      "n": 448,
+      "k": 144,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft"
+    },
+    "steps": 36864,
+    "horizon": 72.0,
+    "probe_spacing": 0.125,
+    "snapshots": [
+      24.0,
+      36.0,
+      48.0,
+      54.0,
+      60.0,
+      66.0,
+      72.0
+    ],
+    "graph_steps": 24,
+    "fixed_times": [
+      24.0,
+      54.0,
+      72.0
+    ],
+    "relative_gate": 1e-06,
+    "crossing_time_gate": 1e-06,
+    "pilot": [
+      {
+        "n": 96,
+        "k": 32,
+        "horizon": 4.5,
+        "steps": 576,
+        "snapshots": [
+          4.0,
+          4.25,
+          4.5
+        ]
+      },
+      {
+        "n": 448,
+        "k": 144,
+        "horizon": 0.25,
+        "steps": 128,
+        "snapshots": [
+          0.125,
+          0.25
+        ]
+      }
+    ],
+    "fixed_selected_max_abs_gate": 1e-12,
+    "pilot_probe_max_abs_gate": 1e-06,
+    "timing": "Concurrent exploratory timing. No equal-accuracy hardware ranking is inferred from these replay timings."
+  },
+  "protocol_sha256": "f1325800a68b33166ededdb3a3f92f5f0e624f161a99a45cf4280cf740deeea8",
+  "source_hashes": {
+    "fd_cuda_rowcomp_replay.py": "07e0e9ab23f53a2763e537efc759ea9decb8f5353ccd8b874c164d24beebc541",
+    "fd_cuda_rowcomp.py": "9daa8863ecb761a3984fbb1e4d0ffcf485d665b3f1db3f44a8ee749192559fe5",
+    "fd_cuda_rowcomp.cu": "ff27d08314647cb41ed1102304d32d7108cd94b0bdfe49f6f80f03055fdc6069",
+    "fd_cuda_pow2.py": "e3f6e4fc8b148199fd59c185f2a9d5d654f20ee7d71e5737695f9762cbd34b32",
+    "fd_cuda_pow2.cu": "54440e96397a1e409fc72711a20d147d1e010049fee2137cd38549fcaf02489b",
+    "fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "fd_cpu_row_moment.py": "1546c59d84043ef74f047d6a6f0860dcf284e2028454eb577e01c92b6cb7cc27",
+    "fd_cpu_row_moment.c": "d2658124b9f26b285196b0ca6ac674a03ad4855477ab3c02b8d8ec5dd49cc2cf",
+    "fd_cuda_pow2_replay.py": "146c05bd2f03dc74bb4532c9a871a437327e0689bd59533a355c6ea16ce4c7fc"
+  },
+  "gpu": {
+    "method": "fd4",
+    "n": 448,
+    "k": 144,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 450,
+    "band_lower": 6,
+    "band_upper": 6,
+    "implementation": "native-fp64-fd4-pow2-rowmoment-cufft",
+    "equilibration": "row_power_of_two",
+    "reconstruction_class": "fd_cpu_row_moment.Pow2RowMomentFD",
+    "equilibration_setup_seconds": 0.17803160002222285,
+    "radial_variant": "k1_taylor_d2_centered_d1",
+    "moment_tables": {
+      "d1_mu0": {
+        "sha256": "a070b462397f75e0445286dea2f189f2ad939e550df76493b35628735a9007b0",
+        "shape": [
+          447
+        ]
+      },
+      "d2_mu0": {
+        "sha256": "6fe060d50c6f2ec5b143ad171e9e5b737dca8b0af945f1b0c233797836740ba1",
+        "shape": [
+          447
+        ]
+      },
+      "d2_mu1": {
+        "sha256": "e1b0425989520faef0342cb639d7d37aa9e938de18e9e161d9d37757ceef573e",
+        "shape": [
+          447
+        ]
+      },
+      "d2_delta": {
+        "sha256": "6b3941c8e91e69d4a299f386f06d105bf48014f0b286883e2da8d2ac629a526c",
+        "shape": [
+          2237
+        ]
+      },
+      "span": {
+        "sha256": "733178da7ae89d44b0ee55e1bf09804f945146b4f11b6ba224c4ad8b04a0ee32",
+        "shape": [
+          447
+        ]
+      }
+    },
+    "steps": 36864,
+    "horizon": 72.0,
+    "dt": 0.001953125,
+    "time_order": 2,
+    "seconds": 49.54377910000039,
+    "radial_pipeline": "staged-rowmoment-k1",
+    "cuda_linear_solve": "band",
+    "graph_steps": 24,
+    "row_scale": {
+      "first": {
+        "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+        "shape": [
+          145,
+          447
+        ],
+        "exponent_min": -37,
+        "exponent_max": 0
+      },
+      "bdf": {
+        "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+        "shape": [
+          145,
+          447
+        ],
+        "exponent_min": -37,
+        "exponent_max": 0
+      }
+    },
+    "host_setup_seconds": 0.6165570000302978,
+    "runtime_init_seconds": 1.0197631000191905,
+    "upload_seconds": 0.056809699977748096,
+    "plan_seconds": 0.018981400004122406,
+    "graph_setup_seconds": 0.002632599964272231,
+    "march_seconds": 47.81948210002156,
+    "download_seconds": 0.0009836000390350819,
+    "linear_bytes": 10629660
+  },
+  "artifact": "fd_cuda_rowcomp_t72.npz",
+  "artifact_sha256": "389f3ecf3f60d2bc95babc45e355c5d7e8c554f4547cfcf15ffa713b0e13a58d",
+  "pilot_sha256": "7c99da01fb3d0b4bbf19656d89dba51e5c659370394c42ff8a501ef07fc5ba02"
+}

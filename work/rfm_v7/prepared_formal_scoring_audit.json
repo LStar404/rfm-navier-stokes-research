@@ -1,0 +1,1190 @@
+{
+  "status": "passed",
+  "scope": "Read-only scoring replay of one archived input for each scale/family/arm. Switched inputs are subset in a temporary copy. No new solve or CUDA context.",
+  "rows": [
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "rfm37_k72",
+        "arm": "switch_old",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_7331_cuda_graph.npz",
+        "sha256": "62afa72d3816af17819f27299de5a7cb28a55a853e93a9add377d1a9fb12dfba"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 7.311622408958765e-11,
+          "vorticity": 3.417037621314909e-10,
+          "near_velocity": 8.091310823347866e-11,
+          "near_vorticity": 1.9708161014350327e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00042020511944966765,
+          "vorticity": 0.004265926319507753,
+          "near_velocity": 0.00039592556185260604,
+          "near_vorticity": 0.0021509277551299373
+        },
+        "time_fine": {
+          "velocity": 0.0004467236297246262,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.0021631983826312985
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044223173251238843,
+          "vorticity": 0.004754575373771616,
+          "near_velocity": 0.0003995072779700011,
+          "near_vorticity": 0.0023467916174935042
+        },
+        "time_fine": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.0023541783703949666
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 2,
+        "phase_preparation_shared": false,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "leg37_k72",
+        "arm": "switch_module",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_module_only.npz",
+        "sha256": "3a925cb75fb4588ae9fc35dfb8037cadc8682dfb664b5aaf9f220ada1d2fa73b"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 4.5469024420201746e-11,
+          "vorticity": 2.1359840243362717e-10,
+          "near_velocity": 5.227943503200177e-11,
+          "near_vorticity": 1.2685925073436863e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0003767634510664572,
+          "vorticity": 0.003668713539701461,
+          "near_velocity": 0.00035291686149065317,
+          "near_vorticity": 0.0018375026393736653
+        },
+        "time_fine": {
+          "velocity": 0.0004037455374108586,
+          "vorticity": 0.003711852306140575,
+          "near_velocity": 0.0003824366822207556,
+          "near_vorticity": 0.0018451779027553723
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0003956476957677498,
+          "vorticity": 0.004095902282389341,
+          "near_velocity": 0.0003591467580405288,
+          "near_vorticity": 0.001989282415054136
+        },
+        "time_fine": {
+          "velocity": 0.0004194400243172008,
+          "vorticity": 0.004122668620468699,
+          "near_velocity": 0.0003869533391536832,
+          "near_vorticity": 0.0019937295505640463
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "rfm37_k72",
+        "arm": "switch_host",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_shared_only.npz",
+        "sha256": "e32e08f53e31f7dd58d0ccb1303383a6c5683abcbe3fd2bfa78688d45f2d0cf5"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 7.311622408958765e-11,
+          "vorticity": 3.417037621314909e-10,
+          "near_velocity": 8.091310823347866e-11,
+          "near_vorticity": 1.9708161014350327e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00042020511944966765,
+          "vorticity": 0.004265926319507753,
+          "near_velocity": 0.00039592556185260604,
+          "near_vorticity": 0.0021509277551299373
+        },
+        "time_fine": {
+          "velocity": 0.0004467236297246262,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.0021631983826312985
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044223173251238843,
+          "vorticity": 0.004754575373771616,
+          "near_velocity": 0.0003995072779700011,
+          "near_vorticity": 0.0023467916174935042
+        },
+        "time_fine": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.0023541783703949666
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 2,
+        "phase_preparation_shared": true,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "rfm37_k72",
+        "arm": "switch_both",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz",
+        "sha256": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 7.311622408958765e-11,
+          "vorticity": 3.417037621314909e-10,
+          "near_velocity": 8.091310823347866e-11,
+          "near_vorticity": 1.9708161014350327e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00042020511944966765,
+          "vorticity": 0.004265926319507753,
+          "near_velocity": 0.00039592556185260604,
+          "near_vorticity": 0.0021509277551299373
+        },
+        "time_fine": {
+          "velocity": 0.0004467236297246262,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.0021631983826312985
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044223173251238843,
+          "vorticity": 0.004754575373771616,
+          "near_velocity": 0.0003995072779700011,
+          "near_vorticity": 0.0023467916174935042
+        },
+        "time_fine": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.0023541783703949666
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": true,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "leg37_k72",
+        "arm": "switch_old",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/switch_qualification_output/candidate_leg37_k72_17_cuda_graph.npz",
+        "sha256": "5dc9ba4a6872bf23faf0ba91cb2c0bc815496e8a41085b1df38f20530d0df48d"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 4.5469024420201746e-11,
+          "vorticity": 2.1359840243362717e-10,
+          "near_velocity": 5.227943503200177e-11,
+          "near_vorticity": 1.2685925073436863e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0003767634510664572,
+          "vorticity": 0.003668713539701461,
+          "near_velocity": 0.00035291686149065317,
+          "near_vorticity": 0.0018375026393736653
+        },
+        "time_fine": {
+          "velocity": 0.0004037455374108586,
+          "vorticity": 0.003711852306140575,
+          "near_velocity": 0.0003824366822207556,
+          "near_vorticity": 0.0018451779027553723
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0003956476957677498,
+          "vorticity": 0.004095902282389341,
+          "near_velocity": 0.0003591467580405288,
+          "near_vorticity": 0.001989282415054136
+        },
+        "time_fine": {
+          "velocity": 0.0004194400243172008,
+          "vorticity": 0.004122668620468699,
+          "near_velocity": 0.0003869533391536832,
+          "near_vorticity": 0.0019937295505640463
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 2,
+        "phase_preparation_shared": false,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "rfm37_k72",
+        "arm": "uniform",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/switch_formal_timing_output/b1_rfm37_k72_cuda_graph128_7331.npz",
+        "sha256": "4ff0854d221b9e303bd64666b43aa76a7707f32225add3b8213f2af9f25a2302"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_uniform": {
+          "velocity": 2.7561707577785887e-11,
+          "vorticity": 1.3463743244168423e-10,
+          "near_velocity": 3.108028225170734e-11,
+          "near_vorticity": 7.66387968034829e-11
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000270985219975666,
+          "vorticity": 0.004068758914672409,
+          "near_velocity": 0.00022290651085702022,
+          "near_vorticity": 0.002090197797672532
+        },
+        "time_fine": {
+          "velocity": 0.0002942847889852114,
+          "vorticity": 0.004093486319800329,
+          "near_velocity": 0.00025070107689948926,
+          "near_vorticity": 0.0020975826589571213
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 9216,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430,
+        "inverse_field_transforms": 27645,
+        "forward_field_transforms": 18430,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "leg37_k72",
+        "arm": "switch_host",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_shared_only.npz",
+        "sha256": "c9a22a3042ab5abeebe62fea9eea4cdb735e6dd39fe4496fb0e009de5b1d0769"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 4.5469024420201746e-11,
+          "vorticity": 2.1359840243362717e-10,
+          "near_velocity": 5.227943503200177e-11,
+          "near_vorticity": 1.2685925073436863e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0003767634510664572,
+          "vorticity": 0.003668713539701461,
+          "near_velocity": 0.00035291686149065317,
+          "near_vorticity": 0.0018375026393736653
+        },
+        "time_fine": {
+          "velocity": 0.0004037455374108586,
+          "vorticity": 0.003711852306140575,
+          "near_velocity": 0.0003824366822207556,
+          "near_vorticity": 0.0018451779027553723
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0003956476957677498,
+          "vorticity": 0.004095902282389341,
+          "near_velocity": 0.0003591467580405288,
+          "near_vorticity": 0.001989282415054136
+        },
+        "time_fine": {
+          "velocity": 0.0004194400243172008,
+          "vorticity": 0.004122668620468699,
+          "near_velocity": 0.0003869533391536832,
+          "near_vorticity": 0.0019937295505640463
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 2,
+        "phase_preparation_shared": true,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "rfm37_k72",
+        "arm": "switch_module",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_module_only.npz",
+        "sha256": "3eb0a69703606a7ec95669c72d6f247ec8dbadc4ebe9d19404401a112abfe5d0"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 7.311622408958765e-11,
+          "vorticity": 3.417037621314909e-10,
+          "near_velocity": 8.091310823347866e-11,
+          "near_vorticity": 1.9708161014350327e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00042020511944966765,
+          "vorticity": 0.004265926319507753,
+          "near_velocity": 0.00039592556185260604,
+          "near_vorticity": 0.0021509277551299373
+        },
+        "time_fine": {
+          "velocity": 0.0004467236297246262,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.0021631983826312985
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044223173251238843,
+          "vorticity": 0.004754575373771616,
+          "near_velocity": 0.0003995072779700011,
+          "near_vorticity": 0.0023467916174935042
+        },
+        "time_fine": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.0023541783703949666
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "fd176_k80",
+        "arm": "fd",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+        "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_fd": {
+          "velocity": 7.65663961110227e-07,
+          "vorticity": 3.572075683009756e-06,
+          "near_velocity": 8.659240831362201e-07,
+          "near_vorticity": 2.0928641808573214e-06
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0008648420890619326,
+          "vorticity": 0.004087590798277695,
+          "near_velocity": 0.0010496824092313156,
+          "near_vorticity": 0.0025472397078016014
+        },
+        "time_fine": {
+          "velocity": 0.0008365863687685574,
+          "vorticity": 0.003953538987371011,
+          "near_velocity": 0.0010188279019070058,
+          "near_vorticity": 0.0024715067805138892
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 9216,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430,
+        "inverse_field_transforms": 36860,
+        "forward_field_transforms": 9215,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "leg37_k72",
+        "arm": "uniform",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/switch_formal_timing_output/b1_leg37_k72_cuda_graph128_17.npz",
+        "sha256": "12a4b3d043c92197a568783750aaaea4e8d7134e4e32cd8e9eed29f022b7728e"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_uniform": {
+          "velocity": 2.829230424554856e-11,
+          "vorticity": 1.3263023832249782e-10,
+          "near_velocity": 3.25062867167556e-11,
+          "near_vorticity": 7.849618848984695e-11
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00022464772977169695,
+          "vorticity": 0.003654712863030079,
+          "near_velocity": 0.00019112777367178116,
+          "near_vorticity": 0.001798325735465852
+        },
+        "time_fine": {
+          "velocity": 0.0002484359925275821,
+          "vorticity": 0.003655322174637844,
+          "near_velocity": 0.00021305679877548024,
+          "near_vorticity": 0.0018027720240082557
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 9216,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430,
+        "inverse_field_transforms": 27645,
+        "forward_field_transforms": 18430,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "mid",
+      "job": {
+        "block": 1,
+        "name": "leg37_k72",
+        "arm": "switch_both",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+        "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 4.5469024420201746e-11,
+          "vorticity": 2.1359840243362717e-10,
+          "near_velocity": 5.227943503200177e-11,
+          "near_vorticity": 1.2685925073436863e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0003767634510664572,
+          "vorticity": 0.003668713539701461,
+          "near_velocity": 0.00035291686149065317,
+          "near_vorticity": 0.0018375026393736653
+        },
+        "time_fine": {
+          "velocity": 0.0004037455374108586,
+          "vorticity": 0.003711852306140575,
+          "near_velocity": 0.0003824366822207556,
+          "near_vorticity": 0.0018451779027553723
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0003956476957677498,
+          "vorticity": 0.004095902282389341,
+          "near_velocity": 0.0003591467580405288,
+          "near_vorticity": 0.001989282415054136
+        },
+        "time_fine": {
+          "velocity": 0.0004194400243172008,
+          "vorticity": 0.004122668620468699,
+          "near_velocity": 0.0003869533391536832,
+          "near_vorticity": 0.0019937295505640463
+        }
+      },
+      "work": {
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382,
+        "inverse_field_transforms": 24573,
+        "forward_field_transforms": 16382,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": true,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "leg39_k80",
+        "arm": "switch_both",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/high_leg39_k80_17_combined.npz",
+        "sha256": "17ffa7a71e76a09e184bd5697032d8b6033b4ce9e18a2be6cb47ed125791c1db"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 1.9058026892502288e-11,
+          "vorticity": 8.938561074374038e-11,
+          "near_velocity": 2.2310514943978135e-11,
+          "near_vorticity": 5.342160354942231e-11
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00019921995287605033,
+          "vorticity": 0.002549158928756048,
+          "near_velocity": 0.0001793800380130909,
+          "near_vorticity": 0.0013589649027833139
+        },
+        "time_fine": {
+          "velocity": 0.00022505689701562257,
+          "vorticity": 0.002577019138712765,
+          "near_velocity": 0.00020779509988906223,
+          "near_vorticity": 0.001364539762752975
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00021909588540371783,
+          "vorticity": 0.002799503939042645,
+          "near_velocity": 0.00018913353094326182,
+          "near_vorticity": 0.001451190087087113
+        },
+        "time_fine": {
+          "velocity": 0.00023940940814106364,
+          "vorticity": 0.0028195339928647964,
+          "near_velocity": 0.00021413430444482132,
+          "near_vorticity": 0.0014542841181415327
+        }
+      },
+      "work": {
+        "steps": 9920,
+        "nonlinear_evaluations": 9919,
+        "marching_fft_batches": 19838,
+        "inverse_field_transforms": 29757,
+        "forward_field_transforms": 19838,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": true,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "fd176_k80",
+        "arm": "fd",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+        "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_fd": {
+          "velocity": 7.65663961110227e-07,
+          "vorticity": 3.572075683009756e-06,
+          "near_velocity": 8.659240831362201e-07,
+          "near_vorticity": 2.0928641808573214e-06
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0008648420890619326,
+          "vorticity": 0.004087590798277695,
+          "near_velocity": 0.0010496824092313156,
+          "near_vorticity": 0.0025472397078016014
+        },
+        "time_fine": {
+          "velocity": 0.0008365863687685574,
+          "vorticity": 0.003953538987371011,
+          "near_velocity": 0.0010188279019070058,
+          "near_vorticity": 0.0024715067805138892
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 9216,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430,
+        "inverse_field_transforms": 36860,
+        "forward_field_transforms": 9215,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "rfm41_k80",
+        "arm": "uniform",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_uniform_high_qualification_output/high_rfm41_k80_7331_uniform.npz",
+        "sha256": "e597ea60377f58e8c4fa9b5969a4205b6df44fa16e7446c7ac361c6c36dcea05"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_uniform": {
+          "velocity": 4.218790015514829e-11,
+          "vorticity": 1.992398551102041e-10,
+          "near_velocity": 4.819302361970611e-11,
+          "near_vorticity": 1.1770994458707704e-10
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016636394608305426,
+          "vorticity": 0.0032979272243951092,
+          "near_velocity": 0.00013248531863394833,
+          "near_vorticity": 0.0017907745341713126
+        },
+        "time_fine": {
+          "velocity": 0.00018191865479862614,
+          "vorticity": 0.0033137966265119854,
+          "near_velocity": 0.00014839839258224948,
+          "near_vorticity": 0.0017951544855081024
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 10944,
+        "nonlinear_evaluations": 10943,
+        "marching_fft_batches": 21886,
+        "inverse_field_transforms": 32829,
+        "forward_field_transforms": 21886,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "leg39_k80",
+        "arm": "switch_old",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/multiscale_switch_qualification_output/high_leg39_k80_17_cuda_graph_candidate.npz",
+        "sha256": "7a7ab6b947dde0652d90d413e38fd546cfbf7f8be69eb6ca4b78f2a9e6719afe"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 1.9058026892502288e-11,
+          "vorticity": 8.938561074374038e-11,
+          "near_velocity": 2.2310514943978135e-11,
+          "near_vorticity": 5.342160354942231e-11
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00019921995287605033,
+          "vorticity": 0.002549158928756048,
+          "near_velocity": 0.0001793800380130909,
+          "near_vorticity": 0.0013589649027833139
+        },
+        "time_fine": {
+          "velocity": 0.00022505689701562257,
+          "vorticity": 0.002577019138712765,
+          "near_velocity": 0.00020779509988906223,
+          "near_vorticity": 0.001364539762752975
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00021909588540371783,
+          "vorticity": 0.002799503939042645,
+          "near_velocity": 0.00018913353094326182,
+          "near_vorticity": 0.001451190087087113
+        },
+        "time_fine": {
+          "velocity": 0.00023940940814106364,
+          "vorticity": 0.0028195339928647964,
+          "near_velocity": 0.00021413430444482132,
+          "near_vorticity": 0.0014542841181415327
+        }
+      },
+      "work": {
+        "steps": 9920,
+        "nonlinear_evaluations": 9919,
+        "marching_fft_batches": 19838,
+        "inverse_field_transforms": 29757,
+        "forward_field_transforms": 19838,
+        "compiled_cuda_modules": 2,
+        "phase_preparation_shared": false,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "rfm41_k80",
+        "arm": "switch_both",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_qualification_output/high_rfm41_k80_7331_combined.npz",
+        "sha256": "94840cf70c0a8394f1acd5ae400f16391f0543846d97447a92d5c539e1effab8"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 6.054539805509362e-11,
+          "vorticity": 2.843281773115689e-10,
+          "near_velocity": 6.794168872285734e-11,
+          "near_vorticity": 1.6659969264008355e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023534094408738697,
+          "vorticity": 0.0033718606623331132,
+          "near_velocity": 0.00020308729195534156,
+          "near_vorticity": 0.0018126227216669862
+        },
+        "time_fine": {
+          "velocity": 0.00025948472466957227,
+          "vorticity": 0.003398896003379708,
+          "near_velocity": 0.00023097918581715035,
+          "near_vorticity": 0.0018204363679918951
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002623621904044953,
+          "vorticity": 0.0036657149622634972,
+          "near_velocity": 0.0002167052607167176,
+          "near_vorticity": 0.0019384330885285886
+        },
+        "time_fine": {
+          "velocity": 0.0002805582349019644,
+          "vorticity": 0.0036815901770747674,
+          "near_velocity": 0.00023956840535836271,
+          "near_vorticity": 0.0019428136838449128
+        }
+      },
+      "work": {
+        "steps": 9920,
+        "nonlinear_evaluations": 9919,
+        "marching_fft_batches": 19838,
+        "inverse_field_transforms": 29757,
+        "forward_field_transforms": 19838,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": true,
+        "source": "verified_device_switch_inventory"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "leg39_k80",
+        "arm": "uniform",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/prepared_uniform_high_qualification_output/high_leg39_k80_17_uniform.npz",
+        "sha256": "eb06249ada8876f190a838e52724c3f0c3e0b6b88c9fecde5f37008fca53b839"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_uniform": {
+          "velocity": 3.1415377044168e-11,
+          "vorticity": 1.4632404466579925e-10,
+          "near_velocity": 3.533434579435739e-11,
+          "near_vorticity": 8.507612101305046e-11
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00012856425659649629,
+          "vorticity": 0.002473323414522762,
+          "near_velocity": 0.00010899170491727486,
+          "near_vorticity": 0.0013428806741129905
+        },
+        "time_fine": {
+          "velocity": 0.00014226856994866872,
+          "vorticity": 0.0024900958582530957,
+          "near_velocity": 0.00012466584885796535,
+          "near_vorticity": 0.0013459743713867293
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 10944,
+        "nonlinear_evaluations": 10943,
+        "marching_fft_batches": 21886,
+        "inverse_field_transforms": 32829,
+        "forward_field_transforms": 21886,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "fd184_k80",
+        "arm": "fd",
+        "seed": 17
+      },
+      "archived_input": {
+        "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+        "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+      },
+      "archived_observations": 19,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_fd": {
+          "velocity": 2.9254990576585908e-08,
+          "vorticity": 6.539245723880929e-08,
+          "near_velocity": 2.5626026736681563e-08,
+          "near_vorticity": 3.165704180511096e-08
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0006429559012944665,
+          "vorticity": 0.0030651845820655575,
+          "near_velocity": 0.0007899592485334769,
+          "near_vorticity": 0.00191479301904202
+        },
+        "time_fine": {
+          "velocity": 0.0006148337433707033,
+          "vorticity": 0.002933967470902926,
+          "near_velocity": 0.0007592007529842567,
+          "near_vorticity": 0.0018393075759725794
+        }
+      },
+      "guard_worst": {},
+      "work": {
+        "steps": 9216,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430,
+        "inverse_field_transforms": 36860,
+        "forward_field_transforms": 9215,
+        "compiled_cuda_modules": 1,
+        "phase_preparation_shared": false,
+        "source": "uniform_registered_kernel"
+      }
+    },
+    {
+      "scale": "high",
+      "job": {
+        "block": 1,
+        "name": "rfm41_k80",
+        "arm": "switch_old",
+        "seed": 7331
+      },
+      "archived_input": {
+        "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7331_cuda_graph_candidate.npz",
+        "sha256": "b81e22731bb95bb4f503cc26d89fffd5d1c3cc8610453b70c9e3cebeca571214"
+      },
+      "archived_observations": 21,
+      "replayed_observations": 19,
+      "qualified": true,
+      "metadata_preserved": true,
+      "implementation_worst": {
+        "cpu_switch": {
+          "velocity": 6.054539805509362e-11,
+          "vorticity": 2.843281773115689e-10,
+          "near_velocity": 6.794168872285734e-11,
+          "near_vorticity": 1.6659969264008355e-10
+        },
+        "cuda_switch_old": {
+          "velocity": 0.0,
+          "vorticity": 0.0,
+          "near_velocity": 0.0,
+          "near_vorticity": 0.0
+        }
+      },
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023534094408738697,
+          "vorticity": 0.0033718606623331132,
+          "near_velocity": 0.00020308729195534156,
+          "near_vorticity": 0.0018126227216669862
+        },
+        "time_fine": {
+          "velocity": 0.00025948472466957227,
+          "vorticity": 0.003398896003379708,
+          "near_velocity": 0.00023097918581715035,
+          "near_vorticity": 0.0018204363679918951
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002623621904044953,
+          "vorticity": 0.0036657149622634972,
+          "near_velocity": 0.0002167052607167176,
+          "near_vorticity": 0.0019384330885285886
+        },
+        "time_fine": {
+          "velocity": 0.0002805582349019644,
+          "vorticity": 0.0036815901770747674,
+          "near_velocity": 0.00023956840535836271,
+          "near_vorticity": 0.0019428136838449128
+        }
+      },
+      "work": {
+        "steps": 9920,
+        "nonlinear_evaluations": 9919,
+        "marching_fft_batches": 19838,
+        "inverse_field_transforms": 29757,
+        "forward_field_transforms": 19838,
+        "compiled_cuda_modules": 2,
+        "phase_preparation_shared": false,
+        "source": "verified_device_switch_inventory"
+      }
+    }
+  ],
+  "source_sha256": {
+    "prepared_formal_timing.py": "98f45463f1c08679b1f4b970d44ef47286ec16c1248f594d831cc8f93052e8d7",
+    "prepared_formal_eligibility.py": "9735c1f1a00df5ab5d6f4c80ec7d5b056df01e7c74fd6b0c1ca62bc2f91bca25",
+    "prepared_formal_timing_template.json": "563b2f94e02e3087d852f7fe74cfc6e703a207840380b91adca55f5f7d0583d3",
+    "prepared_formal_scoring_audit.py": "9961dc7373ff98eacf58e94c3e893079a9af8944a62f15c4c8e0040fbc75e795"
+  }
+}

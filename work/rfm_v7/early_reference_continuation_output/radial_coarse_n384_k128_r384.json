@@ -1,0 +1,154 @@
+{
+  "status": "complete",
+  "spec": {
+    "name": "radial_coarse",
+    "n": 384,
+    "k": 128,
+    "rate": 384
+  },
+  "artifact": "radial_coarse_n384_k128_r384.npz",
+  "sha256": "8a126a28ba447feeb5ea4a5aa651dda8001491b261d1ba32e734d45868d5dce2",
+  "configuration": {
+    "k": 128,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "n": 384
+  },
+  "metadata": {
+    "steps": 6144,
+    "horizon": 16,
+    "dt": 0.0026041666666666665,
+    "setup_seconds": 0.4740567000117153,
+    "seconds": 66.56079700001283,
+    "time_order": 2,
+    "row_scale": {
+      "first": {
+        "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+        "shape": [
+          129,
+          383
+        ],
+        "exponent_min": -36,
+        "exponent_max": 0
+      },
+      "bdf": {
+        "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+        "shape": [
+          129,
+          383
+        ],
+        "exponent_min": -36,
+        "exponent_max": 0
+      }
+    },
+    "resumed_from_step": 2304,
+    "method": "fd4",
+    "n": 384,
+    "k": 128,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 400,
+    "band_lower": 6,
+    "band_upper": 6,
+    "implementation": "cpu-fused-fd4-csr-avx2",
+    "equilibration": "row_power_of_two",
+    "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+    "equilibration_setup_seconds": 0.13758900004904717
+  },
+  "restart": {
+    "status": "derived",
+    "old_history": {
+      "source": "rfm_v7/early_reference_output/radial_coarse/resume_fd384_k128_rate384.npz",
+      "sha256": "d43cada498032f90c09d39f810764432d9db995b6c28433880c598804c0a61b3"
+    },
+    "old_identity": {
+      "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+      "config": {
+        "angular": "fft",
+        "grid": "outer",
+        "k": 128,
+        "linear": "native",
+        "n": 384,
+        "stretch": 1.0
+      },
+      "dt": 0.0026041666666666665,
+      "scales": {
+        "bdf": {
+          "exponent_max": 0,
+          "exponent_min": -36,
+          "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+          "shape": [
+            129,
+            383
+          ]
+        },
+        "first": {
+          "exponent_max": 0,
+          "exponent_min": -36,
+          "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+          "shape": [
+            129,
+            383
+          ]
+        }
+      },
+      "steps": 3072
+    },
+    "new_identity": {
+      "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+      "config": {
+        "angular": "fft",
+        "grid": "outer",
+        "k": 128,
+        "linear": "native",
+        "n": 384,
+        "stretch": 1.0
+      },
+      "dt": 0.0026041666666666665,
+      "scales": {
+        "bdf": {
+          "exponent_max": 0,
+          "exponent_min": -36,
+          "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+          "shape": [
+            129,
+            383
+          ]
+        },
+        "first": {
+          "exponent_max": 0,
+          "exponent_min": -36,
+          "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+          "shape": [
+            129,
+            383
+          ]
+        }
+      },
+      "steps": 6144
+    },
+    "unchanged_array_sha256": {
+      "states": "33dfa4299212d10ecd4326fdc4d624654aeb580d65e159cc092f18aee4e77a57",
+      "last_state": "525d0edfab9153dd16aae81e500d09447370762a1ad7af3208878ebfa72e7fd9",
+      "mass": "3d7470a2ecd5173aabe5974891b1fa84d81598ac4b56d584eabf8b3d87134534",
+      "flux": "d96e7b87a9bdf7c146edea72970cb81dd7396e3b996e48483575964e0c8f9273",
+      "old_mass": "c4eb83991fd57d7a0a22d15bcbd3a933cef340fdfbcab3f0437797d9bac767c7",
+      "old_flux": "5307607d21838fd0ffd87314fa1120a69e99ba0703b0ee41da022e96cfdf174b"
+    },
+    "artifact": "restart_input_radial_coarse.npz",
+    "sha256": "9db698a8c220ec8b35a4a2be23fb122b90f81bf9db8333e723e6c956f012a043",
+    "changes": "New step total and probe capacity. Initial time, states, current and older SBDF2 histories are preserved."
+  },
+  "replays_original_t8": {
+    "states": true,
+    "times": true,
+    "probe_times": true,
+    "transverse": true,
+    "vorticity": true
+  },
+  "bitwise_t8_pass": true
+}

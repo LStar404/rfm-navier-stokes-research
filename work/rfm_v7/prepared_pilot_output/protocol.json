@@ -1,0 +1,267 @@
+{
+  "status": "frozen",
+  "source_hashes": {
+    "prepared_pilot.py": "ae94f16cda9be82570c7db9738bf02724cea2aae10ab06ca3557d86a5a109820",
+    "galerkin_cuda_prepared.py": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+    "cuda_prepared_solver_generation.json": "0dd84fd152d52dcdb5c8291c976e51da98325247f3bb92e9d5d9ead36038565c",
+    "galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "galerkin_cuda_module_bundle_audit.json": "72752e987e86401b878f46f2be0b9aee2af95579d5608178a4ce08a71033ff33",
+    "galerkin_phase_shared.py": "30d21dc4d3af74c5ca14b2f0d87aa31b0cceb2d70085b315648cac2da4ed17b9",
+    "galerkin_phase_shared_audit.json": "a468a95bc1b559b7032d40f681c255c4569f4ea05bb2f282439480ba297f1d4c",
+    "galerkin_cuda_variable.py": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+    "galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "switch_qualification_output/protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "multiscale_switch_qualification_output/protocol.json": "72598641fe2f8ad00cc1adcbfed4a758dfde2c75277f3b4911e0c728cafd5ad6"
+  },
+  "jobs": [
+    {
+      "scale": "mid",
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "startup_rate": 128,
+      "late_rate": 112,
+      "snapshots": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        8.008928571428571,
+        8.017857142857142,
+        8.125,
+        8.5,
+        9.0
+      ]
+    },
+    {
+      "scale": "mid",
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "startup_rate": 128,
+      "late_rate": 128,
+      "snapshots": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        8.0078125,
+        8.015625,
+        8.125,
+        8.5,
+        9.0
+      ]
+    },
+    {
+      "scale": "mid",
+      "name": "leg37_k72",
+      "seed": 17,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      },
+      "startup_rate": 128,
+      "late_rate": 112,
+      "snapshots": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        8.008928571428571,
+        8.017857142857142,
+        8.125,
+        8.5,
+        9.0
+      ]
+    },
+    {
+      "scale": "mid",
+      "name": "leg37_k72",
+      "seed": 17,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      },
+      "startup_rate": 128,
+      "late_rate": 128,
+      "snapshots": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        8.0078125,
+        8.015625,
+        8.125,
+        8.5,
+        9.0
+      ]
+    },
+    {
+      "scale": "high",
+      "name": "rfm41_k80",
+      "seed": 7331,
+      "config": {
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "startup_rate": 152,
+      "late_rate": 136,
+      "snapshots": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        8.007352941176471,
+        8.014705882352942,
+        8.125,
+        8.5,
+        9.0
+      ]
+    },
+    {
+      "scale": "high",
+      "name": "leg39_k80",
+      "seed": 17,
+      "config": {
+        "m": 39,
+        "k": 80,
+        "q": 76,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      },
+      "startup_rate": 152,
+      "late_rate": 136,
+      "snapshots": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        6.0,
+        8.0,
+        8.007352941176471,
+        8.014705882352942,
+        8.125,
+        8.5,
+        9.0
+      ]
+    }
+  ],
+  "horizon": 9.0,
+  "probe_spacing": 0.125,
+  "preparations": [
+    "legacy",
+    "module_only",
+    "shared_only",
+    "combined"
+  ],
+  "gate": "All saved field and probe arrays, observation times and work counts must agree exactly.",
+  "timing_scope": "Sequential in-process diagnostic; not isolated or fresh-process timing."
+}

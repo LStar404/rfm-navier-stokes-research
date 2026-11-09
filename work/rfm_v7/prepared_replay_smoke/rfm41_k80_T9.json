@@ -1,0 +1,122 @@
+{
+  "status": "complete",
+  "job": {
+    "resolution": "high",
+    "name": "rfm41_k80",
+    "seed": 7331,
+    "preparation": "combined"
+  },
+  "horizon": 9.0,
+  "observations": [
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    8.007352941176471,
+    8.014705882352942,
+    8.125,
+    8.5,
+    9.0
+  ],
+  "artifact": "rfm41_k80_T9.npz",
+  "artifact_sha256": "8d47ab7e8262f1455ce4d0273f946cd1f1c44a681743c1afb2531493f294ad5c",
+  "runner_sha256": "e8a4e09b0410a4dae0b80fe53fe2a58f1d4769b8abe7bad8d26c0e61d8970389",
+  "comparison": {
+    "passed": true,
+    "archive": "high_rfm41_k80_7331_combined.npz",
+    "archive_sha256": "94840cf70c0a8394f1acd5ae400f16391f0543846d97447a92d5c539e1effab8",
+    "arrays": {
+      "states": {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "passed": true
+      },
+      "transverse": {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "passed": true
+      },
+      "vorticity": {
+        "bitwise": true,
+        "max_abs": 0.0,
+        "relative_l2": 0.0,
+        "passed": true
+      }
+    },
+    "scope": "Saved coefficient and probe array comparison at matching times; does not re-score physical fields or establish a new PDE accuracy gate."
+  },
+  "metadata": {
+    "m": 41,
+    "k": 80,
+    "q": 76,
+    "method": "rfm",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 7331,
+    "rank": 40,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 243,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence",
+    "steps": 1352,
+    "horizon": 9.0,
+    "time_order": 2,
+    "dt": 0.006578947368421052,
+    "dt_role": "spatial_reconstruction",
+    "step_schedule": "sbdf2_single_bridge",
+    "startup_rate": 152,
+    "late_rate": 136,
+    "switch_time": 8,
+    "switch_step": 1216,
+    "late_dt": 0.007352941176470588,
+    "bridge_ratio": 1.1176470588235294,
+    "bridge_a0": 1.5277777777777777,
+    "bridge_effective_dt": 0.007219251336898397,
+    "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+    "preparation": "combined",
+    "phase_preparation_shared": true,
+    "compiled_cuda_modules": 1,
+    "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+    "graph_steps": 24,
+    "nonlinear_evaluations": 1351,
+    "marching_fft_batches": 2702,
+    "priming_fft_batches": 2,
+    "nonlinear_by_phase": {
+      "startup": 1216,
+      "late": 135
+    },
+    "inverse_field_transforms": 4053,
+    "forward_field_transforms": 2702,
+    "bridge_extra_fft_batches": 0,
+    "fft_radial_lines": 76,
+    "device_final_step": 1352,
+    "host_setup_seconds": 0.057034900004509836,
+    "runtime_init_seconds": 0.4882951000472531,
+    "upload_seconds": 0.0066158000263385475,
+    "plan_seconds": 0.01576409995323047,
+    "graph_setup_seconds": 0.002195600012782961,
+    "march_seconds": 0.15568309999071062,
+    "download_seconds": 0.000396600051317364,
+    "seconds": 0.7289992000441998,
+    "timing_scope": "Numerical reproduction only; timings are diagnostic.",
+    "replay_mode": "prepared_cuda",
+    "replay_numeric_protocol_sha256": "4380677efd7da32f0679fdecc3bf5d273e4db3d95d0dde941ee0694bcf8616c7"
+  },
+  "physical_scope": "No new PDE accuracy qualification; low-grid archive remains physically unqualified."
+}

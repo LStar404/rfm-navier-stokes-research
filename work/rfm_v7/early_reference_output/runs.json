@@ -1,0 +1,256 @@
+{
+  "status": "complete",
+  "protocol_sha256": "617f08662d200f02d96e14e5d8a37db011007788fdb0ee6ca78432bb93840dd6",
+  "arms": [
+    {
+      "status": "complete",
+      "spec": {
+        "name": "radial_coarse",
+        "n": 384,
+        "k": 128,
+        "rate": 384
+      },
+      "artifact": "radial_coarse_n384_k128_r384.npz",
+      "sha256": "4726fac293d66c5c8ff7cf2962471ffcca101e363b253cb8b5d870d1c9cfa934",
+      "configuration": {
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 384
+      },
+      "metadata": {
+        "steps": 3072,
+        "horizon": 8,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.42651849996764213,
+        "seconds": 32.899523100000806,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+            "shape": [
+              129,
+              383
+            ],
+            "exponent_min": -36,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+            "shape": [
+              129,
+              383
+            ],
+            "exponent_min": -36,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 0,
+        "method": "fd4",
+        "n": 384,
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 400,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.13571279996540397
+      }
+    },
+    {
+      "status": "complete",
+      "spec": {
+        "name": "radial_fine",
+        "n": 448,
+        "k": 128,
+        "rate": 384
+      },
+      "artifact": "radial_fine_n448_k128_r384.npz",
+      "sha256": "6fa0b28ee080229b73a8fa3bfd911216e60b2dfc2a887e5f730d16e4e328c01f",
+      "configuration": {
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 3072,
+        "horizon": 8,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.5186207999940962,
+        "seconds": 40.1680148000014,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "7a4facb80d7ce6bad9128ac40f9431329a4d9208c84d4158c8e57148816c97b2",
+            "shape": [
+              129,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "84aa654c87b0a5b90e5c5dac552073030dae8fa724d67a0dd49bf0999dedf952",
+            "shape": [
+              129,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 0,
+        "method": "fd4",
+        "n": 448,
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 400,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.16183820000151172
+      }
+    },
+    {
+      "status": "complete",
+      "spec": {
+        "name": "angular_fine",
+        "n": 448,
+        "k": 144,
+        "rate": 384
+      },
+      "artifact": "angular_fine_n448_k144_r384.npz",
+      "sha256": "ed9bf65089ec3de998ecd4e01050f6037fe7b59b8e9074ad53b9d56653632fd7",
+      "configuration": {
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 3072,
+        "horizon": 8,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.5768616999848746,
+        "seconds": 46.42921670002397,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 0,
+        "method": "fd4",
+        "n": 448,
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 450,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.18384790001437068
+      }
+    },
+    {
+      "status": "complete",
+      "spec": {
+        "name": "time_fine",
+        "n": 448,
+        "k": 144,
+        "rate": 512
+      },
+      "artifact": "time_fine_n448_k144_r512.npz",
+      "sha256": "14afe62928fdaf3592b2afcf5f82f468db9df311784ca6f60048354362c927ef",
+      "configuration": {
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 4096,
+        "horizon": 8,
+        "dt": 0.001953125,
+        "setup_seconds": 0.5206527000409551,
+        "seconds": 53.169690200011246,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -37,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -37,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 0,
+        "method": "fd4",
+        "n": 448,
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 450,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.16593250003643334
+      }
+    }
+  ],
+  "reference_audit_sha256": "9a30de576ed8b4bf293c4aed79e9b52855e2803ac90288c42680767afbf9705d",
+  "candidate_rescore_sha256": "57c63a37c2e0ba30f1c3ed2aed9910ef9d9a4c75581a6aa989c8ff1782da421b"
+}

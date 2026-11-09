@@ -1,0 +1,625 @@
+{
+  "status": "complete",
+  "protocol_sha256": "3276378f155180bc047a1418c80dcc403b62f269cf7bf7d024ebabc2a8ed6ccc",
+  "arms": [
+    {
+      "status": "complete",
+      "spec": {
+        "name": "radial_coarse",
+        "n": 384,
+        "k": 128,
+        "rate": 384
+      },
+      "artifact": "radial_coarse_n384_k128_r384.npz",
+      "sha256": "8a126a28ba447feeb5ea4a5aa651dda8001491b261d1ba32e734d45868d5dce2",
+      "configuration": {
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 384
+      },
+      "metadata": {
+        "steps": 6144,
+        "horizon": 16,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.4740567000117153,
+        "seconds": 66.56079700001283,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+            "shape": [
+              129,
+              383
+            ],
+            "exponent_min": -36,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+            "shape": [
+              129,
+              383
+            ],
+            "exponent_min": -36,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 2304,
+        "method": "fd4",
+        "n": 384,
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 400,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.13758900004904717
+      },
+      "restart": {
+        "status": "derived",
+        "old_history": {
+          "source": "rfm_v7/early_reference_output/radial_coarse/resume_fd384_k128_rate384.npz",
+          "sha256": "d43cada498032f90c09d39f810764432d9db995b6c28433880c598804c0a61b3"
+        },
+        "old_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 128,
+            "linear": "native",
+            "n": 384,
+            "stretch": 1.0
+          },
+          "dt": 0.0026041666666666665,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -36,
+              "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+              "shape": [
+                129,
+                383
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -36,
+              "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+              "shape": [
+                129,
+                383
+              ]
+            }
+          },
+          "steps": 3072
+        },
+        "new_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 128,
+            "linear": "native",
+            "n": 384,
+            "stretch": 1.0
+          },
+          "dt": 0.0026041666666666665,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -36,
+              "sha256": "f8195c9adf3d70890fc1e6efbdfa3740b35e0b2689b2e0a42d74c3f4f87b3ead",
+              "shape": [
+                129,
+                383
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -36,
+              "sha256": "61aebb17054dffa51ffe142ffda75fec63c7dfa53c9b34a629b8ef4544b11c9c",
+              "shape": [
+                129,
+                383
+              ]
+            }
+          },
+          "steps": 6144
+        },
+        "unchanged_array_sha256": {
+          "states": "33dfa4299212d10ecd4326fdc4d624654aeb580d65e159cc092f18aee4e77a57",
+          "last_state": "525d0edfab9153dd16aae81e500d09447370762a1ad7af3208878ebfa72e7fd9",
+          "mass": "3d7470a2ecd5173aabe5974891b1fa84d81598ac4b56d584eabf8b3d87134534",
+          "flux": "d96e7b87a9bdf7c146edea72970cb81dd7396e3b996e48483575964e0c8f9273",
+          "old_mass": "c4eb83991fd57d7a0a22d15bcbd3a933cef340fdfbcab3f0437797d9bac767c7",
+          "old_flux": "5307607d21838fd0ffd87314fa1120a69e99ba0703b0ee41da022e96cfdf174b"
+        },
+        "artifact": "restart_input_radial_coarse.npz",
+        "sha256": "9db698a8c220ec8b35a4a2be23fb122b90f81bf9db8333e723e6c956f012a043",
+        "changes": "New step total and probe capacity. Initial time, states, current and older SBDF2 histories are preserved."
+      },
+      "replays_original_t8": {
+        "states": true,
+        "times": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "bitwise_t8_pass": true
+    },
+    {
+      "status": "complete",
+      "spec": {
+        "name": "radial_fine",
+        "n": 448,
+        "k": 128,
+        "rate": 384
+      },
+      "artifact": "radial_fine_n448_k128_r384.npz",
+      "sha256": "f7f0c721d946a4e261ad34251d6a645dde58eb5d51005eafc7e5759c86e25a0c",
+      "configuration": {
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 6144,
+        "horizon": 16,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.5385974000091664,
+        "seconds": 78.20922010001959,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "7a4facb80d7ce6bad9128ac40f9431329a4d9208c84d4158c8e57148816c97b2",
+            "shape": [
+              129,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "84aa654c87b0a5b90e5c5dac552073030dae8fa724d67a0dd49bf0999dedf952",
+            "shape": [
+              129,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 2304,
+        "method": "fd4",
+        "n": 448,
+        "k": 128,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 400,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.15882200002670288
+      },
+      "restart": {
+        "status": "derived",
+        "old_history": {
+          "source": "rfm_v7/early_reference_output/radial_fine/resume_fd448_k128_rate384.npz",
+          "sha256": "b25b58327f08bcd9c072bf597166843d7cc6876b6cb4941e4c1075caa8c13a44"
+        },
+        "old_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 128,
+            "linear": "native",
+            "n": 448,
+            "stretch": 1.0
+          },
+          "dt": 0.0026041666666666665,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "84aa654c87b0a5b90e5c5dac552073030dae8fa724d67a0dd49bf0999dedf952",
+              "shape": [
+                129,
+                447
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "7a4facb80d7ce6bad9128ac40f9431329a4d9208c84d4158c8e57148816c97b2",
+              "shape": [
+                129,
+                447
+              ]
+            }
+          },
+          "steps": 3072
+        },
+        "new_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 128,
+            "linear": "native",
+            "n": 448,
+            "stretch": 1.0
+          },
+          "dt": 0.0026041666666666665,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "84aa654c87b0a5b90e5c5dac552073030dae8fa724d67a0dd49bf0999dedf952",
+              "shape": [
+                129,
+                447
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "7a4facb80d7ce6bad9128ac40f9431329a4d9208c84d4158c8e57148816c97b2",
+              "shape": [
+                129,
+                447
+              ]
+            }
+          },
+          "steps": 6144
+        },
+        "unchanged_array_sha256": {
+          "states": "989cb1fdb09c9ea6672256151ec3f5a4b8a3bdbe1382e816e6ef439b1e7dbc1c",
+          "last_state": "af44a5b1d6c03616ffc7be2c7385f4e43d74c2b57e50378e5fe23f55309fef20",
+          "mass": "5ff5d78c35d9eb8708f63a38087d414cdcdb517ea07b1501533188f6f2e335c7",
+          "flux": "3b5469582bf2bdbc6ca1be144ac8c9f1cd23650b60278728c8171d19b2d305d1",
+          "old_mass": "8ed1fb3805236c24cdf4a002a91f51268636ea1ec34481e9d9a2d0a4c738934e",
+          "old_flux": "bf02dced7d09409d61895fcc506907474ab4476fe63dd4ff1846bf56b161401e"
+        },
+        "artifact": "restart_input_radial_fine.npz",
+        "sha256": "d22ccd768ba02264e90f17d430fcacfe5b6e739e797424f53eb3e4d993868536",
+        "changes": "New step total and probe capacity. Initial time, states, current and older SBDF2 histories are preserved."
+      },
+      "replays_original_t8": {
+        "states": true,
+        "times": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "bitwise_t8_pass": true
+    },
+    {
+      "status": "complete",
+      "spec": {
+        "name": "angular_fine",
+        "n": 448,
+        "k": 144,
+        "rate": 384
+      },
+      "artifact": "angular_fine_n448_k144_r384.npz",
+      "sha256": "74605df05e4e4561aa9f4295980f9cf381d992cfb05b398eb6070c6432a62a72",
+      "configuration": {
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 6144,
+        "horizon": 16,
+        "dt": 0.0026041666666666665,
+        "setup_seconds": 0.5703214000095613,
+        "seconds": 92.60544840001967,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -38,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 2304,
+        "method": "fd4",
+        "n": 448,
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 450,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.1572033999254927
+      },
+      "restart": {
+        "status": "derived",
+        "old_history": {
+          "source": "rfm_v7/early_reference_output/angular_fine/resume_fd448_k128_rate384.npz",
+          "sha256": "3584d8b0cdf425ef427aa7ddeabf300f2b7325c8f5673067dea8457ff05914d4"
+        },
+        "old_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 144,
+            "linear": "native",
+            "n": 448,
+            "stretch": 1.0
+          },
+          "dt": 0.0026041666666666665,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+              "shape": [
+                145,
+                447
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+              "shape": [
+                145,
+                447
+              ]
+            }
+          },
+          "steps": 3072
+        },
+        "new_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 144,
+            "linear": "native",
+            "n": 448,
+            "stretch": 1.0
+          },
+          "dt": 0.0026041666666666665,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+              "shape": [
+                145,
+                447
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -38,
+              "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+              "shape": [
+                145,
+                447
+              ]
+            }
+          },
+          "steps": 6144
+        },
+        "unchanged_array_sha256": {
+          "states": "496d642d77a97671f22cc2295d449c4995a98ab9c0daf737159bb31df5622530",
+          "last_state": "c68135d0b4dccd1d3cfdae565b7c97fae3e21ae150680f48ba5c9ad6774ad908",
+          "mass": "7b54fb9f7ad7dc864b142e04488d6961ac39ff362051138990bb70f64c4ea5b1",
+          "flux": "e5c9f86ed04f88081a8f372840e34d5a24023419c3834070d76fe35a92db92de",
+          "old_mass": "1d2fa3511bf0688a0cb51f6ea2ef414bb79b486412df9be9b90a39abfdf8a30b",
+          "old_flux": "2342c145858c83795b770e5a8dd036eb19e4e151b8e8711b36c40c8b512288a5"
+        },
+        "artifact": "restart_input_angular_fine.npz",
+        "sha256": "8c1c2cb7d2b11cba0df6bafcc1d510367d573c46312715734b80c9e3d529de66",
+        "changes": "New step total and probe capacity. Initial time, states, current and older SBDF2 histories are preserved."
+      },
+      "replays_original_t8": {
+        "states": true,
+        "times": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "bitwise_t8_pass": true
+    },
+    {
+      "status": "complete",
+      "spec": {
+        "name": "time_fine",
+        "n": 448,
+        "k": 144,
+        "rate": 512
+      },
+      "artifact": "time_fine_n448_k144_r512.npz",
+      "sha256": "bb6e8d4d80ae6ed09ab83e80e2b1ad4c8e1a1584218d22195eef6a9713d7bbf7",
+      "configuration": {
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "n": 448
+      },
+      "metadata": {
+        "steps": 8192,
+        "horizon": 16,
+        "dt": 0.001953125,
+        "setup_seconds": 0.5996814999962226,
+        "seconds": 102.11482680001063,
+        "time_order": 2,
+        "row_scale": {
+          "first": {
+            "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -37,
+            "exponent_max": 0
+          },
+          "bdf": {
+            "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+            "shape": [
+              145,
+              447
+            ],
+            "exponent_min": -37,
+            "exponent_max": 0
+          }
+        },
+        "resumed_from_step": 3072,
+        "method": "fd4",
+        "n": 448,
+        "k": 144,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 450,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2",
+        "equilibration": "row_power_of_two",
+        "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+        "equilibration_setup_seconds": 0.18119169998681173
+      },
+      "restart": {
+        "status": "derived",
+        "old_history": {
+          "source": "rfm_v7/early_reference_output/time_fine/resume_fd448_k128_rate384.npz",
+          "sha256": "f76099d2ddae6af52df54ced789421e7165eaf7a929dfcb342b0739a0cd622a1"
+        },
+        "old_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 144,
+            "linear": "native",
+            "n": 448,
+            "stretch": 1.0
+          },
+          "dt": 0.001953125,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -37,
+              "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+              "shape": [
+                145,
+                447
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -37,
+              "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+              "shape": [
+                145,
+                447
+              ]
+            }
+          },
+          "steps": 4096
+        },
+        "new_identity": {
+          "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+          "config": {
+            "angular": "fft",
+            "grid": "outer",
+            "k": 144,
+            "linear": "native",
+            "n": 448,
+            "stretch": 1.0
+          },
+          "dt": 0.001953125,
+          "scales": {
+            "bdf": {
+              "exponent_max": 0,
+              "exponent_min": -37,
+              "sha256": "72cb1fd9c962c5bfa51f792dcd96250c4d94585ca0d962ec2d063592605797ba",
+              "shape": [
+                145,
+                447
+              ]
+            },
+            "first": {
+              "exponent_max": 0,
+              "exponent_min": -37,
+              "sha256": "d5b122347ec554f25132e153e42d710048109fe7d62586480b51d9aa4b6a66a7",
+              "shape": [
+                145,
+                447
+              ]
+            }
+          },
+          "steps": 8192
+        },
+        "unchanged_array_sha256": {
+          "states": "2c617682a374c9a617175cd1434597127a2372b4e3e3b7893c44f277adb895db",
+          "last_state": "8f68d5d66f78bef0fe493016d155554a2fe98c54e7480319b73381b4851d1bb9",
+          "mass": "2fae48b01eff95c158058b64eaa4a0129e7af5edcfcb56d6c4b81eabf3a265c1",
+          "flux": "f52ebdf21890a26647d5b3f688c75146ab6f50a618c8f20cbd71464eda823f37",
+          "old_mass": "22301aebc8ec6d6b5102d9bb5a2f36d25880b5529f62095b906f8823f80bd60a",
+          "old_flux": "b6592534986ec39647332e2e8a0d41d3a79cde1b9167eacb9e6d46ca434c6b75"
+        },
+        "artifact": "restart_input_time_fine.npz",
+        "sha256": "ba08b11c865c798e70b88ec6935d05b561653d11401d4343644c1c145beab3e3",
+        "changes": "New step total and probe capacity. Initial time, states, current and older SBDF2 histories are preserved."
+      },
+      "replays_original_t8": {
+        "states": true,
+        "times": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "bitwise_t8_pass": true
+    }
+  ],
+  "reference_pass": true,
+  "reference_audit_sha256": "7e1eb2fd0a5086cd3f56512b9ac3225b9723ec91d356c4640ed683eb48e1839a",
+  "bitwise_t8_pass": true
+}

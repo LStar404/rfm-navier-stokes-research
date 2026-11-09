@@ -1,0 +1,1258 @@
+{
+  "status": "passed",
+  "derived_from": {
+    "file": "timing.json",
+    "sha256": "f8ef43900863ada448c84463b3f0e4bd38b54234c79830021ac2f71bac4d8499",
+    "trajectory_hashes_verified": false
+  },
+  "observations": 30,
+  "expected_observations": 30,
+  "registered_rfm_seeds": [
+    7331,
+    7687,
+    8011,
+    8353,
+    9041
+  ],
+  "complete_registered_seed_inventory": true,
+  "failure_count": 0,
+  "failures": [],
+  "groups": [
+    {
+      "family": "rfm",
+      "name": "rfm37_k72",
+      "backend": "cpu",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "count": 5,
+      "successful_timings": 5,
+      "failure_count": 0,
+      "phases_seconds": {
+        "setup_seconds": {
+          "median": 0.014338499982841313,
+          "minimum": 0.012872799998149276,
+          "maximum": 0.016010599967557937,
+          "samples": [
+            0.014932799967937171,
+            0.012872799998149276,
+            0.014338499982841313,
+            0.01313600002322346,
+            0.016010599967557937
+          ]
+        },
+        "solve_minus_setup_seconds": {
+          "median": 8.675669199961703,
+          "minimum": 8.596287599997595,
+          "maximum": 11.306483399996068,
+          "samples": [
+            8.596287599997595,
+            8.724840499984566,
+            8.599623800022528,
+            8.675669199961703,
+            11.306483399996068
+          ]
+        },
+        "wall_seconds": {
+          "median": 8.688881899986882,
+          "minimum": 8.611296600021888,
+          "maximum": 11.322600200015586,
+          "samples": [
+            8.611296600021888,
+            8.737803299969528,
+            8.614043000037782,
+            8.688881899986882,
+            11.322600200015586
+          ]
+        },
+        "solver_reported_seconds": {
+          "median": 8.688805199984927,
+          "minimum": 8.611220399965532,
+          "maximum": 11.322493999963626,
+          "samples": [
+            8.611220399965532,
+            8.737713299982715,
+            8.613962300005369,
+            8.688805199984927,
+            11.322493999963626
+          ]
+        },
+        "wall_minus_solver_reported_seconds": {
+          "median": 8.070003241300583e-05,
+          "minimum": 7.620005635544658e-05,
+          "maximum": 0.00010620005195960402,
+          "samples": [
+            7.620005635544658e-05,
+            8.999998681247234e-05,
+            8.070003241300583e-05,
+            7.670000195503235e-05,
+            0.00010620005195960402
+          ]
+        }
+      }
+    },
+    {
+      "family": "rfm",
+      "name": "rfm37_k72",
+      "backend": "cuda_graph",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "count": 5,
+      "successful_timings": 5,
+      "failure_count": 0,
+      "phases_seconds": {
+        "host_setup_seconds": {
+          "median": 0.01903560000937432,
+          "minimum": 0.018709400028456002,
+          "maximum": 0.02795660000992939,
+          "samples": [
+            0.020758400030899793,
+            0.01903560000937432,
+            0.018709400028456002,
+            0.018986400042194873,
+            0.02795660000992939
+          ]
+        },
+        "runtime_init_seconds": {
+          "median": 0.23813839996000752,
+          "minimum": 0.23640669998712838,
+          "maximum": 0.45259709999663755,
+          "samples": [
+            0.45259709999663755,
+            0.23640669998712838,
+            0.23813839996000752,
+            0.23699999996460974,
+            0.3044889000011608
+          ]
+        },
+        "upload_seconds": {
+          "median": 0.003359000023920089,
+          "minimum": 0.0025115000316873193,
+          "maximum": 0.0038144999998621643,
+          "samples": [
+            0.0038144999998621643,
+            0.003359000023920089,
+            0.003270599991083145,
+            0.0025115000316873193,
+            0.0035927999997511506
+          ]
+        },
+        "plan_seconds": {
+          "median": 0.002852399949915707,
+          "minimum": 0.0025682999985292554,
+          "maximum": 0.01720999996177852,
+          "samples": [
+            0.01720999996177852,
+            0.002852399949915707,
+            0.0027077000122517347,
+            0.0025682999985292554,
+            0.0034292000345885754
+          ]
+        },
+        "graph_setup_seconds": {
+          "median": 0.0009811000199988484,
+          "minimum": 0.000958200020249933,
+          "maximum": 0.0013488000258803368,
+          "samples": [
+            0.001047199999447912,
+            0.000958200020249933,
+            0.0009811000199988484,
+            0.0009678000351414084,
+            0.0013488000258803368
+          ]
+        },
+        "march_seconds": {
+          "median": 1.0320955999777652,
+          "minimum": 1.0301725999452174,
+          "maximum": 1.1077689999947324,
+          "samples": [
+            1.0364713000017218,
+            1.0320955999777652,
+            1.0301725999452174,
+            1.0311761999619193,
+            1.1077689999947324
+          ]
+        },
+        "download_seconds": {
+          "median": 0.000298400002066046,
+          "minimum": 0.000242199981585145,
+          "maximum": 0.0004819000023417175,
+          "samples": [
+            0.000338299956638366,
+            0.000298400002066046,
+            0.000291300006210804,
+            0.000242199981585145,
+            0.0004819000023417175
+          ]
+        },
+        "wall_seconds": {
+          "median": 1.2970702999737114,
+          "minimum": 1.2953738999785855,
+          "maximum": 1.5343958000303246,
+          "samples": [
+            1.5343958000303246,
+            1.2970702999737114,
+            1.296290099970065,
+            1.2953738999785855,
+            1.4515973000088707
+          ]
+        },
+        "solver_reported_seconds": {
+          "median": 1.2967399000190198,
+          "minimum": 1.295064400008414,
+          "maximum": 1.5340459999861196,
+          "samples": [
+            1.5340459999861196,
+            1.2967399000190198,
+            1.2959822000120766,
+            1.295064400008414,
+            1.4510681999963708
+          ]
+        },
+        "wall_minus_solver_reported_seconds": {
+          "median": 0.0003303999546915293,
+          "minimum": 0.0003078999579884112,
+          "maximum": 0.0005291000124998391,
+          "samples": [
+            0.00034980004420503974,
+            0.0003303999546915293,
+            0.0003078999579884112,
+            0.0003094999701716006,
+            0.0005291000124998391
+          ]
+        }
+      }
+    },
+    {
+      "family": "legendre",
+      "name": "leg37_k72",
+      "backend": "cpu",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seeds": [
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "count": 5,
+      "successful_timings": 5,
+      "failure_count": 0,
+      "phases_seconds": {
+        "setup_seconds": {
+          "median": 0.015090400003828108,
+          "minimum": 0.014660200045909733,
+          "maximum": 0.015814199985470623,
+          "samples": [
+            0.015194100036751479,
+            0.014831399952527136,
+            0.014660200045909733,
+            0.015090400003828108,
+            0.015814199985470623
+          ]
+        },
+        "solve_minus_setup_seconds": {
+          "median": 8.678309899987653,
+          "minimum": 7.677655400009826,
+          "maximum": 8.814198400010355,
+          "samples": [
+            7.677655400009826,
+            8.702256000018679,
+            8.645984100003261,
+            8.678309899987653,
+            8.814198400010355
+          ]
+        },
+        "wall_seconds": {
+          "median": 8.693479200010188,
+          "minimum": 7.692936500010546,
+          "maximum": 8.830093100026716,
+          "samples": [
+            7.692936500010546,
+            8.717167700000573,
+            8.660723900015,
+            8.693479200010188,
+            8.830093100026716
+          ]
+        },
+        "solver_reported_seconds": {
+          "median": 8.693400299991481,
+          "minimum": 7.692849500046577,
+          "maximum": 8.830012599995825,
+          "samples": [
+            7.692849500046577,
+            8.717087399971206,
+            8.66064430004917,
+            8.693400299991481,
+            8.830012599995825
+          ]
+        },
+        "wall_minus_solver_reported_seconds": {
+          "median": 8.030002936720848e-05,
+          "minimum": 7.890001870691776e-05,
+          "maximum": 8.699996396899223e-05,
+          "samples": [
+            8.699996396899223e-05,
+            8.030002936720848e-05,
+            7.959996582940221e-05,
+            7.890001870691776e-05,
+            8.050003089010715e-05
+          ]
+        }
+      }
+    },
+    {
+      "family": "legendre",
+      "name": "leg37_k72",
+      "backend": "cuda_graph",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seeds": [
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "count": 5,
+      "successful_timings": 5,
+      "failure_count": 0,
+      "phases_seconds": {
+        "host_setup_seconds": {
+          "median": 0.0213277000002563,
+          "minimum": 0.020453199977055192,
+          "maximum": 0.030469999997876585,
+          "samples": [
+            0.02162680000765249,
+            0.0213277000002563,
+            0.020453199977055192,
+            0.020578800002112985,
+            0.030469999997876585
+          ]
+        },
+        "runtime_init_seconds": {
+          "median": 0.23661760002141818,
+          "minimum": 0.23578049999196082,
+          "maximum": 0.345317899947986,
+          "samples": [
+            0.23578049999196082,
+            0.23661760002141818,
+            0.23705519997747615,
+            0.23616690002381802,
+            0.345317899947986
+          ]
+        },
+        "upload_seconds": {
+          "median": 0.0030833000200800598,
+          "minimum": 0.0027649999829009175,
+          "maximum": 0.0037619000067934394,
+          "samples": [
+            0.0027649999829009175,
+            0.0030833000200800598,
+            0.003040500043425709,
+            0.003557699965313077,
+            0.0037619000067934394
+          ]
+        },
+        "plan_seconds": {
+          "median": 0.0025933999568223953,
+          "minimum": 0.002473000029567629,
+          "maximum": 0.003532000002451241,
+          "samples": [
+            0.002475299988873303,
+            0.002473000029567629,
+            0.0025933999568223953,
+            0.002870100026484579,
+            0.003532000002451241
+          ]
+        },
+        "graph_setup_seconds": {
+          "median": 0.0009637000039219856,
+          "minimum": 0.0009344000136479735,
+          "maximum": 0.0010373999830335379,
+          "samples": [
+            0.0009344000136479735,
+            0.0009561000042594969,
+            0.0009894000249914825,
+            0.0009637000039219856,
+            0.0010373999830335379
+          ]
+        },
+        "march_seconds": {
+          "median": 1.0505119999870658,
+          "minimum": 1.0492592999944463,
+          "maximum": 1.089367399981711,
+          "samples": [
+            1.0505119999870658,
+            1.0492592999944463,
+            1.0501447999849916,
+            1.0511683000368066,
+            1.089367399981711
+          ]
+        },
+        "download_seconds": {
+          "median": 0.0002943000290542841,
+          "minimum": 0.0002541000139899552,
+          "maximum": 0.0003274999908171594,
+          "samples": [
+            0.0003095999709330499,
+            0.0002541000139899552,
+            0.0002943000290542841,
+            0.00026460003573447466,
+            0.0003274999908171594
+          ]
+        },
+        "wall_seconds": {
+          "median": 1.3165461999597028,
+          "minimum": 1.3160117000225,
+          "maximum": 1.4758333000354469,
+          "samples": [
+            1.3165461999597028,
+            1.3160117000225,
+            1.316385000012815,
+            1.3178442000062205,
+            1.4758333000354469
+          ]
+        },
+        "solver_reported_seconds": {
+          "median": 1.3160586999729276,
+          "minimum": 1.3155066999606788,
+          "maximum": 1.475411899969913,
+          "samples": [
+            1.315958600025624,
+            1.3155066999606788,
+            1.3160586999729276,
+            1.317509800021071,
+            1.475411899969913
+          ]
+        },
+        "wall_minus_solver_reported_seconds": {
+          "median": 0.0004214000655338168,
+          "minimum": 0.0003263000398874283,
+          "maximum": 0.000587599934078753,
+          "samples": [
+            0.000587599934078753,
+            0.0005050000618211925,
+            0.0003263000398874283,
+            0.00033439998514950275,
+            0.0004214000655338168
+          ]
+        }
+      }
+    },
+    {
+      "family": "fd4",
+      "name": "fd176_k80",
+      "backend": "cpu",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seeds": [
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "count": 5,
+      "successful_timings": 5,
+      "failure_count": 0,
+      "phases_seconds": {
+        "setup_seconds": {
+          "median": 0.13739370001712814,
+          "minimum": 0.13549790001707152,
+          "maximum": 0.1408443000400439,
+          "samples": [
+            0.1408443000400439,
+            0.13819600001443177,
+            0.13739370001712814,
+            0.13549790001707152,
+            0.13679319998482242
+          ]
+        },
+        "solve_minus_setup_seconds": {
+          "median": 20.922882599988952,
+          "minimum": 20.677324699994642,
+          "maximum": 23.953952400013804,
+          "samples": [
+            20.922882599988952,
+            20.783794299990404,
+            20.677324699994642,
+            20.983393500035163,
+            23.953952400013804
+          ]
+        },
+        "wall_seconds": {
+          "median": 21.064099800016265,
+          "minimum": 20.815102500026114,
+          "maximum": 24.091229699959513,
+          "samples": [
+            21.064099800016265,
+            20.922363099991344,
+            20.815102500026114,
+            21.119287999987137,
+            24.091229699959513
+          ]
+        },
+        "solver_reported_seconds": {
+          "median": 21.063726900028996,
+          "minimum": 20.81471840001177,
+          "maximum": 24.090745599998627,
+          "samples": [
+            21.063726900028996,
+            20.921990300004836,
+            20.81471840001177,
+            21.118891400052235,
+            24.090745599998627
+          ]
+        },
+        "wall_minus_solver_reported_seconds": {
+          "median": 0.00038410001434385777,
+          "minimum": 0.0003727999865077436,
+          "maximum": 0.000484099960885942,
+          "samples": [
+            0.00037289998726919293,
+            0.0003727999865077436,
+            0.00038410001434385777,
+            0.00039659993490204215,
+            0.000484099960885942
+          ]
+        }
+      }
+    },
+    {
+      "family": "fd4",
+      "name": "fd176_k80",
+      "backend": "cuda_graph",
+      "blocks": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "seeds": [
+        17,
+        17,
+        17,
+        17,
+        17
+      ],
+      "count": 5,
+      "successful_timings": 5,
+      "failure_count": 0,
+      "phases_seconds": {
+        "host_setup_seconds": {
+          "median": 0.14391139999497682,
+          "minimum": 0.14240830001654103,
+          "maximum": 0.14489759999560192,
+          "samples": [
+            0.14433749997988343,
+            0.14391139999497682,
+            0.14240830001654103,
+            0.14489759999560192,
+            0.14275060000363737
+          ]
+        },
+        "host_linear_precompute_seconds": {
+          "median": 0.06591980002122,
+          "minimum": 0.06512390001444146,
+          "maximum": 0.07010579999769107,
+          "samples": [
+            0.06591980002122,
+            0.06716139998752624,
+            0.06512390001444146,
+            0.07010579999769107,
+            0.06588320003356785
+          ]
+        },
+        "runtime_init_seconds": {
+          "median": 0.3221032000146806,
+          "minimum": 0.31645689997822046,
+          "maximum": 0.33608379994984716,
+          "samples": [
+            0.3188750999979675,
+            0.33108889998402447,
+            0.31645689997822046,
+            0.33608379994984716,
+            0.3221032000146806
+          ]
+        },
+        "upload_seconds": {
+          "median": 0.006437300005927682,
+          "minimum": 0.006051499978639185,
+          "maximum": 0.007076600042637438,
+          "samples": [
+            0.006051499978639185,
+            0.006812000006902963,
+            0.006207500002346933,
+            0.007076600042637438,
+            0.006437300005927682
+          ]
+        },
+        "plan_seconds": {
+          "median": 0.00310400000307709,
+          "minimum": 0.002900299965403974,
+          "maximum": 0.003553599992301315,
+          "samples": [
+            0.00313510000705719,
+            0.0030431999475695193,
+            0.00310400000307709,
+            0.003553599992301315,
+            0.002900299965403974
+          ]
+        },
+        "graph_setup_seconds": {
+          "median": 0.0011857000063173473,
+          "minimum": 0.001145100046414882,
+          "maximum": 0.001250099972821772,
+          "samples": [
+            0.0011699000024236739,
+            0.0011857000063173473,
+            0.0011946999584324658,
+            0.001250099972821772,
+            0.001145100046414882
+          ]
+        },
+        "march_seconds": {
+          "median": 2.2791626000544056,
+          "minimum": 2.2664878999930806,
+          "maximum": 2.3182993000373244,
+          "samples": [
+            2.3182993000373244,
+            2.2825643999967724,
+            2.270921500050463,
+            2.2664878999930806,
+            2.2791626000544056
+          ]
+        },
+        "download_seconds": {
+          "median": 0.0004391000256873667,
+          "minimum": 0.0004115999909117818,
+          "maximum": 0.0006199000054039061,
+          "samples": [
+            0.0004391000256873667,
+            0.00044709997018799186,
+            0.0004115999909117818,
+            0.0004268999909982085,
+            0.0006199000054039061
+          ]
+        },
+        "wall_seconds": {
+          "median": 2.8348499000421725,
+          "minimum": 2.8107342000002973,
+          "maximum": 2.862255699990783,
+          "samples": [
+            2.862255699990783,
+            2.840775199991185,
+            2.8107342000002973,
+            2.8348499000421725,
+            2.8251883999910206
+          ]
+        },
+        "solver_reported_seconds": {
+          "median": 2.832325400027912,
+          "minimum": 2.809176500013564,
+          "maximum": 2.8608366000116803,
+          "samples": [
+            2.8608366000116803,
+            2.838620800001081,
+            2.809176500013564,
+            2.832325400027912,
+            2.823789599991869
+          ]
+        },
+        "wall_minus_solver_reported_seconds": {
+          "median": 0.0015576999867334962,
+          "minimum": 0.0013987999991513789,
+          "maximum": 0.0025245000142604113,
+          "samples": [
+            0.0014190999791026115,
+            0.002154399990104139,
+            0.0015576999867334962,
+            0.0025245000142604113,
+            0.0013987999991513789
+          ]
+        }
+      }
+    }
+  ],
+  "paired_same_hardware": [
+    {
+      "numerator": [
+        "cpu",
+        "fd176_k80"
+      ],
+      "denominator": [
+        "cpu",
+        "rfm37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 7331,
+          "numerator_seconds": 21.064099800016265,
+          "denominator_seconds": 8.611296600021888,
+          "ratio": 2.4461008345668556
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 7687,
+          "numerator_seconds": 20.922363099991344,
+          "denominator_seconds": 8.737803299969528,
+          "ratio": 2.3944648765513303
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 8011,
+          "numerator_seconds": 20.815102500026114,
+          "denominator_seconds": 8.614043000037782,
+          "ratio": 2.4164149749350936
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 8353,
+          "numerator_seconds": 21.119287999987137,
+          "denominator_seconds": 8.688881899986882,
+          "ratio": 2.4306105484088834
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 9041,
+          "numerator_seconds": 24.091229699959513,
+          "denominator_seconds": 11.322600200015586,
+          "ratio": 2.1277117688855913
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 2.4164149749350936,
+        "minimum": 2.1277117688855913,
+        "maximum": 2.4461008345668556
+      }
+    },
+    {
+      "numerator": [
+        "cpu",
+        "fd176_k80"
+      ],
+      "denominator": [
+        "cpu",
+        "leg37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 21.064099800016265,
+          "denominator_seconds": 7.692936500010546,
+          "ratio": 2.738109147266117
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 20.922363099991344,
+          "denominator_seconds": 8.717167700000573,
+          "ratio": 2.4001331418678533
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 20.815102500026114,
+          "denominator_seconds": 8.660723900015,
+          "ratio": 2.4033906103380183
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 21.119287999987137,
+          "denominator_seconds": 8.693479200010188,
+          "ratio": 2.4293251889257856
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 24.091229699959513,
+          "denominator_seconds": 8.830093100026716,
+          "ratio": 2.7283098181475145
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 2.4293251889257856,
+        "minimum": 2.4001331418678533,
+        "maximum": 2.738109147266117
+      }
+    },
+    {
+      "numerator": [
+        "cpu",
+        "leg37_k72"
+      ],
+      "denominator": [
+        "cpu",
+        "rfm37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 7331,
+          "numerator_seconds": 7.692936500010546,
+          "denominator_seconds": 8.611296600021888,
+          "ratio": 0.8933540275445853
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 7687,
+          "numerator_seconds": 8.717167700000573,
+          "denominator_seconds": 8.737803299969528,
+          "ratio": 0.9976383537989432
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 8011,
+          "numerator_seconds": 8.660723900015,
+          "denominator_seconds": 8.614043000037782,
+          "ratio": 1.0054191626367566
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 8353,
+          "numerator_seconds": 8.693479200010188,
+          "denominator_seconds": 8.688881899986882,
+          "ratio": 1.0005291014512825
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 9041,
+          "numerator_seconds": 8.830093100026716,
+          "denominator_seconds": 11.322600200015586,
+          "ratio": 0.7798644254889933
+        }
+      ],
+      "denominator_wins": 2,
+      "ratio": {
+        "median": 0.9976383537989432,
+        "minimum": 0.7798644254889933,
+        "maximum": 1.0054191626367566
+      }
+    },
+    {
+      "numerator": [
+        "cuda_graph",
+        "fd176_k80"
+      ],
+      "denominator": [
+        "cuda_graph",
+        "rfm37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 7331,
+          "numerator_seconds": 2.862255699990783,
+          "denominator_seconds": 1.5343958000303246,
+          "ratio": 1.8653959427770954
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 7687,
+          "numerator_seconds": 2.840775199991185,
+          "denominator_seconds": 1.2970702999737114,
+          "ratio": 2.1901474423157796
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 8011,
+          "numerator_seconds": 2.8107342000002973,
+          "denominator_seconds": 1.296290099970065,
+          "ratio": 2.1682910330528675
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 8353,
+          "numerator_seconds": 2.8348499000421725,
+          "denominator_seconds": 1.2953738999785855,
+          "ratio": 2.1884414222712354
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 9041,
+          "numerator_seconds": 2.8251883999910206,
+          "denominator_seconds": 1.4515973000088707,
+          "ratio": 1.946261817911728
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 2.1682910330528675,
+        "minimum": 1.8653959427770954,
+        "maximum": 2.1901474423157796
+      }
+    },
+    {
+      "numerator": [
+        "cuda_graph",
+        "fd176_k80"
+      ],
+      "denominator": [
+        "cuda_graph",
+        "leg37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 2.862255699990783,
+          "denominator_seconds": 1.3165461999597028,
+          "ratio": 2.1740640017633956
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 2.840775199991185,
+          "denominator_seconds": 1.3160117000225,
+          "ratio": 2.158624577534239
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 2.8107342000002973,
+          "denominator_seconds": 1.316385000012815,
+          "ratio": 2.135191604259343
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 2.8348499000421725,
+          "denominator_seconds": 1.3178442000062205,
+          "ratio": 2.1511267417110393
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 2.8251883999910206,
+          "denominator_seconds": 1.4758333000354469,
+          "ratio": 1.914300483613674
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 2.1511267417110393,
+        "minimum": 1.914300483613674,
+        "maximum": 2.1740640017633956
+      }
+    },
+    {
+      "numerator": [
+        "cuda_graph",
+        "leg37_k72"
+      ],
+      "denominator": [
+        "cuda_graph",
+        "rfm37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 7331,
+          "numerator_seconds": 1.3165461999597028,
+          "denominator_seconds": 1.5343958000303246,
+          "ratio": 0.8580225518954651
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 7687,
+          "numerator_seconds": 1.3160117000225,
+          "denominator_seconds": 1.2970702999737114,
+          "ratio": 1.0146032177663558
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 8011,
+          "numerator_seconds": 1.316385000012815,
+          "denominator_seconds": 1.296290099970065,
+          "ratio": 1.0155018541321992
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 8353,
+          "numerator_seconds": 1.3178442000062205,
+          "denominator_seconds": 1.2953738999785855,
+          "ratio": 1.0173465746283805
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 9041,
+          "numerator_seconds": 1.4758333000354469,
+          "denominator_seconds": 1.4515973000088707,
+          "ratio": 1.0166960905937399
+        }
+      ],
+      "denominator_wins": 4,
+      "ratio": {
+        "median": 1.0155018541321992,
+        "minimum": 0.8580225518954651,
+        "maximum": 1.0173465746283805
+      }
+    }
+  ],
+  "paired_same_method_cpu_over_gpu": [
+    {
+      "numerator": [
+        "cpu",
+        "rfm37_k72"
+      ],
+      "denominator": [
+        "cuda_graph",
+        "rfm37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 7331,
+          "denominator_seed": 7331,
+          "numerator_seconds": 8.611296600021888,
+          "denominator_seconds": 1.5343958000303246,
+          "ratio": 5.612174251162379
+        },
+        {
+          "block": 2,
+          "numerator_seed": 7687,
+          "denominator_seed": 7687,
+          "numerator_seconds": 8.737803299969528,
+          "denominator_seconds": 1.2970702999737114,
+          "ratio": 6.736568789021399
+        },
+        {
+          "block": 3,
+          "numerator_seed": 8011,
+          "denominator_seed": 8011,
+          "numerator_seconds": 8.614043000037782,
+          "denominator_seconds": 1.296290099970065,
+          "ratio": 6.645150649716991
+        },
+        {
+          "block": 4,
+          "numerator_seed": 8353,
+          "denominator_seed": 8353,
+          "numerator_seconds": 8.688881899986882,
+          "denominator_seconds": 1.2953738999785855,
+          "ratio": 6.707624648088496
+        },
+        {
+          "block": 5,
+          "numerator_seed": 9041,
+          "denominator_seed": 9041,
+          "numerator_seconds": 11.322600200015586,
+          "denominator_seconds": 1.4515973000088707,
+          "ratio": 7.800097313453527
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 6.707624648088496,
+        "minimum": 5.612174251162379,
+        "maximum": 7.800097313453527
+      }
+    },
+    {
+      "numerator": [
+        "cpu",
+        "leg37_k72"
+      ],
+      "denominator": [
+        "cuda_graph",
+        "leg37_k72"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 7.692936500010546,
+          "denominator_seconds": 1.3165461999597028,
+          "ratio": 5.843271204797837
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 8.717167700000573,
+          "denominator_seconds": 1.3160117000225,
+          "ratio": 6.623928723317228
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 8.660723900015,
+          "denominator_seconds": 1.316385000012815,
+          "ratio": 6.579172430505277
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 8.693479200010188,
+          "denominator_seconds": 1.3178442000062205,
+          "ratio": 6.596742771238931
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 8.830093100026716,
+          "denominator_seconds": 1.4758333000354469,
+          "ratio": 5.983123635856863
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 6.579172430505277,
+        "minimum": 5.843271204797837,
+        "maximum": 6.623928723317228
+      }
+    },
+    {
+      "numerator": [
+        "cpu",
+        "fd176_k80"
+      ],
+      "denominator": [
+        "cuda_graph",
+        "fd176_k80"
+      ],
+      "status": "complete",
+      "blocks": [
+        {
+          "block": 1,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 21.064099800016265,
+          "denominator_seconds": 2.862255699990783,
+          "ratio": 7.3592655611041655
+        },
+        {
+          "block": 2,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 20.922363099991344,
+          "denominator_seconds": 2.840775199991185,
+          "ratio": 7.365018921615573
+        },
+        {
+          "block": 3,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 20.815102500026114,
+          "denominator_seconds": 2.8107342000002973,
+          "ratio": 7.405574849455317
+        },
+        {
+          "block": 4,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 21.119287999987137,
+          "denominator_seconds": 2.8348499000421725,
+          "ratio": 7.44987873949621
+        },
+        {
+          "block": 5,
+          "numerator_seed": 17,
+          "denominator_seed": 17,
+          "numerator_seconds": 24.091229699959513,
+          "denominator_seconds": 2.8251883999910206,
+          "ratio": 8.527300232450369
+        }
+      ],
+      "denominator_wins": 5,
+      "ratio": {
+        "median": 7.405574849455317,
+        "minimum": 7.3592655611041655,
+        "maximum": 8.527300232450369
+      }
+    }
+  ],
+  "scope": {
+    "wall_seconds": "Fresh in-process end-to-end solve. Excludes score and artifact writes.",
+    "phase_seconds": "Solver instrumentation. CPU solve-minus-setup includes probes, outputs and other remaining solver work. GPU cleanup is in wall/solver total and is not instrumented as a separate phase.",
+    "paired": "Ratios computed within each randomized block. Range is min/max, not a confidence interval."
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "study": "High-resolution uniform CUDA Graph control at its exact registered rate",
+  "resolution": "high",
+  "arm": "uniform",
+  "rate": 152,
+  "horizon": 72,
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "graph_steps": 24,
+  "physical_gate": 0.005,
+  "implementation_gate": 0.00001,
+  "reference_budget_fraction": 0.25,
+  "references": ["angular_fine", "time_fine"],
+  "methods": {"rfm41_k80": [7331, 7687, 8011, 8353, 9041], "leg39_k80": [17]},
+  "scope": "Untimed qualification of six original four-kernel fixed-rate GPU trajectories at 19 common absolute times, three grids, four norms and 577 full-horizon probe observations. Archived CPU Recurrence early and late anchors supply the matched implementation fields. Both fine FD references must pass. Any failure makes this complete high timing cohort ineligible."
+}

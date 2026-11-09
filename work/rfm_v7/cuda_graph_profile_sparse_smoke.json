@@ -1,0 +1,511 @@
+{
+  "status": "complete",
+  "diagnostic_only": true,
+  "rows": [
+    {
+      "method": "rfm",
+      "diagnostic_only": true,
+      "profile": {
+        "kind": "captured CUDA graph tail with external timing nodes",
+        "scheme": "sparse",
+        "sampled_steps": 24,
+        "chunk_steps": 24,
+        "graph_nodes": 192,
+        "event_record_nodes": 48,
+        "marker_control_nodes": 17,
+        "marker_control_ms": [
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.07625599950551987,
+          0.0060800001956522465,
+          0.04124800115823746,
+          0.039455998688936234,
+          0.005663999821990728,
+          0.04073600098490715,
+          0.004800000227987766,
+          0.042847998440265656,
+          0.04182400181889534
+        ],
+        "stage_labels": [
+          "radial_reconstruction",
+          "inverse_fft",
+          "products_and_history",
+          "forward_fft",
+          "projection_and_advance",
+          "probes_checkpoints_and_step"
+        ],
+        "stage_samples_ms": {
+          "radial_reconstruction": [
+            {
+              "step": 97,
+              "ms": 0.024512000381946564
+            },
+            {
+              "step": 103,
+              "ms": 0.02505600079894066
+            },
+            {
+              "step": 109,
+              "ms": 0.025472000241279602
+            },
+            {
+              "step": 115,
+              "ms": 0.025472000241279602
+            }
+          ],
+          "inverse_fft": [
+            {
+              "step": 98,
+              "ms": 0.024960000067949295
+            },
+            {
+              "step": 104,
+              "ms": 0.024992000311613083
+            },
+            {
+              "step": 110,
+              "ms": 0.024639999493956566
+            },
+            {
+              "step": 116,
+              "ms": 0.024351999163627625
+            }
+          ],
+          "products_and_history": [
+            {
+              "step": 99,
+              "ms": 0.004095999989658594
+            },
+            {
+              "step": 105,
+              "ms": 0.00470399996265769
+            },
+            {
+              "step": 111,
+              "ms": 0.005216000135987997
+            },
+            {
+              "step": 117,
+              "ms": 0.004255999810993671
+            }
+          ],
+          "forward_fft": [
+            {
+              "step": 100,
+              "ms": 0.018432000651955605
+            },
+            {
+              "step": 106,
+              "ms": 0.01881599985063076
+            },
+            {
+              "step": 112,
+              "ms": 0.018783999606966972
+            },
+            {
+              "step": 118,
+              "ms": 0.020255999639630318
+            }
+          ],
+          "projection_and_advance": [
+            {
+              "step": 101,
+              "ms": 0.039264000952243805
+            },
+            {
+              "step": 107,
+              "ms": 0.039264000952243805
+            },
+            {
+              "step": 113,
+              "ms": 0.03929600119590759
+            },
+            {
+              "step": 119,
+              "ms": 0.03872000053524971
+            }
+          ],
+          "probes_checkpoints_and_step": [
+            {
+              "step": 102,
+              "ms": 0.004832000005990267
+            },
+            {
+              "step": 108,
+              "ms": 0.0044479998759925365
+            },
+            {
+              "step": 114,
+              "ms": 0.004480000119656324
+            },
+            {
+              "step": 120,
+              "ms": 0.003903999924659729
+            }
+          ]
+        },
+        "median_stage_ms": {
+          "radial_reconstruction": 0.02526400052011013,
+          "inverse_fft": 0.02479999978095293,
+          "products_and_history": 0.004479999886825681,
+          "forward_fft": 0.018799999728798866,
+          "projection_and_advance": 0.039264000952243805,
+          "probes_checkpoints_and_step": 0.0044639999978244305
+        },
+        "median_step_ms": null,
+        "profiling_graph_setup_seconds": 0.002931300026830286
+      },
+      "bitwise_trajectory_match": {
+        "states": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "trajectory_max_abs_difference": {
+        "states": 0.0,
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "name": "rfm37_k72",
+      "horizon": 1.0
+    },
+    {
+      "method": "legendre",
+      "diagnostic_only": true,
+      "profile": {
+        "kind": "captured CUDA graph tail with external timing nodes",
+        "scheme": "sparse",
+        "sampled_steps": 24,
+        "chunk_steps": 24,
+        "graph_nodes": 192,
+        "event_record_nodes": 48,
+        "marker_control_nodes": 17,
+        "marker_control_ms": [
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.06976000219583511,
+          0.004863999783992767,
+          0.04275200143456459,
+          0.04102399945259094,
+          0.043776001781225204,
+          0.004352000076323748,
+          0.04614400118589401,
+          0.005152000114321709,
+          0.04745600000023842
+        ],
+        "stage_labels": [
+          "radial_reconstruction",
+          "inverse_fft",
+          "products_and_history",
+          "forward_fft",
+          "projection_and_advance",
+          "probes_checkpoints_and_step"
+        ],
+        "stage_samples_ms": {
+          "radial_reconstruction": [
+            {
+              "step": 97,
+              "ms": 0.026559999212622643
+            },
+            {
+              "step": 103,
+              "ms": 0.025472000241279602
+            },
+            {
+              "step": 109,
+              "ms": 0.11523199826478958
+            },
+            {
+              "step": 115,
+              "ms": 0.025472000241279602
+            }
+          ],
+          "inverse_fft": [
+            {
+              "step": 98,
+              "ms": 0.025728000327944756
+            },
+            {
+              "step": 104,
+              "ms": 0.02457600086927414
+            },
+            {
+              "step": 110,
+              "ms": 0.02316799946129322
+            },
+            {
+              "step": 116,
+              "ms": 0.024800000712275505
+            }
+          ],
+          "products_and_history": [
+            {
+              "step": 99,
+              "ms": 0.004480000119656324
+            },
+            {
+              "step": 105,
+              "ms": 0.005152000114321709
+            },
+            {
+              "step": 111,
+              "ms": 0.004480000119656324
+            },
+            {
+              "step": 117,
+              "ms": 0.004352000076323748
+            }
+          ],
+          "forward_fft": [
+            {
+              "step": 100,
+              "ms": 0.018624000251293182
+            },
+            {
+              "step": 106,
+              "ms": 0.020255999639630318
+            },
+            {
+              "step": 112,
+              "ms": 0.01881599985063076
+            },
+            {
+              "step": 118,
+              "ms": 0.020576000213623047
+            }
+          ],
+          "projection_and_advance": [
+            {
+              "step": 101,
+              "ms": 0.03903999924659729
+            },
+            {
+              "step": 107,
+              "ms": 0.03891199827194214
+            },
+            {
+              "step": 113,
+              "ms": 0.03929600119590759
+            },
+            {
+              "step": 119,
+              "ms": 0.03891199827194214
+            }
+          ],
+          "probes_checkpoints_and_step": [
+            {
+              "step": 102,
+              "ms": 0.004480000119656324
+            },
+            {
+              "step": 108,
+              "ms": 0.09932799637317657
+            },
+            {
+              "step": 114,
+              "ms": 0.004480000119656324
+            },
+            {
+              "step": 120,
+              "ms": 0.004255999810993671
+            }
+          ]
+        },
+        "median_stage_ms": {
+          "radial_reconstruction": 0.026015999726951122,
+          "inverse_fft": 0.024688000790774822,
+          "products_and_history": 0.004480000119656324,
+          "forward_fft": 0.01953599974513054,
+          "projection_and_advance": 0.038975998759269714,
+          "probes_checkpoints_and_step": 0.004480000119656324
+        },
+        "median_step_ms": null,
+        "profiling_graph_setup_seconds": 0.002938699966762215
+      },
+      "bitwise_trajectory_match": {
+        "states": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "trajectory_max_abs_difference": {
+        "states": 0.0,
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "name": "leg37_k72",
+      "horizon": 1.0
+    },
+    {
+      "method": "fd4",
+      "diagnostic_only": true,
+      "profile": {
+        "kind": "captured CUDA graph tail with external timing nodes",
+        "scheme": "sparse",
+        "sampled_steps": 21,
+        "chunk_steps": 24,
+        "graph_nodes": 210,
+        "event_record_nodes": 42,
+        "marker_control_nodes": 17,
+        "marker_control_ms": [
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.20793600380420685,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126,
+          0.0005760000203736126,
+          0.0006079999729990959,
+          0.0005760000203736126
+        ],
+        "stage_labels": [
+          "radial_stencils",
+          "inverse_fft",
+          "products_history_mean",
+          "forward_fft",
+          "rhs",
+          "linear_solve",
+          "probe_snapshot_step"
+        ],
+        "stage_samples_ms": {
+          "radial_stencils": [
+            {
+              "step": 100,
+              "ms": 0.025407999753952026
+            },
+            {
+              "step": 107,
+              "ms": 0.024000000208616257
+            },
+            {
+              "step": 114,
+              "ms": 0.024000000208616257
+            }
+          ],
+          "inverse_fft": [
+            {
+              "step": 101,
+              "ms": 0.06188800185918808
+            },
+            {
+              "step": 108,
+              "ms": 0.06185600161552429
+            },
+            {
+              "step": 115,
+              "ms": 0.0629120022058487
+            }
+          ],
+          "products_history_mean": [
+            {
+              "step": 102,
+              "ms": 0.009952000342309475
+            },
+            {
+              "step": 109,
+              "ms": 0.01017600018531084
+            },
+            {
+              "step": 116,
+              "ms": 0.010239999741315842
+            }
+          ],
+          "forward_fft": [
+            {
+              "step": 103,
+              "ms": 0.01894400082528591
+            },
+            {
+              "step": 110,
+              "ms": 0.020927999168634415
+            },
+            {
+              "step": 117,
+              "ms": 0.019007999449968338
+            }
+          ],
+          "rhs": [
+            {
+              "step": 104,
+              "ms": 0.008736000396311283
+            },
+            {
+              "step": 111,
+              "ms": 0.009696000255644321
+            },
+            {
+              "step": 118,
+              "ms": 0.007935999892652035
+            }
+          ],
+          "linear_solve": [
+            {
+              "step": 105,
+              "ms": 0.04956800118088722
+            },
+            {
+              "step": 112,
+              "ms": 0.049695998430252075
+            },
+            {
+              "step": 119,
+              "ms": 0.04912000149488449
+            }
+          ],
+          "probe_snapshot_step": [
+            {
+              "step": 106,
+              "ms": 0.0038399999029934406
+            },
+            {
+              "step": 113,
+              "ms": 0.004095999989658594
+            },
+            {
+              "step": 120,
+              "ms": 0.004127999767661095
+            }
+          ]
+        },
+        "median_stage_ms": {
+          "radial_stencils": 0.024000000208616257,
+          "inverse_fft": 0.06188800185918808,
+          "products_history_mean": 0.01017600018531084,
+          "forward_fft": 0.019007999449968338,
+          "rhs": 0.008736000396311283,
+          "linear_solve": 0.04956800118088722,
+          "probe_snapshot_step": 0.004095999989658594
+        },
+        "median_step_ms": null,
+        "profiling_graph_setup_seconds": 0.0020806999527849257
+      },
+      "bitwise_trajectory_match": {
+        "states": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "trajectory_max_abs_difference": {
+        "states": 0.0,
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "name": "fd176_k80",
+      "horizon": 1.0
+    }
+  ]
+}

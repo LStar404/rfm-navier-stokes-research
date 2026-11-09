@@ -1,0 +1,14 @@
+{
+  "name": "Matched CPU controls for selected failed CUDA SBDF2 step rates",
+  "step_screen": "cpu_formal_step_screen_output",
+  "jobs": [
+    {"name": "fd176_k80", "seed": 17, "rate": 112},
+    {"name": "rfm37_k72", "seed": 7331, "rate": 96},
+    {"name": "leg37_k72", "seed": 17, "rate": 96}
+  ],
+  "horizon": 72,
+  "checkpoints": [24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "time_order": 2,
+  "scope": "Exact same spatial settings and CPU counterparts of the prior CUDA screen. The CPU run checks the supplied RHS, updated state, mass, flux and probes for nonfinites. Failure time is the first detected stage on this instrumented path. Completed cases score both unchanged references. Diagnostics only."
+}

@@ -1,0 +1,24 @@
+{
+  "purpose": "Replay the k=1 row-moment FD4 trajectory using the same FP64 stencil arithmetic and explicit scaled band solve. Compare the old arithmetic separately as a diagnostic.",
+  "paired_cpu_artifact": "cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.npz",
+  "paired_cpu_record": "cpu_fd_row_moment_output/fd448_k144_rate512_row_moment.json",
+  "paired_cpu_protocol": "cpu_fd_row_moment_output/protocol.json",
+  "prior_cpu_protocol": "protocol_fd_cuda_pow2.json",
+  "radial_variant": "k1_taylor_d2_centered_d1",
+  "config": {"n": 448, "k": 144, "stretch": 1.0, "grid": "outer", "angular": "fft"},
+  "steps": 36864,
+  "horizon": 72.0,
+  "probe_spacing": 0.125,
+  "snapshots": [24.0, 36.0, 48.0, 54.0, 60.0, 66.0, 72.0],
+  "graph_steps": 24,
+  "fixed_times": [24.0, 54.0, 72.0],
+  "relative_gate": 1e-6,
+  "crossing_time_gate": 1e-6,
+  "pilot": [
+    {"n": 96, "k": 32, "horizon": 4.5, "steps": 576, "snapshots": [4.0, 4.25, 4.5]},
+    {"n": 448, "k": 144, "horizon": 0.25, "steps": 128, "snapshots": [0.125, 0.25]}
+  ],
+  "fixed_selected_max_abs_gate": 1e-12,
+  "pilot_probe_max_abs_gate": 1e-6,
+  "timing": "Concurrent exploratory timing. No equal-accuracy hardware ranking is inferred from these replay timings."
+}

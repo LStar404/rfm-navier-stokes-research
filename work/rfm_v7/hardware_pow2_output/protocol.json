@@ -1,0 +1,666 @@
+{
+  "template": {
+    "name": "0.5% R6 hardware comparison against the independent equilibrated reference",
+    "gate": 0.005,
+    "reference_budget_fraction": 0.25,
+    "order_seed": 116289,
+    "backends": [
+      "cpu",
+      "cuda_graph"
+    ],
+    "family_order": [
+      "rfm",
+      "legendre",
+      "fd4"
+    ],
+    "implementation_tolerance": 1e-05,
+    "graph_steps": 24,
+    "cuda_fd_linear": "dense",
+    "selection": "First 0.5% qualifying variant in each family's frozen protocol_cpu low-to-high order. Every RFM seed must qualify, deterministic methods use the frozen deterministic trajectory.",
+    "fd_implementations": "Same FD4/SBDF2 spatial and temporal discretization, with fused BufferedFD and cached native band LU on CPU and audited resident native CUDA Graph with cached dense factors on GPU. A separate low-n audit found better single-step forward/backward residuals with power-of-two row scaling, without evidence of a changed 0.5% qualification or end-to-end performance. This experiment uses the previously validated unscaled candidate implementations.",
+    "timing": "Five randomized blocks of six fresh in-process cold solves. End-to-end setup, transfers, plans, graph, marching, synchronized output and cleanup. No reference interpolation, scoring, Python import or driver disk cache reset inside the timed interval."
+  },
+  "protocol": {
+    "name": "v7 full annulus CPU preregistration",
+    "seeds": [
+      7331,
+      7687,
+      8011,
+      8353,
+      9041
+    ],
+    "deterministic_seed": 17,
+    "order_seed": 116287,
+    "horizon": 72,
+    "checkpoints": [
+      24,
+      36,
+      48,
+      54,
+      60,
+      66,
+      72
+    ],
+    "gate": 0.005,
+    "reference_budget_fraction": 0.25,
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "reference_path": [
+      {
+        "name": "radial_coarse",
+        "n": 280,
+        "k": 104,
+        "rate": 256,
+        "source": "rfm_v6/parallel_refinement/fd280_ref.npz"
+      },
+      {
+        "name": "radial_fine",
+        "n": 320,
+        "k": 104,
+        "rate": 256,
+        "source": "rfm_v6/parallel_refinement/fd320_ref.npz"
+      },
+      {
+        "name": "angular_fine",
+        "n": 320,
+        "k": 112,
+        "rate": 256,
+        "source": "rfm_v7/cpu_formal_output/reference_angular_fine.npz"
+      },
+      {
+        "name": "time_fine",
+        "n": 320,
+        "k": 112,
+        "rate": 320,
+        "source": "rfm_v6/parallel_refinement/fd320_ref_tk.npz"
+      }
+    ],
+    "legacy_reference": "rfm_v6/fd_full_n240_k120_rate320_outer1.npz",
+    "variants": [
+      {
+        "name": "rfm35_k64",
+        "method": "rfm",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128
+      },
+      {
+        "name": "rfm37_k72",
+        "method": "rfm",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128
+      },
+      {
+        "name": "rfm41_k80",
+        "method": "rfm",
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "rate": 152
+      },
+      {
+        "name": "leg35_k64",
+        "method": "legendre",
+        "m": 35,
+        "k": 64,
+        "q": 60,
+        "rate": 128
+      },
+      {
+        "name": "leg37_k72",
+        "method": "legendre",
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "rate": 128
+      },
+      {
+        "name": "leg39_k80",
+        "method": "legendre",
+        "m": 39,
+        "k": 80,
+        "q": 76,
+        "rate": 152
+      },
+      {
+        "name": "fd152_k80",
+        "method": "fd4",
+        "n": 152,
+        "k": 80,
+        "rate": 128
+      },
+      {
+        "name": "fd176_k80",
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "rate": 128
+      },
+      {
+        "name": "fd184_k80",
+        "method": "fd4",
+        "n": 184,
+        "k": 80,
+        "rate": 128
+      }
+    ]
+  },
+  "reference": {
+    "composed_difference": 0.00029014373411140326,
+    "reference_hashes": {
+      "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077",
+      "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7"
+    },
+    "files": {
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/runs.json": "3a2b47b9f0543b9494e02e35efcf78df36a3835c0b78ce3f6bc54b3e4a10efe4",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/reference_audit.json": "ae67918d78aa718927188fae0b4e9ac7253610c547e2bf7fa3499890444bb2ff",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/saved_candidate_rescore.json": "8f999c597ea2a4d6c4b04e8f91d1a933c5b0fd4af563766e8fbd2a78d08cfb54",
+      "rfm_v7/hardware_pow2_output/post_audit_manifest.json": "69f76f7f0330c30259962a86c344de2e57c6ab3dc123ce2fa5c90656146a76ed"
+    },
+    "audit_gate": 0.001,
+    "audit_passes": false,
+    "source_hashes": {
+      "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+      "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+      "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+      "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+      "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+      "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+      "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+      "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+      "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+      "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+      "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+      "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+      "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+      "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+      "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+      "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+      "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+      "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+      "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+      "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+      "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+      "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+      "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+      "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+      "rfm_v7/protocol_fd_pow2_reference.json": "5badda274fb0478e684e590403f4065ec56a53daa5872bec656b93178294f665",
+      "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+      "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+      "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+      "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432"
+    },
+    "qualified_at_chain_gate": []
+  },
+  "reference_limit": 0.00125,
+  "choices": [
+    {
+      "name": "rfm37_k72",
+      "method": "rfm",
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "worst": {
+        "velocity": 0.0002942848294543694,
+        "vorticity": 0.004095963044533398,
+        "near_velocity": 0.00025070112489418845,
+        "near_vorticity": 0.002100432992894542
+      },
+      "qualifies": true,
+      "artifacts": [
+        "599d69c1ef11182772cd62fc17bc80a44b785f6eaad44d477836ef180960299a",
+        "30b1786568b8805e0cfe3af1ca762fae2e7adf9666e0e22cbfaaf6ffdaab93af",
+        "6ec55322d28fd6133838c6ba1ed80e7401d6967a91338747a4f83c05ab24e200",
+        "384bbbb06b53b122fbceb7989023736997b55c965dff68ca13b9d6aa0f58de95",
+        "4cc7a672c1e7cf15deb27a7fbecd5fd92203458a2e51db9eb9e4858214af8d65"
+      ]
+    },
+    {
+      "name": "leg37_k72",
+      "method": "legendre",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.00024843633421455245,
+        "vorticity": 0.003520798018345877,
+        "near_velocity": 0.00021305716863223982,
+        "near_vorticity": 0.0018027720920564092
+      },
+      "qualifies": true,
+      "artifacts": [
+        "c7b8da2c4444aa63375544bdc793fc2888f495947a2f4cf1bfa164f5f7aa536e"
+      ]
+    },
+    {
+      "name": "fd176_k80",
+      "method": "fd4",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.0008358326956324772,
+        "vorticity": 0.003950070982472415,
+        "near_velocity": 0.0010179738451904987,
+        "near_vorticity": 0.0024694384627633056
+      },
+      "qualifies": true,
+      "artifacts": [
+        "4000920eb5f057b21303cef3ec9c6a838f0673f9d6307d67d9d9cdd93d2958ab"
+      ]
+    }
+  ],
+  "all_candidate_decisions": [
+    {
+      "name": "rfm35_k64",
+      "method": "rfm",
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "worst": {
+        "velocity": 0.0003337168617672626,
+        "vorticity": 0.005258450668333047,
+        "near_velocity": 0.00026898334610179705,
+        "near_vorticity": 0.0024700973261833075
+      },
+      "qualifies": false,
+      "artifacts": [
+        "7490f17cdce32b18acc5722356a61170c58d1e12d03ce330ba914a50973605ce",
+        "c0e4498f2e41ae510f7125971f2d35ca5c46227070733a3a370ba2858cbf7d96",
+        "90565b709c88eee8d912b663c50776f2e07235e5ed0f99d2429973d205299f9a",
+        "c0607db9b39b2a32b48843fae330369dbf1a8776940b0c088ca4221a6473aed6",
+        "44a8d824e4832151aeda40316c77337517a31cc7ce948e98caa84abd784efa21"
+      ]
+    },
+    {
+      "name": "rfm37_k72",
+      "method": "rfm",
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "worst": {
+        "velocity": 0.0002942848294543694,
+        "vorticity": 0.004095963044533398,
+        "near_velocity": 0.00025070112489418845,
+        "near_vorticity": 0.002100432992894542
+      },
+      "qualifies": true,
+      "artifacts": [
+        "599d69c1ef11182772cd62fc17bc80a44b785f6eaad44d477836ef180960299a",
+        "30b1786568b8805e0cfe3af1ca762fae2e7adf9666e0e22cbfaaf6ffdaab93af",
+        "6ec55322d28fd6133838c6ba1ed80e7401d6967a91338747a4f83c05ab24e200",
+        "384bbbb06b53b122fbceb7989023736997b55c965dff68ca13b9d6aa0f58de95",
+        "4cc7a672c1e7cf15deb27a7fbecd5fd92203458a2e51db9eb9e4858214af8d65"
+      ]
+    },
+    {
+      "name": "rfm41_k80",
+      "method": "rfm",
+      "seeds": [
+        7331,
+        7687,
+        8011,
+        8353,
+        9041
+      ],
+      "worst": {
+        "velocity": 0.00018191866717005647,
+        "vorticity": 0.0033189042305863488,
+        "near_velocity": 0.0001483983966894651,
+        "near_vorticity": 0.0017987919961928675
+      },
+      "qualifies": true,
+      "artifacts": [
+        "861f7bcd5533d36bfbf23dc67eef66976ed7708736b0a2bfd9349cf7a940faee",
+        "3d21b56470c9a078a8fffdfa336b7dda40a17a35abd69dd20e531e1073c9387c",
+        "efa6dabb22f0c4f8a0cf292c85cfcac520a5e1fe8ba764bd0ef2e1ae7feb1ab9",
+        "1fd67175b084bdc4079d38c05f22102805ef6403b4fb6807c91bf59b3e56a395",
+        "21e5a99413152e30e14f6980fe993330a447d859b1fd51512fdb69ada7298ad9"
+      ]
+    },
+    {
+      "name": "leg35_k64",
+      "method": "legendre",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.00029849637793253226,
+        "vorticity": 0.005150481409420459,
+        "near_velocity": 0.00023889631321796927,
+        "near_vorticity": 0.002382949038910893
+      },
+      "qualifies": false,
+      "artifacts": [
+        "665d821529e6f6b346ba8be0a0c33a1f001d9bfdc1bca623576993ff593501e9"
+      ]
+    },
+    {
+      "name": "leg37_k72",
+      "method": "legendre",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.00024843633421455245,
+        "vorticity": 0.003520798018345877,
+        "near_velocity": 0.00021305716863223982,
+        "near_vorticity": 0.0018027720920564092
+      },
+      "qualifies": true,
+      "artifacts": [
+        "c7b8da2c4444aa63375544bdc793fc2888f495947a2f4cf1bfa164f5f7aa536e"
+      ]
+    },
+    {
+      "name": "leg39_k80",
+      "method": "legendre",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.0001422677150441659,
+        "vorticity": 0.002490095046649756,
+        "near_velocity": 0.00012466501454218515,
+        "near_vorticity": 0.0013459741605195401
+      },
+      "qualifies": true,
+      "artifacts": [
+        "50fca4696c40e787cb43be38d2d4da4973677b7de8eadb26d3290711193cba3b"
+      ]
+    },
+    {
+      "name": "fd152_k80",
+      "method": "fd4",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.0018966556387688543,
+        "vorticity": 0.008914532496880088,
+        "near_velocity": 0.0022596390433567105,
+        "near_vorticity": 0.00549089819162098
+      },
+      "qualifies": false,
+      "artifacts": [
+        "075fe693bc5ef3953f4b150bdc9a16ed1a8e18d687bd38583d34e9f1b50eb2ab"
+      ]
+    },
+    {
+      "name": "fd176_k80",
+      "method": "fd4",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.0008358326956324772,
+        "vorticity": 0.003950070982472415,
+        "near_velocity": 0.0010179738451904987,
+        "near_vorticity": 0.0024694384627633056
+      },
+      "qualifies": true,
+      "artifacts": [
+        "4000920eb5f057b21303cef3ec9c6a838f0673f9d6307d67d9d9cdd93d2958ab"
+      ]
+    },
+    {
+      "name": "fd184_k80",
+      "method": "fd4",
+      "seeds": [
+        17
+      ],
+      "worst": {
+        "velocity": 0.0006148319455755205,
+        "vorticity": 0.0029339590670245754,
+        "near_velocity": 0.0007591983773660634,
+        "near_vorticity": 0.0018393020131353649
+      },
+      "qualifies": true,
+      "artifacts": [
+        "bc76690208c20cb8f4f09bcab5a9b3c84104f51a48c95129b59599f97a909726"
+      ]
+    }
+  ],
+  "schedule": [
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "name": "rfm37_k72",
+      "seed": 7331
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cuda_graph",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 1,
+      "backend": "cpu",
+      "name": "rfm37_k72",
+      "seed": 7331
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "name": "rfm37_k72",
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cpu",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "name": "rfm37_k72",
+      "seed": 7687
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 2,
+      "backend": "cuda_graph",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "name": "rfm37_k72",
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cuda_graph",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "name": "rfm37_k72",
+      "seed": 8011
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 3,
+      "backend": "cpu",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "backend": "cpu",
+      "name": "rfm37_k72",
+      "seed": 8353
+    },
+    {
+      "block": 4,
+      "backend": "cpu",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "backend": "cuda_graph",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "backend": "cuda_graph",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 4,
+      "backend": "cuda_graph",
+      "name": "rfm37_k72",
+      "seed": 8353
+    },
+    {
+      "block": 4,
+      "backend": "cpu",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "backend": "cpu",
+      "name": "leg37_k72",
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "backend": "cuda_graph",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "backend": "cpu",
+      "name": "fd176_k80",
+      "seed": 17
+    },
+    {
+      "block": 5,
+      "backend": "cuda_graph",
+      "name": "rfm37_k72",
+      "seed": 9041
+    },
+    {
+      "block": 5,
+      "backend": "cpu",
+      "name": "rfm37_k72",
+      "seed": 9041
+    },
+    {
+      "block": 5,
+      "backend": "cuda_graph",
+      "name": "leg37_k72",
+      "seed": 17
+    }
+  ],
+  "source_hashes": {
+    "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+    "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+    "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+    "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+    "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+    "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+    "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+    "rfm_v7/joint_hardware_pow2.py": "486edac66c62fc54975424c57c72ab6eeb9143f8ef8504bcf98cc3449b9d74fa",
+    "rfm_v7/protocol_joint_hardware_pow2.json": "3e4ff883394a5cc5689d28aecec9585daf07993fb2af10d16652875a7bb89258",
+    "rfm_v7/cpu_formal_reference_point1.py": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+    "rfm_v7/cpu_formal_projection.py": "ed95684899c8f44a17d54c79a911a2ef355623095a6d99be3649b2a3b155e023",
+    "rfm_v7/protocol_point1_ref.json": "7c8b19df854cc36dc6f3c0c40c457a3f9e281cbc7f38baf7e18d9975fe547d27"
+  }
+}

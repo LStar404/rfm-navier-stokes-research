@@ -1,0 +1,891 @@
+{
+  "protocol": {
+    "name": "v7 fixed-space SBDF2 step-count qualification",
+    "state": "draft-unfrozen",
+    "methods": [
+      "rfm37_k72",
+      "leg37_k72",
+      "fd176_k80"
+    ],
+    "rates": [
+      80,
+      96,
+      112,
+      128
+    ],
+    "anchor_rate": 128,
+    "rfm_seeds": [
+      7331,
+      7687,
+      8011,
+      8353,
+      9041
+    ],
+    "deterministic_seed": 17,
+    "order_seed": 169417,
+    "horizon": 72,
+    "checkpoints": [
+      24,
+      36,
+      48,
+      54,
+      60,
+      66,
+      72
+    ],
+    "probe_spacing": 0.125,
+    "gate": 0.005,
+    "reference_budget_fraction": 0.25,
+    "trend_slack": 1e-06,
+    "implementation_gate": 1e-05,
+    "backend": "cuda_graph",
+    "graph_steps": 24,
+    "cuda_fd_linear": "dense",
+    "march_fft_layouts": {
+      "rfm37_k72": {
+        "radial_lines": 66,
+        "inverse_fields": 3,
+        "forward_fields": 2
+      },
+      "leg37_k72": {
+        "radial_lines": 66,
+        "inverse_fields": 3,
+        "forward_fields": 2
+      },
+      "fd176_k80": {
+        "radial_lines": 175,
+        "inverse_fields": 4,
+        "forward_fields": 1
+      }
+    },
+    "layout_evidence": "Native Galerkin plans use len(model.r) lines, with 66 split quadrature nodes apportioned 44+11+11. Native FD plans use the interior width from model.rhs_shape, 175 for FD176. The FFT uses these interior lines rather than the 177 FD grid coordinates including two walls. The runner checks reconstructed model sizes.",
+    "reference_names": [
+      "angular_fine",
+      "time_fine"
+    ],
+    "reference_manifest": "cpu_formal_point1_pow2_chain_output/runs.json",
+    "reference_audit": "cpu_formal_point1_pow2_chain_output/reference_audit.json",
+    "anchor_manifest": "hardware_pow2_output/timing.json",
+    "anchor_reuse": "Reuse completed equilibrated-reference joint CPU/CUDA pairs only on identical runtime dependency hashes, configuration, seed, checkpoint and solver metadata. Use graph settings from frozen.template and retain all archived manifest hashes, including audit-only files. For deterministic methods use block 1, irrespective of time. If unavailable, stop unless the caller explicitly requests all anchor pairs be rerun and the reason is recorded.",
+    "qualification": "For every seed require all original grid/time/full/near velocity/curl metrics and sustained wake against both references. For each field/grid/time also require E(candidate,128)*(1+E(128,ref))+E(128,ref) <= 0.005 for each reference, excluding apparent spatial/time cancellation. On the same-space sequence from candidate through r128, the per-norm maximum gap to the anchor must be nonincreasing with rate up to the stated absolute slack, and all finer arms must have direct passes.",
+    "confirmation": "Choose by minimum step count, never runtime. Confirm all chosen seeds with the identical CPU configuration and synchronized physical checkpoints. Require both direct CPU accuracy and matching CPU/GPU fields/probes. If confirmation fails, retain the failure and check the next eligible rate.",
+    "interpretation": "A finite empirical accuracy/trend check, not a continuum error bound or an observed-order proof. SBDF2 and per-step nonlinear method are unchanged. Each marching evaluation issues one inverse and one forward batched FFT. Galerkin batches contain 3 inverse and 2 forward field transforms, FD batches contain 4 inverse and 1 forward. Counts exclude setup and priming. Screen runtimes are not formal isolated ranking evidence."
+  },
+  "specs": {
+    "rfm37_k72": {
+      "name": "rfm37_k72",
+      "method": "rfm",
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "rate": 128
+    },
+    "leg37_k72": {
+      "name": "leg37_k72",
+      "method": "legendre",
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "rate": 128
+    },
+    "fd176_k80": {
+      "name": "fd176_k80",
+      "method": "fd4",
+      "n": 176,
+      "k": 80,
+      "rate": 128
+    }
+  },
+  "sources": {
+    "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+    "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+    "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+    "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+    "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+    "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+    "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+    "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+    "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+    "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+    "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+    "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+    "rfm_v7/protocol_fd_pow2_reference.json": "5badda274fb0478e684e590403f4065ec56a53daa5872bec656b93178294f665",
+    "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+    "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+    "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+    "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432",
+    "rfm_v7/protocol_step_screen_draft.json": "ad5c4030a72998c04899e64bf0741cda7abb47341c3eca99e79b21bacc73ca1a",
+    "rfm_v7/cpu_formal_step_screen.py": "ad9eacf286fd4926df9b8faa5490ec3f5b69e425829d25345c1bca53a87331cd"
+  },
+  "references": {
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/runs.json": "3a2b47b9f0543b9494e02e35efcf78df36a3835c0b78ce3f6bc54b3e4a10efe4",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/reference_audit.json": "ae67918d78aa718927188fae0b4e9ac7253610c547e2bf7fa3499890444bb2ff",
+    "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077",
+    "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7"
+  },
+  "reference_gap": 0.00029014373411140326,
+  "anchor": {
+    "cuda_graph_rfm37_k72_7331_r128": {
+      "artifact": "hardware_pow2_output/block1_cuda_graph_rfm37_k72_7331.npz",
+      "sha256": "0eb992bedec090bcc05bed60cd0c9859c4ddd140577b0c7f1ddec9d6206abf6d",
+      "block": 1,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 1.5340459999861196,
+        "time_order": 2,
+        "implementation": "native-fp64-cufft-precontracted",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.020758400030899793,
+        "runtime_init_seconds": 0.45259709999663755,
+        "upload_seconds": 0.0038144999998621643,
+        "plan_seconds": 0.01720999996177852,
+        "graph_setup_seconds": 0.001047199999447912,
+        "march_seconds": 1.0364713000017218,
+        "download_seconds": 0.000338299956638366,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cpu_rfm37_k72_7331_r128": {
+      "artifact": "hardware_pow2_output/block1_cpu_rfm37_k72_7331.npz",
+      "sha256": "6ab4bb9c131787007c3eff554d3126e71b377c952096e12360f29b2bba6f1f99",
+      "block": 1,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.014932799967937171,
+        "seconds": 8.611220399965532,
+        "time_order": 2,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cuda_graph_rfm37_k72_7687_r128": {
+      "artifact": "hardware_pow2_output/block2_cuda_graph_rfm37_k72_7687.npz",
+      "sha256": "d50abd76e62d30e0f2e38ae4ab37593533a69d8db6d9a21ef50a1b023df739c6",
+      "block": 2,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 1.2967399000190198,
+        "time_order": 2,
+        "implementation": "native-fp64-cufft-precontracted",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.01903560000937432,
+        "runtime_init_seconds": 0.23640669998712838,
+        "upload_seconds": 0.003359000023920089,
+        "plan_seconds": 0.002852399949915707,
+        "graph_setup_seconds": 0.000958200020249933,
+        "march_seconds": 1.0320955999777652,
+        "download_seconds": 0.000298400002066046,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7687,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cpu_rfm37_k72_7687_r128": {
+      "artifact": "hardware_pow2_output/block2_cpu_rfm37_k72_7687.npz",
+      "sha256": "3a1665c8596f3f8cf9720702f0f0c1f18cca3c7743bd5f63e770a64983663572",
+      "block": 2,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.012872799998149276,
+        "seconds": 8.737713299982715,
+        "time_order": 2,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7687,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cuda_graph_rfm37_k72_8011_r128": {
+      "artifact": "hardware_pow2_output/block3_cuda_graph_rfm37_k72_8011.npz",
+      "sha256": "fb42f45d8d5dc9ee9e7dba8f4adbd40324660eb2f565074592599b78e54f775c",
+      "block": 3,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 1.2959822000120766,
+        "time_order": 2,
+        "implementation": "native-fp64-cufft-precontracted",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.018709400028456002,
+        "runtime_init_seconds": 0.23813839996000752,
+        "upload_seconds": 0.003270599991083145,
+        "plan_seconds": 0.0027077000122517347,
+        "graph_setup_seconds": 0.0009811000199988484,
+        "march_seconds": 1.0301725999452174,
+        "download_seconds": 0.000291300006210804,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 8011,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cpu_rfm37_k72_8011_r128": {
+      "artifact": "hardware_pow2_output/block3_cpu_rfm37_k72_8011.npz",
+      "sha256": "43c137a00edb6f4add0069e46555b6b530395b6e49a93c1ca101f1a01b9703ea",
+      "block": 3,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.014338499982841313,
+        "seconds": 8.613962300005369,
+        "time_order": 2,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 8011,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cuda_graph_rfm37_k72_8353_r128": {
+      "artifact": "hardware_pow2_output/block4_cuda_graph_rfm37_k72_8353.npz",
+      "sha256": "c949cb73926cc590fb4c544108d41c2aa1bb8aca50e65cc506e8206663c8cf88",
+      "block": 4,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 1.295064400008414,
+        "time_order": 2,
+        "implementation": "native-fp64-cufft-precontracted",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.018986400042194873,
+        "runtime_init_seconds": 0.23699999996460974,
+        "upload_seconds": 0.0025115000316873193,
+        "plan_seconds": 0.0025682999985292554,
+        "graph_setup_seconds": 0.0009678000351414084,
+        "march_seconds": 1.0311761999619193,
+        "download_seconds": 0.000242199981585145,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 8353,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cpu_rfm37_k72_8353_r128": {
+      "artifact": "hardware_pow2_output/block4_cpu_rfm37_k72_8353.npz",
+      "sha256": "ce204d9f081f89a108269836ccea66c920606252af9b4315e951bb077923c10c",
+      "block": 4,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.01313600002322346,
+        "seconds": 8.688805199984927,
+        "time_order": 2,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 8353,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cuda_graph_rfm37_k72_9041_r128": {
+      "artifact": "hardware_pow2_output/block5_cuda_graph_rfm37_k72_9041.npz",
+      "sha256": "3d89cc7ea1761268ca147e3a6e073765f42fb52e34fb5385bb9856bf96c0d371",
+      "block": 5,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 1.4510681999963708,
+        "time_order": 2,
+        "implementation": "native-fp64-cufft-precontracted",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.02795660000992939,
+        "runtime_init_seconds": 0.3044889000011608,
+        "upload_seconds": 0.0035927999997511506,
+        "plan_seconds": 0.0034292000345885754,
+        "graph_setup_seconds": 0.0013488000258803368,
+        "march_seconds": 1.1077689999947324,
+        "download_seconds": 0.0004819000023417175,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 9041,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cpu_rfm37_k72_9041_r128": {
+      "artifact": "hardware_pow2_output/block5_cpu_rfm37_k72_9041.npz",
+      "sha256": "c8327294c44a2c84283f24656b6a68f3976957cd57be8a9d67f645778bb31314",
+      "block": 5,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.016010599967557937,
+        "seconds": 11.322493999963626,
+        "time_order": 2,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 9041,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cuda_graph_leg37_k72_17_r128": {
+      "artifact": "hardware_pow2_output/block1_cuda_graph_leg37_k72_17.npz",
+      "sha256": "2da8ebaf36ceabf90ec83a61ada0f980928d941853be2c139072275f634ec0e9",
+      "block": 1,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 1.315958600025624,
+        "time_order": 2,
+        "implementation": "native-fp64-cufft-precontracted",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.02162680000765249,
+        "runtime_init_seconds": 0.23578049999196082,
+        "upload_seconds": 0.0027649999829009175,
+        "plan_seconds": 0.002475299988873303,
+        "graph_setup_seconds": 0.0009344000136479735,
+        "march_seconds": 1.0505119999870658,
+        "download_seconds": 0.0003095999709330499,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cpu_leg37_k72_17_r128": {
+      "artifact": "hardware_pow2_output/block1_cpu_leg37_k72_17.npz",
+      "sha256": "3edb3213eb624a4067abc3117b277ce9f021aac289bc51a166866bd3cf41ed69",
+      "block": 1,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.015194100036751479,
+        "seconds": 7.692849500046577,
+        "time_order": 2,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence"
+      }
+    },
+    "cuda_graph_fd176_k80_17_r128": {
+      "artifact": "hardware_pow2_output/block1_cuda_graph_fd176_k80_17.npz",
+      "sha256": "a373683e4489c8c5dd55eec7841484a20a4c56ed8fcafca78cf17666d5d1af23",
+      "block": 1,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "seconds": 2.8608366000116803,
+        "time_order": 2,
+        "implementation": "native-fp64-fd4-cufft",
+        "cuda_linear_solve": "dense",
+        "graph_steps": 24,
+        "host_setup_seconds": 0.14433749997988343,
+        "host_linear_precompute_seconds": 0.06591980002122,
+        "runtime_init_seconds": 0.3188750999979675,
+        "upload_seconds": 0.006051499978639185,
+        "plan_seconds": 0.00313510000705719,
+        "graph_setup_seconds": 0.0011699000024236739,
+        "march_seconds": 2.3182993000373244,
+        "download_seconds": 0.0004391000256873667,
+        "linear_bytes": 19845000,
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 243,
+        "band_lower": 6,
+        "band_upper": 6
+      }
+    },
+    "cpu_fd176_k80_17_r128": {
+      "artifact": "hardware_pow2_output/block1_cpu_fd176_k80_17.npz",
+      "sha256": "c562fe26facfdd84d07addd046016061970be3319396922f31796a437f130b98",
+      "block": 1,
+      "metadata": {
+        "steps": 9216,
+        "horizon": 72.0,
+        "dt": 0.0078125,
+        "setup_seconds": 0.1408443000400439,
+        "seconds": 21.063726900028996,
+        "time_order": 2,
+        "method": "fd4",
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native",
+        "ntheta": 243,
+        "band_lower": 6,
+        "band_upper": 6,
+        "implementation": "cpu-fused-fd4-csr-avx2"
+      }
+    }
+  },
+  "anchor_note": "Validated equilibrated-reference joint anchors, earliest matching block.",
+  "anchor_provenance": {
+    "manifest": "rfm_v7/hardware_pow2_output/timing.json",
+    "sha256": "f8ef43900863ada448c84463b3f0e4bd38b54234c79830021ac2f71bac4d8499",
+    "runtime_source_hashes": {
+      "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+      "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+      "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+      "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+      "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+      "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+      "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+      "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+      "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+      "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+      "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+      "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+      "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+      "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+      "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+      "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+      "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+      "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+      "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+      "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+      "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+      "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+      "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+      "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+      "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+      "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6"
+    },
+    "additional_anchor_source_hashes": {
+      "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+      "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+      "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+      "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+      "rfm_v7/joint_hardware_pow2.py": "486edac66c62fc54975424c57c72ab6eeb9143f8ef8504bcf98cc3449b9d74fa",
+      "rfm_v7/protocol_joint_hardware_pow2.json": "3e4ff883394a5cc5689d28aecec9585daf07993fb2af10d16652875a7bb89258",
+      "rfm_v7/cpu_formal_reference_point1.py": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+      "rfm_v7/cpu_formal_projection.py": "ed95684899c8f44a17d54c79a911a2ef355623095a6d99be3649b2a3b155e023",
+      "rfm_v7/protocol_point1_ref.json": "7c8b19df854cc36dc6f3c0c40c457a3f9e281cbc7f38baf7e18d9975fe547d27"
+    }
+  },
+  "order": [
+    {
+      "name": "rfm37_k72",
+      "seed": 8353,
+      "rate": 96
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "rate": 96
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 9041,
+      "rate": 80
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "rate": 80
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8011,
+      "rate": 96
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7687,
+      "rate": 128
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "rate": 112
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8353,
+      "rate": 112
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "rate": 80
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "rate": 128
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "rate": 112
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "rate": 128
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8011,
+      "rate": 112
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "rate": 96
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7687,
+      "rate": 80
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8011,
+      "rate": 128
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "rate": 96
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 9041,
+      "rate": 96
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 9041,
+      "rate": 112
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "rate": 128
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 9041,
+      "rate": 128
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7687,
+      "rate": 96
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7687,
+      "rate": 112
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8353,
+      "rate": 128
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8353,
+      "rate": 80
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 8011,
+      "rate": 80
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "rate": 80
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "rate": 112
+    }
+  ],
+  "timing_scope": "Diagnostic wall times; other host work is allowed. No timing-based selection."
+}

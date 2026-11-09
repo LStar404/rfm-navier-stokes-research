@@ -1,0 +1,14 @@
+{
+  "name": "0.5% R6 hardware comparison against the independent equilibrated reference",
+  "gate": 0.005,
+  "reference_budget_fraction": 0.25,
+  "order_seed": 116289,
+  "backends": ["cpu", "cuda_graph"],
+  "family_order": ["rfm", "legendre", "fd4"],
+  "implementation_tolerance": 0.00001,
+  "graph_steps": 24,
+  "cuda_fd_linear": "dense",
+  "selection": "First 0.5% qualifying variant in each family's frozen protocol_cpu low-to-high order. Every RFM seed must qualify, deterministic methods use the frozen deterministic trajectory.",
+  "fd_implementations": "Same FD4/SBDF2 spatial and temporal discretization, with fused BufferedFD and cached native band LU on CPU and audited resident native CUDA Graph with cached dense factors on GPU. A separate low-n audit found better single-step forward/backward residuals with power-of-two row scaling, without evidence of a changed 0.5% qualification or end-to-end performance. This experiment uses the previously validated unscaled candidate implementations.",
+  "timing": "Five randomized blocks of six fresh in-process cold solves. End-to-end setup, transfers, plans, graph, marching, synchronized output and cleanup. No reference interpolation, scoring, Python import or driver disk cache reset inside the timed interval."
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Independent three-scale FD4 qualification at all common physical checkpoints",
+  "cases": [
+    {"name": "fd152_k80", "n": 152, "scale": "low"},
+    {"name": "fd176_k80", "n": 176, "scale": "mid"},
+    {"name": "fd184_k80", "n": 184, "scale": "high"}
+  ],
+  "rate": 128,
+  "k": 80,
+  "horizon": 72.0,
+  "seed": 17,
+  "grid": "outer",
+  "stretch": 1.0,
+  "probe_spacing": 0.125,
+  "early_checkpoints": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16],
+  "late_checkpoints": [24, 36, 48, 54, 60, 66, 72],
+  "references": ["angular_fine", "time_fine"],
+  "arms": ["cpu_buffered", "cuda_graph"],
+  "cuda_linear_solve": "dense",
+  "graph_steps": 24,
+  "physical_gate": 0.005,
+  "implementation_gate": 1e-5,
+  "reference_budget_fraction": 0.25,
+  "cpu_workers": 3,
+  "scope": "Accuracy qualification only. All original physical times are shared by CPU, CUDA and both references. No phase alignment or time interpolation. Each FD radial resolution is independent and failures are retained. Concurrent solver durations are diagnostic and not an isolated timing comparison."
+}

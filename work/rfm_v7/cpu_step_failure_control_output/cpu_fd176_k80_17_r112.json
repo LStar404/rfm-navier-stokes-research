@@ -1,0 +1,230 @@
+{
+  "job": {
+    "name": "fd176_k80",
+    "seed": 17,
+    "rate": 112
+  },
+  "config": {
+    "n": 176,
+    "k": 80,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native"
+  },
+  "model_class": "BufferedFD",
+  "pid": 14940,
+  "status": "failed",
+  "failure": "Nonfinite nonlinear_flux at step=652 t=5.82142857143",
+  "exception_type": "FirstNonfinite",
+  "first_nonfinite": {
+    "step": 652,
+    "time": 5.821428571428571,
+    "stage": "nonlinear_flux",
+    "nonfinite_count": 14175,
+    "first_indices": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        6
+      ],
+      [
+        0,
+        7
+      ]
+    ],
+    "finite_max_component": 0.0
+  },
+  "trace": [
+    {
+      "step": 646,
+      "time": 5.767857142857142,
+      "stage": "nonlinear_flux",
+      "max_component": 69642208011.66212
+    },
+    {
+      "step": 647,
+      "time": 5.7767857142857135,
+      "stage": "rhs_before_boundary_lift",
+      "max_component": 1243582066.7667341
+    },
+    {
+      "step": 647,
+      "time": 5.7767857142857135,
+      "stage": "state_after_implicit",
+      "max_component": 4290563.637100415
+    },
+    {
+      "step": 647,
+      "time": 5.7767857142857135,
+      "stage": "mass",
+      "max_component": 498102050.07518923
+    },
+    {
+      "step": 647,
+      "time": 5.7767857142857135,
+      "stage": "nonlinear_flux",
+      "max_component": 1.7560570076823992e+18
+    },
+    {
+      "step": 648,
+      "time": 5.785714285714286,
+      "stage": "rhs_before_boundary_lift",
+      "max_component": 3.1358160757018064e+16
+    },
+    {
+      "step": 648,
+      "time": 5.785714285714286,
+      "stage": "state_after_implicit",
+      "max_component": 207167754438016.1
+    },
+    {
+      "step": 648,
+      "time": 5.785714285714286,
+      "stage": "mass",
+      "max_component": 1.3016118678440352e+16
+    },
+    {
+      "step": 648,
+      "time": 5.785714285714286,
+      "stage": "nonlinear_flux",
+      "max_component": 1.8571500020778252e+33
+    },
+    {
+      "step": 649,
+      "time": 5.794642857142857,
+      "stage": "rhs_before_boundary_lift",
+      "max_component": 3.316339289424687e+31
+    },
+    {
+      "step": 649,
+      "time": 5.794642857142857,
+      "stage": "state_after_implicit",
+      "max_component": 2.3377550787913463e+29
+    },
+    {
+      "step": 649,
+      "time": 5.794642857142857,
+      "stage": "mass",
+      "max_component": 1.2057854884275973e+31
+    },
+    {
+      "step": 649,
+      "time": 5.794642857142857,
+      "stage": "nonlinear_flux",
+      "max_component": 2.7037455379145274e+63
+    },
+    {
+      "step": 650,
+      "time": 5.803571428571428,
+      "stage": "rhs_before_boundary_lift",
+      "max_component": 4.8281170319902273e+61
+    },
+    {
+      "step": 650,
+      "time": 5.803571428571428,
+      "stage": "state_after_implicit",
+      "max_component": 3.23268286681297e+59
+    },
+    {
+      "step": 650,
+      "time": 5.803571428571428,
+      "stage": "mass",
+      "max_component": 1.910397137876814e+61
+    },
+    {
+      "step": 650,
+      "time": 5.803571428571428,
+      "stage": "nonlinear_flux",
+      "max_component": 2.1531828275917857e+123
+    },
+    {
+      "step": 651,
+      "time": 5.8125,
+      "stage": "rhs_before_boundary_lift",
+      "max_component": 3.8449693349853312e+121
+    },
+    {
+      "step": 651,
+      "time": 5.8125,
+      "stage": "state_after_implicit",
+      "max_component": 2.458634073490889e+119
+    },
+    {
+      "step": 651,
+      "time": 5.8125,
+      "stage": "mass",
+      "max_component": 1.3822571681215107e+121
+    },
+    {
+      "step": 651,
+      "time": 5.8125,
+      "stage": "nonlinear_flux",
+      "max_component": 1.3949233362590741e+243
+    },
+    {
+      "step": 652,
+      "time": 5.821428571428571,
+      "stage": "rhs_before_boundary_lift",
+      "max_component": 2.4909345290340607e+241
+    },
+    {
+      "step": 652,
+      "time": 5.821428571428571,
+      "stage": "state_after_implicit",
+      "max_component": 2.1414957467336674e+239
+    },
+    {
+      "step": 652,
+      "time": 5.821428571428571,
+      "stage": "mass",
+      "max_component": 9.848943335435279e+240
+    }
+  ],
+  "stack": [
+    {
+      "file": "cpu_step_failure_control.py",
+      "line": 113,
+      "function": "run"
+    },
+    {
+      "file": "full_case.py",
+      "line": 135,
+      "function": "solve"
+    },
+    {
+      "file": "cpu_step_failure_control.py",
+      "line": 64,
+      "function": "checked_terms"
+    },
+    {
+      "file": "cpu_step_failure_control.py",
+      "line": 42,
+      "function": "check"
+    }
+  ],
+  "diagnostic_seconds": 2.094175099977292
+}

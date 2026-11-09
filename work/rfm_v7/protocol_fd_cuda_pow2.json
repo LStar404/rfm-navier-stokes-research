@@ -1,0 +1,17 @@
+{
+  "purpose": "Same-discretization CPU-to-CUDA replay. The CPU reference remains authoritative unless all absolute-time field and probe checks pass.",
+  "reference": "cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz",
+  "reference_sha256": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7",
+  "config": {"n": 448, "k": 144, "stretch": 1.0, "grid": "outer", "angular": "fft"},
+  "steps": 36864,
+  "horizon": 72.0,
+  "probe_spacing": 0.125,
+  "snapshots": [24.0, 36.0, 48.0, 54.0, 60.0, 66.0, 72.0],
+  "modes_for_audit": [0, 1, 8, 32, 64, 96, 128, 144],
+  "times_for_audit": [24.0, 54.0, 72.0],
+  "relative_gate": 1e-6,
+  "crossing_time_gate": 0.000001,
+  "graph_steps": 24,
+  "radial": "staged",
+  "timing": "Concurrent diagnostic. Single fresh solver in process, includes runtime setup, host preparation, uploads, cuFFT plan, graph and synchronization. Not a formal hardware benchmark."
+}

@@ -1,0 +1,5133 @@
+{
+  "freeze": {
+    "seeds": [
+      5101,
+      5419,
+      5737,
+      6047,
+      6353
+    ],
+    "gates": {
+      "496": 0.001,
+      "595": 0.0005
+    },
+    "configs": {
+      "496": {
+        "v4": {
+          "m": 496,
+          "scale": 14,
+          "order": 29,
+          "q": 47,
+          "family": "iid",
+          "coarse": 208,
+          "reuse": 2,
+          "metric": "h2_parity",
+          "wall": {
+            "warp": "sinh",
+            "strength": [
+              1.9,
+              1.9
+            ]
+          },
+          "strategy": "guard",
+          "alpha_ladder": [
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ]
+        },
+        "v5": {
+          "m": 496,
+          "scale": 14,
+          "order": 29,
+          "q": 47,
+          "family": "iid",
+          "coarse": 208,
+          "reuse": 2,
+          "metric": "h2_parity",
+          "wall": {
+            "warp": "sinh",
+            "strength": [
+              1.9,
+              1.9
+            ]
+          },
+          "strategy": "ladder",
+          "alpha_ladder": [
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "damping": "halving",
+          "inner_budget": 3,
+          "predict": true
+        }
+      },
+      "595": {
+        "v4": {
+          "m": 595,
+          "scale": 15,
+          "order": 32,
+          "q": 51,
+          "family": "iid",
+          "coarse": 249,
+          "reuse": 2,
+          "metric": "h2_parity",
+          "wall": {
+            "warp": "sinh",
+            "strength": [
+              1.9,
+              1.9
+            ]
+          },
+          "strategy": "guard",
+          "alpha_ladder": [
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ]
+        },
+        "v5": {
+          "m": 595,
+          "scale": 15,
+          "order": 32,
+          "q": 51,
+          "family": "iid",
+          "coarse": 249,
+          "reuse": 2,
+          "metric": "h2_parity",
+          "wall": {
+            "warp": "sinh",
+            "strength": [
+              1.9,
+              1.9
+            ]
+          },
+          "strategy": "ladder",
+          "alpha_ladder": [
+            0.25,
+            0.5,
+            0.75,
+            1.0
+          ],
+          "damping": "halving",
+          "inner_budget": 3,
+          "predict": true
+        }
+      }
+    },
+    "schedule": [
+      [
+        5101,
+        595,
+        "v4"
+      ],
+      [
+        5101,
+        595,
+        "v5"
+      ],
+      [
+        5101,
+        496,
+        "v4"
+      ],
+      [
+        5101,
+        496,
+        "v5"
+      ],
+      [
+        5419,
+        595,
+        "v4"
+      ],
+      [
+        5419,
+        496,
+        "v5"
+      ],
+      [
+        5419,
+        595,
+        "v5"
+      ],
+      [
+        5419,
+        496,
+        "v4"
+      ],
+      [
+        5737,
+        496,
+        "v4"
+      ],
+      [
+        5737,
+        496,
+        "v5"
+      ],
+      [
+        5737,
+        595,
+        "v5"
+      ],
+      [
+        5737,
+        595,
+        "v4"
+      ],
+      [
+        6047,
+        595,
+        "v5"
+      ],
+      [
+        6047,
+        496,
+        "v5"
+      ],
+      [
+        6047,
+        496,
+        "v4"
+      ],
+      [
+        6047,
+        595,
+        "v4"
+      ],
+      [
+        6353,
+        496,
+        "v4"
+      ],
+      [
+        6353,
+        595,
+        "v5"
+      ],
+      [
+        6353,
+        595,
+        "v4"
+      ],
+      [
+        6353,
+        496,
+        "v5"
+      ]
+    ],
+    "hashes": {
+      "work/rfm_v5/cavity_paired.py": "19a07a06766a4dacadf557dbc132d43295bc80b027f9346fb1da60c51ce8cb38",
+      "work/rfm_v5/cavity_v5.py": "519d32d0c99093a578dca01731eebe78810ae29cf0cb95524e79cd71cb857d6c",
+      "work/rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+      "work/rfm_v4/cavity_solver.py": "11daac4a31b58390ab4ccbe7fadbd264c7125b06492da1e58e4d8ebba7b90e7c",
+      "work/rfm_v4/cavity_formal.json": "9329ba516ebf91c861a68ae80dd317ffa5d049cd89135bd23c5ea37624a293de",
+      "work/rfm_v3/cavity_study.py": "f3cf61528a1ee33279dc8f8b3f446ec0d02e77b259a73ecc37ea6d9a04000402",
+      "work/rfm_v3/cavity1000_ref256.npz": "dc0514e7fa786ace9e8965203672f07961287a8dd97b63165a30c5a5d1a299da",
+      "work/rfm_v3/cavity1000_ref384.npz": "cc55f88d85b0bc78e21f7449d393db06607a32605c1b41f8e17a5bab92956beb",
+      "work/rfm_ns/rfm_v2_solver.py": "ce1d4d62c388ad36128bdd50c1ab33138103593ea797af8da8b008c3cf5c9996",
+      "work/rfm_ns/rfm_solver.py": "911350db1bb4ef0cf16cc10226ebdf1b2d0f284432398f97a81f43d711393745"
+    },
+    "cpu": 4,
+    "timing": "Cold single-thread solve. Reference and scoring excluded."
+  },
+  "freeze_sha256": "67e00fbf1365bd271fa285b0950a835d889fad79ff40463c19889f42f73c7d73",
+  "status": "complete",
+  "rows": [
+    {
+      "m": 595,
+      "seed": 5101,
+      "method": "v4",
+      "seconds": 1.4487850000150502,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 6.939333884576353e-05,
+        "vorticity_rel_l2": 0.0004238483109625441
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 6.939333884576353e-05,
+          "vorticity_rel_l2": 0.0004062679734887729,
+          "velocity_sampled_linf": 8.563328292426725e-05,
+          "vorticity_sampled_linf": 0.008168051812566413,
+          "velocity_sampled_rel_linf": 0.00010064008670749433,
+          "vorticity_sampled_rel_linf": 0.0002747982443666894
+        },
+        "gauss113": {
+          "velocity_rel_l2": 6.928268992504421e-05,
+          "vorticity_rel_l2": 0.0004238483109625441,
+          "velocity_sampled_linf": 8.634767695211354e-05,
+          "vorticity_sampled_linf": 0.027491204636127517,
+          "velocity_sampled_rel_linf": 8.66218973663421e-05,
+          "vorticity_sampled_rel_linf": 0.0007143592322843171
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 5101,
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.34114699997007847,
+        "seconds": 1.4462653999798931,
+        "final_residual": 1.6704796014041632e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005309045326581236,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.004308971881515437,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0017177713758594992,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0017177713758594992,
+                "step": 0.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0013968777244526703,
+                "step": 0.25,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.001263644942061836,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0008621612483308177,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00039385062072562347,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0002884922586901334,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002456855095661554,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002456766557187331,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00024567665176673104,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.00919155771990407,
+            "final_residual": 0.00024567665176673104,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 4.416729776576282e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.6806569910929386e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.6705878690831408e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.6704819725632733e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.6704800968877432e-06,
+                "step": 0.5,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.6704796014041632e-06,
+                "step": 0.5,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.0002579020990142485,
+            "final_residual": 1.6704796014041632e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 18
+      },
+      "passed": true,
+      "jacobians": 14
+    },
+    {
+      "m": 595,
+      "seed": 5101,
+      "method": "v5",
+      "seconds": 1.3204341999953613,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 6.939235736059956e-05,
+        "vorticity_rel_l2": 0.0004238416079866843
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 6.939235736059956e-05,
+          "vorticity_rel_l2": 0.00040624923143422505,
+          "velocity_sampled_linf": 8.56228592434508e-05,
+          "vorticity_sampled_linf": 0.008168104097597828,
+          "velocity_sampled_rel_linf": 0.00010062783632884068,
+          "vorticity_sampled_rel_linf": 0.00027480000339505617
+        },
+        "gauss113": {
+          "velocity_rel_l2": 6.928155899450405e-05,
+          "vorticity_rel_l2": 0.0004238416079866843,
+          "velocity_sampled_linf": 8.637613402214562e-05,
+          "vorticity_sampled_linf": 0.027433287867352205,
+          "velocity_sampled_rel_linf": 8.66504448095007e-05,
+          "vorticity_sampled_rel_linf": 0.0007128542644581947
+        }
+      },
+      "metadata": {
+        "seed": 5101,
+        "m": 595,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.38476109999464825,
+        "seconds": 1.3182577000115998,
+        "final_residual": 1.670480898435537e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007521155188067706,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005321061610485474,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 9.018671455754373e-05,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0022980033750128483,
+            "final_residual": 9.018671455754373e-05,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000565643593916165,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0003221502991698198,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00015983464437584674,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0014276285092732729,
+            "final_residual": 0.00015983464437584674,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.00032514708585258006,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.000233069494115211,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0001936997867973737,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0009660165165197931,
+            "final_residual": 0.0001936997867973737,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0002800471301343252,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00025300180448830316,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002456773374678145,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002456766529310407,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002456766517416465,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0007887670472461483,
+            "final_residual": 0.0002456766517416465,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 4.416857497966552e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.6806472738482625e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.6705863584425218e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.6704811834891263e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.670480898435537e-06,
+                "step": 0.5,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.00025790211645065425,
+            "final_residual": 1.670480898435537e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 19,
+        "jacobians": 12
+      },
+      "passed": true,
+      "jacobians": 12
+    },
+    {
+      "m": 496,
+      "seed": 5101,
+      "method": "v4",
+      "seconds": 0.8752696000155993,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.0001558046298907389,
+        "vorticity_rel_l2": 0.0008764616517090208
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.0001558046298907389,
+          "vorticity_rel_l2": 0.0008482929553299083,
+          "velocity_sampled_linf": 0.00019678492582685374,
+          "vorticity_sampled_linf": 0.01339250470213288,
+          "velocity_sampled_rel_linf": 0.000231270498124627,
+          "vorticity_sampled_rel_linf": 0.0004505648181806051
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00015536536398371898,
+          "vorticity_rel_l2": 0.0008764616517090208,
+          "velocity_sampled_linf": 0.0001947784689802283,
+          "vorticity_sampled_linf": 0.03832806810679762,
+          "velocity_sampled_rel_linf": 0.00019539704071639885,
+          "vorticity_sampled_rel_linf": 0.0009959552398708486
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 5101,
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.27222049998817965,
+        "seconds": 0.8727434999891557,
+        "final_residual": 3.4636370995383743e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005280782267734221,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.003763642905026373,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0024468742701097613,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0016098475550755977,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001155070652253295,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0008943583329840735,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.000588369144935002,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.000432339584131999,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004173377568999929,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041733382629176535,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041733381809280827,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.009193915433691625,
+            "final_residual": 0.00041733381809280827,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 1.6110208367216947e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 3.860246005968477e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 3.472851659638415e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.463637171954256e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.4636370995383743e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.00043145769756340987,
+            "final_residual": 3.4636370995383743e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 16
+      },
+      "passed": true,
+      "jacobians": 14
+    },
+    {
+      "m": 496,
+      "seed": 5101,
+      "method": "v5",
+      "seconds": 0.8273007000098005,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.0001558043889151265,
+        "vorticity_rel_l2": 0.0008764559666763481
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.0001558043889151265,
+          "vorticity_rel_l2": 0.000848286296273399,
+          "velocity_sampled_linf": 0.0001967872633912934,
+          "vorticity_sampled_linf": 0.013390110457330462,
+          "velocity_sampled_rel_linf": 0.00023127324533552278,
+          "vorticity_sampled_rel_linf": 0.0004504842684628284
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00015536511239302197,
+          "vorticity_rel_l2": 0.0008764559666763481,
+          "velocity_sampled_linf": 0.00019478250487130693,
+          "vorticity_sampled_linf": 0.03832128075884106,
+          "velocity_sampled_rel_linf": 0.00019540108942454174,
+          "vorticity_sampled_rel_linf": 0.0009957788705651136
+        }
+      },
+      "metadata": {
+        "seed": 5101,
+        "m": 496,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.24844280001707375,
+        "seconds": 0.8249616000102833,
+        "final_residual": 3.463637126761622e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000761584245397596,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005505397834251842,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00019609641706930443,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0022993008350943823,
+            "final_residual": 0.00019609641706930443,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005913500233275957,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00038829146915841126,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00028979797565164417,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0014458717669435267,
+            "final_residual": 0.00028979797565164417,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0004214339772554566,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0003690764835214285,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00035305777716694125,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0010103377584155734,
+            "final_residual": 0.00035305777716694125,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.00043453473478874963,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00042098625393483023,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041733894085334267,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.000417333941179041,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004173338227388078,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041733381797389195,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0008559262239434352,
+            "final_residual": 0.00041733381797389195,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 1.611029961271814e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 3.860269818023006e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 3.472854641062265e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.463637151321808e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.463637126761622e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.0004314576613217101,
+            "final_residual": 3.463637126761622e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 20,
+        "jacobians": 13
+      },
+      "passed": true,
+      "jacobians": 13
+    },
+    {
+      "m": 595,
+      "seed": 5419,
+      "method": "v4",
+      "seconds": 1.7917288999888115,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 4.9279872219584366e-05,
+        "vorticity_rel_l2": 0.0003197094769188691
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 4.924131361569431e-05,
+          "vorticity_rel_l2": 0.00030658096937895426,
+          "velocity_sampled_linf": 6.726783758900281e-05,
+          "vorticity_sampled_linf": 0.006664670110209318,
+          "velocity_sampled_rel_linf": 7.905618909379e-05,
+          "vorticity_sampled_rel_linf": 0.00022421988591588408
+        },
+        "gauss113": {
+          "velocity_rel_l2": 4.9279872219584366e-05,
+          "vorticity_rel_l2": 0.0003197094769188691,
+          "velocity_sampled_linf": 6.818189921229989e-05,
+          "vorticity_sampled_linf": 0.013088726455103172,
+          "velocity_sampled_rel_linf": 6.839842928357507e-05,
+          "vorticity_sampled_rel_linf": 0.0003401106901572287
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 5419,
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.38062840001657605,
+        "seconds": 1.7893306000041775,
+        "final_residual": 1.2770500982227877e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005334871192574696,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.004021326154360315,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0024054905800489543,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.001628951307034601,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010709693686711656,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0008067276064886336,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004487238528206649,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00024172937651129316,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00022487877672114126,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002231135006638174,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002231133410226907,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002231133408008286,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.009193333250302187,
+            "final_residual": 0.0002231133408008286,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 3.504815709880063e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2770529848308145e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.277050382476625e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2770500982227877e-06,
+                "step": 0.5,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.00022769941361007684,
+            "final_residual": 1.2770500982227877e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 16
+      },
+      "passed": true,
+      "jacobians": 15
+    },
+    {
+      "m": 496,
+      "seed": 5419,
+      "method": "v5",
+      "seconds": 0.79981699999189,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.00011830842902211832,
+        "vorticity_rel_l2": 0.0007382206025601205
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.00011830842902211832,
+          "vorticity_rel_l2": 0.0006922507965940289,
+          "velocity_sampled_linf": 0.0001405663353338476,
+          "vorticity_sampled_linf": 0.013483948805094625,
+          "velocity_sampled_rel_linf": 0.00016519988132025944,
+          "vorticity_sampled_rel_linf": 0.0004536412774793714
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00011769178274424072,
+          "vorticity_rel_l2": 0.0007382206025601205,
+          "velocity_sampled_linf": 0.00014029857254839492,
+          "vorticity_sampled_linf": 0.04037951449358293,
+          "velocity_sampled_rel_linf": 0.00014074412863094283,
+          "vorticity_sampled_rel_linf": 0.0010492620951117627
+        }
+      },
+      "metadata": {
+        "seed": 5419,
+        "m": 496,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.24837220000335947,
+        "seconds": 0.7981342000421137,
+        "final_residual": 2.7443281376072545e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007542373078463245,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005334371056468361,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 9.71809982626252e-05,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.002298311285720486,
+            "final_residual": 9.71809982626252e-05,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005539986640081905,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0003161699019707094,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0001736704113656878,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0014270437923478013,
+            "final_residual": 0.0001736704113656878,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0003268854483630116,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0002554630438967869,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00023236581670182276,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0009719480271842422,
+            "final_residual": 0.00023236581670182276,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0003338319463283937,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00031681360420070226,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003124872697386486,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00031248600714576136,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003124860007240314,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0008081489303371302,
+            "final_residual": 0.0003124860007240314,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 8.697607082917013e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.794367565442227e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.745391815064121e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.7443281391908867e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.7443281376072545e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.00032351508526470683,
+            "final_residual": 2.7443281376072545e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 19,
+        "jacobians": 12
+      },
+      "passed": true,
+      "jacobians": 12
+    },
+    {
+      "m": 595,
+      "seed": 5419,
+      "method": "v5",
+      "seconds": 1.435261200007517,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 4.9282775852402276e-05,
+        "vorticity_rel_l2": 0.00031971486696924853
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 4.924430751720471e-05,
+          "vorticity_rel_l2": 0.0003065862734320267,
+          "velocity_sampled_linf": 6.728027231633469e-05,
+          "vorticity_sampled_linf": 0.006667175537848645,
+          "velocity_sampled_rel_linf": 7.907080294478495e-05,
+          "vorticity_sampled_rel_linf": 0.0002243041761643391
+        },
+        "gauss113": {
+          "velocity_rel_l2": 4.9282775852402276e-05,
+          "vorticity_rel_l2": 0.00031971486696924853,
+          "velocity_sampled_linf": 6.819948902731265e-05,
+          "vorticity_sampled_linf": 0.013075470780827603,
+          "velocity_sampled_rel_linf": 6.841607495980528e-05,
+          "vorticity_sampled_rel_linf": 0.0003397662413262574
+        }
+      },
+      "metadata": {
+        "seed": 5419,
+        "m": 595,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.38961359998211265,
+        "seconds": 1.4327058999915607,
+        "final_residual": 1.2770511155795199e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007511120384476164,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005293877750543922,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 6.135501498433084e-05,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.00229823800735037,
+            "final_residual": 6.135501498433084e-05,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005465862996534233,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0002949730048020284,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00012141466589154468,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0014242703260726219,
+            "final_residual": 0.00012141466589154468,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0002994998673765469,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00019957461113082067,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00015765652285272829,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0009613305978816822,
+            "final_residual": 0.00015765652285272829,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0002568714730012202,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00022990257134771118,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00022311371353060522,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002231133412155775,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00022311334080121092,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0007774826743476808,
+            "final_residual": 0.00022311334080121092,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 3.504756299445844e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2770515735621815e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2770511155795199e-06,
+                "step": 1.0,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.00022769941257147567,
+            "final_residual": 1.2770511155795199e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 17,
+        "jacobians": 11
+      },
+      "passed": true,
+      "jacobians": 11
+    },
+    {
+      "m": 496,
+      "seed": 5419,
+      "method": "v4",
+      "seconds": 0.8400282000075094,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.0001183059662052992,
+        "vorticity_rel_l2": 0.0007381990731483239
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.0001183059662052992,
+          "vorticity_rel_l2": 0.0006922351007436319,
+          "velocity_sampled_linf": 0.0001405711300409952,
+          "vorticity_sampled_linf": 0.013481032429160988,
+          "velocity_sampled_rel_linf": 0.00016520551627581165,
+          "vorticity_sampled_rel_linf": 0.00045354316167344036
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.0001176893919255572,
+          "vorticity_rel_l2": 0.0007381990731483239,
+          "velocity_sampled_linf": 0.00014029726735827774,
+          "vorticity_sampled_linf": 0.040378759161188965,
+          "velocity_sampled_rel_linf": 0.00014074281929584126,
+          "vorticity_sampled_rel_linf": 0.0010492424677918174
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 5419,
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.25761359999887645,
+        "seconds": 0.8381868000142276,
+        "final_residual": 2.7443281201292857e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005346547933652054,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.003887704891115829,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.002564196110775201,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0015578809151523066,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0011082724922383243,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0008163606173642576,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004947761735344792,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003274100252487836,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.000313997251289493,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003124864180353496,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003124860028767289,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00031248600069293535,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.009194553550574124,
+            "final_residual": 0.00031248600069293535,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 8.697277608799956e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.7943648195324295e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.7453914144999e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.7443281230913103e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.7443281201292857e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.00032351529879689713,
+            "final_residual": 2.7443281201292857e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 17
+      },
+      "passed": true,
+      "jacobians": 14
+    },
+    {
+      "m": 496,
+      "seed": 5737,
+      "method": "v4",
+      "seconds": 0.7839302999782376,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.00012439231342699405,
+        "vorticity_rel_l2": 0.0007236303394208181
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.00012439231342699405,
+          "vorticity_rel_l2": 0.0007084792003415219,
+          "velocity_sampled_linf": 0.000154499736044466,
+          "vorticity_sampled_linf": 0.016335536918382187,
+          "velocity_sampled_rel_linf": 0.00018157504069476376,
+          "vorticity_sampled_rel_linf": 0.000549577422985056
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00012416325333154533,
+          "vorticity_rel_l2": 0.0007236303394208181,
+          "velocity_sampled_linf": 0.00015327466001309055,
+          "vorticity_sampled_linf": 0.03993581083639275,
+          "velocity_sampled_rel_linf": 0.00015376142517276986,
+          "vorticity_sampled_rel_linf": 0.0010377324510635138
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 5737,
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.2358568999916315,
+        "seconds": 0.7818453999934718,
+        "final_residual": 2.6821135322847687e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005235069252791167,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0031800955721406473,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.002158431919449843,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0013388786298814492,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010023497110515694,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007583484071940667,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005486608304801685,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041737095237819223,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004172166844794234,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004172164397283343,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004172164339930862,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.009191490133291293,
+            "final_residual": 0.0004172164339930862,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 1.4000827107073806e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 3.0112215510276954e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.6865989171925374e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.6821135322847687e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.6821135322847687e-06,
+                "step": 0.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.000456199473640759,
+            "final_residual": 2.6821135322847687e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 16
+      },
+      "passed": true,
+      "jacobians": 14
+    },
+    {
+      "m": 496,
+      "seed": 5737,
+      "method": "v5",
+      "seconds": 0.79505670000799,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.0001243920321992022,
+        "vorticity_rel_l2": 0.0007236345568619283
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.0001243920321992022,
+          "vorticity_rel_l2": 0.0007084820430804626,
+          "velocity_sampled_linf": 0.0001544966627764243,
+          "vorticity_sampled_linf": 0.01633639186761715,
+          "velocity_sampled_rel_linf": 0.00018157142885189578,
+          "vorticity_sampled_rel_linf": 0.0005496061860921202
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00012416296684099345,
+          "vorticity_rel_l2": 0.0007236345568619283,
+          "velocity_sampled_linf": 0.00015327260011865855,
+          "vorticity_sampled_linf": 0.03993831791043623,
+          "velocity_sampled_rel_linf": 0.00015375935873658566,
+          "vorticity_sampled_rel_linf": 0.0010377975974080512
+        }
+      },
+      "metadata": {
+        "seed": 5737,
+        "m": 496,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.24608690000604838,
+        "seconds": 0.7923120000050403,
+        "final_residual": 2.682113572349979e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007496480761006699,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005346460821972377,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00015477119743785355,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.002297666685333352,
+            "final_residual": 0.00015477119743785355,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005977353378936522,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0003786431155096363,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00025268106612002226,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0014383817043804802,
+            "final_residual": 0.00025268106612002226,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0004190968403570188,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0003538175777823276,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003290581536672494,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0009995702594309734,
+            "final_residual": 0.0003290581536672494,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0004356076281519363,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00042103855981641495,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004172196926338506,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004172164719633558,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041721643455116186,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0008551733926890241,
+            "final_residual": 0.00041721643455116186,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 1.4001248175889021e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 3.01126029916976e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.686599209077677e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.6821135740221974e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.682113572349979e-06,
+                "step": 0.0625,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.0004561986171525438,
+            "final_residual": 2.682113572349979e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 19,
+        "jacobians": 12
+      },
+      "passed": true,
+      "jacobians": 12
+    },
+    {
+      "m": 595,
+      "seed": 5737,
+      "method": "v5",
+      "seconds": 1.3796566000091843,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 5.3705577077627215e-05,
+        "vorticity_rel_l2": 0.000352100644318771
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 5.3705577077627215e-05,
+          "vorticity_rel_l2": 0.00033420379224899334,
+          "velocity_sampled_linf": 8.36102365131183e-05,
+          "vorticity_sampled_linf": 0.008621830816850778,
+          "velocity_sampled_rel_linf": 9.826251154888018e-05,
+          "vorticity_sampled_rel_linf": 0.00029006475792087166
+        },
+        "gauss113": {
+          "velocity_rel_l2": 5.368701303976075e-05,
+          "vorticity_rel_l2": 0.000352100644318771,
+          "velocity_sampled_linf": 8.469544428316431e-05,
+          "vorticity_sampled_linf": 0.023372752201759106,
+          "velocity_sampled_rel_linf": 8.496441758545109e-05,
+          "vorticity_sampled_rel_linf": 0.0006073412038582874
+        }
+      },
+      "metadata": {
+        "seed": 5737,
+        "m": 595,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.37438180000754073,
+        "seconds": 1.3771173999994062,
+        "final_residual": 1.2639165831373633e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000761337828801639,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005432379008884896,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0001369155383951128,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.002297888773916294,
+            "final_residual": 0.0001369155383951128,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000583211816558205,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00036760109969435055,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0002471448780079882,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0014392434818237341,
+            "final_residual": 0.0002471448780079882,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.00043166267215183346,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00035900160856150307,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003268567874017965,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0010015871465496734,
+            "final_residual": 0.0003268567874017965,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0004307085004677213,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0004166696665671854,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004127172696074071,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041271498481640584,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004127149472986038,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0008544122419090427,
+            "final_residual": 0.0004127149472986038,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 2.0112689749844253e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.8485473781475e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.271274752293323e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2639190284854887e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2639174807917807e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2639165831373633e-06,
+                "step": 1.0,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.00042533108898367035,
+            "final_residual": 1.2639165831373633e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 20,
+        "jacobians": 13
+      },
+      "passed": true,
+      "jacobians": 13
+    },
+    {
+      "m": 595,
+      "seed": 5737,
+      "method": "v4",
+      "seconds": 1.3885150999994949,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 5.3706719770964066e-05,
+        "vorticity_rel_l2": 0.0003520928005016122
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 5.3706719770964066e-05,
+          "vorticity_rel_l2": 0.00033419686641043535,
+          "velocity_sampled_linf": 8.361191499229447e-05,
+          "vorticity_sampled_linf": 0.008609515244388494,
+          "velocity_sampled_rel_linf": 9.826448417312227e-05,
+          "vorticity_sampled_rel_linf": 0.00028965042439695846
+        },
+        "gauss113": {
+          "velocity_rel_l2": 5.368804008936781e-05,
+          "vorticity_rel_l2": 0.0003520928005016122,
+          "velocity_sampled_linf": 8.469927211677891e-05,
+          "vorticity_sampled_linf": 0.02332274974767784,
+          "velocity_sampled_rel_linf": 8.496825757538716e-05,
+          "vorticity_sampled_rel_linf": 0.0006060418895800443
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 5737,
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.3387322000344284,
+        "seconds": 1.386430400016252,
+        "final_residual": 1.263914954684599e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005329239433444799,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.004205518989713692,
+                "step": 0.25,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0032436355653118194,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.002077535444648229,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0017322677246775996,
+                "step": 0.25,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0015543680498358258,
+                "step": 0.25,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0014109917532184732,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00120937127290562,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0011746683395720612,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00042491086467631506,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00041392349313295105,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00041271507225669615,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004127149480583501,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004127149464883126,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.009191275766617801,
+            "final_residual": 0.0004127149464883126,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 2.0112775748698534e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.8485132753865635e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.2712731185466275e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.2639160278914394e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.263914954684599e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.263914954684599e-06,
+                "step": 0.0,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.0004253313065173199,
+            "final_residual": 1.263914954684599e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 20
+      },
+      "passed": true,
+      "jacobians": 17
+    },
+    {
+      "m": 595,
+      "seed": 6047,
+      "method": "v5",
+      "seconds": 1.2872338999877684,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 4.2373637878868353e-05,
+        "vorticity_rel_l2": 0.0002900784549814199
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 4.2305646348363024e-05,
+          "vorticity_rel_l2": 0.00027492929696660445,
+          "velocity_sampled_linf": 5.963253949100028e-05,
+          "vorticity_sampled_linf": 0.008856240621079398,
+          "velocity_sampled_rel_linf": 7.00828432593191e-05,
+          "vorticity_sampled_rel_linf": 0.0002979510206604471
+        },
+        "gauss113": {
+          "velocity_rel_l2": 4.2373637878868353e-05,
+          "vorticity_rel_l2": 0.0002900784549814199,
+          "velocity_sampled_linf": 5.9636975471476424e-05,
+          "vorticity_sampled_linf": 0.019800913646584956,
+          "velocity_sampled_rel_linf": 5.9826368825118083e-05,
+          "vorticity_sampled_rel_linf": 0.0005145269426467368
+        }
+      },
+      "metadata": {
+        "seed": 6047,
+        "m": 595,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.3367448000353761,
+        "seconds": 1.2849448000197299,
+        "final_residual": 1.0903382782433982e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0008072384925082083,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.000617892441078427,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0003558119081927803,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0023135328557027375,
+            "final_residual": 0.0003558119081927803,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007066690503376732,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005644158893454149,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004997412173212762,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.001502908990409531,
+            "final_residual": 0.0004997412173212762,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0006317249604504251,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0006157972130446368,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00061137433880927,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0011313691784985741,
+            "final_residual": 0.00061137433880927,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007104381293223616,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.000708573109787098,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007085130455620547,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007085005414768302,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084969970306286,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084960161249279,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084957379858593,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084956587992585,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084956360035585,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.001012067128631224,
+            "final_residual": 0.0007084956360035585,
+            "unresolved_budget": false,
+            "prediction": true
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0001816459535814151,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 5.4355578169149496e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 2.0897925851826175e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.098768225781104e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.0903387872659694e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.0903382782433982e-06,
+                "step": 0.25,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.0007216531066554224,
+            "final_residual": 1.0903382782433982e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 24,
+        "jacobians": 18
+      },
+      "passed": true,
+      "jacobians": 18
+    },
+    {
+      "m": 496,
+      "seed": 6047,
+      "method": "v5",
+      "seconds": 1.3495579999871552,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 9.360689752660959e-05,
+        "vorticity_rel_l2": 0.0005880188776945358
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 9.360689752660959e-05,
+          "vorticity_rel_l2": 0.0005689551481493946,
+          "velocity_sampled_linf": 0.00012383638438767495,
+          "vorticity_sampled_linf": 0.011073371412888111,
+          "velocity_sampled_rel_linf": 0.00014553809029300212,
+          "vorticity_sampled_rel_linf": 0.00037254208143004463
+        },
+        "gauss113": {
+          "velocity_rel_l2": 9.336647901126329e-05,
+          "vorticity_rel_l2": 0.0005880188776945358,
+          "velocity_sampled_linf": 0.00012804888203407449,
+          "vorticity_sampled_linf": 0.02593395814617755,
+          "velocity_sampled_rel_linf": 0.0001284555359095732,
+          "vorticity_sampled_rel_linf": 0.0006738941663927991
+        }
+      },
+      "metadata": {
+        "seed": 6047,
+        "m": 496,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.22014319995651022,
+        "seconds": 1.34806910000043,
+        "final_residual": 2.2228745394319284e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0008401929433052508,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0006626709595175948,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004632240069818594,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0023197477059630957,
+            "final_residual": 0.0004632240069818594,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007725285066368655,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0007322337379559334,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007188479726907395,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0015887310787709942,
+            "final_residual": 0.0007188479726907395,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0009293173733830369,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009173671991024826,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009141536968601578,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0013183619059266031,
+            "final_residual": 0.0009141536968601578,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0010775923706604672,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010749882409372695,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010741778010589014,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010738912004840554,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010736708674367614,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010735705090136253,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073531177846306,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010735181515721534,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073499425515148,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734925828903227,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734922307477958,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734878206637417,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734863597660596,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734857565337208,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734855189140783,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073485199584497,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734850781023585,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073485050280572,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.001284349487440944,
+            "final_residual": 0.001073485050280572,
+            "unresolved_budget": false,
+            "prediction": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0010102408644644125,
+                "step": 0.25,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009452806794940106,
+                "step": 0.125,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 0.0008473783908785732,
+                "step": 0.25,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005653462078638825,
+                "step": 0.5,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 8.915923619090295e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 1.1849801905256084e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.766406975739569e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.222874641189935e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.2228745394319284e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.0010929308266217478,
+            "final_residual": 2.2228745394319284e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 36,
+        "jacobians": 32
+      },
+      "passed": true,
+      "jacobians": 32
+    },
+    {
+      "m": 496,
+      "seed": 6047,
+      "method": "v4",
+      "seconds": 2.1476361000095494,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 9.360761736257479e-05,
+        "vorticity_rel_l2": 0.0005880216372621628
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 9.360761736257479e-05,
+          "vorticity_rel_l2": 0.0005689578601160214,
+          "velocity_sampled_linf": 0.00012383763499746746,
+          "vorticity_sampled_linf": 0.011072585502600152,
+          "velocity_sampled_rel_linf": 0.00014553956006589484,
+          "vorticity_sampled_rel_linf": 0.00037251564100430825
+        },
+        "gauss113": {
+          "velocity_rel_l2": 9.336720811483333e-05,
+          "vorticity_rel_l2": 0.0005880216372621628,
+          "velocity_sampled_linf": 0.00012804907970981547,
+          "vorticity_sampled_linf": 0.025931472199282768,
+          "velocity_sampled_rel_linf": 0.000128455734213087,
+          "vorticity_sampled_rel_linf": 0.0006738295690374355
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 6047,
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.21729359996970743,
+        "seconds": 2.145847200008575,
+        "final_residual": 2.222874543980828e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005291270172776317,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.003331712273139437,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0029185309865743716,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0022433488298570785,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0017334744960129584,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0014114078156429104,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0012737543051999812,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0012453453779557747,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010865575900145428,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010800193577462163,
+                "step": 0.25,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010782868743256697,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010765588310785198,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010748054158192456,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010740122669675623,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010737105422509306,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010735614866227503,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010735089925581805,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734920252614133,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734871988360073,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073486950995929,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.009271293275203589,
+            "final_residual": 0.001073486950995929,
+            "unresolved_budget": true
+          },
+          {
+            "label": "coarse_restart_ladder",
+            "alpha": 0.25,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0008401929433052508,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0006626709595175948,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004632240069818594,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.00046238512056719663,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00046227713704330664,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00046227538366361146,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00046227532556150744,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00046227532355818513,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0023197477059630957,
+            "final_residual": 0.00046227532355818513,
+            "unresolved_budget": false
+          },
+          {
+            "label": "coarse_restart_ladder",
+            "alpha": 0.5,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000765160519940434,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0007299302767397172,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007188273037578055,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187291287193293,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187167856847501,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187127699874703,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187113066376796,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187107257412395,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187104955334675,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187104015425061,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007187103632612576,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.001577802410182392,
+            "final_residual": 0.0007187103632612576,
+            "unresolved_budget": false
+          },
+          {
+            "label": "coarse_restart_ladder",
+            "alpha": 0.75,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0009277896240438009,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009166218734489658,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009139095170443823,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.000912474525805999,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009121339222052708,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009118485575259493,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009118340399567707,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117671275465177,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117563027174795,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117521422072548,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117497765291506,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117488439721584,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117482588076347,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.000911748015689288,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117478701415667,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009117478068437784,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0013169484987797474,
+            "final_residual": 0.0009117478068437784,
+            "unresolved_budget": false
+          },
+          {
+            "label": "coarse_restart_ladder",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0011102871345840364,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010959868799306465,
+                "step": 0.25,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010856456426288341,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010801927017974997,
+                "step": 0.25,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010769684101377753,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001076081352217741,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00107599973687207,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010753059682555345,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010741919130569846,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010738735163818667,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010736313847518907,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073533663357266,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073499364224733,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734891952771549,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073486265025928,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001073485417488019,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0010734853139850043,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0012894878819675476,
+            "final_residual": 0.0010734853139850043,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0010100057706220935,
+                "step": 0.25,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 0.000945586601616865,
+                "step": 0.125,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 0.0008494458306854231,
+                "step": 0.25,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005679700759154124,
+                "step": 0.5,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 8.977610889800132e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 1.1911230504889627e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 2.777032778387918e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.2228746513089904e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 2.222874543980828e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.0010929238120868036,
+            "final_residual": 2.222874543980828e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [
+          "coarse_direct_exhausted_without_stationarity"
+        ],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 81
+      },
+      "passed": true,
+      "jacobians": 76
+    },
+    {
+      "m": 595,
+      "seed": 6047,
+      "method": "v4",
+      "seconds": 1.5026088999584317,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 4.235969754162492e-05,
+        "vorticity_rel_l2": 0.0002900370884395486
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 4.22918161016184e-05,
+          "vorticity_rel_l2": 0.00027488971145142,
+          "velocity_sampled_linf": 5.9578255495233285e-05,
+          "vorticity_sampled_linf": 0.008850195675351419,
+          "velocity_sampled_rel_linf": 7.001904626527355e-05,
+          "vorticity_sampled_rel_linf": 0.00029774765019813135
+        },
+        "gauss113": {
+          "velocity_rel_l2": 4.235969754162492e-05,
+          "vorticity_rel_l2": 0.0002900370884395486,
+          "velocity_sampled_linf": 5.964815554767772e-05,
+          "vorticity_sampled_linf": 0.019780250684281603,
+          "velocity_sampled_rel_linf": 5.9837584406676734e-05,
+          "vorticity_sampled_rel_linf": 0.0005139900153609697
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 6047,
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.3339638999896124,
+        "seconds": 1.500086400017608,
+        "final_residual": 1.0903374963101735e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0051264478607561115,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.004278737720590369,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0033926271561450297,
+                "step": 0.25,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.002878388617009983,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0018183209451446776,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0015393955662445257,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.001536947448250653,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009926740865487042,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007712155288492408,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007092025816745587,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007086263560595762,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007085337047777276,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007085071622513118,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.000708499173749698,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084967269424703,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084959693819863,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084957336613295,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084956600974836,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007084956371040113,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.009243072019817465,
+            "final_residual": 0.0007084956371040113,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000181344509763581,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 5.4182456469383285e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 2.084328315231647e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.0986905735098371e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": false,
+                "residual": 1.0903390810354045e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.0903376309887639e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.0903374963101735e-06,
+                "step": 1.0,
+                "rank": 595
+              }
+            ],
+            "initial_residual": 0.0007216535433204725,
+            "final_residual": 1.0903374963101735e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 595,
+        "nonlinear_steps": 26
+      },
+      "passed": true,
+      "jacobians": 23
+    },
+    {
+      "m": 496,
+      "seed": 6353,
+      "method": "v4",
+      "seconds": 0.8182605999754742,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.00014061890254283142,
+        "vorticity_rel_l2": 0.0008022195372511117
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.00014061890254283142,
+          "vorticity_rel_l2": 0.0007942364237178418,
+          "velocity_sampled_linf": 0.00018410928114541975,
+          "vorticity_sampled_linf": 0.024669528360003138,
+          "velocity_sampled_rel_linf": 0.00021637351022167463,
+          "vorticity_sampled_rel_linf": 0.0008299583839874176
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00014047403697436402,
+          "vorticity_rel_l2": 0.0008022195372511117,
+          "velocity_sampled_linf": 0.00018087153738765291,
+          "vorticity_sampled_linf": 0.06684194862797364,
+          "velocity_sampled_rel_linf": 0.00018144594389927343,
+          "vorticity_sampled_rel_linf": 0.0017368887154372837
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 6353,
+        "m": 496,
+        "scale": 14,
+        "order": 29,
+        "q": 47,
+        "family": "iid",
+        "coarse": 208,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.2191119000199251,
+        "seconds": 0.8165728999883868,
+        "final_residual": 3.0099189836261866e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005126747028391395,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.004187926482422035,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00327218519826833,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.002323431517978126,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0017147781552722752,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.001237215405573161,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0009419838477023192,
+                "step": 0.5,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.000658435477870511,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0006402266102088106,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005826861049541819,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005822709489562047,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005822704916517448,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005822704827791626,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.009210293584581202,
+            "final_residual": 0.0005822704827791626,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 6.722160942833446e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 1.253127038552067e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 4.127140987500732e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.0099205042828485e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.0099191043259277e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.0099189836261866e-06,
+                "step": 1.0,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.0005974320002528954,
+            "final_residual": 3.0099189836261866e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 19
+      },
+      "passed": true,
+      "jacobians": 16
+    },
+    {
+      "m": 595,
+      "seed": 6353,
+      "method": "v5",
+      "seconds": 1.8092814999981783,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 6.748702938492516e-05,
+        "vorticity_rel_l2": 0.0004270171082833271
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 6.748702938492516e-05,
+          "vorticity_rel_l2": 0.00040609290895287194,
+          "velocity_sampled_linf": 8.96452043841286e-05,
+          "vorticity_sampled_linf": 0.007684069151434603,
+          "velocity_sampled_rel_linf": 0.00010535507730222819,
+          "vorticity_sampled_rel_linf": 0.00025851558742047306
+        },
+        "gauss113": {
+          "velocity_rel_l2": 6.744304553019817e-05,
+          "vorticity_rel_l2": 0.0004270171082833271,
+          "velocity_sampled_linf": 9.196465019643729e-05,
+          "vorticity_sampled_linf": 0.02385120409023639,
+          "velocity_sampled_rel_linf": 9.225670882918126e-05,
+          "vorticity_sampled_rel_linf": 0.0006197737810502106
+        }
+      },
+      "metadata": {
+        "seed": 6353,
+        "m": 595,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.335217299987562,
+        "seconds": 1.8072516999673098,
+        "final_residual": 1.6054246787753122e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007667972049319324,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005630189647418895,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0002604657965495539,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0022986038914206684,
+            "final_residual": 0.0002604657965495539,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0006710687818534605,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.00047712384475124506,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00037695052182323027,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0014596677563122966,
+            "final_residual": 0.00037695052182323027,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005360633563092595,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0004884698202642822,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004725920313880256,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0010603154122952997,
+            "final_residual": 0.0004725920313880256,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005644281850952242,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005626836774444271,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005623660371982901,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005623653629308668,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005623653456242152,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.0009244814052139129,
+            "final_residual": 0.0005623653456242152,
+            "unresolved_budget": false,
+            "prediction": true
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 3.80261111180928e-05,
+                "step": 1.0,
+                "rank": 594
+              },
+              {
+                "fresh": true,
+                "residual": 1.6268481387830203e-06,
+                "step": 1.0,
+                "rank": 594
+              },
+              {
+                "fresh": true,
+                "residual": 1.6055154797832982e-06,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.6054254143994614e-06,
+                "step": 1.0,
+                "rank": 594
+              },
+              {
+                "fresh": true,
+                "residual": 1.6054246787753122e-06,
+                "step": 1.0,
+                "rank": 594
+              }
+            ],
+            "initial_residual": 0.0005764252002015442,
+            "final_residual": 1.6054246787753122e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 594,
+        "nonlinear_steps": 19,
+        "jacobians": 15
+      },
+      "passed": true,
+      "jacobians": 15
+    },
+    {
+      "m": 595,
+      "seed": 6353,
+      "method": "v4",
+      "seconds": 1.6061724000028335,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 6.97951166666442e-05,
+        "vorticity_rel_l2": 0.000507711772788929
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 6.97951166666442e-05,
+          "vorticity_rel_l2": 0.00046196099453217577,
+          "velocity_sampled_linf": 8.809838202733946e-05,
+          "vorticity_sampled_linf": 0.008007611079517307,
+          "velocity_sampled_rel_linf": 0.0001035371820774705,
+          "vorticity_sampled_rel_linf": 0.0002694005274106132
+        },
+        "gauss113": {
+          "velocity_rel_l2": 6.961051891187501e-05,
+          "vorticity_rel_l2": 0.000507711772788929,
+          "velocity_sampled_linf": 9.079856948024567e-05,
+          "vorticity_sampled_linf": 0.025753197878894518,
+          "velocity_sampled_rel_linf": 9.108692490812872e-05,
+          "vorticity_sampled_rel_linf": 0.0006691971090076119
+        }
+      },
+      "metadata": {
+        "case": "cavity",
+        "reynolds": 1000,
+        "seed": 6353,
+        "m": 595,
+        "scale": 15,
+        "order": 32,
+        "q": 51,
+        "family": "iid",
+        "coarse": 249,
+        "reuse": 2,
+        "maxiter": 20,
+        "cond": 1e-12,
+        "metric": "h2_parity",
+        "wall": {
+          "warp": "sinh",
+          "strength": [
+            1.9,
+            1.9
+          ]
+        },
+        "strategy": "guard",
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.3337383000180125,
+        "seconds": 1.6040721000172198,
+        "final_residual": 1.7025733486873303e-06,
+        "stages": [
+          {
+            "label": "coarse_direct",
+            "alpha": 1.0,
+            "size": 249,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.005298889431379471,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.00421643192673766,
+                "step": 0.25,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0023443533038166237,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0018140457299473903,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0016404655319441257,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0015041863055794292,
+                "step": 0.5,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0007888666096084757,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": false,
+                "residual": 0.0006586173956296683,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005627341961030129,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005623657135210545,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005623653553168177,
+                "step": 1.0,
+                "rank": 249
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005623653453728773,
+                "step": 1.0,
+                "rank": 249
+              }
+            ],
+            "initial_residual": 0.009191692894578402,
+            "final_residual": 0.0005623653453728773,
+            "unresolved_budget": false
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 595,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 3.8027734177248415e-05,
+                "step": 1.0,
+                "rank": 595
+              },
+              {
+                "fresh": true,
+                "residual": 1.7088726066187466e-06,
+                "step": 1.0,
+                "rank": 594
+              },
+              {
+                "fresh": true,
+                "residual": 1.7025733486873303e-06,
+                "step": 1.0,
+                "rank": 594
+              },
+              {
+                "fresh": true,
+                "residual": 1.7025733486873303e-06,
+                "step": 0.0,
+                "rank": 594
+              }
+            ],
+            "initial_residual": 0.0005764253134405063,
+            "final_residual": 1.7025733486873303e-06,
+            "unresolved_budget": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 594,
+        "nonlinear_steps": 16
+      },
+      "passed": false,
+      "jacobians": 15
+    },
+    {
+      "m": 496,
+      "seed": 6353,
+      "method": "v5",
+      "seconds": 0.8046349000069313,
+      "status": "completed",
+      "worst": {
+        "velocity_rel_l2": 0.00014062051240421774,
+        "vorticity_rel_l2": 0.0008022293083473226
+      },
+      "scores": {
+        "midpoint81": {
+          "velocity_rel_l2": 0.00014062051240421774,
+          "vorticity_rel_l2": 0.0007942389811847174,
+          "velocity_sampled_linf": 0.00018413202238649738,
+          "vorticity_sampled_linf": 0.024667057488907854,
+          "velocity_sampled_rel_linf": 0.00021640023675131045,
+          "vorticity_sampled_rel_linf": 0.0008298752563267929
+        },
+        "gauss113": {
+          "velocity_rel_l2": 0.00014047555532793,
+          "vorticity_rel_l2": 0.0008022293083473226,
+          "velocity_sampled_linf": 0.00018090157958824819,
+          "vorticity_sampled_linf": 0.06684123233677662,
+          "velocity_sampled_rel_linf": 0.00018147608150700624,
+          "vorticity_sampled_rel_linf": 0.0017368701026032384
+        }
+      },
+      "metadata": {
+        "seed": 6353,
+        "m": 496,
+        "strategy": "ladder",
+        "damping": "halving",
+        "inner_budget": 3,
+        "predict": true,
+        "alpha_ladder": [
+          0.25,
+          0.5,
+          0.75,
+          1.0
+        ],
+        "setup_seconds": 0.2188812000094913,
+        "seconds": 0.8031722999876365,
+        "final_residual": 3.0099191762006645e-06,
+        "stages": [
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.25,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007381416409502885,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005409235621896561,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00028782011285190566,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0022982356586609574,
+            "final_residual": 0.00028782011285190566,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.5,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0007019214116368909,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005056974389421565,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.00039388356778727535,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0014482750119831453,
+            "final_residual": 0.00039388356778727535,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 0.75,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.000549191500867397,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005036668767330844,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0004877303898628753,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0010605675847561798,
+            "final_residual": 0.0004877303898628753,
+            "unresolved_budget": true,
+            "prediction": false
+          },
+          {
+            "label": "coarse_ladder",
+            "alpha": 1.0,
+            "size": 208,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 0.0005839075556963123,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": false,
+                "residual": 0.0005825800984447993,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005822715322003625,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005822705119900578,
+                "step": 1.0,
+                "rank": 208
+              },
+              {
+                "fresh": true,
+                "residual": 0.0005822704837231813,
+                "step": 1.0,
+                "rank": 208
+              }
+            ],
+            "initial_residual": 0.0009171002429405332,
+            "final_residual": 0.0005822704837231813,
+            "unresolved_budget": false,
+            "prediction": true
+          },
+          {
+            "label": "fine_direct",
+            "alpha": 1.0,
+            "size": 496,
+            "history": [
+              {
+                "fresh": true,
+                "residual": 6.723256691117707e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 1.2534450620761052e-05,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": false,
+                "residual": 4.127944654551329e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.0099210983343623e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.009919236224865e-06,
+                "step": 1.0,
+                "rank": 496
+              },
+              {
+                "fresh": true,
+                "residual": 3.0099191762006645e-06,
+                "step": 0.25,
+                "rank": 496
+              }
+            ],
+            "initial_residual": 0.0005974321670619806,
+            "final_residual": 3.0099191762006645e-06,
+            "unresolved_budget": false,
+            "prediction": false
+          }
+        ],
+        "fallback_triggers": [],
+        "final_budget_unresolved": false,
+        "rank": 496,
+        "nonlinear_steps": 20,
+        "jacobians": 14
+      },
+      "passed": true,
+      "jacobians": 14
+    }
+  ],
+  "summary": {
+    "496": {
+      "gate": 0.001,
+      "paired": [
+        {
+          "v4": 0.8752696000155993,
+          "v5": 0.8273007000098005
+        },
+        {
+          "v4": 0.8400282000075094,
+          "v5": 0.79981699999189
+        },
+        {
+          "v4": 0.7839302999782376,
+          "v5": 0.79505670000799
+        },
+        {
+          "v4": 2.1476361000095494,
+          "v5": 1.3495579999871552
+        },
+        {
+          "v4": 0.8182605999754742,
+          "v5": 0.8046349000069313
+        }
+      ],
+      "same_accuracy": true,
+      "v5_wins": 4,
+      "median_paired_ratio": 1.0502755005407827,
+      "methods": {
+        "v4": {
+          "seconds": 0.8400282000075094,
+          "worst": {
+            "velocity_rel_l2": 0.0001558046298907389,
+            "vorticity_rel_l2": 0.0008764616517090208
+          },
+          "jacobians": 14,
+          "passes": 5,
+          "completed": 5,
+          "guard_restarts": 1,
+          "unresolved": 0
+        },
+        "v5": {
+          "seconds": 0.8046349000069313,
+          "worst": {
+            "velocity_rel_l2": 0.0001558043889151265,
+            "vorticity_rel_l2": 0.0008764559666763481
+          },
+          "jacobians": 13,
+          "passes": 5,
+          "completed": 5,
+          "guard_restarts": 0,
+          "unresolved": 0
+        }
+      }
+    },
+    "595": {
+      "gate": 0.0005,
+      "paired": [
+        {
+          "v4": 1.4487850000150502,
+          "v5": 1.3204341999953613
+        },
+        {
+          "v4": 1.7917288999888115,
+          "v5": 1.435261200007517
+        },
+        {
+          "v4": 1.3885150999994949,
+          "v5": 1.3796566000091843
+        },
+        {
+          "v4": 1.5026088999584317,
+          "v5": 1.2872338999877684
+        },
+        {
+          "v4": 1.6061724000028335,
+          "v5": 1.8092814999981783
+        }
+      ],
+      "same_accuracy": false,
+      "v5_wins": null,
+      "median_paired_ratio": null,
+      "methods": {
+        "v4": {
+          "seconds": 1.5026088999584317,
+          "worst": {
+            "velocity_rel_l2": 6.97951166666442e-05,
+            "vorticity_rel_l2": 0.000507711772788929
+          },
+          "jacobians": 15,
+          "passes": 4,
+          "completed": 5,
+          "guard_restarts": 0,
+          "unresolved": 0
+        },
+        "v5": {
+          "seconds": 1.3796566000091843,
+          "worst": {
+            "velocity_rel_l2": 6.939235736059956e-05,
+            "vorticity_rel_l2": 0.0004270171082833271
+          },
+          "jacobians": 13,
+          "passes": 5,
+          "completed": 5,
+          "guard_restarts": 0,
+          "unresolved": 0
+        }
+      }
+    }
+  }
+}

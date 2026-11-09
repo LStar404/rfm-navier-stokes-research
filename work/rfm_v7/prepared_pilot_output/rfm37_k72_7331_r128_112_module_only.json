@@ -1,0 +1,107 @@
+{
+  "name": "rfm37_k72",
+  "seed": 7331,
+  "startup_rate": 128,
+  "late_rate": 112,
+  "preparation": "module_only",
+  "artifact": "rfm37_k72_7331_r128_112_module_only.npz",
+  "sha256": "ae4ff10a507631c73a72c463e49bed20b8dbf04113c88476e329f469562e0795",
+  "comparisons": {
+    "states": {
+      "bitwise": true,
+      "max_abs": 0.0
+    },
+    "times": {
+      "bitwise": true,
+      "max_abs": 0.0
+    },
+    "probe_times": {
+      "bitwise": true,
+      "max_abs": 0.0
+    },
+    "transverse": {
+      "bitwise": true,
+      "max_abs": 0.0
+    },
+    "vorticity": {
+      "bitwise": true,
+      "max_abs": 0.0
+    }
+  },
+  "work": {
+    "steps": 1136,
+    "nonlinear_evaluations": 1135,
+    "marching_fft_batches": 2270,
+    "priming_fft_batches": 2,
+    "bridge_extra_fft_batches": 0,
+    "device_final_step": 1136
+  },
+  "metadata": {
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "method": "rfm",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 7331,
+    "rank": 39,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 225,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence",
+    "steps": 1136,
+    "horizon": 9.0,
+    "time_order": 2,
+    "dt": 0.0078125,
+    "dt_role": "spatial_reconstruction",
+    "step_schedule": "sbdf2_single_bridge",
+    "startup_rate": 128,
+    "late_rate": 112,
+    "switch_time": 8.0,
+    "switch_step": 1024,
+    "late_dt": 0.008928571428571428,
+    "bridge_ratio": 1.1428571428571428,
+    "bridge_a0": 1.5333333333333332,
+    "bridge_effective_dt": 0.008734472049689442,
+    "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+    "preparation": "module_only",
+    "phase_preparation_shared": false,
+    "compiled_cuda_modules": 1,
+    "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+    "graph_steps": 24,
+    "nonlinear_evaluations": 1135,
+    "marching_fft_batches": 2270,
+    "priming_fft_batches": 2,
+    "nonlinear_by_phase": {
+      "startup": 1024,
+      "late": 111
+    },
+    "inverse_field_transforms": 3405,
+    "forward_field_transforms": 2270,
+    "bridge_extra_fft_batches": 0,
+    "fft_radial_lines": 66,
+    "device_final_step": 1136,
+    "host_setup_seconds": 0.05820630001835525,
+    "runtime_init_seconds": 0.3120164999854751,
+    "upload_seconds": 0.005754399986471981,
+    "plan_seconds": 0.0033299000351689756,
+    "graph_setup_seconds": 0.0019011999829672277,
+    "march_seconds": 0.12759280001046136,
+    "download_seconds": 0.0002956000389531255,
+    "seconds": 0.5125856000231579,
+    "timing_scope": "Diagnostic accuracy run without isolation"
+  },
+  "passed": true
+}

@@ -1,0 +1,154 @@
+{
+  "status": "complete",
+  "spec": {
+    "name": "angular_fine",
+    "n": 448,
+    "k": 144,
+    "rate": 384
+  },
+  "artifact": "angular_fine_n448_k144_r384.npz",
+  "sha256": "74605df05e4e4561aa9f4295980f9cf381d992cfb05b398eb6070c6432a62a72",
+  "configuration": {
+    "k": 144,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "n": 448
+  },
+  "metadata": {
+    "steps": 6144,
+    "horizon": 16,
+    "dt": 0.0026041666666666665,
+    "setup_seconds": 0.5703214000095613,
+    "seconds": 92.60544840001967,
+    "time_order": 2,
+    "row_scale": {
+      "first": {
+        "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+        "shape": [
+          145,
+          447
+        ],
+        "exponent_min": -38,
+        "exponent_max": 0
+      },
+      "bdf": {
+        "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+        "shape": [
+          145,
+          447
+        ],
+        "exponent_min": -38,
+        "exponent_max": 0
+      }
+    },
+    "resumed_from_step": 2304,
+    "method": "fd4",
+    "n": 448,
+    "k": 144,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 450,
+    "band_lower": 6,
+    "band_upper": 6,
+    "implementation": "cpu-fused-fd4-csr-avx2",
+    "equilibration": "row_power_of_two",
+    "reconstruction_class": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+    "equilibration_setup_seconds": 0.1572033999254927
+  },
+  "restart": {
+    "status": "derived",
+    "old_history": {
+      "source": "rfm_v7/early_reference_output/angular_fine/resume_fd448_k128_rate384.npz",
+      "sha256": "3584d8b0cdf425ef427aa7ddeabf300f2b7325c8f5673067dea8457ff05914d4"
+    },
+    "old_identity": {
+      "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+      "config": {
+        "angular": "fft",
+        "grid": "outer",
+        "k": 144,
+        "linear": "native",
+        "n": 448,
+        "stretch": 1.0
+      },
+      "dt": 0.0026041666666666665,
+      "scales": {
+        "bdf": {
+          "exponent_max": 0,
+          "exponent_min": -38,
+          "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+          "shape": [
+            145,
+            447
+          ]
+        },
+        "first": {
+          "exponent_max": 0,
+          "exponent_min": -38,
+          "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+          "shape": [
+            145,
+            447
+          ]
+        }
+      },
+      "steps": 3072
+    },
+    "new_identity": {
+      "class_name": "fd_pow2_long.Pow2EquilibratedBufferedFD",
+      "config": {
+        "angular": "fft",
+        "grid": "outer",
+        "k": 144,
+        "linear": "native",
+        "n": 448,
+        "stretch": 1.0
+      },
+      "dt": 0.0026041666666666665,
+      "scales": {
+        "bdf": {
+          "exponent_max": 0,
+          "exponent_min": -38,
+          "sha256": "4874263b20ed8228d7401ff382d1894485d3dd227ba8a0d9455f288da345b2e4",
+          "shape": [
+            145,
+            447
+          ]
+        },
+        "first": {
+          "exponent_max": 0,
+          "exponent_min": -38,
+          "sha256": "396050fc521504e140e756134bb44fc9573a6abf47955515a660bd52565ec212",
+          "shape": [
+            145,
+            447
+          ]
+        }
+      },
+      "steps": 6144
+    },
+    "unchanged_array_sha256": {
+      "states": "496d642d77a97671f22cc2295d449c4995a98ab9c0daf737159bb31df5622530",
+      "last_state": "c68135d0b4dccd1d3cfdae565b7c97fae3e21ae150680f48ba5c9ad6774ad908",
+      "mass": "7b54fb9f7ad7dc864b142e04488d6961ac39ff362051138990bb70f64c4ea5b1",
+      "flux": "e5c9f86ed04f88081a8f372840e34d5a24023419c3834070d76fe35a92db92de",
+      "old_mass": "1d2fa3511bf0688a0cb51f6ea2ef414bb79b486412df9be9b90a39abfdf8a30b",
+      "old_flux": "2342c145858c83795b770e5a8dd036eb19e4e151b8e8711b36c40c8b512288a5"
+    },
+    "artifact": "restart_input_angular_fine.npz",
+    "sha256": "8c1c2cb7d2b11cba0df6bafcc1d510367d573c46312715734b80c9e3d529de66",
+    "changes": "New step total and probe capacity. Initial time, states, current and older SBDF2 histories are preserved."
+  },
+  "replays_original_t8": {
+    "states": true,
+    "times": true,
+    "probe_times": true,
+    "transverse": true,
+    "vorticity": true
+  },
+  "bitwise_t8_pass": true
+}
