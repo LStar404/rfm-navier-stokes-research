@@ -1,8 +1,8 @@
 # RFM Galerkin Navier–Stokes paper — revision 4
 
-修订日期：2026-11-10。中文42页，英文39页，另有4页中英逐条二审回复。两份全文各含7幅图、15张表、54个带标签公式和21条文献。作者和单位留空，未指定投稿期刊。
+修订日期：2026-11-10。中文42页，英文39页，另有4页中英逐条二审回复。两份全文各含7幅图、15张表、54个带标签公式和21条文献。作者为刘星辰，四川大学数学学院。
 
-The Chinese and English manuscripts have 42 and 39 pages, with a separate four-page bilingual response to the second review. Each full manuscript contains seven figures, fifteen tables, 54 labeled equations, and twenty-one references. Author/affiliation and journal fields remain unset.
+The Chinese and English manuscripts have 42 and 39 pages, with a separate four-page bilingual response to the second review. Each full manuscript contains seven figures, fifteen tables, 54 labeled equations, and twenty-one references. Author: Xingchen Liu, School of Mathematics, Sichuan University.
 
 ## Revision 4: verified corrections and additions
 
