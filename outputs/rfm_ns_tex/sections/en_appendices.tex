@@ -120,6 +120,7 @@ local timing, and full-batch timing serve distinct purposes.
 \newcommand{\ArchiveRecord}[1]{%
  \href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/#1}{\nolinkurl{#1}}}
 \begin{description}
+\setlength{\itemsep}{2pt}
  \item[C1 Case and boundaries]
   \ArchiveRecord{work/rfm_v6/full_case.py}
  \item[C2 Spatial spaces and matrices]
@@ -159,12 +160,4 @@ Figures~\ref{fig:annulus-wake}, \ref{fig:wake-probes}, and
 the same archive. Each performance interpretation applies within the
 scope of its own timing campaign.
 
-The revision additionally provides \nolinkurl{supplement/evidence_revision.json},
-which binds the principal numbers to checksums of all 78 score files and
-other source records. The directory \nolinkurl{supplement/operator_sample/}
-contains the standalone operator source, verification entry point, actual
-GPU receipt \nolinkurl{validation.json}, and source record
-\nolinkurl{provenance.json}. This directory and the new dataflow diagram
-are revision artifacts, not additional flow experiments in the fixed
-archive. The sample supplies no cuFFTDx performance comparison.
-The respective README files give manuscript build and sample commands.
+Source hashes are in \nolinkurl{supplement/evidence_revision.json}. The previous standalone operator and GPU checks remain in \nolinkurl{supplement/operator_sample/}; new CPU experiments and maintenance are identified in Section~\ref{sec:review-experiments} and the data-availability statement. Directory READMEs give reproduction commands.

@@ -1,0 +1,345 @@
+{
+  "name": "leg36_k80_q76",
+  "status": "complete",
+  "config": {
+    "m": 36,
+    "k": 80,
+    "q": 76,
+    "scale": 62.0,
+    "mean_order": 24,
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "backend": "fft",
+    "seed": 17,
+    "family": "legendre"
+  },
+  "artifact": "leg36_k80_q76_switch12.npz",
+  "sha256": "cc791db4a89310132d9e2ba9d36afbb25e934d1d844f26c613794ba3c0813ca2",
+  "metadata": {
+    "m": 36,
+    "k": 80,
+    "q": 76,
+    "method": "legendre",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 17,
+    "rank": 40,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 243,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence",
+    "steps": 9984,
+    "horizon": 72.0,
+    "dt": 0.006578947368421052,
+    "dt_role": "spatial_reconstruction",
+    "setup_seconds": 0.05528779999804101,
+    "seconds": 10.830604299997503,
+    "time_order": 2,
+    "step_schedule": "sbdf2_single_bridge",
+    "startup_rate": 152,
+    "late_rate": 136,
+    "switch_time": 12.0,
+    "switch_step": 1824,
+    "late_dt": 0.007352941176470588,
+    "bridge_ratio": 1.1176470588235294,
+    "bridge_a0": 1.5277777777777777,
+    "bridge_effective_dt": 0.007219251336898397,
+    "nonlinear_evaluations": 9983,
+    "nonlinear_by_phase": {
+      "startup": 1824,
+      "late": 8159
+    },
+    "marching_fft_batches": 19966,
+    "inverse_field_transforms": 29949,
+    "forward_field_transforms": 19966,
+    "fft_radial_lines": 76
+  },
+  "wake": {
+    "analysis_interval": [
+      36.0,
+      72.0
+    ],
+    "diameter": 1.0,
+    "speed": 1.0,
+    "sample_count": 289,
+    "sample_gap_max": 0.125,
+    "probe_x": [
+      1.5,
+      2.5,
+      3.5
+    ],
+    "velocity_floor": 0.005,
+    "vorticity_floor": 0.02,
+    "velocity": [
+      {
+        "centre": 0.03320264909422913,
+        "minimum": -0.41089928393203357,
+        "maximum": 0.41075671184987134,
+        "positive_and_negative": true,
+        "robust_half_swing": 0.40108041336513467,
+        "positive_crossing_times": [
+          41.39316052326906,
+          47.094767089711766,
+          52.79210523016314,
+          58.4872098562541,
+          64.18151209637246,
+          69.875
+        ],
+        "periods": [
+          5.701606566442706,
+          5.697338140451372,
+          5.695104626090959,
+          5.694302240118361,
+          5.693487903627542
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.695104626090959,
+        "period_cv": 0.0005120670789967058,
+        "cycle_half_swing": [
+          0.4060990090721601,
+          0.4079816774742116,
+          0.4098884003316612,
+          0.4098076800777942,
+          0.4107122166774424
+        ],
+        "late_over_early_amplitude": 1.007909793605573,
+        "peak_trough_alternations": 12,
+        "spectral_frequency": 0.17597218942008883,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.026231364349920173,
+        "minimum": -0.6389476710700146,
+        "maximum": 0.6390800476178594,
+        "positive_and_negative": true,
+        "robust_half_swing": 0.6281247008245612,
+        "positive_crossing_times": [
+          37.37728021738357,
+          43.086647126611474,
+          48.78805963008579,
+          54.48546504143917,
+          60.1802832843775,
+          65.875,
+          71.56806121417692
+        ],
+        "periods": [
+          5.709366909227903,
+          5.701412503474316,
+          5.69740541135338,
+          5.694818242938332,
+          5.694716715622498,
+          5.693061214176922
+        ],
+        "complete_cycles": 6,
+        "median_period": 5.696111827145856,
+        "period_cv": 0.0009749909106655749,
+        "cycle_half_swing": [
+          0.6347713327324236,
+          0.6359514142165966,
+          0.6380188637716699,
+          0.6380740239155787,
+          0.6384632420004241,
+          0.6387886718628435
+        ],
+        "late_over_early_amplitude": 1.005138152228662,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.17595486576433383,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.08468264948210152,
+        "minimum": -0.576510881768873,
+        "maximum": 0.576290733816784,
+        "positive_and_negative": true,
+        "robust_half_swing": 0.5650608310649612,
+        "positive_crossing_times": [
+          38.677427393807264,
+          44.38546009359473,
+          50.084540635038884,
+          55.781309330526796,
+          61.47618603638822,
+          67.16983270561305
+        ],
+        "periods": [
+          5.708032699787466,
+          5.699080541444154,
+          5.696768695487911,
+          5.694876705861425,
+          5.693646669224826
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.696768695487911,
+        "period_cv": 0.0008978544990931081,
+        "cycle_half_swing": [
+          0.5756546625686393,
+          0.5748097881004652,
+          0.5763108218800053,
+          0.5748761965072189,
+          0.5762435662806369
+        ],
+        "late_over_early_amplitude": 1.0005696065779086,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.1759616407104912,
+        "persistent": true,
+        "saturated": true
+      }
+    ],
+    "vorticity": [
+      {
+        "centre": -0.058897950588499226,
+        "minimum": -2.0575577399761107,
+        "maximum": 2.056726873519155,
+        "positive_and_negative": true,
+        "robust_half_swing": 2.0126199280394372,
+        "positive_crossing_times": [
+          37.10116873646244,
+          42.80275266357979,
+          48.50087763940652,
+          54.19536854821205,
+          59.89002018719426,
+          65.5832861149345,
+          71.27692572956127
+        ],
+        "periods": [
+          5.701583927117348,
+          5.69812497582673,
+          5.694490908805534,
+          5.694651638982208,
+          5.693265927740235,
+          5.693639614626775
+        ],
+        "complete_cycles": 6,
+        "median_period": 5.694571273893871,
+        "period_cv": 0.0005209418683276238,
+        "cycle_half_swing": [
+          1.9964599972869146,
+          2.0283682376954735,
+          2.0419158454359883,
+          2.0516047855465587,
+          2.0532377492672813,
+          2.057142306747633
+        ],
+        "late_over_early_amplitude": 1.0212560179062897,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.17600805745648157,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.40157960191486597,
+        "minimum": -2.427453505479587,
+        "maximum": 2.4277324420100905,
+        "positive_and_negative": true,
+        "robust_half_swing": 2.396622551772115,
+        "positive_crossing_times": [
+          38.25,
+          43.9515518450386,
+          49.6499817844269,
+          55.34443706527044,
+          61.0393889943971,
+          66.73253637151294
+        ],
+        "periods": [
+          5.701551845038601,
+          5.698429939388298,
+          5.694455280843542,
+          5.69495192912666,
+          5.693147377115835
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.69495192912666,
+        "period_cv": 0.0005385750578300723,
+        "cycle_half_swing": [
+          2.4173902563091207,
+          2.4200413740291085,
+          2.4252932868269066,
+          2.42503914944911,
+          2.4262813669916286
+        ],
+        "late_over_early_amplitude": 1.0028711281448206,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.1759626553859044,
+        "persistent": true,
+        "saturated": true
+      },
+      {
+        "centre": -0.06204522063661877,
+        "minimum": -2.029769327749393,
+        "maximum": 2.029906238167546,
+        "positive_and_negative": true,
+        "robust_half_swing": 1.9693959806130268,
+        "positive_crossing_times": [
+          39.532109960509246,
+          45.23332035043993,
+          50.935785767660235,
+          56.625,
+          62.32544722231093,
+          68.01653128592324
+        ],
+        "periods": [
+          5.7012103899306865,
+          5.702465417220303,
+          5.689214232339765,
+          5.7004472223109275,
+          5.691084063612308
+        ],
+        "complete_cycles": 5,
+        "median_period": 5.7004472223109275,
+        "period_cv": 0.0009774327848309473,
+        "cycle_half_swing": [
+          2.022342994062532,
+          2.026408202859187,
+          2.0227108359559316,
+          2.0298377829584693,
+          2.024500714190486
+        ],
+        "late_over_early_amplitude": 1.0013800058229028,
+        "peak_trough_alternations": 11,
+        "spectral_frequency": 0.17592144882983607,
+        "persistent": true,
+        "saturated": true
+      }
+    ],
+    "median_period": 5.696111827145856,
+    "strouhal": 0.17555835109035575,
+    "confirmed_probe_indices": [
+      0,
+      1,
+      2
+    ],
+    "cross_stream_periodic": true,
+    "passed": true,
+    "sustained_alternating_probe_signs": true,
+    "saturated_by_amplitude_test": true,
+    "velocity_downstream_lag": [
+      1.7676868861542059,
+      1.3440984807292742
+    ],
+    "vorticity_downstream_lag": [
+      1.367794540184627,
+      1.4865673096467595
+    ]
+  },
+  "timing_scope": "Concurrent CPU diagnostic, not isolated timing"
+}

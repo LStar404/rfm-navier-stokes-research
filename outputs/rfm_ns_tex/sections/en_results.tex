@@ -174,6 +174,8 @@ $152\to136$ & 10,943 & 9,919 & 1,024 ($9.36\%$) \\
 
 The counts in Table~\ref{tab:workload} are read from runtime metadata rather than inferred from a nominal order label. Over the remaining 64 time units, reducing the step rate by 16 removes 1,024 steps; the recorded nonlinear counters differ by exactly the same amount. This saving applies to both RFM and Legendre. Reducing retained radial rank does not reduce $q$ or the angular FFT length in these experiments, and therefore does not additionally remove FFTs from each nonlinear evaluation. The work count is an algorithmic saving, while its conversion into elapsed time depends on preparation, linear algebra, observation, and runtime costs.
 
+\input{sections/en_review_experiments.tex}
+
 \section{Operator performance and the cost of a complete solve}
 \label{sec:performance-results}
 
@@ -226,6 +228,8 @@ Three stock PTX keys occupy 147,782 bytes. Three fresh-process installations tak
 A crossover requires $F>H$ and $n>C/(F-H)$. The final campaign does not provide an accepted paired estimate of $F-H$, so no measured break-even solve count is reported. The installation covers three keys; the minimum installation cost for a user needing only one key was not measured.
 
 An earlier 50-run high-resolution campaign passed its sampled isolation check and measured median paired fresh-process speedups of 1.293 and 1.301 after import simplification for constant and piecewise RFM, while solver-time ratios stayed near unity. This identifies a startup improvement for that historical configuration. It does not replace a comparison with the stronger Legendre baseline, common warp observer, or explicit cache policies introduced later. Pooling these rows would mix different experimental treatments.
+
+\input{sections/en_schedule_amortization.tex}
 
 \section{Rejected candidates and the limits of local theory}
 \label{sec:negative-results}
@@ -297,6 +301,10 @@ No final speedup, confidence interval, or method ranking is constructed from the
 \section{Discussion and conclusions}
 \label{sec:discussion}
 
+\input{sections/en_geometry_scope.tex}
+
+\subsection{Synthesis and conclusions}
+
 The evidence separates numerical design from implementation. The piecewise schedule removes measured nonlinear evaluations and applies equally to RFM and Legendre. Compact qualifying spaces exist in both basis families. The custom fused operator reduces local nonlinear cost, while the warp reduction removes a substantial observation bottleneck shared by Galerkin and FD. Startup simplification and explicit caching affect different terms of the runtime. None of these facts, individually, establishes an end-to-end advantage from random features.
 
 The closest experimentally supported bottleneck is the mismatch between a short GPU workload and its preparation costs. A historical profile assigns about $0.058$~s of a $1.70$~s full solve to host spatial preparation, approximately $3.4\%$. This is a diagnostic for that configuration, not a universal bound, but it provides little motivation for a wholesale language rewrite. Rewriting a measured hot loop can help; replacing high-level orchestration alone does not reduce the number of nonlinear evaluations, library FFTs, or device matrix operations. High-level flow solvers can already combine efficient kernels and numerical libraries~\cite{r14}.
@@ -305,11 +313,14 @@ The finite outer boundary is a major limitation. Increasing $R$ from 6 to 8 prod
 
 Advanced trained PINN methods were not measured under the same complete field, probe, and timing protocol in this phase. Consequently the paper compares a fixed-feature Galerkin discretization with its deterministic and finite-difference controls, without ranking PINN training methods. Earlier cavity and other flow studies do not automatically inherit the final annulus qualification. Broader claims require new case-specific reference and timing evidence.
 
+The added ablation further shows that deterministic midpoint frequencies with the same analytic layers reach the field tolerance at both resolutions; randomness is not necessary for these configurations. Removing the nonzero-mode layers greatly increases error but also decreases retained rank, preventing an equal-dimensional attribution to a feature family alone. The delayed-switch controls and error profiles clarify accuracy tradeoffs without supplying a new speed ranking.
+
 \label{sec:conclusion}
 For the specified $\mathrm{Re}=100$ finite-annulus problem, all 78 registered GPU qualification trajectories meet the common velocity and vorticity criteria. The two piecewise schedules reduce nonlinear evaluations by $11.11\%$ and $9.36\%$. Fused FFT pipelines improve local and short-run marching costs but lose on first-use complete cost; the more aggressive nonlinear-update candidates fail accuracy or workload criteria. The final isolated campaign is not accepted, so a stable complete-solve speed advantage over the optimized Legendre and fourth-order spatial FD baselines remains unestablished. The defensible contribution is the explicit mathematical adaptation, kernel implementation, and evidence-based attribution of these distinct effects.
 
 \section*{Data and code availability}
 
-The experimental evidence corresponds to archived revision
-\href{https://github.com/LStar404/rfm-navier-stokes-research/tree/6f2b3500964d3d5153b8400018236c4702ef94f8}{\texttt{6f2b350}}.
-The archive retains code, protocols, configuration identities, qualification scores, successful records, and failed attempts. Repository access is currently restricted; independent public reproduction requires an accessible release. Appendix~\ref{sec:app-evidence} maps the archived Navier--Stokes tables and figures to source records. The new standalone operator example and its correctness checks are separate revision artifacts. They do not add a PDE trajectory, a performance measurement, or an accepted isolated timing campaign to the frozen Navier--Stokes evidence.
+The original NS evidence corresponds to archived revision
+\href{https://github.com/LStar404/rfm-navier-stokes-research/tree/6f2b3500964d3d5153b8400018236c4702ef94f8}{\texttt{6f2b350}}, retaining source, protocols, configuration identities, qualification scores, and failed attempts. Appendix~\ref{sec:app-evidence} maps these archived tables and figures to their source records. The repository is publicly accessible; the archived commit and revision inventories identify the corresponding evidence.
+
+The new evidence is stored separately in \path{work/rfm_review_v3/}. The \texttt{ablation/} directory contains 16 CPU ablation/control trajectories, rescoring of ten frozen GPU controls, 12 capacity-construction checks, and coverage verification. The \texttt{profiles\_bridge/} directory contains four delayed-switch CPU trajectories, radial and angular error data, cellwise two-reference scores, and Parseval checks. The \texttt{maintenance/} directory contains the explicit-factory maintenance package and seven tests. Protocols, source hashes, outputs, and analysis scripts accompany the revision without overwriting the frozen evidence. These 20 new CPU trajectories do not increase the original GPU qualification count or establish a new isolated performance result. The previous standalone GPU operator example and its 36 correctness cases remain separately identified. The point-by-point response is provided as \path{response.tex} in the same manuscript project.

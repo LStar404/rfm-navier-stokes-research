@@ -112,6 +112,6 @@ L 含边界提升及外力，R 定义为原方程左端减去含 L 的原右端�
 \noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json}{C12 最终完整计时结案}\par\nopagebreak
 {\small\nolinkurl{work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json}}\par\smallskip
 
-表~\ref{tab:accuracy}由全部78份 independent\_score.json 逐组重算。表~\ref{tab:workload}计数取资格输出 slot\_000、slot\_010、slot\_026、slot\_036 的 result.json 中 metadata.nonlinear\_evaluations。表~\ref{tab:fusion-events}采用固定态图事件记录，表~\ref{tab:phase-setup}采用局部相位准备审计。图~\ref{fig:annulus-wake}至图~\ref{fig:fusion-cost}沿用同一归档内已核验的绘图与数据来源。所有速度解释均保留各自计时范围，不跨批次拼接为新的排名。
+表~\ref{tab:accuracy}由全部78份 independent\_score.json 逐组重算。表~\ref{tab:workload}计数取资格输出 slot\_000、slot\_010、slot\_026、slot\_036 的 result.json 中 metadata.nonlinear\_evaluations。表~\ref{tab:fusion-events}采用固定态图事件记录，表~\ref{tab:phase-setup}采用局部相位准备审计。图~\ref{fig:annulus-wake}、\ref{fig:wake-probes}与\ref{fig:fusion-cost}沿用同一归档内已核验的绘图与数据来源。所有速度解释均保留各自计时范围，不跨批次拼接为新的排名。
 
-修订补充材料另含 \nolinkurl{supplement/evidence_revision.json}，将关键数字绑定到78份评分和其他原始文件的校验和。\nolinkurl{supplement/operator_sample/} 提供独立算子源码、验证入口、实际 GPU 结果 \nolinkurl{validation.json} 与来源记录 \nolinkurl{provenance.json}。该目录与新增的数据流示意图属于本次修订，不是上述固定提交中的新增流场实验；样例没有给出 cuFFTDx 性能比较。构建论文和运行样例的命令见各目录的 README。
+补充材料 \nolinkurl{supplement/evidence_revision.json} 记录归档来源哈希。前次修订的独立算子及实际GPU验证见 \nolinkurl{supplement/operator_sample/}；本次新增CPU实验及维护测试见第~\ref{sec:review-experiments}节与数据可用性说明。各目录README提供复现命令。

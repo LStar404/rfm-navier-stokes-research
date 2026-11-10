@@ -1,0 +1,340 @@
+{
+  "scope": "Source/record audit for review response. No flow trajectories or timings were run by this audit.",
+  "legacy_path": "work/rfm_ns (steady cavity/Kovasznay)",
+  "canonical_path": "work/rfm_v6/full_galerkin.py and full_case.py, reused by final v7/v8 annular runs",
+  "maintenance_path": "work/rfm_review_v3/maintenance",
+  "facts": [
+    {
+      "id": "geometry",
+      "review_statement": "a=0.5, R=6 or outer radius 6.5; L=R-a",
+      "correction_zh": "最终算例 a=0.5、R=6，物理径向跨度为5.5；s=log(r/a)，L=log(R/a)=log(12)，不是物理跨度。",
+      "correction_en": "The final case has a=0.5, R=6 and physical span 5.5; L=log(R/a)=log(12) is the logarithmic radial extent.",
+      "sources": [
+        "work/rfm_v6/full_case.py:11",
+        "work/rfm_v6/full_case.py:12",
+        "work/rfm_v6/full_case.py:18"
+      ]
+    },
+    {
+      "id": "legacy_vs_canonical",
+      "review_statement": "rfm_ns/rfm_solver.py explains the final annular differential SVD and boundary operator",
+      "correction_zh": "rfm_ns/rfm_solver.py属于早期稳态二维方腔/Kovasznay。最终全圆环空间算子为rfm_v6/full_galerkin.py，复用rfm_v3/cylinder_rfm.py的径向Trial并加入层函数。",
+      "correction_en": "rfm_ns/rfm_solver.py is an early steady 2-D cavity/Kovasznay core. The final annular operator is rfm_v6/full_galerkin.py, reusing the radial Trial from rfm_v3/cylinder_rfm.py with added layer functions.",
+      "sources": [
+        "work/rfm_ns/rfm_solver.py:1",
+        "work/rfm_ns/rfm_v2_warp_legendre.py:46",
+        "work/rfm_v6/full_galerkin.py:15",
+        "work/rfm_v6/full_galerkin.py:46"
+      ]
+    },
+    {
+      "id": "envelope",
+      "review_statement": "The final envelope is 16 z^2 (1-z)^2",
+      "correction_zh": "最终farfield分支的基础包络为16z²(1-z)，并减去边界二阶导数修正；平方的(1-z)²属于较早dirichlet分支。",
+      "correction_en": "The final farfield branch uses 16 z^2 (1-z) and subtracts an outer second-derivative correction. The squared (1-z)^2 factor belongs to the older dirichlet branch.",
+      "sources": [
+        "work/rfm_v3/cylinder_rfm.py:24",
+        "work/rfm_v3/cylinder_rfm.py:30",
+        "work/rfm_v3/cylinder_rfm.py:37",
+        "work/rfm_v6/full_galerkin.py:57"
+      ]
+    },
+    {
+      "id": "frequency",
+      "review_statement": "b_j = 62/[p(j+xi_j)]",
+      "correction_zh": "正确为b_j=62(j+ξ_j)/p，j=0,...,p-1，ξ_j∈[0.2,0.8]；频率是分层抖动的正弦/余弦配对。",
+      "correction_en": "The correct expression is b_j=62(j+xi_j)/p, j=0,...,p-1, xi_j in [0.2,0.8], with paired sine/cosine features.",
+      "sources": [
+        "work/rfm_v3/cylinder_rfm.py:78",
+        "work/rfm_v3/cylinder_rfm.py:81",
+        "work/rfm_v3/cylinder_rfm.py:82",
+        "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/result.json"
+      ]
+    },
+    {
+      "id": "effective_rank",
+      "review_statement": "RFM37 needs two more radial DOFs than Leg35; RFM41 has 41 modes vs Leg36 36",
+      "correction_zh": "配置名后缀是增广和截断前的原始特征数。中档两者保留非零模径向秩均39，高档均40；平均模秩均30。不能将37/35或41/36解释为实际推进自由度比较。",
+      "correction_en": "The suffix counts raw features before augmentation and truncation. Mid-resolution nonzero-mode ranks are both 39; high-resolution ranks are both 40; mean ranks are 30. Raw names do not count the time-marched radial DOFs.",
+      "sources": [
+        "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/result.json",
+        "work/rfm_v8/rank_fair_cache_qualification_output/slot_020/result.json",
+        "work/rfm_v8/rank_fair_cache_qualification_output/slot_026/result.json",
+        "work/rfm_v8/rank_fair_cache_qualification_output/slot_046/result.json"
+      ]
+    },
+    {
+      "id": "svd_scope",
+      "review_statement": "Differential SVD eliminates ill-conditioning",
+      "correction_zh": "它在保留子空间和离散采样微分度量中归一化，使k=1的扩散Gram为νI（舍入误差内）。不能推断所有傅里叶模态、质量矩阵或原坐标变换都不病态。",
+      "correction_en": "Whitening normalizes the retained subspace in a sampled differential metric and yields the k=1 diffusion Gram nu I up to roundoff. It does not eliminate conditioning in every Fourier mode, mass matrix, or coordinate transformation.",
+      "sources": [
+        "work/rfm_v6/full_galerkin.py:18",
+        "work/rfm_v6/full_galerkin.py:65",
+        "work/rfm_v6/full_galerkin.py:80"
+      ]
+    },
+    {
+      "id": "accuracy_units",
+      "review_statement": "Accuracy numbers 0.02943, 0.40960 etc are listed without units",
+      "correction_zh": "这些表值为百分数；例如0.40960表示0.40960%，不是0.40960的相对误差。需在标题或表头明确单位。",
+      "correction_en": "The tabulated values are percentages; 0.40960 means 0.40960%, not a relative error of 0.40960. Label the units explicitly.",
+      "sources": [
+        "outputs/rfm_ns_tex/tables/zh_accuracy.tex",
+        "outputs/rfm_ns_tex/sections/zh_results.tex"
+      ]
+    },
+    {
+      "id": "cohort_mixing",
+      "review_statement": "Attach 1.4810s/1.7519s prepared CUDA timings to final rank-fair accuracy rows",
+      "correction_zh": "这些耗时来自较早prepared-CUDA诊断批，不能与后续v8同秩配置的误差拼成同一测量。历史两批隔离均失败；最终v8强对照正式计时接受数为0。",
+      "correction_en": "These timings belong to earlier prepared-CUDA diagnostic cohorts and cannot be attached to later v8 rank-fair accuracy rows as one measurement. Both historical timing cohorts failed isolation, and the final v8 strong-comparator cohort accepted zero formal timing runs.",
+      "sources": [
+        "START_HERE_prepared_cuda.md:5",
+        "START_HERE_prepared_cuda.md:11",
+        "START_HERE_v8.md:3"
+      ]
+    },
+    {
+      "id": "fft_units",
+      "review_statement": "16382 FFT calls interpreted as total individual transforms",
+      "correction_zh": "16382是8191次非线性求值各两次批量FFT调用；每次非线性有3个逆变换场和2个正变换场，每径向行合计5个。q=66时共2703030个逐行场变换，预热另计。",
+      "correction_en": "16382 counts two batched FFT calls per nonlinear evaluation (8191 evaluations). Each has three inverse and two forward field transforms per radial row; q=66 gives 2703030 row-level transforms, with priming separate.",
+      "sources": [
+        "START_HERE_variable_step.md:3",
+        "work/rfm_v8/rank_fair_cache_qualification_output/slot_010/result.json"
+      ]
+    },
+    {
+      "id": "bridge_causality",
+      "review_statement": "51.8% aggregate velocity increase proves transient splitting/order degradation at the switch",
+      "correction_zh": "0.02943%→0.04467%是汇总最大误差变化，非固定种子、位置、时刻的配对局部误差，也不是收敛阶证据。必须保留为现象并用配对切换实验检验机制。",
+      "correction_en": "0.02943% to 0.04467% compares aggregated maxima, not a fixed seed/location/time paired local error or a convergence-order estimate. Treat it as an observation and test the mechanism with paired switch experiments.",
+      "sources": [
+        "outputs/rfm_ns_tex/tables/zh_accuracy.tex",
+        "work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json"
+      ]
+    },
+    {
+      "id": "negative_result_scope",
+      "review_statement": "This proves RFM cannot beat spectral methods/FD in separable geometry",
+      "correction_zh": "当前结果仅未建立同精度、同等级优化且完整隔离下的稳定优势；既不是不可能性定理，也不能凭不合格计时证实速度劣势。",
+      "correction_en": "The evidence has not established a stable advantage at matched accuracy, optimization and isolation. It is neither an impossibility theorem nor a validated speed-disadvantage result from rejected timings.",
+      "sources": [
+        "START_HERE_v8.md:3"
+      ]
+    },
+    {
+      "id": "factory_patch_target",
+      "review_statement": "wrapper patches base.basis_factory in rfm_solver.py",
+      "correction_zh": "实际被替换的是v2.trial_basis。维护版在v2.solve增加局部basis_factory参数，mapped包装器显式传入，保留冻结旧文件。",
+      "correction_en": "The actual patched symbol is v2.trial_basis. The maintained v2.solve accepts a local basis_factory and the mapped wrapper passes it explicitly while frozen files remain untouched.",
+      "sources": [
+        "work/rfm_ns/rfm_v2_warp_legendre.py:32",
+        "work/rfm_ns/rfm_v2_warp_legendre.py:38",
+        "work/rfm_review_v3/maintenance/rfm_v2_solver.py:184",
+        "work/rfm_review_v3/maintenance/rfm_v2_warp_legendre.py:40"
+      ]
+    }
+  ],
+  "rank_records": {
+    "rfm37_k72": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/result.json",
+      "raw_trial_count": 37,
+      "retained_rank": 39,
+      "retained_mean_rank": 30,
+      "q": 66,
+      "k": 72,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        39
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    },
+    "leg35_k72_q66": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_020/result.json",
+      "raw_trial_count": 35,
+      "retained_rank": 39,
+      "retained_mean_rank": 30,
+      "q": 66,
+      "k": 72,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        39
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    },
+    "fd176_k80": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_024/result.json",
+      "raw_trial_count": null,
+      "retained_rank": null,
+      "retained_mean_rank": null,
+      "q": null,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [],
+      "observed_all_retained_mean_ranks": []
+    },
+    "rfm41_k80": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_026/result.json",
+      "raw_trial_count": 41,
+      "retained_rank": 40,
+      "retained_mean_rank": 30,
+      "q": 76,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        40
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    },
+    "leg36_k80_q76": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_046/result.json",
+      "raw_trial_count": 36,
+      "retained_rank": 40,
+      "retained_mean_rank": 30,
+      "q": 76,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        40
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    },
+    "leg35_k80_q76": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_050/result.json",
+      "raw_trial_count": 35,
+      "retained_rank": 39,
+      "retained_mean_rank": 30,
+      "q": 76,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        39
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    },
+    "fd184_k80": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_054/result.json",
+      "raw_trial_count": null,
+      "retained_rank": null,
+      "retained_mean_rank": null,
+      "q": null,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [],
+      "observed_all_retained_mean_ranks": []
+    },
+    "rfm35_k80": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_056/result.json",
+      "raw_trial_count": 35,
+      "retained_rank": 38,
+      "retained_mean_rank": 30,
+      "q": 76,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        38,
+        39
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    },
+    "leg34_k80_q76": {
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_076/result.json",
+      "raw_trial_count": 34,
+      "retained_rank": 38,
+      "retained_mean_rank": 30,
+      "q": 76,
+      "k": 80,
+      "record_scope": "first observed record; observed_all_retained_ranks covers all cache/seed/arm records",
+      "observed_all_retained_ranks": [
+        38
+      ],
+      "observed_all_retained_mean_ranks": [
+        30
+      ]
+    }
+  },
+  "conditional_amortization": {
+    "is_measured_break_even": false,
+    "performance_prediction_supported": false,
+    "cohort_status": "diagnostic_only",
+    "isolated_speed_claim_supported": false,
+    "baseline_N": 8192,
+    "fixed_early_steps": 1024,
+    "modified_late_steps": 7168,
+    "whole_step_model": "Delta t(N) = Delta P - 0.119*N/8192",
+    "recommended_late_step_model": "Delta t(N) = Delta P - 0.119*max(N-1024,0)/7168",
+    "using_rounded_range": {
+      "extra_preparation_seconds": [
+        0.206,
+        0.24
+      ],
+      "march_saving_seconds": 0.119,
+      "whole_step_break_even_steps": [
+        14181.10924369748,
+        16521.680672268907
+      ],
+      "late_step_break_even_steps": [
+        13432.470588235294,
+        15480.470588235294
+      ]
+    },
+    "exact_diagnostic_contrasts": {
+      "rfm37_k72": {
+        "march_saving_seconds": 0.11908820001408457,
+        "extra_preparation_seconds": 0.23945188007783144,
+        "diagnostic_solver_delta_seconds": 0.12138925999170169,
+        "diagnostic_fresh_process_delta_seconds": 0.13670587999999997,
+        "whole_step_linear_break_even_steps": 16471.739444929033,
+        "late_step_linear_break_even_steps": 15436.772014312905
+      },
+      "leg37_k72": {
+        "march_saving_seconds": 0.1189648799947463,
+        "extra_preparation_seconds": 0.2061306400108151,
+        "diagnostic_solver_delta_seconds": 0.08890644001075998,
+        "diagnostic_fresh_process_delta_seconds": 0.016617180000000165,
+        "whole_step_linear_break_even_steps": 14194.291651814972,
+        "late_step_linear_break_even_steps": 13444.0051953381
+      }
+    },
+    "conditions": [
+      "Stable marginal march saving with horizon",
+      "Preparation overhead independent of horizon",
+      "Same hardware, resolution, seeds, solver and cache policy",
+      "No extra reference, output, memory, graph or compilation cost as horizon grows",
+      "Both velocity and vorticity accuracy remain qualified for longer horizon",
+      "Longer-horizon isolated measurements are still required"
+    ],
+    "batch_warning": "Multiple trajectories amortize the incremental preparation only if the relevant state/context/compilation/operators are actually shared; fresh processes do not automatically amortize it."
+  },
+  "source_sha256": {
+    "work/rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "work/rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "work/rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "work/rfm_v7/switch_formal_timing_output/phase_diagnostics.json": "345233ada662013b9301f6a26185f8cc73a73cddabdbf0ebf116fddb4517d3f1",
+    "work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json": "1da5cd2cf5771a701ba172a3e979b2c8003f84328810ade76a692756f33231df",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/result.json": "6260fcfd3b4981e981dfe911e80b4891f253fade5663d7413c633bd04e778b18",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_020/result.json": "56eabc1c9681a99ad650c38c2e664fb140a2196a8fef6372266813a32ddf57b0",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_024/result.json": "87cbed53aa8e7832e63e44a79909a88fce803be75599875ecb3fc13701ad3f7e",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_026/result.json": "3ec49701f61f0355ab874473ba435d6da4cf0144d8ece2cb3986c00d2edbd594",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_046/result.json": "97bd85af74c2f8966957543f07199b9a4e3df21e38d06e6cb26999139d7ccfcb",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_050/result.json": "27713ab1059fb0af6a16bec5badbabfb7a470c94240213077a13d4491fee5fb3",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_054/result.json": "c4303b41be6a5eefd5993f2406837e28c7da15ac0ca370dd90b21afdf29b1451",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_056/result.json": "cbc466c1488308dc24caf81b4448141e61f0098d8ddef51151d9eea954af690c",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_076/result.json": "36dbaddbeb1ce08c8416fc129a08d933fad128b217e013061d50c135f9d568d9",
+    "work/rfm_v8/rank_fair_cache_qualification_output/slot_010/result.json": "5f60cfbb418a6b435dab2076f319eebe66b09b37318adb00422cb0df30afb8bf"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "status": "frozen_before_execution",
+  "names": [
+    "rfm37_k72",
+    "leg35_k72_q66",
+    "rfm41_k80",
+    "leg36_k80_q76"
+  ],
+  "switch_time": 12,
+  "physical_times": [
+    0.5,
+    1,
+    2,
+    4,
+    6,
+    8,
+    8.125,
+    8.5,
+    9,
+    10,
+    12,
+    16,
+    24,
+    36,
+    48,
+    54,
+    60,
+    66,
+    72
+  ],
+  "startup_late_rates": {
+    "rfm37_k72": [
+      128,
+      112
+    ],
+    "leg35_k72_q66": [
+      128,
+      112
+    ],
+    "rfm41_k80": [
+      152,
+      136
+    ],
+    "leg36_k80_q76": [
+      152,
+      136
+    ]
+  },
+  "workers": 4,
+  "blas_threads": 1,
+  "python": "3.13.5",
+  "numpy": "2.4.1",
+  "gpu": false,
+  "sources": {
+    "rfm_review_v3\\profiles_bridge\\run_bridge.py": "81bc434bd62c15538ed624f11568cceb8fd5188fb0b8d570ed1ed7ea597d315b",
+    "rfm_review_v3\\profiles_bridge\\review_common.py": "7227ffedcb2601bf86c07c5f5db4067201220cbb6f31cc658e9c81baeb7ef796",
+    "rfm_v7\\cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "rfm_v7\\basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9"
+  },
+  "frozen_protocols": {
+    "rfm_v7\\switch_qualification_output\\protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "rfm_v8\\rank_fair_cache_qualification_output\\protocol.json": "d5d7f3bcd7ab9d93106f8c22fd8672e00b70aba5564b888e658aaf73214c5af2"
+  },
+  "reference_inputs": {
+    "radial_coarse": {
+      "path": "rfm_v7/early_reference_continuation_output/radial_coarse_n384_k128_r384.npz",
+      "sha256": "8a126a28ba447feeb5ea4a5aa651dda8001491b261d1ba32e734d45868d5dce2"
+    },
+    "radial_fine": {
+      "path": "rfm_v7/early_reference_continuation_output/radial_fine_n448_k128_r384.npz",
+      "sha256": "f7f0c721d946a4e261ad34251d6a645dde58eb5d51005eafc7e5759c86e25a0c"
+    },
+    "angular_fine": {
+      "path": "rfm_v7/early_reference_continuation_output/angular_fine_n448_k144_r384.npz",
+      "sha256": "74605df05e4e4561aa9f4295980f9cf381d992cfb05b398eb6070c6432a62a72"
+    },
+    "time_fine": {
+      "path": "rfm_v7/early_reference_continuation_output/time_fine_n448_k144_r512.npz",
+      "sha256": "bb6e8d4d80ae6ed09ab83e80e2b1ad4c8e1a1584218d22195eef6a9713d7bbf7"
+    },
+    "late": {
+      "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077",
+      "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7"
+    }
+  },
+  "control_inputs": {
+    "rfm37_k72": {
+      "uniform": {
+        "early": {
+          "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+          "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+        },
+        "late": {
+          "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+          "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+        }
+      },
+      "combined": {
+        "single": {
+          "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_7331_cpu_recurrence.npz",
+          "sha256": "333cdd1f4b8154380c4479f9e3b40d9b6403079cfa5c0bb8ca07d52e2546d932"
+        }
+      }
+    },
+    "leg35_k72_q66": {
+      "uniform": {
+        "single": {
+          "path": "rfm_v8/legendre_rank_uniform_output/leg35_k72_q66.npz",
+          "sha256": "abc5101697baaf0562382217e1b4feac803f418e745668587e4315cf92da7b73"
+        }
+      },
+      "combined": {
+        "single": {
+          "path": "rfm_v8/legendre_rank_switch_output/leg35_k72_q66.npz",
+          "sha256": "7630c7b83c5f1a13c45a86ce0f82c9db0a28fc66920e4ebe944b9d6fe23bb871"
+        }
+      }
+    },
+    "rfm41_k80": {
+      "uniform": {
+        "early": {
+          "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7331_cpu_recurrence_anchor_early.npz",
+          "sha256": "b274fb6692431e96e09b344d840f5adf95f3fe3411e6c54b310023c2eb71d157"
+        },
+        "late": {
+          "path": "rfm_v7/cuda_multiscale_pow2_output/block01_cpu_rfm41_k80_7331.npz",
+          "sha256": "ea40c952e435c9256404e6091f3be7b09cafa389c835a511959ee59cef30f5f9"
+        }
+      },
+      "combined": {
+        "single": {
+          "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7331_cpu_recurrence_candidate.npz",
+          "sha256": "5fc03fb05510ef00c8dfcb35bc32e40194adabdf479b1668000cb15de66a2e14"
+        }
+      }
+    },
+    "leg36_k80_q76": {
+      "uniform": {
+        "single": {
+          "path": "rfm_v8/legendre_rank_match_high_output/leg36_k80_q76.npz",
+          "sha256": "300e67d133f3404dbb91a3984c845d68e75370ea979b834e4b7031fb03ae486e"
+        }
+      },
+      "combined": {
+        "single": {
+          "path": "rfm_v8/legendre_rank_switch_output/leg36_k80_q76.npz",
+          "sha256": "47ac7437a58507debc6566bd67a1a875c5540083a40708aa18b15fe3e2f88edb"
+        }
+      }
+    }
+  },
+  "note": "Generic CPU phase clock audited: switch_time=12 explicitly; default t8 observation list overridden. No old source modified."
+}

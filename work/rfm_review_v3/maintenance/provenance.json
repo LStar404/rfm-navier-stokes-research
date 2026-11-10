@@ -1,0 +1,24 @@
+{
+  "scope": "CPU-only maintenance of early steady 2-D weak solver; not the final annular unsteady Galerkin operator",
+  "frozen_sources": {
+    "work/rfm_ns/rfm_solver.py": "911350db1bb4ef0cf16cc10226ebdf1b2d0f284432398f97a81f43d711393745",
+    "work/rfm_ns/rfm_v2_solver.py": "ce1d4d62c388ad36128bdd50c1ab33138103593ea797af8da8b008c3cf5c9996",
+    "work/rfm_ns/rfm_v2_warp_legendre.py": "8cfd982725bb3d1eb1a8940fadfc3755c99208cfd97c9a8c7a816532fdab49e4",
+    "work/rfm_ns/tensor_rfm.py": "beb43c282bd5e6ee12c2978e3eb0007f33c2dcf96ab6653dc8438d9f43ad3237",
+    "work/rfm_ns/wall_trial.py": "82e3a6ba469ad5ff8ef53d1bb67f50a7936828d8375148683601b34e467a7dcf",
+    "work/rfm_ns/operator_opt.py": "0e67d719ec3c5e6bfe7851cc98dca7679350978d408463d888e5d77758643eeb"
+  },
+  "arithmetic_policy": "rfm_solver copied; tensor projection, wall feature jets and Gram formula extracted without arithmetic changes; v2 solver only import routing and local factory injection changed",
+  "dependencies": [
+    "Python >= 3.10",
+    "NumPy",
+    "SciPy"
+  ],
+  "archive_test_support": {
+    "tests/archive_support/certify_rfm.py": {
+      "original_source": "work/rfm_ns/certify_rfm.py",
+      "sha256": "0134e128d698c603f61afb685581dcf3ea44907579cf4ee5ccd14ba1dbe7ec5d",
+      "copy_policy": "Exact original bytes; used only in the archived-comparison child process to satisfy the original operator_opt driver import; no stubs or numerical substitutions"
+    }
+  }
+}

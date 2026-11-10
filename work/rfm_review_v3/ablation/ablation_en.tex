@@ -1,0 +1,67 @@
+\subsection{Additional ablation of frequency jitter and nonzero-mode layers}
+\label{sec:review-ablation}
+We fixed two configurations,
+$(m,K,q,\Delta t^{-1})=(37,72,66,128)$ and $(41,80,76,152)$,
+before executing a two-by-two ablation: registered random paired-frequency
+jitter $\xi_j\sim U[0.2,0.8]$ versus fixed midpoints $\xi_j=0.5$, and six
+nonzero-mode analytic outer-layer features present versus absent.
+The random cells use the five registered seeds (7331, 7687, 8011, 8353, 9041).
+Each deterministic cell has one unique trajectory; unused seeds are not counted
+as replicates. All cells retain the same 24 mean-mode functions, six mean-mode
+layers, quadrature, and time step. Adapter checks confirm bitwise equality of
+the mean-mode discretization arrays and implicit operators across the four cells.
+
+We computed 16 new CPU trajectories to $T=72$: 14 ablation trajectories and
+two enriched-random CPU controls. Ten frozen enriched-random GPU trajectories
+were reused and independently rescored. Every trajectory was evaluated at the
+same 19 physical checkpoints on three grids against both fine FD references,
+using velocity and vorticity errors over the full domain and $r\leq2.5$.
+All four errors must be at most 0.5\%.
+Table~\ref{tab:review-ablation} gives maxima over seeds, times, grids, and references.
+All 16 CPU runs completed without numerical failure; the 12 trajectories without
+nonzero-mode layers failed the accuracy gate. The two CPU controls differ from
+the archived GPU fields by less than $2.0\times10^{-10}$ in the worst field metric.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Additional CPU accuracy ablation. Errors are percentages. Pass counts
+exclude the two separate CPU controls. Random rows report the worst of five
+seeds; midpoint rows contain one deterministic configuration.}
+\label{tab:review-ablation}
+\begin{tabular}{lrrrrrr}
+\hline
+Configuration & Rank & $e_u$ & $e_\omega$ & $e_{u,\mathrm{near}}$ & $e_{\omega,\mathrm{near}}$ & Pass \\
+\hline
+Mid, Random+layer & 39 & 0.0294 & 0.4096 & 0.0251 & 0.2100 & 5/5 \\
+Mid, Midpoint+layer & 39 & 0.0293 & 0.4092 & 0.0249 & 0.2097 & 1/1 \\
+Mid, Random/no layer & 34 & 19.4054 & 73.8980 & 26.4854 & 48.6306 & 0/5 \\
+Mid, Midpoint/no layer & 34 & 19.3644 & 73.7836 & 26.4397 & 48.5825 & 0/1 \\
+High, Random+layer & 40 & 0.0182 & 0.3319 & 0.0148 & 0.1799 & 5/5 \\
+High, Midpoint+layer & 40 & 0.0181 & 0.3312 & 0.0147 & 0.1794 & 1/1 \\
+High, Random/no layer & 35 & 18.7540 & 72.0115 & 25.7262 & 47.7640 & 0/5 \\
+High, Midpoint/no layer & 35 & 18.7060 & 71.8705 & 25.6678 & 47.6945 & 0/1 \\
+\hline
+\end{tabular}
+\end{table}
+
+Both midpoint-plus-layer configurations pass, with errors comparable to the
+random enriched cells. These data therefore do not establish randomness as
+necessary for the observed accuracy. With raw $m$ and the SVD cutoff fixed,
+removing the nonzero-mode layers reduces retained rank from 39/40 to 34/35 and
+produces large velocity and vorticity errors; the mean rank remains 30.
+The compact configurations depend strongly on analytic outer-layer enrichment,
+but this design does not separate enrichment geometry from the increased
+effective dimension. It is not an equal-rank enrichment ablation, and only one
+deterministic frequency design was tested. All four error maxima for both
+deterministic no-layer configurations occur at $T=72$. Their maximum vorticity
+errors for $t\leq16$ are 2.820\% and 2.592\%, growing to 73.784\% and 71.871\%
+at later times. The large errors therefore are not solely a consequence of a
+near-zero startup reference field; the mechanism of error amplification is
+not established by these data. A subsequent construction-only check increased raw $m$ to
+41, 45, 49, 53, 57, and 61 while retaining bandwidth 62, quadrature, and the
+SVD cutoff. Both resolutions produced ranks 35, 35, 36, 36, 36, and 36,
+respectively, never recovering rank 39 or 40. We therefore did not add a
+purported equal-rank $T=72$ control or tune the bandwidth/cutoff after failure.
+Concurrent CPU elapsed times are
+diagnostic only: they provide neither isolated timing nor new GPU speedup
+evidence, and do not extend the original 78 GPU qualification trajectories.

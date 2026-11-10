@@ -1,0 +1,22 @@
+\subsection{What changes on a nonseparable geometry}
+\label{sec:geometry-scope}
+
+The annulus supplies more than a convenient test shape. Its metric and boundary conditions are independent of angle, so the implicit operator separates into angular blocks; the nonlinear products still couple modes. The retained radial rank $d$, number $K$ of positive modes, quadrature size $q$, and padded angular size $N$ lead to dense setup costs of order $Kd^3$ for independent modal factorizations. A step contains order $Kd^2$ modal solves, $qdK$ reconstruction and projection work, and $qN\log N$ transform work. These counts suppress fixed channel counts and the separate mean block. They describe the present implementation, not a complexity theorem for RFM in general. Differential normalization of an $n$-column raw feature matrix additionally costs order $qn^2+n^3$ in the dense regime $q\geq n$.
+
+On an angle-dependent mapped boundary, the metric coefficients and boundary lifting generally depend on angle. Multiplication by these coefficients couples Fourier modes even in the implicit linear operator. The scalar mode equations and their separate common-phase bases then cease to be an exact factorization of the full problem. A naive dense solve with $D=O(Kd)$ coupled degrees of freedom would require $O(D^2)$ storage and $O(D^3)$ factorization. This is an avoidable dense-design cost, not a necessary lower bound: sparse local spaces, matrix-free metric products, domain decomposition, and iterative solvers are alternatives. They require a new operator design and qualification; the present GPU measurements do not test them.
+
+The role of conditioning can be stated precisely without claiming that the annular transform removes it. Let $B$ be an SPD reference implicit operator and $A$ a mapped-domain SPD operator on the same discrete space. If the geometry and boundary construction yield constants $0<\alpha\leq\beta$ such that
+\begin{equation}
+ \alpha x^\top Bx\leq x^\top Ax\leq\beta x^\top Bx
+ \quad\hbox{for all }x,
+ \label{eq:geometry-equivalence}
+\end{equation}
+then the Rayleigh quotient gives
+\begin{equation}
+ \sigma(B^{-1/2}AB^{-1/2})\subset[\alpha,\beta],\qquad
+ \kappa_2(B^{-1/2}AB^{-1/2})\leq\beta/\alpha.
+ \label{eq:geometry-condition}
+\end{equation}
+This is a conditional preconditioning bound. We do not establish mesh-independent $\alpha,\beta$ for an arbitrary body. Distorted mappings, narrow gaps, and nonuniform local resolution can degrade them. Boundary-data approximation introduces a separate consistency error that is not controlled by this spectral bound; it need not alter the implicit matrix. Likewise, the identity $K_1=\nu I$ on the retained annular feature space is an exact-arithmetic normalization at the chosen quadrature; it does not bound every modal mass matrix, discarded approximation direction, or floating-point reconstruction error.
+
+Local random features with partitions of unity provide a documented route to complex interfaces, including linear Stokes examples\cite{r20}. That evidence motivates an extension, but does not validate the present unsteady nonlinear solver on such geometries. A credible extension would preserve boundary and divergence constraints, compare retained dimensions and quadrature work with deterministic local spaces, and repeat both velocity/vorticity qualification and complete-cost timing. Accordingly, our compact-space and kernel conclusions are restricted to the specified separable finite annulus.

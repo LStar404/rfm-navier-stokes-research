@@ -1,0 +1,174 @@
+{
+  "status": "passed",
+  "created_utc": "2026-11-10T10:05:12.070803+00:00",
+  "command": "python -m work.rfm_review_v3.maintenance.run_validation",
+  "scope": "CPU correctness/maintenance only; no GPU work, accuracy certificate, or speed comparison",
+  "legacy_path": "work/rfm_ns",
+  "maintenance_path": "work/rfm_review_v3/maintenance",
+  "canonical_annulus_path": "work/rfm_v6/full_galerkin.py (used by later v7/v8 runs; not modified)",
+  "tests_run": 7,
+  "tests_passed": [
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_01_frozen_source_hashes_unchanged",
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_02_small_cpu_solves_match_archived_code",
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_03_explicit_default_factory_preserves_default_call",
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_04_concurrent_distinct_factories_are_isolated",
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_05_factory_and_assembly_exceptions_do_not_pollute_default",
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_06_concurrent_failure_does_not_change_successful_solve",
+    "work.rfm_review_v3.maintenance.tests.test_factory.FactoryTests.test_07_maintenance_has_no_archived_driver_imports"
+  ],
+  "failures": [],
+  "errors": [],
+  "equivalence_cases": 8,
+  "equivalence_field_points_per_case": 25,
+  "equivalence_compared_fields": [
+    "u",
+    "v",
+    "omega",
+    "psi",
+    "div"
+  ],
+  "equivalence_rtol": 1e-12,
+  "equivalence_atol": 1e-12,
+  "equivalence_max_abs_differences": [
+    {
+      "case": "iid_diagonal",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_diagonal",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_diagonal",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_h2_parity",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_h2_parity",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_h2_parity",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_h2_dense",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_h2_dense",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "iid_h2_dense",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "legendre_prefix_reuse",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "legendre_prefix_reuse",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "legendre_prefix_reuse",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "sobol",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "sobol",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "sobol",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "pairs",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "pairs",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "pairs",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "wall_rfm",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "wall_rfm",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "wall_rfm",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "mapped_legendre",
+      "quantity": "coefficients",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "mapped_legendre",
+      "quantity": "fields",
+      "max_abs_difference": 0.0
+    },
+    {
+      "case": "mapped_legendre",
+      "quantity": "stokes",
+      "max_abs_difference": 0.0
+    }
+  ],
+  "equivalence_history_and_metadata": "floating values: rtol=atol=1e-12; other values: exact equality; two elapsed-time fields excluded",
+  "elapsed_seconds_diagnostic_only": 2.6934854999999516,
+  "python": "3.13.5 | packaged by Anaconda, Inc. | (main, Jun 12 2025, 16:37:03) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "numpy": "2.4.1",
+  "scipy": "1.16.3",
+  "source_sha256": {
+    "__init__.py": "3d5830f7395437c9e5f1b6d5b1f0f424505000409b2203f73a85bcbf9ab6d0a1",
+    "rfm_solver.py": "3ff43dccf872fbb090da9e22f272b5a61ef77a43cd81a4ec0707e9d51e2be7a9",
+    "rfm_v2_solver.py": "cbefb71d670727fd19ef696c0182863eeacca5ff5ee72467a343348852841bd6",
+    "rfm_v2_warp_legendre.py": "bf1ca879a99096b49dc95d90275eca49506364999d5c8125f5d46f5db580ad58",
+    "run_validation.py": "3837466e09e9849f1f3ec7dbb17b562dd18082644c6edb625c14018587d93974",
+    "tensor_rfm.py": "2e8efc17ba292df27dc1a57c6fc6657a215894244a36ad51ce60b6d289454f50",
+    "test_metric.py": "2cae0380850a4e3a226c9938d7c748379e311cb9b1748ea449de0350670065b6",
+    "tests/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/archive_support/certify_rfm.py": "0134e128d698c603f61afb685581dcf3ea44907579cf4ee5ccd14ba1dbe7ec5d",
+    "tests/snapshot.py": "fc08c85208c47cdf0f6d929472618f6231db10ff398899f1fbcfa294cd35a0b4",
+    "tests/test_factory.py": "0e3e5c17d37f1c768c9f4482dce9804fa762998cf469854617677a99e04a3eb2",
+    "wall_trial.py": "1f12631b8842ca04a51cb02a3df7a07be35df7f3ec242479f074423893ad888e"
+  }
+}

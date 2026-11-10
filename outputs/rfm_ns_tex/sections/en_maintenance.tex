@@ -1,0 +1,14 @@
+\subsection{Maintenance of the early steady-solver interface}
+The dynamic replacement cited by the reviewer belongs to an early steady-cavity
+control: its wrapper temporarily replaced
+\path{rfm_v2_solver.trial_basis}, outside the final annular solver path.
+We preserve the archived source hashes and provide a separate maintained package
+with an explicit, solve-local basis factory. Omitting this argument preserves the
+default behavior; the mapped-Legendre wrapper no longer changes module globals.
+All seven CPU tests pass. Eight small configurations agree with the archived
+functions in coefficients, Stokes matrices, and velocity, vorticity and other fields
+at 25 independent points, using relative and absolute tolerances of $10^{-12}$.
+Additional tests force concurrent factory overlap and check default calls after
+factory and assembly exceptions. These establish interface compatibility and
+state isolation for this change; they provide no new annular accuracy certificate,
+GPU speed result, or thread-safety guarantee for arbitrary user-supplied factories.

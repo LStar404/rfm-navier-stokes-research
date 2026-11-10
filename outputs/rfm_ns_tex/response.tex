@@ -1,0 +1,116 @@
+\documentclass[UTF8,fontset=fandol,11pt]{ctexart}
+\input{common.tex}
+\title{审稿意见逐条回复\\Point-by-point Response to the Review}
+\author{}
+\date{Revision 3 \quad 2026-11-10}
+\hypersetup{pdftitle={RFM Navier--Stokes: Point-by-point Response, Revision 3}}
+\begin{document}
+\maketitle
+
+本次修订保留原有78条GPU资格轨迹及失败计时记录，新增20条CPU完整轨迹、两幅误差分解图、显式基函数工厂维护包和相应验证。我们接受消融、几何适用边界、误差分布、换步敏感性及维护性方面的建议，同时纠正审稿文本中与冻结源码不符的参数、公式和自由度表述。新增CPU耗时不用于速度排序，最终隔离计时仍未被接受。
+
+\noindent\textbf{Revision summary.}
+The revision preserves the original 78 GPU qualification trajectories and rejected timing records. It adds 20 complete CPU trajectories, two error-decomposition figures, and a maintained explicit-basis-factory interface with verification. We address the requested ablations, geometric scope, error distributions, switch sensitivity, and maintainability, while correcting parameter, formula, and degree-of-freedom transcriptions that conflict with the archived source. Concurrent CPU durations are not used for rankings; the final isolated timing campaign remains unaccepted.
+
+\section{主要意见1：随机频率与解析层函数的消融}
+\textbf{修改与证据。}
+新增两档 $T=72$ 两因素对照：$(m,K,q,\Delta t^{-1})=(37,72,66,128)$ 与 $(41,80,76,152)$；频率采用五个注册随机种子或固定中点 $\xi_j=0.5$，非零模六个解析层函数开/关。均值块始终保持同一30维构造。新跑14条消融轨迹及2条CPU复算控制，复用并重评分10条冻结GPU控制。每条轨迹在19个物理时刻、3套重构网格、沿角向与时间细化的2套FD参考上检查全域和近场的速度、涡量四指标。
+
+固定中点并保留层函数时，两档最坏全域涡量误差分别约 $0.4092\%$、$0.3312\%$，均通过 $0.5\%$ 场门槛，与随机频率有层控制相当。去掉非零模层函数的12条轨迹均运行完成，却全部不满足精度，最坏全域涡量约 $71.85\%$--$73.90\%$。故当前证据不支持随机抖动是达到该门槛的必要条件。
+
+\textbf{限制。}移除层函数也使保留秩由39/40降至34/35，不能把误差变化解释为同维数下纯粹的层函数形状效应。进一步固定带宽62和截断阈值，检查 $m=41,45,49,53,57,61$，两档无层空间的秩均为35、35、36、36、36、36，未直接恢复39/40。该廉价构造检查不增加PDE轨迹，也不替代更广的等秩、变带宽研究。摘要、引言及讨论据此收紧随机性贡献表述。
+
+\noindent\textbf{English response.}
+We added a two-factor ablation at two resolutions, comparing five registered random jitters with fixed frequency midpoints and toggling the six nonzero-mode analytic layers. The 30-dimensional mean block is held fixed. Fourteen new ablation runs and two CPU controls supplement ten frozen GPU controls; all are rescored at 19 times on three grids against two angular/time-refined FD references using four field metrics. Both midpoint-plus-layer configurations pass, with worst full-domain vorticity errors of approximately $0.4092\%$ and $0.3312\%$. All 12 no-layer trajectories complete but fail accuracy. Randomness is therefore not necessary for the tested tolerance within these enriched configurations. Removal also reduces rank from 39/40 to 34/35, preventing an equal-rank causal attribution. Increasing raw size at fixed bandwidth and cutoff produces ranks at most 36 in the added construction checks. We retain this limitation and do not assign a numerical percentage of the benefit to enrichment or randomness.
+
+\noindent\textbf{定位 / Location:} 正文“补充消融、误差分解与换步敏感性”中的消融小节；\path{sections/en_review_ablation.tex} 与中文对应文件；完整协议和评分见 \path{work/rfm_review_v3/ablation/}。
+
+\section{主要意见2：规则几何与推广边界}
+\textbf{修改与证据。}
+新增非可分几何讨论，区分隐式线性模态分块和仍存在的非线性模态耦合。当前每步主成本为 $O(Kd^2+qdK+qN\log N)$，模态稠密准备为 $O(Kd^3)$；角度相关度量会破坏独立模态分解。若朴素地改为 $D=O(Kd)$ 的全局稠密系统，则存储和分解为 $O(D^2)$、$O(D^3)$，但局部稀疏、无矩阵和区域分解方法可以避免该朴素成本。新增条件性谱等价界明确哪些常数必须重新控制，并引用复杂界面RFM的原始研究，避免把已有线性Stokes证据移植成本文非稳态NS结论。
+
+\textbf{对建议措辞的调整。}我们没有采用“证明RFM无法击败谱方法与高阶差分”的表述。最终完整计时未获接受，既不能建立稳定胜出，也不能证明性能劣于最强对照。修订稿仍表述为“在指定有限圆环及当前证据下，整体速度优势尚未建立”。
+
+\noindent\textbf{English response.}
+The added geometric-scope subsection explains the modal factorization, its cost, and its loss under angle-dependent metrics. A fully dense coupled solve is presented as an avoidable design choice, not an inherent lower bound for irregular domains. A conditional spectral-equivalence bound states the assumptions required for a reference-operator preconditioner. We cite primary interface-RFM research while distinguishing its linear examples from the present nonlinear evolution. We do not adopt the proposed wording that RFM has been proved unable to beat classical methods: the rejected final timing campaign establishes neither a win nor a loss. The conclusion remains a scoped absence of established advantage.
+
+\noindent\textbf{定位 / Location:} 讨论中的非可分几何小节，\path{sections/en_geometry_scope.tex} 及中文对应文件；新增文献 Chi, Chen and Yang, CMAME 420 (2024), 116719。
+
+\section{主要意见3：速度与涡量误差排序的差别}
+\textbf{修改与证据。}
+新增径向误差剖面、角模误差能量谱、同一物理时刻的对比以及各指标极值时刻。图中径向误差以全域参考RMS归一化，角谱以全域参考平方范数归一化，避免参考局部过零导致比例发散。380个Parseval积分与原重构网格评分的最大差为 $2.13\times10^{-17}$。
+
+例如统一 $t=48$ 的高档分段控制中，Legendre速度误差约 $0.01842\%$，RFM为 $0.01886\%$；涡量则分别为 $0.35509\%$、$0.29438\%$。在 $t=72$，FD速度误差平方能量约 $84.24\%$ 位于 $k\leq8$；RFM涡量误差约 $47.72\%$ 位于 $25\leq k\leq80$。这支持速度与导数误差受不同成分影响，但不是对误差来源的唯一因果证明。RFM在 $r\geq4$ 的涡量误差能量占约 $61.14\%$，而极薄外层 $r\geq5.9$ 仅占 $1.37\%$，不能将全部误差归于薄边界层。上述RFM剖面明确使用种子7331；跨种子最坏表仍单独保留。
+
+\noindent\textbf{English response.}
+Two new figures and underlying data quantify radial and angular error distributions at common physical times. Global-reference normalization avoids divisions by vanishing local fields. The numerical Parseval checks agree with the reconstructed-grid scores to $2.13\times10^{-17}$. The common-time comparisons retain a velocity/vorticity ranking reversal, while the modal and radial energy fractions identify different error distributions. These are descriptive diagnostics rather than a unique causal decomposition. The original maxima occur at different times and sometimes different grids or seeds; the revision no longer interprets them as simultaneous flow-state comparisons or attributes all error to an extremely thin layer.
+
+\noindent\textbf{定位 / Location:} 正文新增误差分解小节、两幅图及表；\path{work/rfm_review_v3/profiles_bridge/profiles_summary.json} 和对应CSV。
+
+\section{主要意见4：启动段与延后换步}
+\textbf{修改与证据。}
+在两档RFM和Legendre空间各新增一条 $t_s=12$ 的CPU轨迹，共4条；其余参数保持不变。恒步与 $t_s=8$ 控制来自冻结记录。新增轨迹在 $t\leq12$ 的保存状态与对应恒步控制逐元素相同。四条均通过四个场指标及相对恒步的逐格三角保护，但改善有限。中档RFM最大速度误差从 $0.044672\%$ 降至 $0.043821\%$，涡量从 $0.431680\%$ 降至 $0.429910\%$，仍未回到恒步水平。每条轨迹多64次非线性评估；本次没有测量延后换步的GPU完整耗时。
+
+\textbf{解释修正。}原 $10^{-5}$ 门槛检查的是同一离散方案的CPU/native/GPU实现差异，不是允许变更时间策略的物理误差门槛。$0.02943\%$ 到 $0.04467\%$ 是约 $51.8\%$ 相对增长、$0.01524$ 个百分点，不能由这两个极值推出桥接导致降阶。$t=12$ 处脉冲及其前三阶导数连续，但第四阶导数跳跃，移到该点也不能不加假设地套用跨点四阶光滑性。修订将本实验称为换步敏感性，而非收敛阶验证。
+
+\noindent\textbf{English response.}
+Four new $t_s=12$ trajectories compare the same mid/high RFM and Legendre spaces with their archived constant-step and $t_s=8$ controls. All pass the field and cellwise triangle safeguards, but the improvement is modest and does not recover constant-step accuracy. Each incurs 64 additional nonlinear evaluations. No GPU timing benefit is inferred. We distinguish the $10^{-5}$ same-discretization implementation tolerance from the physical schedule comparison, percentage growth from percentage-point changes, and sensitivity from convergence-order evidence. The pulse is $C^3$ at its endpoint, with a fourth-derivative jump, so a switch at 12 does not automatically eliminate all regularity concerns.
+
+\noindent\textbf{定位 / Location:} 新增换步敏感性小节与表；\path{work/rfm_review_v3/profiles_bridge/bridge_summary.json}。
+
+\section{细节意见1：几何、公式、维数与FFT计数}
+\textbf{修改与证据。}
+逐项核对最终算例源码和资格记录，统一如下。
+\begin{center}
+\small
+\begin{tabularx}{\linewidth}{@{}p{.24\linewidth}X@{}}
+\toprule
+项目 & 最终圆环定义与解释 \\
+\midrule
+半径与区间 & $a=0.5$, $R=6$；物理跨度 $R-a=5.5$，对数坐标长度 $L=\log(R/a)=\log12$。 \\
+随机频率 & $b_j=62(j+\xi_j)/p$，不是 $62/[p(j+\xi_j)]$。 \\
+边界包络 & 当前外边界采用 $\chi=16z^2(1-z)$ 加 $b=z^2(1-z)^2/2$ 的二阶边界修正；平方包络属于其他边界构造。 \\
+实际维数 & RFM37/Legendre35均保留秩39，RFM41/Legendre36均保留秩40；均值秩30。名称后缀不是最终自由度。 \\
+SVD作用 & 保留空间的离散微分归一化；不证明消除所有模态、映射及浮点病态性。 \\
+FFT计数 & 16,382是8,191次非线性评估的批量cuFFT API调用数，不是单场一维变换总数或实际设备核数。 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+审稿表中的历史完整耗时来自较早实现，不能与最终v8误差表拼接成新的同精度性能排序。我们保留来源与批次区别，没有修改冻结数据来适应审稿转述。
+
+\noindent\textbf{English response.}
+The canonical annulus uses outer radius 6 and logarithmic extent $\log12$, not outer radius 6.5 or a linear extent called $L$. We clarify the frequency numerator, the far-field boundary envelope, actual retained ranks, the limited role of differential SVD normalization, and batched FFT-call units. In particular, the paired RFM and Legendre controls have equal retained ranks 39 and 40; suffixes do not imply extra RFM degrees of freedom. Historical prepared-CUDA timings are not pooled with the final v8 accuracy cohort to create a new ranking.
+
+\noindent\textbf{定位 / Location:} 方法章、配置表、工作量表；\path{work/rfm_review_v3/maintenance/facts_audit.json}。
+
+\section{细节意见2：准备开销的交叉点}
+\textbf{修改与证据。}
+新增显式条件模型。令额外准备 $\Delta P=0.206$--$0.240$ 秒，历史推进节省 $\Delta M_0=0.119$ 秒，候选总步数 $N_0=8192$，不变启动段 $N_s=1024$。仅让后段节省线性增长时，
+\[
+ \Delta T(N)=\Delta P-\frac{N-N_s}{N_0-N_s}\Delta M_0,
+ \qquad N_*=N_s+(N_0-N_s)\frac{\Delta P}{\Delta M_0}.
+\]
+对应约13,432--15,480候选步。粗略按全部步数缩放则约14,181--16,522步。两种计算均来自标记为 \texttt{diagnostic\_only} 的非隔离记录，仅说明模型假设，不是已验证约15,000步后胜出。更长时域仍须验证精度；多轨迹共享准备也须实际实现，不能由PTX缓存直接推断。
+
+\noindent\textbf{English response.}
+The revision gives the requested crossover formula, explicitly distinguishing a late-work model from an all-step approximation. Both yield a planning scale near $1.5\times10^4$ steps, but neither is a measured threshold. The input timing window was diagnostic and nonisolated, longer-horizon accuracy is untested, and repeated solves amortize preparation only if the relevant objects are truly shared. We retain these conditions next to the estimate.
+
+\noindent\textbf{定位 / Location:} 算子成本章“更长时间策略的条件性交叉点”；\path{sections/en_schedule_amortization.tex} 及中文对应文件。
+
+\section{细节意见3：移除运行时全局替换}
+\textbf{修改与证据。}
+审稿指出的问题确实存在于旧稳态控制，但实际替换对象是 \path{rfm_v2_solver.trial_basis}，不属于最终圆环路径。为保留冻结证据，我们在独立维护包中添加每次求解局部传入的 \texttt{basis\_factory}，使省略参数的旧默认调用保持行为；映射Legendre包装器直接传工厂，不再修改模块全局状态。没有覆盖历史源码，也没有把这项维护描述为圆环GPU加速。
+
+全部7项CPU测试通过。8种小配置与旧实现比较系数、Stokes矩阵、25个独立点的速度、涡量等字段及历史记录，采用相对和绝对容差 $10^{-12}$。其他测试强制不同工厂并发重叠，检查工厂异常、组装异常以及一个线程失败后另一个求解不受污染。验证范围是此次接口兼容和状态隔离，不保证任意外部自定义工厂都具备线程安全性。
+
+\noindent\textbf{English response.}
+We replaced the early steady-solver wrapper's global \texttt{trial\_basis} patch with a solve-local explicit factory in a maintained package, preserving default calls and frozen historical files. Seven CPU tests pass, including eight legacy-equivalence cases, deliberately overlapping factories, and exception isolation. This is a real maintainability correction, not a new annular solver optimization or a guarantee about arbitrary user factories. The maintained API, command, source hashes, and actual test receipt accompany the revision.
+
+\noindent\textbf{定位 / Location:} 实现章新增维护小节；\path{work/rfm_review_v3/maintenance/README.md}、维护源码与 \path{validation_results.json}。
+
+\section*{交付与尚未解决的边界 / Deliverables and remaining limits}
+中文、英文全文及本回复均由同一LaTeX项目构建，新增实验协议、数值数组、分析脚本与维护测试随仓库修订保存。我们没有新增隔离GPU计时，没有把CPU并行运行当作速度基准，也没有提交第三方库PR。新的结果进一步限制了随机性的贡献主张，但没有补齐最后的性能排序或非可分几何验证。
+
+Both manuscripts and this response are built from the same LaTeX project. New protocols, arrays, analysis scripts, and maintenance tests accompany the repository revision. There is no new isolated GPU timing result and no submitted third-party-library PR. The added evidence narrows the attribution to randomness; it does not resolve the final performance ordering or validate nonseparable geometries.
+\end{document}
