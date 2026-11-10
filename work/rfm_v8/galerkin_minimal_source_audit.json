@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "definition_ast_exact_after_allowed_references": {
+    "unit_legendre_jets": true,
+    "polynomial": true,
+    "mean_jets": true,
+    "StridedGalerkin": true,
+    "RecurrenceGalerkin": true,
+    "native_model": true,
+    "EARLY": true,
+    "BRIDGE": true,
+    "LATE": true,
+    "SNAPSHOTS": true,
+    "StepSchedule": true,
+    "step_schedule": true,
+    "bridge_weights": true,
+    "SwitchRuntime": true,
+    "same_coordinates": true,
+    "phase_operators": true,
+    "bridge_launch": true,
+    "solve_cuda_switch": true,
+    "PREPARATIONS": true,
+    "solve_cuda_prepared": true,
+    "spatial_blocks": true,
+    "pack_step": true,
+    "phase_operators_shared": true
+  },
+  "allowed_references": [
+    "basis_recurrence base.case.LENGTH → full_case.LENGTH",
+    "RecurrenceGalerkin rec.* aliases → equivalent numerical globals",
+    "CUDA variable source resolved against the original rfm_v7 directory"
+  ],
+  "omitted": "CPU profiles, native CPU integration, qualification, archive statistics, wake diagnostics and plotting.",
+  "original_sha256": {
+    "basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "galerkin_cuda_variable.py": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+    "galerkin_cuda_prepared.py": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+    "galerkin_phase_shared.py": "30d21dc4d3af74c5ca14b2f0d87aa31b0cceb2d70085b315648cac2da4ed17b9",
+    "galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87"
+  },
+  "generated_sha256": {
+    "galerkin_minimal_model.py": "b97a9f31384778d17a57e37c37e176405a41a08cea390952bef12cf734a6b43e",
+    "sbdf2_schedule_minimal.py": "c2a1735f8ee2d55e2996383e8fd6dbb5edb35e040d6f128345db21a2e447537d",
+    "galerkin_cuda_variable_minimal.py": "313881e3d974f3711cbf51362966904618ef40396711bd0e0927db40782d0ac3",
+    "galerkin_cuda_prepared_minimal.py": "b6d37e7ba155d814a50a7de933ed1af8d4f29d25d55be9fb13a981e0507330f5",
+    "galerkin_phase_shared_minimal.py": "e8c83aea761147b06ce36e7731def7205b682097269f63843aea2c4a25ec86fc"
+  },
+  "generator_sha256": "33aa818cefdfb2d138a433b9c5a093c53d6fb71b79aea2854e6bafc1d5597c48"
+}

@@ -1,0 +1,16 @@
+{
+  "status": "scope_correction_after_cpu_integration_evidence",
+  "evidence_sha256": {
+    "work/rfm_v8/rank_fair_outer_watchdog_v6_independent_review.json": "0b738b0edfcc4306ac868c11c14e0a606e1f603d6464627b1a94022389833ece",
+    "work/rfm_v8/rank_fair_slot_publish_cpu_review/independent_diagnosis.json": "b38be42c2b075729679a9c91588070d4d69cd40ee8918f3da9dd87bcf9660f5a"
+  },
+  "historical_review_unchanged": true,
+  "correction": "The original v6 delta review verified the intended shared-delete read change and 11 archived CPU fixtures. Its wording about avoiding a blocked publication must not be read as proof that ShareDelete makes Python Path.replace or MoveFileExW reliable with concurrent target readers. The later independent API matrix and reflected frozen-reader test reproduce WinError5 for this combination.",
+  "preserved_claims": [
+    "The exact v5-to-v6 source change and all 11 recorded fixtures remain verified historical evidence.",
+    "The SlotGuard call chain reads the live state through the shared FileStream and does not hash that live state.",
+    "The specific historical slot011 lock holder and underlying triggering operation remain unproved."
+  ],
+  "current_boundary": "The final formal cohort remains rejected for both incomplete terminal publication and external CPU-budget violations. No extra GPU attempt, repaired ranking or production-ready watchdog is authorized.",
+  "future_cpu_result": "The 512 immutable publications with zero read exceptions validate a tested publication primitive only. They are not integrated watchdog verification or T72 numerical qualification."
+}

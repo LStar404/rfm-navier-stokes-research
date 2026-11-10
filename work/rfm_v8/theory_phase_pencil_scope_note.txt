@@ -1,0 +1,37 @@
+相位归一化的范围修正与最坏界锚点选择
+
+本说明补充既有 theory_galerkin_phase_pencil.txt 中“取中位步长使分母接近1”的表述。
+原数值实验、源码与冻结候选均不修改。本说明是一项数学推导，不是新增的运行时性能实测。
+
+设实对称 M,K 为半正定，H=a_ref M+h_ref K 为正定，a_ref,h_ref>0。
+取 P 使 P^T H P=I、P^T M P=diag(lambda_i)。令 theta_i=a_ref lambda_i。
+因为 P^T(h_ref K)P=I-a_ref diag(lambda_i) 半正定，有 0<=theta_i<=1。
+对相位 j 的 A_j=a_j M+h_j K，a_j,h_j>0，
+
+  d_ji=(a_j/a_ref)theta_i+(h_j/h_ref)(1-theta_i).
+
+因此 d_ji 位于 a_j/a_ref 与 h_j/h_ref 之间。只要这些比值没有接近1，
+选取步长中位数本身不能保证相对谱接近1；任意正参数下的正性仍成立。
+
+令 r_j=h_j/a_j，eta=h_ref/a_ref，则归一化算子的2范数条件数满足
+
+  kappa_2(P^T A_j P) <= B_j(eta)
+                     = max(r_j/eta, eta/r_j).
+
+证明：提取正的标量 a_j/a_ref，剩余对角元为
+theta_i+(r_j/eta)(1-theta_i)，位于 1 与 r_j/eta 之间。
+最大元与最小元之比由 B_j 控制。
+
+对固定的一组正相位比 r_j，记 r_min=min_j r_j、r_max=max_j r_j，有
+
+  max_j B_j(eta)=max(r_max/eta, eta/r_min).
+
+两个正项相乘恒为 r_max/r_min，故其最大值至少为 sqrt(r_max/r_min)。
+取 eta=sqrt(r_min*r_max) 时两项相等，达到该下界。
+这给出最小化最坏条件数上界的几何中心锚点，而非通常的算术中位步长。
+共同缩放 a_ref,h_ref 不改变该条件数界。若所有 r_j 相同，该界为1。
+
+边界：这是针对上述凸组合上界的极小极大最优，不一定最小化给定矩阵的实际条件数；
+theta_i 未必逼近端点0和1。它也不是原坐标 A_j 的条件数保证，因为 P 可病态。
+本推导不消除跨模态矩阵不对易，不减少非线性FFT次数，不证明变量步长NS时间推进稳定。
+已有准备成本测量仍是原锚点方案；不能将本说明虚构成已测到的性能收益。

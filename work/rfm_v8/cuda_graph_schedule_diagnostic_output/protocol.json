@@ -1,0 +1,1223 @@
+{
+  "status": "frozen",
+  "template": {
+    "name": "T72 same-solver CUDA graph chunk diagnostic",
+    "horizon": 72,
+    "graph_steps": [
+      24,
+      48,
+      64,
+      128
+    ],
+    "blocks": 3,
+    "order_seed": 412881,
+    "arms": [
+      {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ]
+      },
+      {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ]
+      },
+      {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ]
+      }
+    ],
+    "scope": "Non-isolated diagnostic only. One fresh child and fresh CUDA runtime per solve, same full legacy dependency path in every arm. Original precision, dealiased spatial operators, nonlinear work, 19 common snapshots and 577 probes. No attempt overwrite or timing ranking. First-block raw trajectories and all array hashes retained.",
+    "promotion_screen": "All archived trajectory arrays must match the qualified graph24 controls byte-for-byte. Any prospective graph benefit needs at least 2% median improvement in both march and full solver clocks, all three march pairs favoring the candidate, and no median fresh-clock regression. This screen cannot establish isolated performance."
+  },
+  "physical_times": [
+    0.5,
+    1,
+    2,
+    4,
+    6,
+    8,
+    8.125,
+    8.5,
+    9,
+    10,
+    12,
+    16,
+    24,
+    36,
+    48,
+    54,
+    60,
+    66,
+    72
+  ],
+  "controls": {
+    "rfm37_k72": {
+      "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz",
+      "sha256": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd",
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      }
+    },
+    "leg37_k72": {
+      "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+      "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920",
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      }
+    },
+    "fd176_k80": {
+      "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+      "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad",
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      }
+    }
+  },
+  "source_hashes": {
+    "rfm_v7/prepared_formal_eligibility.py": "9735c1f1a00df5ab5d6f4c80ec7d5b056df01e7c74fd6b0c1ca62bc2f91bca25",
+    "rfm_v7/prepared_formal_timing.py": "26ffd108f7111411b1e0e91a2e503c7f6a0695beb3a6bdede03a33525cd65996",
+    "rfm_v7/prepared_process_identity.py": "8e57d288e8c9348b1edd3fea641b074020598af734083c5d7fd37e62fbbaa46c",
+    "rfm_v7/switch_formal_timing.py": "41e19be5c8cf8c51f693d8ce751045ab9a9e4ef2473d5f087f4622bd42ffd7a2",
+    "rfm_v7/make_cuda_prepared_solver.py": "c5496816dbfa4f91cc7f3d53a85d2cb3a8bea4f681b0a2c273c705b395c48bcc",
+    "rfm_v7/galerkin_cuda_variable.py": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+    "rfm_v7/galerkin_cuda_prepared.py": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+    "rfm_v7/galerkin_phase_shared.py": "30d21dc4d3af74c5ca14b2f0d87aa31b0cceb2d70085b315648cac2da4ed17b9",
+    "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "rfm_v7/prepared_pilot.py": "ae94f16cda9be82570c7db9738bf02724cea2aae10ab06ca3557d86a5a109820",
+    "rfm_v7/cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v7/verify_galerkin_cuda_module_bundle.py": "3bfafb326cf055061fe7dc211950beec61a9a70b61bd6556c45deb750b304ab4",
+    "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+    "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+    "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+    "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+    "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+    "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+    "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+    "rfm_v7/joint_hardware_pow2.py": "486edac66c62fc54975424c57c72ab6eeb9143f8ef8504bcf98cc3449b9d74fa",
+    "rfm_v7/cpu_formal_reference_point1.py": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+    "rfm_v7/cpu_formal_projection.py": "ed95684899c8f44a17d54c79a911a2ef355623095a6d99be3649b2a3b155e023",
+    "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+    "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+    "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+    "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+    "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+    "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+    "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+    "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+    "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432",
+    "rfm_v7/r128_operator_qualification.py": "7534db122d520301d7c94dc4dc0a046def406e0b76b474226338b28de1338d11",
+    "rfm_v7/cpu_precontracted.py": "e09a64e23967118e4b0834d415d4b219a5cd8fcda2b610fc0da9c2a60e6419cb",
+    "rfm_v7/cpu_precontracted_native.py": "eb440eee40e82a830e60e378497d5899b9295f5591156e8bfd38382a2c0e8b96",
+    "rfm_v7/galerkin_cpu_contract.c": "6022ac22ae22e513ec00298ebf81398a2d74cf2ee5b9aa4a831c87f7a01baf57",
+    "rfm_v7/galerkin_cpu_contract.dll": "73bd61940a4d9eee5edd8f6cd58e3980f27c8847f7467c33d030276630f378ee",
+    "rfm_v7/cpu_formal_step_screen.py": "ad9eacf286fd4926df9b8faa5490ec3f5b69e425829d25345c1bca53a87331cd",
+    "rfm_v7/cpu_native_qualification.py": "5d545655d099fd0a0bf1b79cf4cf43f16a78dbd2439344fd81b9774ca61a2e09",
+    "rfm_v7/cpu_sbdf2_switch_pilot.py": "6a9e0292977118ff4c70ccfcb51a016c36b469b09ed5708c7b439c0abd29a802",
+    "rfm_v7/switch_qualification.py": "95976f65f1502f2ccc1da42aaa85cf88f915f115e0dafd23dbef19fd797795cb",
+    "rfm_v7/galerkin_cuda_variable_audit.py": "bd16d6be11866ac07b32dfb670887b02af67c278096d5f55d70e776009ce2899",
+    "rfm_v7/cpu_sbdf2_switch_decimal.py": "d93342bab178a1d2154e5bf92887f2fb08db26c1b408c40aaae2c98390dc2a4d",
+    "rfm_v7/early_reference_chain.py": "d3dcd81e0220f00b00b5fae922ea394ceb120b2816381d79a88c9b618c5cbf96",
+    "rfm_v7/early_reference_continuation.py": "24d4ecf6f79f204f0255746770aa0b7da0dbe75c26ada1cf7e80b3155b6a0110",
+    "rfm_v7/cuda_multiscale.py": "ae6b32b85355faa172c33ac8b0efc792faba5dc4aa5bab1ac0ea9ee024392850",
+    "rfm_v7/multiscale_switch_qualification.py": "e568d53112b7d2b14d6b5b894876f383f0c2de3aade23a5f37f878a747cd0b49",
+    "rfm_v7/verify_switch_qualification.py": "4d7c146cf16562bb914b14c756b9c6ad90cffde8b601e8bcada46e652ab6ea92",
+    "rfm_v7/prepared_qualification.py": "f98767fcc9f870e2bbd1b6fc16cc4c6c92b6961396c5eaddecce122fcf18841d",
+    "rfm_v7/fd_early_multiscale.py": "d40e7ff60475a7bb2fd731914860463b14257d9bec16087d6b5435e378ea8b96",
+    "rfm_v7/prepared_formal_scoring_cache_audit.py": "3b4448735eb25e02337f2396f5caccd1cc202451fa2be13da150b836b10dcec5",
+    "rfm_v7/prepared_formal_transport_smoke.py": "3a9911efbabc436c060225ca14b76dd4457200c44637b1d238ba885594a457ca",
+    "rfm_v8/cuda_graph_schedule_diagnostic.py": "937776545289996c5b8a2111de49a518a321bfeb3ad60e6eebf8f9ee3f6490f7",
+    "rfm_v8/protocol_cuda_graph_schedule.json": "c806a0a40c8b91007ecc1f62a5a7fa3c0316df3b6ee7b7321692c027140684e7",
+    "rfm_v7/prepared_formal_timing_mid_output/protocol.json": "498414d660a6a609aa99189640aa721b033e1e089deca98bde88d7355a9b945a",
+    "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd",
+    "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920",
+    "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+  },
+  "jobs": [
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 48,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 24,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 1,
+      "graph_steps": 64,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 1,
+      "graph_steps": 24,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 48,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 1,
+      "graph_steps": 128,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 1,
+      "graph_steps": 48,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 1,
+      "graph_steps": 24,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 2,
+      "graph_steps": 24,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 24,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 2,
+      "graph_steps": 64,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 48,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 2,
+      "graph_steps": 48,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 48,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 2,
+      "graph_steps": 128,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 2,
+      "graph_steps": 24,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 3,
+      "graph_steps": 48,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 3,
+      "graph_steps": 24,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 3,
+      "graph_steps": 64,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 48,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 24,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 48,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "name": "fd176_k80",
+      "seed": 17,
+      "solver": "legacy_fd_dense",
+      "rates": [
+        128
+      ],
+      "block": 3,
+      "graph_steps": 128,
+      "config": {
+        "n": 176,
+        "k": 80,
+        "stretch": 1.0,
+        "grid": "outer",
+        "angular": "fft",
+        "linear": "native"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 24,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "solver": "legacy_prepared_combined",
+      "rates": [
+        128,
+        112
+      ],
+      "block": 3,
+      "graph_steps": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "status": "registered_design_before_model_or_flow_runs",
+  "scope": "CPU accuracy only on the Re=100 asymmetric full-annulus case. No change to the existing rank-fair GPU timing draft.",
+  "physical_gate": 0.005,
+  "reference_budget": 0.00125,
+  "reference_names": ["angular_fine", "time_fine"],
+  "grid_names": ["gauss123", "mid129", "layer144"],
+  "norms": ["velocity", "vorticity", "near_velocity", "near_vorticity"],
+  "physical_times_t72": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "physical_times_t16": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16],
+  "probe_spacing": 0.125,
+  "switch_time": 8,
+  "cpu_affinities": [10, 12],
+  "threads": 1,
+  "model": "basis_recurrence_model.RecurrenceGalerkin",
+  "jobs": [
+    {"name": "high_rfm35_s7687", "family": "rfm", "m": 35, "k": 80, "q": 76, "seed": 7687, "expected_rank": 38, "rates": [152, 136], "first_horizon": 72},
+    {"name": "high_rfm35_s8011", "family": "rfm", "m": 35, "k": 80, "q": 76, "seed": 8011, "expected_rank": 38, "rates": [152, 136], "first_horizon": 72},
+    {"name": "high_rfm35_s8353", "family": "rfm", "m": 35, "k": 80, "q": 76, "seed": 8353, "expected_rank": 38, "rates": [152, 136], "first_horizon": 72},
+    {"name": "high_rfm35_s9041", "family": "rfm", "m": 35, "k": 80, "q": 76, "seed": 9041, "expected_rank": 38, "rates": [152, 136], "first_horizon": 72},
+    {"name": "high_leg34_s17", "family": "legendre", "m": 34, "k": 80, "q": 76, "seed": 17, "expected_rank": 38, "rates": [152, 136], "first_horizon": 16},
+    {"name": "high_leg33_s17", "family": "legendre", "m": 33, "k": 80, "q": 76, "seed": 17, "expected_rank": 37, "rates": [152, 136], "first_horizon": 16},
+    {"name": "mid_rfm35_s7331", "family": "rfm", "m": 35, "k": 72, "q": 66, "seed": 7331, "expected_rank": null, "rates": [128, 112], "first_horizon": 16}
+  ],
+  "inherited": {
+    "high_rfm35_7331": "rfm_v8/rfm_rank_high_screen_paired_output/t72/summary.json",
+    "high_leg35": "rfm_v8/legendre_rank_switch_output/summary.json"
+  },
+  "numerical_gate": "Run both uniform and combined from rest at the fixed rates. Check both physical references, every grid-time-metric cell, same-space uniform triangle and bitwise startup agreement. Save the two additional combined post-bridge states and full probe series. If a T16 job passes, verify its full saved prefix bitwise at T72. Both T72 schedules require sustained alternating wake. Keep actual ranks and all failed or ineligible cases.",
+  "selection": "High RFM35 is eligible for further GPU qualification only if all five fixed seeds pass both schedules at T72 with lower retained rank than RFM41. If one fails, retain RFM41 as the five-seed configuration; RFM37/39 still have only one seed. Report the lowest physically qualified deterministic Legendre and any same-rank one separately. Rank varies by seed if observed; do not call an unmatched rank equal. A lone mid RFM35 seed is a screen only. No new seed search, scale search, reruns of a failed numerical attempt, timing ranking or formal cohort promotion."
+}

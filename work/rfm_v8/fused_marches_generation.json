@@ -1,0 +1,188 @@
+{
+  "status": "passed",
+  "scope": "Exact inverse restoration of parent solver functions after declared replacements",
+  "target_sha256": "e0f504571bc3876389cd3e61b4140d7148a39ee2c205247c284df6b8bf92b8ae",
+  "generator_sha256": "b9642d3d481a12d30a9c7d68432f343978a9645403c1628d95a89748576a6df5",
+  "functions": [
+    {
+      "parent": "rfm_v7/galerkin_cuda_native.py",
+      "parent_file_sha256": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+      "parent_function": "solve_native",
+      "parent_function_sha256": "e8e212106103014eeaf2bfbcc16cc0464db917c0b9b9bc9bb30c08132bf12b67",
+      "generated_function_sha256": "7138962a0d696cc0014b66da79f188db75aa9e3bab9ef2ef2ace6ed4a1463e95",
+      "restored_parent_sha256": "e8e212106103014eeaf2bfbcc16cc0464db917c0b9b9bc9bb30c08132bf12b67",
+      "replacement_whitelist": [
+        {
+          "label": "function entry",
+          "before": "def solve_native(*, steps,",
+          "after": "def solve_uniform_fused(*, engine, steps,"
+        },
+        {
+          "label": "owned runtime argument",
+          "before": "profile_steps=0, runtime=None, toolkit=None",
+          "after": "profile_steps=0, toolkit=None"
+        },
+        {
+          "label": "same-warp one-module runtime",
+          "before": "Runtime(toolkit)) if runtime is None else runtime",
+          "after": "FusedMarchRuntime(\"uniform\",engine,n,toolkit))"
+        },
+        {
+          "label": "remove only fused physical staging",
+          "before": "np.zeros((3, q, n)),\n            np.zeros((2, q, n)),",
+          "after": "None if rt.fused else np.zeros((3, q, n)),\n            None if rt.fused else np.zeros((2, q, n)),"
+        },
+        {
+          "label": "optional staging upload",
+          "before": "uploaded = [rt.upload(resources, a) for a in (",
+          "after": "uploaded = [rt.upload(resources, a) if a is not None else None for a in ("
+        },
+        {
+          "label": "original FFT plan replaced by matched angular node",
+          "before": "        inverse = rt.plan(resources, n, 3 * q, True)\n        forward = rt.plan(resources, n, 2 * q, False)\n",
+          "after": "        angular_nodes, prime, angular_names = nonlinear_nodes(rt,resources,\"gal\",n,k,q,spectrum,physical,\n                                                              products,transformed,previous)\n"
+        },
+        {
+          "label": "original physical product now owned by angular node",
+          "before": "        multiply = rt.launch(\"products\", max(q * n, 2 * q * half), physical, transformed,\n                             products, previous, q * n, 2 * q * half)\n",
+          "after": "        # Product and history run within the registered angular nodes.\n"
+        },
+        {
+          "label": "nonlinear stage substitutions only",
+          "before": "        stage_names = (\"radial_reconstruction\", \"inverse_fft\", \"products_and_history\", \"forward_fft\",\n                       \"projection_and_advance\", \"probes_checkpoints_and_step\")\n        stages = (form, lambda: call(rt.z2d, inverse, spectrum, physical), multiply,\n                  lambda: call(rt.d2z, forward, products, transformed), advance, observe)\n\n",
+          "after": "        stage_names = (\"radial_reconstruction\", *angular_names, \"projection_and_advance\", \"probes_checkpoints_and_step\")\n        stages = (form, *angular_nodes, advance, observe)\n\n"
+        },
+        {
+          "label": "zero warm-up nodes",
+          "before": "        # Materialize both cuFFT plans before graph capture. Zero products remain zero.\n        call(rt.z2d, inverse, spectrum, physical)\n        call(rt.d2z, forward, products, transformed)\n",
+          "after": "        for node in prime:\n            node()\n"
+        },
+        {
+          "label": "angular operation audit",
+          "before": "    return case.Solution(model, checkpoints, times, probe_times, probes[:, 0], probes[:, 1], row)",
+          "after": "    row.update(nonlinear_metadata(rt,steps-1,q,\"gal\"))\n    return case.Solution(model, checkpoints, times, probe_times, probes[:, 0], probes[:, 1], row)"
+        }
+      ]
+    },
+    {
+      "parent": "rfm_v8/galerkin_cuda_prepared_minimal.py",
+      "parent_file_sha256": "b6d37e7ba155d814a50a7de933ed1af8d4f29d25d55be9fb13a981e0507330f5",
+      "parent_function": "solve_cuda_prepared",
+      "parent_function_sha256": "79213b63f710ef29284371f6ecaa0eb8320951cf7baa9dfcd5eb0ddd3f8afc23",
+      "generated_function_sha256": "3a1bcfe0ecf7b91969df42a947657c0b09bd92614b16942634116b49523b846f",
+      "restored_parent_sha256": "79213b63f710ef29284371f6ecaa0eb8320951cf7baa9dfcd5eb0ddd3f8afc23",
+      "replacement_whitelist": [
+        {
+          "label": "function entry",
+          "before": "def solve_cuda_prepared(*, preparation=\"combined\",",
+          "after": "def solve_combined_fused(*, engine, preparation=\"combined\","
+        },
+        {
+          "label": "same existing shared preparation",
+          "before": "    if preparation not in PREPARATIONS:\n        raise ValueError(\"Choose module_only, shared_only, or combined\")\n    runtime_type, phase_builder = PREPARATIONS[preparation]\n",
+          "after": "    if preparation != \"combined\":\n        raise ValueError(\"Only the qualified combined preparation is registered\")\n    phase_builder = phase_operators_shared\n"
+        },
+        {
+          "label": "same-warp one-module runtime",
+          "before": "runtime_type(toolkit)",
+          "after": "FusedMarchRuntime(\"combined\",engine,n,toolkit)"
+        },
+        {
+          "label": "remove only fused physical staging",
+          "before": "np.zeros((3, q, n)),\n                  np.zeros((2, q, n)),",
+          "after": "None if rt.fused else np.zeros((3, q, n)),\n                  None if rt.fused else np.zeros((2, q, n)),"
+        },
+        {
+          "label": "optional staging upload",
+          "before": "[rt.upload(resources, a) for a in arrays]",
+          "after": "[rt.upload(resources, a) if a is not None else None for a in arrays]"
+        },
+        {
+          "label": "original FFT plan replaced by matched angular node",
+          "before": "        inverse = rt.plan(resources, n, 3*q, True)\n        forward = rt.plan(resources, n, 2*q, False)\n",
+          "after": "        angular_nodes, prime, _ = nonlinear_nodes(rt,resources,\"gal\",n,k,q,spectrum,physical,\n                                                 products,transformed,previous)\n"
+        },
+        {
+          "label": "original products now owned by angular node",
+          "before": "        multiply = rt.launch(\"products\", max(q*n, 2*q*half), physical, transformed, products, previous, q*n, 2*q*half)\n",
+          "after": "        # Product and history run within the registered angular nodes.\n"
+        },
+        {
+          "label": "nonlinear stage substitution only",
+          "before": "            call(rt.z2d, inverse, spectrum, physical)\n            multiply()\n            call(rt.d2z, forward, products, transformed)",
+          "after": "            for node in angular_nodes:\n                node()"
+        },
+        {
+          "label": "zero warm-up nodes",
+          "before": "        call(rt.z2d, inverse, spectrum, physical)\n        call(rt.d2z, forward, products, transformed)",
+          "after": "        for node in prime:\n            node()"
+        },
+        {
+          "label": "angular operation audit",
+          "before": "    return case.Solution(model, checkpoints, snapshots, schedule.probe_times, probes[:, 0], probes[:, 1], row)",
+          "after": "    row.update(nonlinear_metadata(rt,executed,q,\"gal\"))\n    return case.Solution(model, checkpoints, snapshots, schedule.probe_times, probes[:, 0], probes[:, 1], row)"
+        }
+      ]
+    },
+    {
+      "parent": "rfm_v7/fd_cuda_native.py",
+      "parent_file_sha256": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+      "parent_function": "solve_fd_native",
+      "parent_function_sha256": "f7a5bc6c94c8fdd206447c7bb0be8429d5f7aac9c8e4a6ddebe11c436cae4a2d",
+      "generated_function_sha256": "288bd840cf4b4fedf308e12fdb2c9190b599e996e23c54b4dd453abd61614f6f",
+      "restored_parent_sha256": "f7a5bc6c94c8fdd206447c7bb0be8429d5f7aac9c8e4a6ddebe11c436cae4a2d",
+      "replacement_whitelist": [
+        {
+          "label": "function entry",
+          "before": "def solve_fd_native(*, steps,",
+          "after": "def solve_fd_fused(*, engine, steps,"
+        },
+        {
+          "label": "owned runtime argument",
+          "before": "runtime=None, toolkit=None, **config",
+          "after": "toolkit=None, **config"
+        },
+        {
+          "label": "same-warp one-module runtime",
+          "before": "FDRuntime(toolkit)) if runtime is None else runtime",
+          "after": "FusedMarchRuntime(\"fd\",engine,n,toolkit))"
+        },
+        {
+          "label": "remove only fused physical staging",
+          "before": "np.zeros((4, w, n)), np.zeros((w, n)),",
+          "after": "None if rt.fused else np.zeros((4, w, n)), None if rt.fused else np.zeros((w, n)),"
+        },
+        {
+          "label": "optional staging upload",
+          "before": "[rt.upload(resources, a) for a in arrays]",
+          "after": "[rt.upload(resources, a) if a is not None else None for a in arrays]"
+        },
+        {
+          "label": "original FFT plan replaced by matched angular node",
+          "before": "        plan_inverse = rt.plan(resources, n, 4*w, True)\n        plan_forward = rt.plan(resources, n, w, False)\n",
+          "after": "        angular_nodes, prime, angular_names = nonlinear_nodes(rt,resources,\"fd\",n,modes-1,w,spectrum,physical,\n            products,transformed,previous,mean_terms=mean_terms,step=index,mean=mean)\n"
+        },
+        {
+          "label": "original product and mean now owned by angular node",
+          "before": "        product = rt.launch(\"fd_products\", w*n, physical, transformed, mean_terms, index,\n                            products, previous, mean, w, modes, n, half)\n",
+          "after": "        # Products, history and FD mean run within the registered angular nodes.\n"
+        },
+        {
+          "label": "nonlinear stage substitutions only",
+          "before": "        stage_names = (\"radial_stencils\", \"inverse_fft\", \"products_history_mean\", \"forward_fft\",\n                       \"rhs\", \"linear_solve\", \"probe_snapshot_step\")\n        stages = (form, lambda: call(rt.z2d, plan_inverse, spectrum, physical),\n                  product, lambda: call(rt.d2z, plan_forward, products, transformed),\n                  assemble, advance, observe)\n\n",
+          "after": "        stage_names = (\"radial_stencils\", *angular_names, \"rhs\", \"linear_solve\", \"probe_snapshot_step\")\n        stages = (form, *angular_nodes, assemble, advance, observe)\n\n"
+        },
+        {
+          "label": "zero warm-up nodes",
+          "before": "        # Prime cuFFT with zero fields outside capture. The first physical state\n        # and zero-velocity histories remain unchanged.\n        stages[1]()\n        stages[3]()\n",
+          "after": "        for node in prime:\n            node()\n"
+        },
+        {
+          "label": "angular operation audit",
+          "before": "    return case.Solution(model, checkpoints, times, probe_times, probes[:, 0], probes[:, 1], row)",
+          "after": "    row.update(nonlinear_metadata(rt,steps-1,w,\"fd\"))\n    return case.Solution(model, checkpoints, times, probe_times, probes[:, 0], probes[:, 1], row)"
+        }
+      ]
+    }
+  ]
+}

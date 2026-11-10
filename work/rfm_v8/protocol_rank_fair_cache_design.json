@@ -1,0 +1,27 @@
+{
+  "status": "fixed_design_only_no_execution_freeze",
+  "base_numerical_design": "rfm_v8/protocol_rank_fair_extended_design.json",
+  "gpu_engine": "warp_cufft",
+  "gpu_context": "private_cuCtxCreate_v2_scoped_cufft",
+  "runtime_api": "cuda_private_scope_solver.solve_scoped",
+  "policies": ["empty_first", "strict_hit"],
+  "policy_definition": {
+    "empty_first": "One unused explicit artifact directory per job. Include compiler identity, NVRTC compile, atomic artifact write and verification, CUDA load, plans, graph, full solve and cleanup in the solver clock. Existing OS and driver JIT caches remain present.",
+    "strict_hit": "Read and validate the same prebuilt PTX bytes on each fresh process. No compile fallback. Include key generation, artifact reading/validation, load, plans, graph, full solve and cleanup in the solver clock. Record NVRTC component preparation separately and use actual empty-first total for end-to-end first-use cost."
+  },
+  "fixed_artifacts": "rfm_v8/cuda_ptx_artifact_output/manifest.json",
+  "qualification": {
+    "unique_numerical_identities": 39,
+    "policy_identity_count": 78,
+    "policy_pair": "Every policy meets the same fixed 19/21-time CPU/reference/wake gates on its own. Require bitwise saved field coefficients, times and all 577 probes across two policies, identical spatial signature, FFT work and PTX artifact SHA. Missing old serial CUDA attribution for 11 new numerical identities is documented separately.",
+    "gpu_capture": "Single serial capture owner, one child at a time. Actual fixed runtime path, exact hard-wall process handle, terminal before artifact commit, stop at an anomaly and preserve every attempt.",
+    "cpu_audit": "Four independent BLAS1 lanes on logical CPUs 10,12,14,16, following terminal committed artifacts. They may reconstruct/reference-score while the next qualifying GPU child runs. No time ranking comes from the qualification cohort."
+  },
+  "formal_windows": [
+    {"name": "mid_b1_b5", "scale": "mid", "blocks": [1, 2, 3, 4, 5], "slots": 50, "order_seed": 833941},
+    {"name": "high_b1_b3", "scale": "high", "blocks": [1, 2, 3], "slots": 66, "order_seed": 833949},
+    {"name": "high_b4_b5", "scale": "high", "blocks": [4, 5], "slots": 44, "order_seed": 833959}
+  ],
+  "acceptance": "All three prospective windows must complete their exact schedules with the existing sampled quiet gates and 720-second cap each. Within-block method and cache comparisons use the same prescribed RFM seed and fixed Legendre control. Do not pool historical primary-context, uncached, fused, or v7 rows. Preserve rejected, failed and interrupted windows with no per-slot replacement. Independent both-clock verification is required.",
+  "fusion": "Excluded after the registered private T9 promotion rule failed (only 2 of 4 fused strict-hit fresh-process comparisons won). No second acceptance gate is substituted."
+}

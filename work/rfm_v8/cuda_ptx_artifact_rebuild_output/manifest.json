@@ -1,0 +1,682 @@
+{
+  "status": "passed",
+  "scope": "CPU NVRTC and verified artifact IO only. No CUDA context, JIT load, solve or speed ranking.",
+  "compiler": {
+    "api_version": [
+      11,
+      8
+    ],
+    "library_sha256": {
+      "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd",
+      "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8"
+    }
+  },
+  "compiler_identity_seconds": 0.0645541000412777,
+  "modules": [
+    {
+      "family": "uniform",
+      "engine": "warp_cufft",
+      "ntheta_recipe": 225,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "observe",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "325ef62d1f43e323b4c0f9177909301714a20d7913f7e12d926367595bda8a2f",
+          "target": "compute_52"
+        },
+        "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c",
+        "ptx_bytes": 34707,
+        "ptx_sha256": "e7ee82ad06af9acd2a4244f54e6fa12fdd05de04f584c36a96d6ea2477b6539a"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.34182130004046485,
+        "nvrtc_seconds": 0.3152521000010893,
+        "artifact": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c.rfmptx",
+        "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0011471000034362078,
+        "nvrtc_seconds": 0.0,
+        "artifact": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c.rfmptx",
+        "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855"
+      }
+    },
+    {
+      "family": "combined",
+      "engine": "warp_cufft",
+      "ntheta_recipe": 225,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "advance_bridge",
+            "observe",
+            "observe_absolute",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "aa173a13e4c98d2a52dcda363b4e4a6f6d8924dcaac5dfe6bbbdb9862e76a475",
+          "target": "compute_52"
+        },
+        "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439",
+        "ptx_bytes": 52096,
+        "ptx_sha256": "99e098beda76d6be715e5ffd8a62905854a13a3b93c59f5cffcc031f8df0d026"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.32456989999627694,
+        "nvrtc_seconds": 0.30107079999288544,
+        "artifact": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439.rfmptx",
+        "artifact_sha256": "d943a666907f7ed2750e5806190b4b85e1f8d5ac2d3ae5986668e7a816b04b0b"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.001289699983317405,
+        "nvrtc_seconds": 0.0,
+        "artifact": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439.rfmptx",
+        "artifact_sha256": "d943a666907f7ed2750e5806190b4b85e1f8d5ac2d3ae5986668e7a816b04b0b"
+      }
+    },
+    {
+      "family": "fd",
+      "engine": "warp_cufft",
+      "ntheta_recipe": 243,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "fd_band",
+            "fd_dense",
+            "fd_fields",
+            "fd_observe",
+            "fd_products",
+            "fd_rhs"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "6f4c868b1c7ba224a866ffff627df9b6a5ba2a3ed7be4d83864c1dc28516376c",
+          "target": "compute_52"
+        },
+        "key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466",
+        "ptx_bytes": 57590,
+        "ptx_sha256": "dad320f4f94ff083c349559281e46841e437669a50dd6b74dd3df61e6414e596"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.3619013999705203,
+        "nvrtc_seconds": 0.33847270003752783,
+        "artifact": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466.rfmptx",
+        "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0012424999731592834,
+        "nvrtc_seconds": 0.0,
+        "artifact": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466.rfmptx",
+        "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3"
+      }
+    },
+    {
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta_recipe": 225,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "fused_gal_225",
+            "observe",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "8988a40f8110aff5aafa14fd233dbf628bc7baa897a0298e9ada034264c875d4",
+          "target": "compute_52"
+        },
+        "key": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69",
+        "ptx_bytes": 86343,
+        "ptx_sha256": "7cc40bd3e8b77b53c4873746a5aaa3b39732aaddc8a883d7b585ba86903a3c7f"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.44331360002979636,
+        "nvrtc_seconds": 0.42238830000860617,
+        "artifact": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69.rfmptx",
+        "artifact_sha256": "f063c685da8453a77d27a9c197ba4438b9583a007866524305308e8f54a4205d"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0013055999879725277,
+        "nvrtc_seconds": 0.0,
+        "artifact": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69.rfmptx",
+        "artifact_sha256": "f063c685da8453a77d27a9c197ba4438b9583a007866524305308e8f54a4205d"
+      }
+    },
+    {
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta_recipe": 243,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "fused_gal_243",
+            "observe",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "7cc4d80c1a4f94a5d29be6fc321d83ffb6109fabd324a94a9fd269a3a3be7585",
+          "target": "compute_52"
+        },
+        "key": "0eef4d25ce3a2af43a15ac9a1972374b581af78ecc407cb80bb0f4339aac536d",
+        "ptx_bytes": 111515,
+        "ptx_sha256": "7e3599e6e96aea1f0742626ae351ddd038c774784ce821598f1bea20f41d7970"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.5451311999931931,
+        "nvrtc_seconds": 0.5241561000002548,
+        "artifact": "0eef4d25ce3a2af43a15ac9a1972374b581af78ecc407cb80bb0f4339aac536d.rfmptx",
+        "artifact_sha256": "8896e65878a1c81c8974752575388c001a03b4dbc6cde39f8c0967f68e99ed4c"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0017847000272013247,
+        "nvrtc_seconds": 0.0,
+        "artifact": "0eef4d25ce3a2af43a15ac9a1972374b581af78ecc407cb80bb0f4339aac536d.rfmptx",
+        "artifact_sha256": "8896e65878a1c81c8974752575388c001a03b4dbc6cde39f8c0967f68e99ed4c"
+      }
+    },
+    {
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta_recipe": 225,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "advance_bridge",
+            "fused_gal_225",
+            "observe",
+            "observe_absolute",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "0cde49d9fd3b0d49c0b8c167a5ea2757028a1511ec9faa283d7032f61a82a19c",
+          "target": "compute_52"
+        },
+        "key": "f2e8458af832e8c4c559d0c32e6bca333c1076300ce6e93378849afb72861b1c",
+        "ptx_bytes": 103732,
+        "ptx_sha256": "9e3f8066a3963ca3c1df77e8bb2d9793e87aa30088010b7edc29ef73ae1cb8b6"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.5560277999611571,
+        "nvrtc_seconds": 0.5329054000321776,
+        "artifact": "f2e8458af832e8c4c559d0c32e6bca333c1076300ce6e93378849afb72861b1c.rfmptx",
+        "artifact_sha256": "bd1df3f439fe75c9562f4920eff1ea8233b6dc9017e724f704ea6537b4709927"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0017942999838851392,
+        "nvrtc_seconds": 0.0,
+        "artifact": "f2e8458af832e8c4c559d0c32e6bca333c1076300ce6e93378849afb72861b1c.rfmptx",
+        "artifact_sha256": "bd1df3f439fe75c9562f4920eff1ea8233b6dc9017e724f704ea6537b4709927"
+      }
+    },
+    {
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta_recipe": 243,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "advance_bridge",
+            "fused_gal_243",
+            "observe",
+            "observe_absolute",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "91873e08a8291258b88f01a9668b6a7d2d9a8731251aea1ae62f64adf7587692",
+          "target": "compute_52"
+        },
+        "key": "4c465f66448757c4b79b5b79aac31bd402f87ba7f111d6509c9c079e90272bef",
+        "ptx_bytes": 128904,
+        "ptx_sha256": "767e724061df7a21c988f9e9f1f695db2e370a5b020f8d20750cea9d3924a8d8"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.6247087999945506,
+        "nvrtc_seconds": 0.5965841999859549,
+        "artifact": "4c465f66448757c4b79b5b79aac31bd402f87ba7f111d6509c9c079e90272bef.rfmptx",
+        "artifact_sha256": "a45db96c0439e309b7a6c38c0981b511238970aeeeb3a6e88d9eb7a115be8be7"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0016930000274442136,
+        "nvrtc_seconds": 0.0,
+        "artifact": "4c465f66448757c4b79b5b79aac31bd402f87ba7f111d6509c9c079e90272bef.rfmptx",
+        "artifact_sha256": "a45db96c0439e309b7a6c38c0981b511238970aeeeb3a6e88d9eb7a115be8be7"
+      }
+    },
+    {
+      "family": "fd",
+      "engine": "warp_fused",
+      "ntheta_recipe": 243,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "fd_band",
+            "fd_dense",
+            "fd_fields",
+            "fd_observe",
+            "fd_products",
+            "fd_rhs",
+            "fused_fd_243"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "24be23255f2d225a383f8232181655f978b4cc0da94314c22743cc02c493e85f",
+          "target": "compute_52"
+        },
+        "key": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257",
+        "ptx_bytes": 137781,
+        "ptx_sha256": "1c12beebb1df7746786e62274a76adf4f355e126c856e9d4233aeebda1837378"
+      },
+      "cpu_cold_build": {
+        "mode": "miss",
+        "cache_seconds": 0.6877746999962255,
+        "nvrtc_seconds": 0.6442633999977261,
+        "artifact": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257.rfmptx",
+        "artifact_sha256": "2c267bc93990e5fcee89e08037e9811a07a132563ba263fd0e20066890becbe3"
+      },
+      "cpu_verified_hit_same_process": {
+        "mode": "hit",
+        "cache_seconds": 0.0015014999662525952,
+        "nvrtc_seconds": 0.0,
+        "artifact": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257.rfmptx",
+        "artifact_sha256": "2c267bc93990e5fcee89e08037e9811a07a132563ba263fd0e20066890becbe3"
+      }
+    }
+  ],
+  "method_mapping": [
+    {
+      "scale": "mid",
+      "name": "rfm37_k72",
+      "family": "uniform",
+      "engine": "warp_cufft",
+      "ntheta": 225,
+      "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c"
+    },
+    {
+      "scale": "mid",
+      "name": "rfm37_k72",
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta": 225,
+      "key": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69"
+    },
+    {
+      "scale": "mid",
+      "name": "rfm37_k72",
+      "family": "combined",
+      "engine": "warp_cufft",
+      "ntheta": 225,
+      "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439"
+    },
+    {
+      "scale": "mid",
+      "name": "rfm37_k72",
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta": 225,
+      "key": "f2e8458af832e8c4c559d0c32e6bca333c1076300ce6e93378849afb72861b1c"
+    },
+    {
+      "scale": "mid",
+      "name": "leg35_k72_q66",
+      "family": "uniform",
+      "engine": "warp_cufft",
+      "ntheta": 225,
+      "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c"
+    },
+    {
+      "scale": "mid",
+      "name": "leg35_k72_q66",
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta": 225,
+      "key": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69"
+    },
+    {
+      "scale": "mid",
+      "name": "leg35_k72_q66",
+      "family": "combined",
+      "engine": "warp_cufft",
+      "ntheta": 225,
+      "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439"
+    },
+    {
+      "scale": "mid",
+      "name": "leg35_k72_q66",
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta": 225,
+      "key": "f2e8458af832e8c4c559d0c32e6bca333c1076300ce6e93378849afb72861b1c"
+    },
+    {
+      "scale": "high",
+      "name": "rfm41_k80",
+      "family": "uniform",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c"
+    },
+    {
+      "scale": "high",
+      "name": "rfm41_k80",
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "0eef4d25ce3a2af43a15ac9a1972374b581af78ecc407cb80bb0f4339aac536d"
+    },
+    {
+      "scale": "high",
+      "name": "rfm41_k80",
+      "family": "combined",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439"
+    },
+    {
+      "scale": "high",
+      "name": "rfm41_k80",
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "4c465f66448757c4b79b5b79aac31bd402f87ba7f111d6509c9c079e90272bef"
+    },
+    {
+      "scale": "high",
+      "name": "leg35_k80_q76",
+      "family": "uniform",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c"
+    },
+    {
+      "scale": "high",
+      "name": "leg35_k80_q76",
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "0eef4d25ce3a2af43a15ac9a1972374b581af78ecc407cb80bb0f4339aac536d"
+    },
+    {
+      "scale": "high",
+      "name": "leg35_k80_q76",
+      "family": "combined",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439"
+    },
+    {
+      "scale": "high",
+      "name": "leg35_k80_q76",
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "4c465f66448757c4b79b5b79aac31bd402f87ba7f111d6509c9c079e90272bef"
+    },
+    {
+      "scale": "high",
+      "name": "leg36_k80_q76",
+      "family": "uniform",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c"
+    },
+    {
+      "scale": "high",
+      "name": "leg36_k80_q76",
+      "family": "uniform",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "0eef4d25ce3a2af43a15ac9a1972374b581af78ecc407cb80bb0f4339aac536d"
+    },
+    {
+      "scale": "high",
+      "name": "leg36_k80_q76",
+      "family": "combined",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439"
+    },
+    {
+      "scale": "high",
+      "name": "leg36_k80_q76",
+      "family": "combined",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "4c465f66448757c4b79b5b79aac31bd402f87ba7f111d6509c9c079e90272bef"
+    },
+    {
+      "scale": "both",
+      "name": "fd176_dense",
+      "family": "fd",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466"
+    },
+    {
+      "scale": "both",
+      "name": "fd176_dense",
+      "family": "fd",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257"
+    },
+    {
+      "scale": "high",
+      "name": "fd184_band",
+      "family": "fd",
+      "engine": "warp_cufft",
+      "ntheta": 243,
+      "key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466"
+    },
+    {
+      "scale": "high",
+      "name": "fd184_band",
+      "family": "fd",
+      "engine": "warp_fused",
+      "ntheta": 243,
+      "key": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257"
+    }
+  ],
+  "source_sha256": {
+    "build_cuda_ptx_artifacts.py": "fd1a92a47c7d2625105298b24277a6f845fbcc04e08c9cc9c42bde39da06ace7",
+    "cuda_ptx_cache.py": "48ba138e8d2871c4a2e137201f11ccd04629865b7d4f0e4a00143bd05114484b"
+  },
+  "manifest_key": "84947dd65ac596b59183afa5b9fed6ac7614ce26c37208498e15179d60064fe3"
+}

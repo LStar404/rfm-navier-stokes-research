@@ -1,0 +1,28 @@
+{
+  "source": "rfm_v7/galerkin_cuda_prepared.py",
+  "source_sha256": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+  "target": "galerkin_cuda_prepared_observe.py",
+  "target_sha256": "90e032ba6763c42895cac6d82e258544eb34a10ab382035d6e05b8f9f353f0a2",
+  "replacements": [
+    {
+      "before": "import time\n",
+      "after": "import time\nfrom warp_observe_cuda import ObservationRuntime\n"
+    },
+    {
+      "before": "def solve_cuda_prepared(*, preparation=\"combined\",",
+      "after": "def solve_cuda_prepared_observe(*, warp=False, preparation=\"combined\","
+    },
+    {
+      "before": "    runtime_type, phase_builder = PREPARATIONS[preparation]\n",
+      "after": "    if preparation != \"combined\":\n        raise ValueError(\"Observation ablation registers only combined preparation\")\n    _, phase_builder = PREPARATIONS[preparation]\n"
+    },
+    {
+      "before": "runtime_type(toolkit)",
+      "after": "ObservationRuntime(\"combined\", warp, toolkit)"
+    },
+    {
+      "before": "               preparation=preparation, phase_preparation_shared=",
+      "after": "               observation_reduction=\"warp\" if warp else \"serial\",\n               preparation=preparation, phase_preparation_shared="
+    }
+  ]
+}

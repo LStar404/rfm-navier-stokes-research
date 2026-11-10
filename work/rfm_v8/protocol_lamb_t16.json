@@ -1,0 +1,16 @@
+{
+  "study": "Finite-annulus Lamb BDF2 short physical qualification",
+  "horizon": 16,
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16],
+  "probe_spacing": 0.125,
+  "families": {"rfm37_k72": 7331, "leg37_k72": 17},
+  "rates": [128, 64],
+  "reference_names": ["angular_fine", "time_fine"],
+  "physical_gate": 0.005,
+  "linear_rtol": 1e-9,
+  "original_equation_gate": 1e-7,
+  "raw_energy_defect_gate": 1e-7,
+  "work_corrected_energy_gate": 1e-11,
+  "baseline": "Existing same-spatial-model CPU Recurrence Galerkin uniform r128 anchor, scored against both references at the same absolute times",
+  "scope": "Four accuracy-only CPU cases. No speed ranking, late-time wake certificate or measured second-order convergence. Original-system and lift/residual energy work checked at each physical checkpoint. Nonlinear evaluation counts distinguish solve FFTs from diagnostic check FFTs."
+}

@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "scope": "Local headers and fake call-order fixture, no CUDA device call",
+  "cuda_header_sha256": "df07ddd4f392a373023143a956f187c53855c64efdae11e8d6e5f1721c33c703",
+  "cases": [
+    {
+      "injected_stream_failure": false,
+      "predecessor_present": false,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    },
+    {
+      "injected_stream_failure": false,
+      "predecessor_present": true,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    },
+    {
+      "injected_stream_failure": true,
+      "predecessor_present": false,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    },
+    {
+      "injected_stream_failure": true,
+      "predecessor_present": true,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    }
+  ],
+  "scope_fixture_sha256": "7139096eec3f9020a224d42335368d6f19417d2f94dee8ab4ac1f4ad3fd103dd",
+  "callback_probe_sha256": "b0bd353923535142f2dde48ebcbc77f12e99da9bb338d825bf624300a2f41f2d",
+  "scope_contract": "NULL entry only, one exact detach, known-owned restore, verified NULL exit"
+}

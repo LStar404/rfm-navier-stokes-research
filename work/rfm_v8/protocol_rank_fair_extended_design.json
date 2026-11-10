@@ -1,0 +1,51 @@
+{
+  "status": "design_only_not_frozen_or_authorized_to_run",
+  "previous_design": "rfm_v8/protocol_rank_fair_final_design.json",
+  "transport_and_gates": "rfm_v8/protocol_rank_fair_bounded_draft.json",
+  "cpu_parity_evidence": "rfm_v8/rank_parity_expansion_output/summary.json",
+  "rfm_seeds_in_block_order": [7331, 7687, 8011, 8353, 9041],
+  "deterministic_seed": 17,
+  "per_engine_slots": 80,
+  "per_engine_unique_qualifications": 39,
+  "scales": [
+    {"name": "mid", "rates": [128, 112], "order_seed": 465491, "slots": 25, "unique_qualifications": 13, "groups": [
+      ["rfm37_k72", "uniform"], ["rfm37_k72", "combined"], ["leg35_k72_q66", "uniform"], ["leg35_k72_q66", "combined"], ["fd176_k80", "fd"]]},
+    {"name": "high", "rates": [152, 136], "order_seed": 465503, "slots": 55, "unique_qualifications": 27, "groups": [
+      ["rfm41_k80", "uniform"], ["rfm41_k80", "combined"], ["rfm35_k80", "uniform"], ["rfm35_k80", "combined"],
+      ["leg36_k80_q76", "uniform"], ["leg36_k80_q76", "combined"], ["leg35_k80_q76", "uniform"], ["leg35_k80_q76", "combined"],
+      ["leg34_k80_q76", "uniform"], ["fd176_k80", "fd"], ["fd184_k80", "fd"]]}
+  ],
+  "retained_ranks": {
+    "rfm37_k72": [39, 39, 39, 39, 39], "leg35_k72_q66": [39], "rfm41_k80": [40, 40, 40, 40, 40],
+    "rfm35_k80": [38, 38, 38, 39, 38], "leg36_k80_q76": [40], "leg35_k80_q76": [39], "leg34_k80_q76": [38]
+  },
+  "held_out": {
+    "high_leg34_combined": "The 0.48169048% direct field score passed, while its same-space uniform triangle bound was 0.50960007%. Keep uniform, which passed independently, and exclude combined under the predeclared gate.",
+    "high_leg33_both": "Uniform and combined direct error exceeded 0.5%.",
+    "mid_rfm35_both": "Only one seed tested; combined triangle gate failed. Keep the registered RFM37 five-seed cohort."
+  },
+  "contrasts": {
+    "same_rank": "Mid RFM37 versus Leg35 (rank39) and high RFM41 versus Leg36 (rank40), at identical schedules and K/q. These comparisons remain descriptive for the tested bases.",
+    "low_rank_high_cost": "Pair every RFM35 schedule in every block against the fixed Leg34 uniform and both fixed Leg35 schedules. Same-schedule and cross-schedule comparisons are labeled separately. Rank38/39 varies by RFM seed; the deterministic comparator never changes with the seed.",
+    "steps_and_preparation": "Pair uniform versus combined within each eligible Galerkin configuration and the same RFM seed. The contrast includes both time-step scheduling and shared preparation.",
+    "fd": "Keep FD176 dense at both scales, and FD184 band at high. Both are registered comparisons, with one shared FD176 exact qualification."
+  },
+  "runtime_policy": {
+    "admitted_for_timing": [],
+    "primary_prospective_engine": "warp_cufft",
+    "exact_runtime_adapter_selected": false,
+    "original_adapter": "fused_marches.py; original CUDA 11.8, solver-only imports, warp observer; requires exact T72 before timing",
+    "private_adapter": "Current private-scope entry is diagnostic. Require a direct reviewed API, kernel/context cleanup evidence, and complete exact T72 qualification for any selected scoped/cache policy.",
+    "cache_fusion": "The private T9 cohort completed, but strict-hit fusion did not meet the preregistered fresh-process promotion rule. The 160-slot factorial remains an inactive design. Only an explicitly reopened and newly justified, symmetrically cached experiment could admit it."
+  },
+  "qualification": {
+    "fixed_observations": "T72; physical19 and 577 probes; mixed adds two bridge instants for implementation21. Three grids, two independent fine references, velocity/vorticity full and near at 0.5%, per-cell same-space uniform guard, CPU implementation and complete-probe tolerance 1e-5, alternating wake. Keep the older matched serial CUDA observer check where such a control exists, and label missing like-for-like observer evidence explicitly.",
+    "gpu_capture": "Serial GPU capture only, exact owned handle and no flow scoring in its owner. Persist raw NPZ, metadata, terminal identity, watchdog and sidecar hash per slot. Any execution anomaly stops subsequent launches; no reset, replay or deletion.",
+    "offline_audit": "Four BLAS1 CPU auditors on logical CPUs 10,12,14,16 can begin as each raw slot becomes terminal. Each reconstructs fixed references and compares against hash-bound own CPU uniform or combined. Audit failure or missing coverage prevents the formal freeze; preserve all capture and score rows. Qualification overlap supplies no timing evidence."
+  },
+  "formal_timing": {
+    "stock_windows": "One mid25 and one high55 prospective window. All timed workers use the same qualified policy, minimal imports, warp observer, affinity and monitoring. Preserve the 720s active cap and original quiet policy. Missing or interrupted windows remain diagnostic.",
+    "conditional_factorial": "160 slots, only if both engines independently pass exact T72 in a symmetrical runtime. Same 5 blocks include both engines per method/schedule and per FD baseline; engine and schedule effects and their interaction can be estimated on Galerkin pairs. An expanded window plan must be independently registered before any timings. If keeping the 720s cap, partition high by whole blocks, e.g. 3+2, keeping each engine pair in the same window.",
+    "clocks": "Keep separate complete solver and Popen-to-flushed-RETURN clocks, including all declared preparation, runtime work and teardown. Serialize after SAVE. Maintain exact owned terminal accounting, independent verifier and existing five-pair/1.05 practical rule on both clocks."
+  }
+}

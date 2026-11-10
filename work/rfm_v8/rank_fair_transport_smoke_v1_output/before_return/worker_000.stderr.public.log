@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\work\rfm_v8\rank_fair_transport_smoke.py", line 100, in <module>
+    raise SystemExit(fake(Path(args.worker_args[0]).resolve(),args.worker_args[1]))
+                     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\rank_fair_transport_smoke.py", line 25, in fake
+    receive_control(target,"GO",request,identity,parent,marker)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\rank_fair_solver_worker.py", line 44, in receive_control
+    stamp, value = wait_latch(latch(target.parent,request["index"],event), time.perf_counter_ns()+60*SECOND)
+                   ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\rank_fair_owned_transport.py", line 46, in wait_latch
+    value = read(path)
+  File "<WORKSPACE>\work\rfm_v8\rank_fair_owned_transport.py", line 28, in read
+    return json.loads(path.read_bytes())
+                      ~~~~~~~~~~~~~~~^^
+  File "<USER_HOME>\miniconda3\Lib\pathlib\_abc.py", line 625, in read_bytes
+    with self.open(mode='rb') as f:
+         ~~~~~~~~~^^^^^^^^^^^
+  File "<USER_HOME>\miniconda3\Lib\pathlib\_local.py", line 537, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: '<WORKSPACE>\\work\\rfm_v8\\rank_fair_transport_smoke_v1_output\\before_return\\go_000.json'

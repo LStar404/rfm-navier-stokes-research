@@ -1,0 +1,131 @@
+{
+  "status": "complete",
+  "index": 14,
+  "protocol_sha256": "bff03405bac43a1d60b896304fa5ad01606098c928f1cd6f9e8b2d19d085ba44",
+  "job": {
+    "name": "fd184_k80",
+    "arm": "fd",
+    "seed": 17,
+    "scale": "high",
+    "family": "fd",
+    "config": {
+      "n": 184,
+      "k": 80,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    },
+    "args": {
+      "horizon": 9,
+      "snapshots": [
+        0.5,
+        1,
+        2,
+        4,
+        6,
+        8,
+        8.125,
+        8.5,
+        9
+      ],
+      "probe_spacing": 0.125,
+      "graph_steps": 24,
+      "n": 184,
+      "k": 80,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native",
+      "steps": 1152,
+      "cuda_linear_solve": "band"
+    },
+    "control": {
+      "single": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd184_k80_17_cpu_buffered.npz",
+        "sha256": "f5446e9d5d7df7eb2eb2cce61328db5258e0f2c6018375849402e344f97b5ce6"
+      }
+    },
+    "anchor": {
+      "single": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd184_k80_17_cpu_buffered.npz",
+        "sha256": "f5446e9d5d7df7eb2eb2cce61328db5258e0f2c6018375849402e344f97b5ce6"
+      }
+    },
+    "engine": "warp_cufft",
+    "pair": 3,
+    "policy": "strict_hit",
+    "artifact_key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466",
+    "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3",
+    "angular_length": 243,
+    "original_t9": {
+      "path": "rfm_v8/fused_march_t9_output/slot_007/trajectory.npz",
+      "sha256": "aaef398d18be86c43e51534427500b8b3b832481a8760e4f8f63249d9b0bf8b4"
+    }
+  },
+  "metadata": {
+    "steps": 1152,
+    "horizon": 9,
+    "dt": 0.0078125,
+    "seconds": 0.6374981000553817,
+    "time_order": 2,
+    "implementation": "native-fp64-fd4-cufft",
+    "cuda_linear_solve": "band",
+    "graph_steps": 24,
+    "host_setup_seconds": 0.15923020004993305,
+    "host_linear_precompute_seconds": 0.0008018999942578375,
+    "runtime_init_seconds": 0.12175879999995232,
+    "upload_seconds": 0.005139000015333295,
+    "plan_seconds": 0.015932099951896816,
+    "graph_setup_seconds": 0.0016049999976530671,
+    "march_seconds": 0.29566890001296997,
+    "download_seconds": 0.0004099999787285924,
+    "linear_bytes": 2312388,
+    "method": "fd4",
+    "n": 184,
+    "k": 80,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 243,
+    "band_lower": 6,
+    "band_upper": 6,
+    "nonlinear_engine": "warp_cufft",
+    "observation_reduction": "warp",
+    "compiled_cuda_modules": 1,
+    "active_fused_entries": 0,
+    "nonlinear_evaluations": 1151,
+    "logical_fft_groups": 2302,
+    "inverse_field_transforms": 4604,
+    "forward_field_transforms": 1151,
+    "fft_radial_lines": 183,
+    "logical_field_transforms_all_radial_rows": 1053165,
+    "cufft_marching_calls": 2302,
+    "nonlinear_graph_nodes_per_evaluation": 3,
+    "priming_logical_field_transforms": 915,
+    "priming_cuda_nodes": 2,
+    "nvrtc_compile_load_seconds": 0.003444799978751689,
+    "ptx_cache_policy": "strict_hit",
+    "ptx_cache_key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466",
+    "ptx_sha256": "dad320f4f94ff083c349559281e46841e437669a50dd6b74dd3df61e6414e596",
+    "ptx_artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3",
+    "ptx_recipe_seconds": 0.0016864999779500067,
+    "ptx_context_seconds": 0.10278640000615269,
+    "ptx_compiler_identity_seconds": 0.0,
+    "ptx_cache_total_seconds": 0.0016843000194057822,
+    "ptx_nvrtc_seconds": 0.0,
+    "ptx_driver_load_seconds": 0.001435499987564981
+  },
+  "spatial_sha256": "81f0e8f20f6990472d9df9d5a9f42979832df30411510772833b43a59ba5fff4",
+  "trajectory_sha256": "cdde4796eab74a87c7bb690b17858e9ce16f5c170d8ba89e41c4ad48953a5342",
+  "affinity_mask": 16,
+  "solve_return_monotonic_ns": 297825307752900,
+  "identity": {
+    "pid": 71548,
+    "birth_filetime_100ns": 134387463213632373,
+    "exit_filetime_100ns": 0,
+    "kernel_cpu_100ns": 3593750,
+    "user_cpu_100ns": 12968750
+  }
+}

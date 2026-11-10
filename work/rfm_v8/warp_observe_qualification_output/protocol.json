@@ -1,0 +1,99 @@
+{
+  "status": "frozen",
+  "arms": [
+    {
+      "name": "rfm37_uniform",
+      "case": "rfm37_k72",
+      "family": "uniform",
+      "seed": 7331
+    },
+    {
+      "name": "rfm37_combined",
+      "case": "rfm37_k72",
+      "family": "combined",
+      "seed": 7331
+    },
+    {
+      "name": "leg37_combined",
+      "case": "leg37_k72",
+      "family": "combined",
+      "seed": 17
+    },
+    {
+      "name": "fd176_dense",
+      "case": "fd176_k80",
+      "family": "fd",
+      "seed": 17
+    },
+    {
+      "name": "fd184_band",
+      "case": "fd184_k80",
+      "family": "fd",
+      "seed": 17
+    }
+  ],
+  "references": {
+    "rfm37_uniform": {
+      "path": "rfm_v7/switch_formal_timing_output/b1_rfm37_k72_cuda_graph128_7331.npz",
+      "sha256": "4ff0854d221b9e303bd64666b43aa76a7707f32225add3b8213f2af9f25a2302"
+    },
+    "rfm37_combined": {
+      "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz",
+      "sha256": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd"
+    },
+    "leg37_combined": {
+      "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+      "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+    },
+    "fd176_dense": {
+      "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+      "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+    },
+    "fd184_band": {
+      "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+      "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+    }
+  },
+  "physical_times": [
+    0.5,
+    1,
+    2,
+    4,
+    6,
+    8,
+    8.125,
+    8.5,
+    9,
+    10,
+    12,
+    16,
+    24,
+    36,
+    48,
+    54,
+    60,
+    66,
+    72
+  ],
+  "accuracy": {
+    "original_implementation_relative_gate": 1e-05,
+    "tight_relative_l2_gate": 1e-12,
+    "tight_scaled_absolute_gate": 1e-12
+  },
+  "source_hashes": {
+    "rfm_v8/warp_observe_qualification.py": "0925bde73bf41335dd183519a6c1dbc9759daf90de90780029e193d8970f8eff",
+    "rfm_v8/warp_observe_micro_retry_output/protocol.json": "9221bb1d5b3fb830a87e2e308cf785d7ea86a5f3f143e60712456077356bc014",
+    "rfm_v8/warp_observe_micro_retry_output/summary.json": "2a59a77bd56954369b3f1d25d4cef168fc5fbd4c6757662aa472ebe01b27fa89",
+    "rfm_v7/prepared_formal_timing_mid_output/protocol.json": "498414d660a6a609aa99189640aa721b033e1e089deca98bde88d7355a9b945a",
+    "rfm_v7/prepared_formal_timing_high_output/protocol.json": "ac1910d9d66518eb24c5445d7d347b98fecccda67757e8f40a2927b6cd22df2f",
+    "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884",
+    "rfm_v8/cuda_observe_solver_generation.json": "e48880356b0c3a94a35e566ac9dfce5567592dd527f32c1909df8012a545b5c2",
+    "rfm_v8/galerkin_cuda_prepared_observe.py": "90e032ba6763c42895cac6d82e258544eb34a10ab382035d6e05b8f9f353f0a2",
+    "rfm_v7/switch_formal_timing_output/b1_rfm37_k72_cuda_graph128_7331.npz": "4ff0854d221b9e303bd64666b43aa76a7707f32225add3b8213f2af9f25a2302",
+    "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd",
+    "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920",
+    "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad",
+    "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+  },
+  "scope": "Five complete independent T72 GPU correctness-only trajectories, no speed claim"
+}

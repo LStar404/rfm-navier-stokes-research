@@ -1,0 +1,65 @@
+{
+  "block": 1,
+  "name": "rfm37_k72",
+  "family": "rfm",
+  "arm": "uniform",
+  "imports": "minimal",
+  "config": {
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "scale": 62.0,
+    "mean_order": 24,
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "backend": "fft",
+    "seed": 7331,
+    "family": "rfm"
+  },
+  "solve_args": {
+    "horizon": 9,
+    "snapshots": [
+      0.5,
+      1,
+      2,
+      4,
+      6,
+      8,
+      8.125,
+      8.5,
+      9
+    ],
+    "probe_spacing": 0.125,
+    "graph_steps": 24,
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "scale": 62.0,
+    "mean_order": 24,
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "backend": "fft",
+    "seed": 7331,
+    "family": "rfm",
+    "steps": 1152
+  },
+  "index": 25,
+  "schema": "rfm-v8-worker-1",
+  "run_token": "4c42c322148267d85512b698031a1e58eadb53740c3bb8f044bd1b3b6da8b2d9",
+  "affinity_mask": 16,
+  "trajectory": "trajectory_025.npz"
+}

@@ -1,0 +1,159 @@
+{
+  "status": "frozen",
+  "cases": [
+    {
+      "name": "leg37_k72",
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      },
+      "solve_args": {
+        "horizon": 9,
+        "snapshots": [
+          0.5,
+          1,
+          2,
+          4,
+          6,
+          8,
+          8.125,
+          8.5,
+          9
+        ],
+        "probe_spacing": 0.125,
+        "graph_steps": 24,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "preparation": "combined"
+      },
+      "control": "trajectory_000.npz",
+      "control_sha256": "0af9fa90b37feb45b73ad08918043499ace2a232f2a395454e3cc1ab4ef2ac90",
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31"
+    },
+    {
+      "name": "rfm37_k72",
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "solve_args": {
+        "horizon": 9,
+        "snapshots": [
+          0.5,
+          1,
+          2,
+          4,
+          6,
+          8,
+          8.125,
+          8.5,
+          9
+        ],
+        "probe_spacing": 0.125,
+        "graph_steps": 24,
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "preparation": "combined"
+      },
+      "control": "trajectory_002.npz",
+      "control_sha256": "02ce1a9fa6689f0e77a57b434b8d0e17eb2b6e7f0c134193733e1c84be7c4ded",
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184"
+    }
+  ],
+  "variants": [
+    "legacy",
+    "compiler129_compute52",
+    "compiler129_compute120",
+    "compiler129_sm120",
+    "fft129_only",
+    "compiler129_sm120_fft129"
+  ],
+  "preflight_rejections": [],
+  "physical_gate": 0.005,
+  "implementation_gate": 1e-05,
+  "source_sha256": {
+    "rfm_v8/audit_cuda129_t9.py": "1a3eaa4c5af0035dd313cb697c819d30e1db32087a7ba9276aef5276471dc4dd",
+    "rfm_v8/cuda129_runtime.py": "d55df0832b07a2cc584e77f827d301e714bd6d80b7265213da8d9b0045ddad85",
+    "rfm_v8/galerkin_cuda_prepared_cuda129.py": "8fb91ed00807a2248c9aeac18aa53212a75f6aa409a39a535dd6ec4b00a9efca",
+    "rfm_v8/cuda129_solver_source_audit.json": "525e0aeee1d0e50f60c4d3680980a48528396f6c69d2c8992f61272ffbf9febf",
+    "rfm_v8/cuda129_preflight_builtins.json": "02323f60cbb1f4c9fd2f84376be7d03ea3d4f63176846ff632bdb39dc047a022",
+    "rfm_v8/fresh_worker_mid_t9_output/protocol.json": "f5149f8559440c4415e7d4ac663d779f58458591bbfd584c87ec931837ec8424",
+    "rfm_v8/fresh_worker_mid_t9_output/runs.json": "56b0748f95f764b339e9308eb10101561bac83d83f05f6fae0e49ab76f303aeb",
+    "rfm_v7/switch_qualification_output/protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "rfm_v8/vendor/cuda_12_9_1/manifest.json": "8fbd41abdde9d85e5af2f63c897872203d0c46e9d51a29fe615e69144e13e537",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "rfm_v8/galerkin_cuda_prepared_minimal.py": "b6d37e7ba155d814a50a7de933ed1af8d4f29d25d55be9fb13a981e0507330f5",
+    "rfm_v8/galerkin_phase_shared_minimal.py": "e8c83aea761147b06ce36e7731def7205b682097269f63843aea2c4a25ec86fc",
+    "rfm_v8/galerkin_minimal_model.py": "b97a9f31384778d17a57e37c37e176405a41a08cea390952bef12cf734a6b43e",
+    "rfm_v8/galerkin_cuda_variable_minimal.py": "313881e3d974f3711cbf51362966904618ef40396711bd0e0927db40782d0ac3",
+    "rfm_v8/sbdf2_schedule_minimal.py": "c2a1735f8ee2d55e2996383e8fd6dbb5edb35e040d6f128345db21a2e447537d"
+  },
+  "scope": "T9 correctness only. Inherited CUDA_CACHE_DISABLE=1; no new timing claim."
+}

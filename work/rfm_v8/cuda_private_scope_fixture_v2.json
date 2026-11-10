@@ -1,0 +1,198 @@
+{
+  "status": "passed",
+  "scope": "CPU fake context ABI only",
+  "cases": [
+    {
+      "mode": "unchanged",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [
+        "owned_unchanged"
+      ],
+      "error": null
+    },
+    {
+      "mode": "pushed_extra",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxPopCurrent_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [
+        "detached_extra_top"
+      ],
+      "error": null
+    },
+    {
+      "mode": "replaced_owned",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxPopCurrent_v2",
+        "cuCtxGetCurrent",
+        "cuCtxPushCurrent_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [
+        "detached_replacement_and_pushed_owned"
+      ],
+      "error": null
+    },
+    {
+      "mode": "popped_owned",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxPushCurrent_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [
+        "push_owned_from_empty"
+      ],
+      "error": null
+    },
+    {
+      "mode": "unexpected_deeper",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxPopCurrent_v2",
+        "cuCtxGetCurrent",
+        "cuCtxPushCurrent_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [],
+      "error": "Private CUDA context teardown did not restore the observed predecessor"
+    },
+    {
+      "mode": "duplicate_owned",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [
+        "owned_unchanged"
+      ],
+      "error": "Private CUDA context teardown did not restore the observed predecessor"
+    },
+    {
+      "mode": "nested_entry",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [],
+      "error": "Scoped private context requires a fresh unbound host thread"
+    },
+    {
+      "mode": "cufft_error",
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ],
+      "restore_actions": [],
+      "error": null
+    }
+  ],
+  "source_sha256": {
+    "verify_cuda_private_scope.py": "afd7c9d570d3a288f276b4e5af262539b685082cc4ba44741eaf8ce87ac0d77f",
+    "cuda_private_context_scope.py": "98f63c9c40c24bb5ba9c548deb13acf6a901d3cf01f1eb49c9ac32c157c1596f",
+    "cuda_private_context.py": "29f785ac850eacc93172f13c82b32fe2cd0c5e40a430e3a7d511b70312a62bc1"
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "schema": "rfm-v8-zero-slot-preflight-failure-review-1",
+  "status": "independently_confirmed_preflight_rejection",
+  "formal_timing_eligible": false,
+  "speed_claim_supported": false,
+  "total_registered_slots": 160,
+  "total_timed_slots": 0,
+  "cohort_disposition": "closed_after_first_window_preflight_rejection; high windows not started",
+  "windows": [
+    {
+      "window": "mid_b1_b5",
+      "registered_slots": 50,
+      "protocol": {
+        "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/protocol.json",
+        "sha256": "68b0410e92c3775d0316bcf614803286cd79fac6b6af666026ecaa3f350d2e81"
+      },
+      "status": "preflight_rejected_no_slots",
+      "attempted_slots": 0
+    },
+    {
+      "window": "high_b1_b3",
+      "registered_slots": 66,
+      "protocol": {
+        "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/high_b1_b3/protocol.json",
+        "sha256": "77d74e5a5ce89002ff39428433d55f7a5abe2e77b08fdf669055f1da3730bde4"
+      },
+      "status": "not_started",
+      "attempted_slots": 0
+    },
+    {
+      "window": "high_b4_b5",
+      "registered_slots": 44,
+      "protocol": {
+        "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/high_b4_b5/protocol.json",
+        "sha256": "f6cf189792c83b854bf952cfede10b33c5215f1edf1dc4eddddeb8354be128e5"
+      },
+      "status": "not_started",
+      "attempted_slots": 0
+    }
+  ],
+  "preflight_checks": [
+    {
+      "unknown_observed": [
+        [
+          2172,
+          134387582346264001
+        ],
+        [
+          11512,
+          134387582346424571
+        ]
+      ],
+      "external_deltas": [
+        {
+          "identity": [
+            2172,
+            134387582346264001
+          ],
+          "cpu_seconds": 0.0,
+          "role": "external_python"
+        },
+        {
+          "identity": [
+            11512,
+            134387582346424571
+          ],
+          "cpu_seconds": 8.28125,
+          "role": "external_python"
+        }
+      ],
+      "gpu_percent": 1,
+      "coverage_pass": true,
+      "preflight_passed": false
+    },
+    {
+      "unknown_observed": [
+        [
+          2172,
+          134387582346264001
+        ],
+        [
+          11512,
+          134387582346424571
+        ]
+      ],
+      "external_deltas": [
+        {
+          "identity": [
+            2172,
+            134387582346264001
+          ],
+          "cpu_seconds": 0.0,
+          "role": "external_python"
+        },
+        {
+          "identity": [
+            11512,
+            134387582346424571
+          ],
+          "cpu_seconds": 6.015625,
+          "role": "external_python"
+        }
+      ],
+      "gpu_percent": 1,
+      "coverage_pass": true,
+      "preflight_passed": false
+    }
+  ],
+  "observed_unknown_identities": [
+    {
+      "pid": 2172,
+      "birth_filetime_100ns": 134387582346264001,
+      "parent_pid": 11644,
+      "first_sample_qpc_ns": 2162912045300,
+      "last_sample_qpc_ns": 2182927474400
+    },
+    {
+      "pid": 11512,
+      "birth_filetime_100ns": 134387582346424571,
+      "parent_pid": 2172,
+      "first_sample_qpc_ns": 2162912045300,
+      "last_sample_qpc_ns": 2182927474400
+    }
+  ],
+  "unknown_origin": "Not established by sampler; PID/parent identity alone is not command or task attribution",
+  "reviewer_activity_statement": "This reviewer started no Python or filesystem operation between its READY message and the root window-ended message; only two collaboration waits were issued. This statement does not attribute another process to another team member.",
+  "outer": {
+    "status": "normal_coordinator_exit_and_confirmed_job_empty",
+    "terminal": {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/outer/watchdog_terminal.json",
+      "sha256": "720cbf4c38708a8ea682168b516eabd7c668ef4a7ccf1b57d5a2c14998c76727"
+    },
+    "coordinator_exit_code": 0,
+    "cleanup_success_does_not_mean_formal_acceptance": true
+  },
+  "environment_guard": {
+    "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/execution_environment_guard.json",
+    "sha256": "fa97fa23b87b556fcf5a864d26428382cd108adc08465143ae40a1cbd979cd54"
+  },
+  "monitor_terminal": {
+    "identity": {
+      "pid": 3396,
+      "birth_filetime_100ns": 134387582657925415,
+      "exit_filetime_100ns": 134387582861553104,
+      "kernel_cpu_100ns": 2656250,
+      "user_cpu_100ns": 1406250
+    },
+    "exit_code": 771,
+    "exact_owned_termination_confirmed": true
+  },
+  "source_and_raw_checks": {
+    "summary_hashes_recomputed": true,
+    "ordered_160_scientific_requests_equal_original": true,
+    "empty_worker_ledger": true,
+    "no_timing_latches_or_trajectories": true
+  },
+  "evidence_inventory": [
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/execution_environment_guard.json",
+      "sha256": "fa97fa23b87b556fcf5a864d26428382cd108adc08465143ae40a1cbd979cd54"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/identity_ledger.json",
+      "sha256": "5aa41df5b88da1675da7dcf6af6d912afdd908df39a1a07045daa6115db8a2a3"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/monitor.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/monitor.stdout.log",
+      "sha256": "3d85c40db8d7b05dc700464727b196262f063c63a1d9d0b52e43a94d2e279315"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/monitor_events.jsonl",
+      "sha256": "d65ef3784abb0e5de6c0c3130cf146178399bba9ccba75af07836026bec5ea22"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/preflight.json",
+      "sha256": "725a3e0f19ff0a70b2c9b85bc11e76376e7e6289e5d6f99e510abbe72d2d220d"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/process_samples.jsonl",
+      "sha256": "1d05862c89920562a82ca327a518dc01b2bceb9105757f989361bd5942a2b3f4"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/protocol.json",
+      "sha256": "68b0410e92c3775d0316bcf614803286cd79fac6b6af666026ecaa3f350d2e81"
+    },
+    {
+      "path": "rfm_v8/rank_fair_cache_recovery_formal_v2_output/mid_b1_b5/capture/summary.json",
+      "sha256": "50768f3b1589571b7584f70923e2eded9ea1adf6a8f8a9efab2aa7efd2392b94"
+    }
+  ],
+  "bounded_new_attempt_review": {
+    "acceptable_as_new_prospective_attempt": true,
+    "maximum_additional_complete_attempts": 1,
+    "prerequisite": "Record this one-attempt cap before launching a new cohort and observe a fresh quiet interval; the normal two formal preflight windows remain mandatory",
+    "quiet_observation_minimum_seconds": 20,
+    "all_160_slots_new": true,
+    "reuse_any_old_slot": false,
+    "old_failure_must_remain_visible": true,
+    "order_candidates_cache_policies_numerical_gates_and_isolation_budgets_unchanged": true,
+    "known_background_must_not_expand_to_unidentified_processes": true,
+    "stop_rule": "On any further rejected preflight, failed slot, pending termination, failed environment/source guard or failed numerical/isolation acceptance, stop the formal recovery branch and report no new isolated ranking",
+    "rationale": "No timed worker was launched and no outcome-dependent row selection occurred. A separately registered environmental retry is distinguishable from continuing or selectively repairing this rejected attempt.",
+    "limitation": "The original rejected attempt remains rejected. A later successful attempt cannot erase or reclassify it."
+  },
+  "flow_solves_run": 0,
+  "gpu_calls": 0,
+  "created_utc": "2026-11-10T04:27:11.873514+00:00"
+}

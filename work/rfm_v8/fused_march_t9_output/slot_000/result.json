@@ -1,0 +1,152 @@
+{
+  "status": "complete",
+  "index": 0,
+  "protocol_sha256": "de40fe4d481ec8e42f2b3555d221cd92b6c82fcd8a347142c298ecd31955f0ad",
+  "job": {
+    "name": "rfm37_k72",
+    "arm": "uniform",
+    "seed": 7331,
+    "scale": "mid",
+    "family": "rfm",
+    "config": {
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 7331,
+      "family": "rfm"
+    },
+    "args": {
+      "horizon": 9,
+      "snapshots": [
+        0.5,
+        1,
+        2,
+        4,
+        6,
+        8,
+        8.125,
+        8.5,
+        9
+      ],
+      "probe_spacing": 0.125,
+      "graph_steps": 24,
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 7331,
+      "family": "rfm",
+      "steps": 1152
+    },
+    "control": {
+      "early": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      },
+      "late": {
+        "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+      }
+    },
+    "anchor": {
+      "early": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      },
+      "late": {
+        "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+      }
+    },
+    "engine": "warp_cufft",
+    "pair": 0
+  },
+  "metadata": {
+    "steps": 1152,
+    "horizon": 9,
+    "dt": 0.0078125,
+    "seconds": 0.6278832000098191,
+    "time_order": 2,
+    "implementation": "native-fp64-cufft-precontracted",
+    "graph_steps": 24,
+    "host_setup_seconds": 0.02425850002327934,
+    "runtime_init_seconds": 0.4604708999977447,
+    "upload_seconds": 0.0037206000415608287,
+    "plan_seconds": 0.016155999968759716,
+    "graph_setup_seconds": 0.0011710000107996166,
+    "march_seconds": 0.1200107999611646,
+    "download_seconds": 0.0002389000146649778,
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "method": "rfm",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 7331,
+    "rank": 39,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 225,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence",
+    "nonlinear_engine": "warp_cufft",
+    "observation_reduction": "warp",
+    "compiled_cuda_modules": 1,
+    "active_fused_entries": 0,
+    "nonlinear_evaluations": 1151,
+    "logical_fft_groups": 2302,
+    "inverse_field_transforms": 3453,
+    "forward_field_transforms": 2302,
+    "fft_radial_lines": 66,
+    "logical_field_transforms_all_radial_rows": 379830,
+    "cufft_marching_calls": 2302,
+    "nonlinear_graph_nodes_per_evaluation": 3,
+    "priming_logical_field_transforms": 330,
+    "priming_cuda_nodes": 2,
+    "nvrtc_compile_load_seconds": 0.3206297000288032
+  },
+  "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+  "trajectory_sha256": "ab8c95c44a380e7758ada3a206156009cadd3ab711b27c62eb37f7d4331d264f",
+  "affinity_mask": 16,
+  "identity": {
+    "pid": 73776,
+    "birth_filetime_100ns": 134387441809130413,
+    "exit_filetime_100ns": 0,
+    "kernel_cpu_100ns": 4531250,
+    "user_cpu_100ns": 10781250
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "status": "frozen",
+  "scope": "Three CPU-only independent stock installs; no performance isolation claim",
+  "repeats": 3,
+  "deadline_seconds": 30,
+  "parent_cpu": 20,
+  "child_cpu": 18,
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1"
+  },
+  "reference_manifest_sha256": "4669f0e559179a3642ed8b31be56e0ed04c3a40125175ad830f27ec743eb0748",
+  "stock_families": [
+    "uniform",
+    "combined",
+    "fd"
+  ],
+  "source_sha256": {
+    "install_stock_ptx.py": "15f019849be1a72dc044b296472940b0521ea8caced299334ba664acc9ba3c7f",
+    "cuda_ptx_phase_diagnostic.py": "b7f19277df9bb92df1eff6466dfed9366e5e9f29f2c460f30685b7170cdd8d00",
+    "build_cuda_ptx_artifacts.py": "fd1a92a47c7d2625105298b24277a6f845fbcc04e08c9cc9c42bde39da06ace7",
+    "cuda_ptx_cache.py": "48ba138e8d2871c4a2e137201f11ccd04629865b7d4f0e4a00143bd05114484b",
+    "gpu_owned_watchdog.py": "67fb694b6e9ae29ece35348d846eb7191a228fa4bd92eb9781b7f2fbd33628af",
+    "win32_isolation_monitor.py": "a1454265de381cb4126529377562d59d065af7f5e3213b6b7a48bca8fcc0148e"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "status": "failed_transport_fixture",
+  "mode": "before_return",
+  "first_two_modes_passed": ["success", "before_ready"],
+  "failure": "A latch read raced a Windows GO rename and got PermissionError. The worker failed cleanly before the requested synthetic stall. No GPU was accessed.",
+  "source_sha256": "767f6c788e9a5d82a3535b9d24fde50bec253d1f301d45a35a13eb3e19973e66",
+  "fix": "Treat unavailable and transiently denied latch opens identically within the existing hard deadline. Preserve this first attempt."
+}

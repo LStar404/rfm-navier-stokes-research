@@ -1,0 +1,2044 @@
+{
+  "status": "passed",
+  "protocol_sha256": "af6a62ec4097274a225807838a1d2f507c7d55bbf65fddb192c89dc78b2b98d7",
+  "preflight_rejections": [],
+  "rows": [
+    {
+      "name": "leg37_k72",
+      "variant": "legacy",
+      "status": "complete",
+      "artifact": "leg37_k72_legacy.npz",
+      "sha256": "a67de058dba62cfaefafe1aa420664290a23de547ef2a5b148fd8f8f80e443f1",
+      "runtime": {
+        "nvrtc_version": [
+          11,
+          8
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_52"
+        ],
+        "artifact": "ptx",
+        "compile_and_module_load_seconds": 0.5320035999757238,
+        "variant": "legacy",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.055794799991417676,
+        "runtime_init_seconds": 0.6546192000387236,
+        "upload_seconds": 0.0063596999971196055,
+        "plan_seconds": 0.18115219997707754,
+        "graph_setup_seconds": 0.002356200013309717,
+        "march_seconds": 0.12850609997985885,
+        "download_seconds": 0.000338599958922714,
+        "seconds": 1.0319596999906935,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a",
+          "control_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc",
+          "control_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81",
+          "control_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.987491565826853e-05,
+          "vorticity": 0.0007780148674418039,
+          "near_velocity": 1.5159592270743446e-05,
+          "near_vorticity": 0.00013691058104790384
+        },
+        "time_fine": {
+          "velocity": 2.9899955898642755e-05,
+          "vorticity": 0.0007780377328872496,
+          "near_velocity": 1.5988598298924723e-05,
+          "near_vorticity": 0.0001445706150990274
+        }
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "variant": "compiler129_compute52",
+      "status": "complete",
+      "artifact": "leg37_k72_compiler129_compute52.npz",
+      "sha256": "b32dff4017d45b602b56d66c883207fc041bfceb0cb328da9d4cb97d88f07ded",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_52"
+        ],
+        "artifact": "ptx",
+        "artifact_bytes": 50467,
+        "artifact_sha256": "1fa80a14eeb8cbd4ff3c7d1e80589542c9b2a0904e1699b9be742de9ffa341e4",
+        "compile_call_seconds": 0.2560442999820225,
+        "compile_log": "nvrtc: warning: Architectures prior to '<compute/sm>_75' are deprecated and may be removed in a future release\n",
+        "module_load_seconds": 0.17933810001704842,
+        "variant": "compiler129_compute52",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.057617500016931444,
+        "runtime_init_seconds": 0.5698802000260912,
+        "upload_seconds": 0.006348999973852187,
+        "plan_seconds": 0.18380419997265562,
+        "graph_setup_seconds": 0.0023310999968089163,
+        "march_seconds": 0.12818040000274777,
+        "download_seconds": 0.0004418000462464988,
+        "seconds": 0.9516337999957614,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a",
+          "control_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc",
+          "control_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81",
+          "control_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.987491565826853e-05,
+          "vorticity": 0.0007780148674418039,
+          "near_velocity": 1.5159592270743446e-05,
+          "near_vorticity": 0.00013691058104790384
+        },
+        "time_fine": {
+          "velocity": 2.9899955898642755e-05,
+          "vorticity": 0.0007780377328872496,
+          "near_velocity": 1.5988598298924723e-05,
+          "near_vorticity": 0.0001445706150990274
+        }
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "variant": "compiler129_compute120",
+      "status": "complete",
+      "artifact": "leg37_k72_compiler129_compute120.npz",
+      "sha256": "b750d220e63441213a7511301965428d385308c942b210167e25d3ded28bb74a",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_120"
+        ],
+        "artifact": "ptx",
+        "artifact_bytes": 74807,
+        "artifact_sha256": "1f31f8e8b93bbca64c91820452b4e25bdbb29ef9f7f3b6ece58bdde7ab9286b1",
+        "compile_call_seconds": 0.34406510001281276,
+        "compile_log": "",
+        "module_load_seconds": 0.19106809998629615,
+        "variant": "compiler129_compute120",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.05858459998853505,
+        "runtime_init_seconds": 0.6657058999990113,
+        "upload_seconds": 0.006319699983578175,
+        "plan_seconds": 0.18047979997936636,
+        "graph_setup_seconds": 0.0023211000370793045,
+        "march_seconds": 0.1328637000406161,
+        "download_seconds": 0.0003296000068075955,
+        "seconds": 1.0495370000135154,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a",
+          "control_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc",
+          "control_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81",
+          "control_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.987491565826853e-05,
+          "vorticity": 0.0007780148674418039,
+          "near_velocity": 1.5159592270743446e-05,
+          "near_vorticity": 0.00013691058104790384
+        },
+        "time_fine": {
+          "velocity": 2.9899955898642755e-05,
+          "vorticity": 0.0007780377328872496,
+          "near_velocity": 1.5988598298924723e-05,
+          "near_vorticity": 0.0001445706150990274
+        }
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "variant": "compiler129_sm120",
+      "status": "complete",
+      "artifact": "leg37_k72_compiler129_sm120.npz",
+      "sha256": "3daeb394eae54c3dc10e4b10944643abfda6252827e24b29b39e0a4d19a8dcb4",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=sm_120"
+        ],
+        "artifact": "cubin",
+        "artifact_bytes": 84336,
+        "artifact_sha256": "42ede43f6ffddb515d8673bf4210147b74e8d121db8058e915652fb258371a0d",
+        "compile_call_seconds": 0.5342341000214219,
+        "compile_log": "",
+        "module_load_seconds": 0.00037050002720206976,
+        "variant": "compiler129_sm120",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.055639299971517175,
+        "runtime_init_seconds": 0.6652338999556378,
+        "upload_seconds": 0.006897400016896427,
+        "plan_seconds": 0.18836709996685386,
+        "graph_setup_seconds": 0.002350000024307519,
+        "march_seconds": 0.133798900002148,
+        "download_seconds": 0.00034149998100474477,
+        "seconds": 1.0556111999903806,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a",
+          "control_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc",
+          "control_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81",
+          "control_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.987491565826853e-05,
+          "vorticity": 0.0007780148674418039,
+          "near_velocity": 1.5159592270743446e-05,
+          "near_vorticity": 0.00013691058104790384
+        },
+        "time_fine": {
+          "velocity": 2.9899955898642755e-05,
+          "vorticity": 0.0007780377328872496,
+          "near_velocity": 1.5988598298924723e-05,
+          "near_vorticity": 0.0001445706150990274
+        }
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "variant": "fft129_only",
+      "status": "complete",
+      "artifact": "leg37_k72_fft129_only.npz",
+      "sha256": "63c18be27ac4c2e173bd9645ae96737cd11f79a3ff0cc2b457d092e2117032df",
+      "runtime": {
+        "nvrtc_version": [
+          11,
+          8
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_52"
+        ],
+        "artifact": "ptx",
+        "compile_and_module_load_seconds": 0.5531438000034541,
+        "variant": "fft129_only",
+        "cufft_version": 11401,
+        "cufft_filename": "cufft64_11.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.057098699966445565,
+        "runtime_init_seconds": 0.6912792999646626,
+        "upload_seconds": 0.0075792999705299735,
+        "plan_seconds": 0.12040700000943616,
+        "graph_setup_seconds": 0.002386599953752011,
+        "march_seconds": 0.12815589999081567,
+        "download_seconds": 0.00036609999369829893,
+        "seconds": 1.045151399972383,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a",
+          "control_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc",
+          "control_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81",
+          "control_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.987491565826853e-05,
+          "vorticity": 0.0007780148674418039,
+          "near_velocity": 1.5159592270743446e-05,
+          "near_vorticity": 0.00013691058104790384
+        },
+        "time_fine": {
+          "velocity": 2.9899955898642755e-05,
+          "vorticity": 0.0007780377328872496,
+          "near_velocity": 1.5988598298924723e-05,
+          "near_vorticity": 0.0001445706150990274
+        }
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "variant": "compiler129_sm120_fft129",
+      "status": "complete",
+      "artifact": "leg37_k72_compiler129_sm120_fft129.npz",
+      "sha256": "32dd05e0d195ec2c06e0b09466ea84337079c2229a6b8f77521588027abd5c9e",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=sm_120"
+        ],
+        "artifact": "cubin",
+        "artifact_bytes": 84336,
+        "artifact_sha256": "42ede43f6ffddb515d8673bf4210147b74e8d121db8058e915652fb258371a0d",
+        "compile_call_seconds": 0.5292648000176996,
+        "compile_log": "",
+        "module_load_seconds": 0.0003562999772839248,
+        "variant": "compiler129_sm120_fft129",
+        "cufft_version": 11401,
+        "cufft_filename": "cufft64_11.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "cd24d56e6370f12041b89cfdeb2de7c284f9701e72d630320b9a04ed2b240b31",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "legendre",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 17,
+        "rank": 41,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.05527549999533221,
+        "runtime_init_seconds": 0.6632965999888256,
+        "upload_seconds": 0.007183699985034764,
+        "plan_seconds": 0.12656619999324903,
+        "graph_setup_seconds": 0.0021306999842636287,
+        "march_seconds": 0.13415459997486323,
+        "download_seconds": 0.00036369997542351484,
+        "seconds": 1.0253796000033617,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a",
+          "control_sha256": "015680d7695835a0ba392c2e5fbde7a761537cd1df7d3ea2d939fe94c4c4f32a"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc",
+          "control_sha256": "7ee73b053efe11bf91d67d581742ff667e12842b36ed130b41e82d3ad754e0cc"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81",
+          "control_sha256": "cefb8749bb8fde2263b743585a760e517943d3143bdc376c89064f5808176a81"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.987491565826853e-05,
+          "vorticity": 0.0007780148674418039,
+          "near_velocity": 1.5159592270743446e-05,
+          "near_vorticity": 0.00013691058104790384
+        },
+        "time_fine": {
+          "velocity": 2.9899955898642755e-05,
+          "vorticity": 0.0007780377328872496,
+          "near_velocity": 1.5988598298924723e-05,
+          "near_vorticity": 0.0001445706150990274
+        }
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "variant": "legacy",
+      "status": "complete",
+      "artifact": "rfm37_k72_legacy.npz",
+      "sha256": "bc5f450b9e9ff174db68d86d34679cf3a22955f9ab369efc0dd5bb75a9c80f4c",
+      "runtime": {
+        "nvrtc_version": [
+          11,
+          8
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_52"
+        ],
+        "artifact": "ptx",
+        "compile_and_module_load_seconds": 0.5401308000436984,
+        "variant": "legacy",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.05290459998650476,
+        "runtime_init_seconds": 0.6598976000095718,
+        "upload_seconds": 0.006752200017217547,
+        "plan_seconds": 0.18231560004642233,
+        "graph_setup_seconds": 0.0024417000240646303,
+        "march_seconds": 0.12725349998800084,
+        "download_seconds": 0.0003925999626517296,
+        "seconds": 1.035575499990955,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b",
+          "control_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18",
+          "control_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e",
+          "control_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.9881390063357544e-05,
+          "vorticity": 0.0007779911935790783,
+          "near_velocity": 1.5159464896108236e-05,
+          "near_vorticity": 0.00013691099305742616
+        },
+        "time_fine": {
+          "velocity": 2.9905121076417463e-05,
+          "vorticity": 0.0007780138921279783,
+          "near_velocity": 1.5988469785748202e-05,
+          "near_vorticity": 0.00014457100530563177
+        }
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "variant": "compiler129_compute52",
+      "status": "complete",
+      "artifact": "rfm37_k72_compiler129_compute52.npz",
+      "sha256": "a15235869cf808da2391b83b38e058f12a219e8fffeb179458eafbcdfe639581",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_52"
+        ],
+        "artifact": "ptx",
+        "artifact_bytes": 50467,
+        "artifact_sha256": "1fa80a14eeb8cbd4ff3c7d1e80589542c9b2a0904e1699b9be742de9ffa341e4",
+        "compile_call_seconds": 0.23992419999558479,
+        "compile_log": "nvrtc: warning: Architectures prior to '<compute/sm>_75' are deprecated and may be removed in a future release\n",
+        "module_load_seconds": 0.18099369999254122,
+        "variant": "compiler129_compute52",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.05207209999207407,
+        "runtime_init_seconds": 0.5505561999743804,
+        "upload_seconds": 0.0070118000148795545,
+        "plan_seconds": 0.19084120000479743,
+        "graph_setup_seconds": 0.0023247000062838197,
+        "march_seconds": 0.1263461000053212,
+        "download_seconds": 0.0003839000128209591,
+        "seconds": 0.9323254999471828,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b",
+          "control_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18",
+          "control_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e",
+          "control_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.9881390063357544e-05,
+          "vorticity": 0.0007779911935790783,
+          "near_velocity": 1.5159464896108236e-05,
+          "near_vorticity": 0.00013691099305742616
+        },
+        "time_fine": {
+          "velocity": 2.9905121076417463e-05,
+          "vorticity": 0.0007780138921279783,
+          "near_velocity": 1.5988469785748202e-05,
+          "near_vorticity": 0.00014457100530563177
+        }
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "variant": "compiler129_compute120",
+      "status": "complete",
+      "artifact": "rfm37_k72_compiler129_compute120.npz",
+      "sha256": "404b840e30e0417fe30f6b8b696b5d99fb958ac26432a94912a3ae6014827dba",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_120"
+        ],
+        "artifact": "ptx",
+        "artifact_bytes": 74807,
+        "artifact_sha256": "1f31f8e8b93bbca64c91820452b4e25bdbb29ef9f7f3b6ece58bdde7ab9286b1",
+        "compile_call_seconds": 0.3584277000045404,
+        "compile_log": "",
+        "module_load_seconds": 0.18988130002981052,
+        "variant": "compiler129_compute120",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.057466500031296164,
+        "runtime_init_seconds": 0.6817530000116676,
+        "upload_seconds": 0.00759920000564307,
+        "plan_seconds": 0.1870986000285484,
+        "graph_setup_seconds": 0.0022970999707467854,
+        "march_seconds": 0.12993120000464842,
+        "download_seconds": 0.00036689999978989363,
+        "seconds": 1.0703001000219956,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b",
+          "control_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18",
+          "control_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e",
+          "control_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.9881390063357544e-05,
+          "vorticity": 0.0007779911935790783,
+          "near_velocity": 1.5159464896108236e-05,
+          "near_vorticity": 0.00013691099305742616
+        },
+        "time_fine": {
+          "velocity": 2.9905121076417463e-05,
+          "vorticity": 0.0007780138921279783,
+          "near_velocity": 1.5988469785748202e-05,
+          "near_vorticity": 0.00014457100530563177
+        }
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "variant": "compiler129_sm120",
+      "status": "complete",
+      "artifact": "rfm37_k72_compiler129_sm120.npz",
+      "sha256": "575d29bd00e774a77935ae292c76a982e4b9ad99be9af609a8ae4557056b4866",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=sm_120"
+        ],
+        "artifact": "cubin",
+        "artifact_bytes": 84336,
+        "artifact_sha256": "42ede43f6ffddb515d8673bf4210147b74e8d121db8058e915652fb258371a0d",
+        "compile_call_seconds": 0.5306390000041574,
+        "compile_log": "",
+        "module_load_seconds": 0.0003651999868452549,
+        "variant": "compiler129_sm120",
+        "cufft_version": 10900,
+        "cufft_filename": "cufft64_10.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.05202509998343885,
+        "runtime_init_seconds": 0.6566291999770328,
+        "upload_seconds": 0.00709700002335012,
+        "plan_seconds": 0.1873992999899201,
+        "graph_setup_seconds": 0.002311799966264516,
+        "march_seconds": 0.13155689998529851,
+        "download_seconds": 0.00036349997390061617,
+        "seconds": 1.0406923000118695,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b",
+          "control_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18",
+          "control_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e",
+          "control_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.9881390063357544e-05,
+          "vorticity": 0.0007779911935790783,
+          "near_velocity": 1.5159464896108236e-05,
+          "near_vorticity": 0.00013691099305742616
+        },
+        "time_fine": {
+          "velocity": 2.9905121076417463e-05,
+          "vorticity": 0.0007780138921279783,
+          "near_velocity": 1.5988469785748202e-05,
+          "near_vorticity": 0.00014457100530563177
+        }
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "variant": "fft129_only",
+      "status": "complete",
+      "artifact": "rfm37_k72_fft129_only.npz",
+      "sha256": "730f2c88c0e81e9a235506144706f5703f0c7a737b2563faba9fee5d811d4a92",
+      "runtime": {
+        "nvrtc_version": [
+          11,
+          8
+        ],
+        "compiler_options": [
+          "--gpu-architecture=compute_52"
+        ],
+        "artifact": "ptx",
+        "compile_and_module_load_seconds": 0.5361868999898434,
+        "variant": "fft129_only",
+        "cufft_version": 11401,
+        "cufft_filename": "cufft64_11.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.052336899971123785,
+        "runtime_init_seconds": 0.667011600045953,
+        "upload_seconds": 0.007605699996929616,
+        "plan_seconds": 0.11770409997552633,
+        "graph_setup_seconds": 0.002259700035210699,
+        "march_seconds": 0.12636749999364838,
+        "download_seconds": 0.0005364000098779798,
+        "seconds": 1.0108574999612756,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b",
+          "control_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18",
+          "control_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e",
+          "control_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.9881390063357544e-05,
+          "vorticity": 0.0007779911935790783,
+          "near_velocity": 1.5159464896108236e-05,
+          "near_vorticity": 0.00013691099305742616
+        },
+        "time_fine": {
+          "velocity": 2.9905121076417463e-05,
+          "vorticity": 0.0007780138921279783,
+          "near_velocity": 1.5988469785748202e-05,
+          "near_vorticity": 0.00014457100530563177
+        }
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "variant": "compiler129_sm120_fft129",
+      "status": "complete",
+      "artifact": "rfm37_k72_compiler129_sm120_fft129.npz",
+      "sha256": "eae34363957af64d2dabb6c1aacd32bcc3bb727f48be6cf2b68028874a891f78",
+      "runtime": {
+        "nvrtc_version": [
+          12,
+          9
+        ],
+        "nvrtc_architectures": [
+          50,
+          52,
+          53,
+          60,
+          61,
+          62,
+          70,
+          72,
+          75,
+          80,
+          86,
+          87,
+          89,
+          90,
+          100,
+          101,
+          103,
+          120,
+          121
+        ],
+        "compiler_options": [
+          "--gpu-architecture=sm_120"
+        ],
+        "artifact": "cubin",
+        "artifact_bytes": 84336,
+        "artifact_sha256": "42ede43f6ffddb515d8673bf4210147b74e8d121db8058e915652fb258371a0d",
+        "compile_call_seconds": 0.5305346999666654,
+        "compile_log": "",
+        "module_load_seconds": 0.000374399998690933,
+        "variant": "compiler129_sm120_fft129",
+        "cufft_version": 11401,
+        "cufft_filename": "cufft64_11.dll",
+        "driver_version": 13020,
+        "bundled_source_sha256": "f7f816f81c99e008822d34675192d67916be64baee42d502f2d1bf8c3c668a66"
+      },
+      "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+      "metadata": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "method": "rfm",
+        "scale": 62.0,
+        "warp": 0.0,
+        "seed": 7331,
+        "rank": 39,
+        "mean_order": 24,
+        "mean_rank": 30,
+        "backend": "fft",
+        "ntheta": 225,
+        "mapping": "inner",
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "jet_backend": "buffered",
+        "basis_evaluation": "differentiated-recurrence",
+        "steps": 1136,
+        "horizon": 9,
+        "time_order": 2,
+        "dt": 0.0078125,
+        "dt_role": "spatial_reconstruction",
+        "step_schedule": "sbdf2_single_bridge",
+        "startup_rate": 128,
+        "late_rate": 112,
+        "switch_time": 8.0,
+        "switch_step": 1024,
+        "late_dt": 0.008928571428571428,
+        "bridge_ratio": 1.1428571428571428,
+        "bridge_a0": 1.5333333333333332,
+        "bridge_effective_dt": 0.008734472049689442,
+        "implementation": "native-fp64-cufft-precontracted-variable-sbdf2-prepared",
+        "preparation": "combined",
+        "phase_preparation_shared": true,
+        "compiled_cuda_modules": 1,
+        "reconstruction_class": "basis_recurrence_model.RecurrenceGalerkin",
+        "graph_steps": 24,
+        "nonlinear_evaluations": 1135,
+        "marching_fft_batches": 2270,
+        "priming_fft_batches": 2,
+        "nonlinear_by_phase": {
+          "startup": 1024,
+          "late": 111
+        },
+        "inverse_field_transforms": 3405,
+        "forward_field_transforms": 2270,
+        "bridge_extra_fft_batches": 0,
+        "fft_radial_lines": 66,
+        "device_final_step": 1136,
+        "host_setup_seconds": 0.05217429995536804,
+        "runtime_init_seconds": 0.6626698999898508,
+        "upload_seconds": 0.0061978999874554574,
+        "plan_seconds": 0.12687529996037483,
+        "graph_setup_seconds": 0.0021294000325724483,
+        "march_seconds": 0.13071749999653548,
+        "download_seconds": 0.0008405999979004264,
+        "seconds": 1.018002400000114,
+        "timing_scope": "Diagnostic accuracy run without isolation"
+      },
+      "qualified": true,
+      "arrays": {
+        "states": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b",
+          "control_sha256": "a2a0d2450a5d6bebac2e68634c1c90763ae984a620580286f196c00ca03a651b"
+        },
+        "times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306",
+          "control_sha256": "5852a4d69d03fc3dc8031e0ade5bbae98a1ded34fd327cb8c8cea25a90d66306"
+        },
+        "probe_times": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78",
+          "control_sha256": "0f17a5e102dbed9a15813557bb698fcd07a8cd1a12847b5e6a4983f5c08aab78"
+        },
+        "transverse": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18",
+          "control_sha256": "1b4afd63e7b7ea2caffed093b4950cec0c18f1f38d3c790df46a727e76ddac18"
+        },
+        "vorticity": {
+          "byte_exact": true,
+          "maximum_absolute": 0.0,
+          "relative_l2": 0.0,
+          "candidate_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e",
+          "control_sha256": "c80b4077326f413fcc3f0c3b0b1847a954af1c5de0ac046c5a9031a6cad2087e"
+        }
+      },
+      "implementation_fields": {
+        "velocity": 0.0,
+        "vorticity": 0.0,
+        "near_velocity": 0.0,
+        "near_vorticity": 0.0
+      },
+      "implementation_probes": {
+        "transverse": 0.0,
+        "vorticity": 0.0
+      },
+      "physical": {
+        "angular_fine": {
+          "velocity": 2.9881390063357544e-05,
+          "vorticity": 0.0007779911935790783,
+          "near_velocity": 1.5159464896108236e-05,
+          "near_vorticity": 0.00013691099305742616
+        },
+        "time_fine": {
+          "velocity": 2.9905121076417463e-05,
+          "vorticity": 0.0007780138921279783,
+          "near_velocity": 1.5988469785748202e-05,
+          "near_vorticity": 0.00014457100530563177
+        }
+      }
+    }
+  ],
+  "scope": "T9 nine physical observations on three grids. Independent fields and paired probe norms, no wake qualification."
+}

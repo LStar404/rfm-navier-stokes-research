@@ -1,0 +1,92 @@
+{
+  "status": "passed_fixed_and_t9",
+  "host": {
+    "gpu": "NVIDIA GeForce RTX 5060 Laptop GPU",
+    "driver_version": "596.13",
+    "compute_capability": "12.0",
+    "memory": "8151 MiB",
+    "driver_api_version": 13020
+  },
+  "legacy_dll_sha256": {
+    "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd",
+    "cufft64_10.dll": "b23e067f0aba79e2dda64a45ed3e8fb591880211e7bfd4bc53b681d27e386093"
+  },
+  "evidence_sha256": {
+    "vendor_plan": "3d13901596c780451ec24ee40b7fad8c520369123a5b2a4c238f0af5c20bcfcd",
+    "vendor_manifest": "8fbd41abdde9d85e5af2f63c897872203d0c46e9d51a29fe615e69144e13e537",
+    "initial_loader_failure": "32c02145c98d83934224c76dc272ce2e9f68216554bf367734e7c91bee9abe38",
+    "corrected_preflight": "02323f60cbb1f4c9fd2f84376be7d03ea3d4f63176846ff632bdb39dc047a022",
+    "t9_protocol": "af6a62ec4097274a225807838a1d2f507c7d55bbf65fddb192c89dc78b2b98d7",
+    "t9_qualification": "73b0d208a673768c82f84f2bf7db67fd26f0e623da23385c437cef02c7e8b141",
+    "solver_source_audit": "525e0aeee1d0e50f60c4d3680980a48528396f6c69d2c8992f61272ffbf9febf"
+  },
+  "vendor_bytes": {
+    "download_bytes": 312060432,
+    "workspace_installed_bytes": 561795670,
+    "largest_workspace_footprint_bytes": 597380606
+  },
+  "preflight": {
+    "passed": 6,
+    "fixed_arrays_byte_exact": 66,
+    "fixed_array_count": 66,
+    "graph_fft_cases_passed": 24,
+    "largest_fft_forward_error": 3.0562694137034325e-16,
+    "largest_fft_roundtrip_error": 3.737935106854539e-16,
+    "compiled_targets": {
+      "legacy": [
+        "--gpu-architecture=compute_52"
+      ],
+      "compiler129_compute52": [
+        "--gpu-architecture=compute_52"
+      ],
+      "compiler129_compute120": [
+        "--gpu-architecture=compute_120"
+      ],
+      "compiler129_sm120": [
+        "--gpu-architecture=sm_120"
+      ],
+      "fft129_only": [
+        "--gpu-architecture=compute_52"
+      ],
+      "compiler129_sm120_fft129": [
+        "--gpu-architecture=sm_120"
+      ]
+    }
+  },
+  "t9": {
+    "qualified": 12,
+    "rows": 12,
+    "array_count": 60,
+    "arrays_byte_exact": 60,
+    "largest_implementation_field_error": 0.0,
+    "largest_implementation_probe_error": 0.0,
+    "largest_physical_error": 0.0007780377328872496,
+    "per_variant": {
+      "fft129_only": {
+        "rows": 2,
+        "arrays_byte_exact": 10
+      },
+      "compiler129_sm120_fft129": {
+        "rows": 2,
+        "arrays_byte_exact": 10
+      },
+      "compiler129_sm120": {
+        "rows": 2,
+        "arrays_byte_exact": 10
+      },
+      "compiler129_compute52": {
+        "rows": 2,
+        "arrays_byte_exact": 10
+      },
+      "compiler129_compute120": {
+        "rows": 2,
+        "arrays_byte_exact": 10
+      },
+      "legacy": {
+        "rows": 2,
+        "arrays_byte_exact": 10
+      }
+    }
+  },
+  "scope": "No T72 qualification or isolated performance comparison. Workspace binaries stay local."
+}

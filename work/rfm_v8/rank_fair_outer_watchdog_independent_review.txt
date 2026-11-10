@@ -1,0 +1,23 @@
+Independent outer watchdog review: passed for static and archived CPU-fixture scope.
+Source: 015a35e14e356f6115cbb3a087a3ecda8b7be98f227c264520c1d4f153562488
+Executable: 6fc7b87d521d398e92036b2781af10fd0b63b8069602415b5c4709b9f56c65fd
+11 fixture records and all bound record hashes verified.
+Observer CPU10 (1024), owner CPU12 (4096).
+v3/v4/v5 source snapshots exactly match original certificates.
+Opening mutation: no owner launch. Closing mutation: verification_failed / exit 4.
+Owner abrupt exit: exact held child handle confirms terminal; observer pending preserved.
+Delayed termination: observer returns pending; late cleanup never rewrites its record.
+
+Formal acceptance requirements:
+- Treat watchdog status and exit code as cleanup evidence only: timed-out, malformed-slot and failed-coordinator cases can exit 0 after their trees terminate.
+- A formal successful window additionally requires reason owner_exited, coordinator exit code 0, closing_input_guard_passed true, matching frozen source/protocol/input hashes, complete expected slot inventory, and independent numerical and isolation certification.
+- Poll-based latest-slot observation may miss an intermediate terminal state. It does not by itself prove every slot ended before the next began; verify immutable per-slot terminal/identity records in the coordinator audit.
+- Every pending record forbids automatic continuation. Later separately observed cleanup may be recorded as additional evidence without rewriting the original pending outcome.
+- The CPU8 coordinator, CPU6 monitor, CPU4 worker integration is outside this review and needs its separate frozen-source review; this audit verifies watchdog observer CPU10 and owner CPU12 records only.
+
+Limitations:
+- No claim of hard real-time return under arbitrary OS/driver failure: file reads, hash computation, flush/rename, process creation and other native calls remain synchronous.
+- CPU fixtures establish tested behavior; they do not demonstrate GPU cleanup, driver health, or a cause of the earlier two-hour mid-window coordinator stagnation.
+- Official JOB_LIST documentation supports creation-time assignment but this review does not generalize the fixtures into a proof of all possible creation interruption/rollback behavior.
+- The input guard checks the supplied map; the eventual frozen formal request must bind all required inputs, including the executed helper binary and protocol.
+- No formal ranking, performance result, release approval or permission to continue after pending is granted by this review.

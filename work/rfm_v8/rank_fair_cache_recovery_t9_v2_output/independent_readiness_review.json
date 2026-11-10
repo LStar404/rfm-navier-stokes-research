@@ -1,0 +1,113 @@
+{
+  "schema": "rfm-v8-t9-independent-readiness-review-1",
+  "status": "passed",
+  "all_five_cases_independently_verified": true,
+  "formal_timing_eligible": false,
+  "flow_solves_run": 0,
+  "gpu_calls": 0,
+  "implementation": "Independent standard-library ZIP/NPY byte comparison, direct raw/terminal/affinity/cache/source checks",
+  "source_files_verified": [
+    "rfm_v8/rank_fair_isolation_v2/binding_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/coordinator_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/cpu_fixture_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/formal_worker_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/smoke_launcher_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/transport_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/verifier_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/verify_transport_v2.py",
+    "rfm_v8/rank_fair_isolation_v2/worker_bootstrap_v2.py"
+  ],
+  "qualification_summary_sha256": "1da5cd2cf5771a701ba172a3e979b2c8003f84328810ade76a692756f33231df",
+  "cpu_certificate_sha256": "0c3f144ad45f50138ea42cfce3c3de3dc278f49b077592d39ca0a72c48bc6075",
+  "t9_certificate_sha256": "c99f9c2af88913f5da73db23632528d82a3c7a198dec2325c04e707748b9091b",
+  "outer_terminal_sha256": "c1662950f58a10626567a2fe9d26d83b5879011fdad89c66ae7ee81c99d96b3e",
+  "cases": [
+    {
+      "index": 0,
+      "qualification_index": 11,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "policy": "empty_first",
+      "arrays_exact": {
+        "states": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "probe_count": 73,
+      "raw_sha256": "b45cfea4a0ba18883f7f1a4360c95344728d1e60cfef9f3f90eb3cac8e2f894c",
+      "bootstrap_sha256": "760ff2af16267f5d8a93366a2ac2c71d0ef7b462f22a6ff8ab580621f7ac73ea",
+      "status": "independently_verified"
+    },
+    {
+      "index": 1,
+      "qualification_index": 59,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "policy": "empty_first",
+      "arrays_exact": {
+        "states": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "probe_count": 73,
+      "raw_sha256": "96f52cfd3f4d0d0aa41e20fc1e046d7de0e3ce80e2cd9c197c57c6281f6e97ef",
+      "bootstrap_sha256": "197618e3090a049b57b7712d7d2d08337663a9f5b1b1410991caab088be38516",
+      "status": "independently_verified"
+    },
+    {
+      "index": 2,
+      "qualification_index": 76,
+      "name": "leg34_k80_q76",
+      "arm": "uniform",
+      "policy": "empty_first",
+      "arrays_exact": {
+        "states": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "probe_count": 73,
+      "raw_sha256": "c4953a17d94149c015ee33638437ecd666c4e3365d7def43d2efc46589d56008",
+      "bootstrap_sha256": "dc7dfb3cdd46dec870d2fae14d0d2c001fcac730ab2feb23262cc68648a1926d",
+      "status": "independently_verified"
+    },
+    {
+      "index": 3,
+      "qualification_index": 24,
+      "name": "fd176_k80",
+      "arm": "fd",
+      "policy": "empty_first",
+      "arrays_exact": {
+        "states": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "probe_count": 73,
+      "raw_sha256": "4e6c35a0234e0dfee54bf33063f9b0baa184fd779da24fa72dd79bfcdd20c679",
+      "bootstrap_sha256": "da5f6fbdfe129203320e07920ebe48a35fad90c3162e9763c2aa9efe64fcbb48",
+      "status": "independently_verified"
+    },
+    {
+      "index": 4,
+      "qualification_index": 20,
+      "name": "leg35_k72_q66",
+      "arm": "uniform",
+      "policy": "empty_first",
+      "arrays_exact": {
+        "states": true,
+        "probe_times": true,
+        "transverse": true,
+        "vorticity": true
+      },
+      "probe_count": 73,
+      "raw_sha256": "7f0589154fb163782c0dbfbddc1a141e3a9fbc973b15124c8298131e4d0a7cf7",
+      "bootstrap_sha256": "a013be1bf51e952c32aefb018540268445346eb10f7d5d5db6db9b1daece0763",
+      "status": "independently_verified"
+    }
+  ],
+  "scope_note": "Five empty_first entry diagnostics and their exact T72 numerical subsets; strict_hit and complete T72 formal rows still require the registered full cohort. No speed or full numerical-scope claim is made from T9.",
+  "created_utc": "2026-11-10T04:23:55.982212+00:00"
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\work\rfm_v8\formal_timing_fake_worker.py", line 30, in <module>
+    raise SystemExit(formal.worker(Path(sys.argv[1]).resolve(), sys.argv[2]))
+                     ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\solver_worker_formal.py", line 36, in worker
+    require(len(entries) == 1 and ledger["run_token"] == request["run_token"] and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            key(ledger["coordinator"]) == key(parent) == key(identity_from_pid(os.getppid())), "Owned parent ledger differs")
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\solver_worker.py", line 24, in require
+    raise RuntimeError(message)
+RuntimeError: Owned parent ledger differs

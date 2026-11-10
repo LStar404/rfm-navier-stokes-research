@@ -1,0 +1,122 @@
+{
+  "status": "complete",
+  "index": 15,
+  "protocol_sha256": "bff03405bac43a1d60b896304fa5ad01606098c928f1cd6f9e8b2d19d085ba44",
+  "job": {
+    "name": "fd184_k80",
+    "arm": "fd",
+    "seed": 17,
+    "scale": "high",
+    "family": "fd",
+    "config": {
+      "n": 184,
+      "k": 80,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    },
+    "args": {
+      "horizon": 9,
+      "snapshots": [
+        0.5,
+        1,
+        2,
+        4,
+        6,
+        8,
+        8.125,
+        8.5,
+        9
+      ],
+      "probe_spacing": 0.125,
+      "graph_steps": 24,
+      "n": 184,
+      "k": 80,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native",
+      "steps": 1152,
+      "cuda_linear_solve": "band"
+    },
+    "control": {
+      "single": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd184_k80_17_cpu_buffered.npz",
+        "sha256": "f5446e9d5d7df7eb2eb2cce61328db5258e0f2c6018375849402e344f97b5ce6"
+      }
+    },
+    "anchor": {
+      "single": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd184_k80_17_cpu_buffered.npz",
+        "sha256": "f5446e9d5d7df7eb2eb2cce61328db5258e0f2c6018375849402e344f97b5ce6"
+      }
+    },
+    "engine": "warp_cufft",
+    "pair": 3,
+    "policy": "disabled",
+    "artifact_key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466",
+    "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3",
+    "angular_length": 243,
+    "original_t9": {
+      "path": "rfm_v8/fused_march_t9_output/slot_007/trajectory.npz",
+      "sha256": "aaef398d18be86c43e51534427500b8b3b832481a8760e4f8f63249d9b0bf8b4"
+    }
+  },
+  "metadata": {
+    "steps": 1152,
+    "horizon": 9,
+    "dt": 0.0078125,
+    "seconds": 1.0245068999938667,
+    "time_order": 2,
+    "implementation": "native-fp64-fd4-cufft",
+    "cuda_linear_solve": "band",
+    "graph_steps": 24,
+    "host_setup_seconds": 0.1584028999786824,
+    "host_linear_precompute_seconds": 0.0007166999857872725,
+    "runtime_init_seconds": 0.5098173000151291,
+    "upload_seconds": 0.005783099972177297,
+    "plan_seconds": 0.015780200017616153,
+    "graph_setup_seconds": 0.0016483000363223255,
+    "march_seconds": 0.2949236999847926,
+    "download_seconds": 0.0004938999773003161,
+    "linear_bytes": 2312388,
+    "method": "fd4",
+    "n": 184,
+    "k": 80,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 243,
+    "band_lower": 6,
+    "band_upper": 6,
+    "nonlinear_engine": "warp_cufft",
+    "observation_reduction": "warp",
+    "compiled_cuda_modules": 1,
+    "active_fused_entries": 0,
+    "nonlinear_evaluations": 1151,
+    "logical_fft_groups": 2302,
+    "inverse_field_transforms": 4604,
+    "forward_field_transforms": 1151,
+    "fft_radial_lines": 183,
+    "logical_field_transforms_all_radial_rows": 1053165,
+    "cufft_marching_calls": 2302,
+    "nonlinear_graph_nodes_per_evaluation": 3,
+    "priming_logical_field_transforms": 915,
+    "priming_cuda_nodes": 2,
+    "nvrtc_compile_load_seconds": 0.3918573000119068,
+    "ptx_cache_policy": "disabled"
+  },
+  "spatial_sha256": "81f0e8f20f6990472d9df9d5a9f42979832df30411510772833b43a59ba5fff4",
+  "trajectory_sha256": "ad24ab4955f90d4feaf9313f80078be182287e90cab22c8f7ebb39da1425e484",
+  "affinity_mask": 16,
+  "solve_return_monotonic_ns": 297829723283300,
+  "identity": {
+    "pid": 22684,
+    "birth_filetime_100ns": 134387463254396172,
+    "exit_filetime_100ns": 0,
+    "kernel_cpu_100ns": 3593750,
+    "user_cpu_100ns": 15781250
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "status": "frozen",
+  "horizon": 16.0,
+  "observations": [
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    6.0,
+    8.0,
+    8.125,
+    8.5,
+    9.0,
+    10.0,
+    12.0,
+    16.0
+  ],
+  "grid_count": 3,
+  "physical_gate": 0.005,
+  "candidate_rule": "Keep both warm-up updates after t=8, then evaluate only even indices; use two true flux samples",
+  "control_rule": "Frozen recurrence Galerkin fixed-step case.solve",
+  "sources": {
+    "rfm_v8/nonlinear_stride2_pilot.py": "81f10cea5d490c0017831b0fa9b11c782204b573af3c7540cef7dd31960ae8cc",
+    "rfm_v7/switch_qualification_output/protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "rfm_v7/multiscale_switch_qualification_output/protocol.json": "72598641fe2f8ad00cc1adcbfed4a758dfde2c75277f3b4911e0c728cafd5ad6",
+    "rfm_v8/nonlinear_stride2_scalar.json": "64605feaa51ecd14e7c51ae09388ef3ea9ea343d0386d1a4d16ac5955e01af88",
+    "rfm_v7/cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v7/verify_switch_qualification.py": "4d7c146cf16562bb914b14c756b9c6ad90cffde8b601e8bcada46e652ab6ea92"
+  },
+  "jobs": [
+    {
+      "name": "rfm37_k72",
+      "rate": 128,
+      "seed": 7331,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "name": "rfm41_k80",
+      "rate": 152,
+      "seed": 7331,
+      "config": {
+        "m": 41,
+        "k": 80,
+        "q": 76,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    }
+  ]
+}

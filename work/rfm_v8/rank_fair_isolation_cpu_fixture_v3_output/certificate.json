@@ -1,0 +1,118 @@
+{
+  "schema": "rfm-v8-affinity-cpu-fixture-2",
+  "status": "passed",
+  "cpu_only": true,
+  "flow_solves_run": 0,
+  "gpu_contexts_created": 0,
+  "sources_sha256": {
+    "rfm_v8/rank_fair_isolation_v2/binding_v2.py": "b0f8c9e3391a778fb900256f3a71c3e7e77979e93ac7c38bd9c709ea8865e7f9",
+    "rfm_v8/rank_fair_isolation_v2/coordinator_v2.py": "c812036a3a16d583c9189f2134e574145e1015b0f6a1c66c56c5ab8501cab921",
+    "rfm_v8/rank_fair_isolation_v2/cpu_fixture_v2.py": "119cafc51f0746d35ffa853200395079cb1206cd8afe7fd3e9979f77c123c32b",
+    "rfm_v8/rank_fair_isolation_v2/formal_worker_v2.py": "70bbcd45377a2beb7e7f8bbbc82823dcfd92094f82edf273573b74fea4cab5c6",
+    "rfm_v8/rank_fair_isolation_v2/smoke_launcher_v2.py": "14a0a090ab991f8f84f057d8b49dcc38d280affcd1753d35c0286b357f461243",
+    "rfm_v8/rank_fair_isolation_v2/transport_v2.py": "c98d387293192811c823e63527daa07e99fca9ba6907a51efc714794648bc9c9",
+    "rfm_v8/rank_fair_isolation_v2/verifier_v2.py": "683d6e6c685c9f76ba06950fddcce24b105a6623e64aa18b98983c6503fa70f9",
+    "rfm_v8/rank_fair_isolation_v2/verify_transport_v2.py": "5819b967ea4026a255f72db909c12983f2ec2622af9a8e4fd92f2ed6b570758c",
+    "rfm_v8/rank_fair_isolation_v2/worker_bootstrap_v2.py": "09e41d106ad4b0cec0c2897a587df43e09a8a393333bba25e699c8676c54ba4d"
+  },
+  "observer_cpu": 10,
+  "owner_cpu": 12,
+  "coordinator_cpu": 8,
+  "monitor_cpu": 6,
+  "worker_cpu": 4,
+  "test_cases": [
+    {
+      "mode": "success",
+      "status": "passed",
+      "outer_terminal_sha256": "4bb8b797d2b08bfcd8ae3bccfa22a329b22128cd669e1e0126bae3e05bf5d516",
+      "coordinator_exit_code": 0,
+      "watchdog_reason": "owner_exited",
+      "wall_seconds": 6.1730731,
+      "bootstrap_sha256": "84af6da3cc2ae79380016d6f6565199d4ba92f6919a3845907599a338f9ff341",
+      "case_certificate_sha256": "a9c964f04b654854e2ef3f51c0aba1ec9d275640fd40b150ad7104a3db0cf3a9"
+    },
+    {
+      "mode": "before_ready",
+      "status": "passed",
+      "outer_terminal_sha256": "369b482997eb8a7f3fa3b8f8e4b75849f59207f7d9d098d839e77ee0e678a998",
+      "coordinator_exit_code": 0,
+      "watchdog_reason": "owner_exited",
+      "wall_seconds": 6.5005627,
+      "bootstrap_sha256": "1f03c41183970a67fe38bebd3c8a5f725b6c847c701ea2564893add1e826118f",
+      "case_certificate_sha256": "dc41167d5685d65fac1df522ee5f014f064b31665dd3a23e8224696c89f2e25e"
+    },
+    {
+      "mode": "busy_return",
+      "status": "passed",
+      "outer_terminal_sha256": "922163793c2aa6ef61745d1c0e5fb089dfd0a028ebbbd9f06e8c2fbbf58bb782",
+      "coordinator_exit_code": 0,
+      "watchdog_reason": "owner_exited",
+      "wall_seconds": 6.2674758,
+      "bootstrap_sha256": "dcbd7e199be5593f95711ab77e9ab5c7a6f31591a9863d3041fb7d01d419134a",
+      "case_certificate_sha256": "248157589ce2c750ecccc825b59522902259dd862dfd5fc79f0c651c51243c23"
+    },
+    {
+      "mode": "busy_exit",
+      "status": "passed",
+      "outer_terminal_sha256": "639ee89789863c0e5a9fa5aa497e5c85de1594f0078cfa9303da6c44f8be0f83",
+      "coordinator_exit_code": 0,
+      "watchdog_reason": "owner_exited",
+      "wall_seconds": 6.818368,
+      "bootstrap_sha256": "f3d348b78a40a2dc418c448a3767ba3b08f631cb9bd69e931a0c94ccccd5fef4",
+      "case_certificate_sha256": "36f5313b006d55d37077c45428077b0e5042b89974cf7d67aa0146a11a3fea8c"
+    },
+    {
+      "mode": "outer_deadline",
+      "status": "passed",
+      "outer_terminal_sha256": "dff4303520988642513b15ea5f341957bc7ec49a2df22d5913ba8ff0f68f70fa",
+      "coordinator_exit_code": 772,
+      "watchdog_reason": "active_slot_deadline_exceeded",
+      "wall_seconds": 6.8633828,
+      "bootstrap_sha256": "bf6245c41c2cb8e0149cb52acffe81c129cefb0214fba05503ebbdd4958909b6",
+      "external_deadline_detection_lateness_seconds": 0.0084141,
+      "job_empty_after_slot_deadline_seconds": 0.0312378,
+      "cpu4_above_normal": true,
+      "next_slot_not_started": true
+    }
+  ],
+  "negative_tests": [
+    {
+      "case": "wrong_effective_affinity",
+      "rejected": true
+    },
+    {
+      "case": "bootstrap_after_ready",
+      "rejected": true
+    },
+    {
+      "case": "late_exit",
+      "rejected": true
+    },
+    {
+      "case": "missing_outer_terminal",
+      "rejected": true
+    }
+  ],
+  "pre_science_proof": {
+    "top_level_formal_worker_imports": [
+      "pathlib",
+      "sys",
+      "time",
+      "worker_bootstrap_v2",
+      "transport_v2"
+    ],
+    "scientific_imports_deferred_until_after_admission": true,
+    "immutable_bootstrap_files_verified": true
+  },
+  "preserved_failed_revision": "rfm_v8/rank_fair_isolation_cpu_fixture_v2_output",
+  "former_failure": "Windows atomic state replacement denied during concurrent unshared-delete reader; failed evidence retained; watchdog v6 uses FileShare.Delete",
+  "outer_watchdog_exe": {
+    "path": "rfm_v8/rank_fair_cache_recovery_watchdog_fixture_v6_output/rank_fair_outer_watchdog.exe",
+    "sha256": "4c89bdce71c4fff243681d960aed2e0f8b0e810fdbba5ee6a6cc5da0c1884f9e"
+  },
+  "outer_watchdog_source": {
+    "path": "rfm_v8/rank_fair_outer_watchdog.cs",
+    "sha256": "285b5df008d19a2229369abf186f4355770a77f2395fdfb1922e852967b3de39"
+  },
+  "created_utc": "2026-11-10T04:20:24.966161+00:00"
+}

@@ -1,0 +1,167 @@
+{
+  "status": "static_and_cpu_fixture_review_passed",
+  "scope": "Read-only source and archive audit before the 78-slot exact-runtime qualification and formal timings. No CUDA, PDE or timing launched by this review.",
+  "source_sha256": {
+    "work/rfm_v8/cuda_private_scope_solver.py": "97a3457c5ca3fe73e6417b857aa324ae96ceef071476f16bb60d23ab3524531b",
+    "work/rfm_v8/cuda_private_scope_solver_closure_audit.json": "b409c380b94623af37262b51eeedf31ae299334166e7f2d6ee5f232908f15bc7",
+    "work/rfm_v8/verify_cuda_private_scope_solver.py": "1958435ab3f023ff4b430b2e0fc2371b3a5818f0aca99d4b6ebfe5de180d024e",
+    "work/rfm_v8/rank_fair_cache_inventory.py": "dbd7c8b0e767288e3b3d8b6ae9fab7f7bf7a381f8ad9914c4b1a041d9d9613ad",
+    "work/rfm_v8/rank_fair_cache_worker.py": "e412595a12d01725f29b2138722d2fc50a08f491950189ac9506e495a509b351",
+    "work/rfm_v8/rank_fair_extended_qualification.py": "3caa997926b7d20212620019b8c59dc59be0ca3a5fdb1874444f7327c54cd440",
+    "work/rfm_v8/rank_fair_extended_inventory_draft.json": "b669dab90688db7b0d31531e1cb216773f2a6a52cd6b0a6812bf240397a0fd65",
+    "work/rfm_v8/protocol_rank_fair_cache_design.json": "3bcbd2f2d965e94155a4859a6bfe62ae2b667d0a7d3f2945834e8a2d70677bce",
+    "work/rfm_v8/protocol_rank_fair_extended_design.json": "b72cb546274e74c4c0ad99d8908fa98ed16e0b078a81eed2aebf580b2193930b",
+    "work/rfm_v8/rank_fair_cache_qualification_fixture.json": "5eb03855addb93dd2c32ec2d546d90d50a8ff6ce3a2ef4fbc47411e79d467f57",
+    "work/rfm_v8/verify_rank_fair_cache_qualification_fixture.py": "939960b0c01ccfcbbd5f5445fed7053aed2121157eb4d05ded85791db6facd51",
+    "work/rfm_v8/cuda_private_scope_t9_output/summary.json": "33dc08ff25ecdd973280eeefb361b58e344685fdf972f3e9b5c0e307d2ad3707",
+    "work/rfm_v8/cuda_private_scope_t9_output/protocol.json": "bff03405bac43a1d60b896304fa5ad01606098c928f1cd6f9e8b2d19d085ba44",
+    "work/rfm_v8/stock_ptx_install_output/summary.json": "c9cbff3571456cc3873aad7ddccf06ebaab73041a638db3a663c654bf46b5015",
+    "work/rfm_v8/install_stock_ptx.py": "15f019849be1a72dc044b296472940b0521ea8caced299334ba664acc9ba3c7f"
+  },
+  "solver": {
+    "stock_engine": "warp_cufft",
+    "context": "private_cuCtxCreate_v2_scoped_cufft",
+    "stock_ptx_keys": 3,
+    "solver_dependency_count": 32,
+    "source_binding": "Same march code object. Selected constructor and scoped resource stack are the only march changes.",
+    "policies": {
+      "empty_first": "Per-slot previously unused namespace, observed miss, positive NVRTC, byte-verified write included in solver clock.",
+      "strict_hit": "Independent expected complete artifact SHA, observed hit, NVRTC exactly zero, no compiler fallback."
+    }
+  },
+  "qualification": {
+    "numerical_identities": 39,
+    "policy_slots": 78,
+    "expected_cross_policy_bitwise_pairs": 39,
+    "family_counts": {
+      "rfm": 30,
+      "legendre": 7,
+      "fd": 2
+    },
+    "missing_matched_serial_controls": [
+      {
+        "name": "rfm35_k80",
+        "arm": "uniform",
+        "seed": 7331
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "combined",
+        "seed": 7331
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "uniform",
+        "seed": 7687
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "combined",
+        "seed": 7687
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "uniform",
+        "seed": 8011
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "combined",
+        "seed": 8011
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "uniform",
+        "seed": 8353
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "combined",
+        "seed": 8353
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "uniform",
+        "seed": 9041
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "combined",
+        "seed": 9041
+      },
+      {
+        "name": "leg34_k80_q76",
+        "arm": "uniform",
+        "seed": 17
+      }
+    ],
+    "missing_matched_serial_policy_slots": 22,
+    "gate": "Individual policy passes CPU 1e-5, dual references 0.5%, three grids, full/near field and wake. Combined uses its own uniform triangle guard and two additional implementation times. Archived matched serial GPU comparisons, when available, remain separately strict.",
+    "pairing": "Compare saved state, times, complete probes as dtype/shape/bytes, spatial signature, FFT work and PTX between the two admitted policies. A missing or failing identity denies formal admission.",
+    "fixture_rejections": {
+      "draft_execution": true,
+      "compile_on_strict": true,
+      "wrong_ptx": true,
+      "path_escape": true,
+      "wrong_worker": true
+    }
+  },
+  "prospective_formal": {
+    "windows": [
+      {
+        "name": "mid_b1_b5",
+        "scale": "mid",
+        "blocks": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "slots": 50,
+        "order_seed": 833941
+      },
+      {
+        "name": "high_b1_b3",
+        "scale": "high",
+        "blocks": [
+          1,
+          2,
+          3
+        ],
+        "slots": 66,
+        "order_seed": 833949
+      },
+      {
+        "name": "high_b4_b5",
+        "scale": "high",
+        "blocks": [
+          4,
+          5
+        ],
+        "slots": 44,
+        "order_seed": 833959
+      }
+    ],
+    "slots": 160,
+    "scope": "No approval of an executed window in this static review.",
+    "acceptance": "All three windows and all paired blocks required. No historical-row pooling, replacement, or partial-window ranking.",
+    "accounting": "Charge stock prebuild once per key/workload, separately from solver and fresh clocks. Empty-first namespace is cold, machine and driver caches are natural.",
+    "installer_popen_through_terminal_seconds": [
+      2.7292263,
+      2.6392008,
+      2.6486956
+    ]
+  },
+  "fusion": {
+    "private_t9_slots": 24,
+    "private_t9_numerical_passes": 24,
+    "strict_hit_fused_fresh_wins": 2,
+    "promoted": false
+  },
+  "unresolved_before_formal": [
+    "Review actual new formal transport, window independence and aggregation implementation after it is frozen.",
+    "Recheck device/toolkit/driver and effective cache environment consistently in every window.",
+    "Finalize the release dry run after all frozen evidence and the final report are present."
+  ]
+}

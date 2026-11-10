@@ -1,0 +1,18 @@
+{
+  "study": "Preregistered lower-rank Legendre CPU accuracy controls",
+  "horizon": 72,
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "references": ["angular_fine", "time_fine"],
+  "physical_gate": 0.005,
+  "reference_budget_fraction": 0.25,
+  "max_workers": 4,
+  "seed": 17,
+  "arms": [
+    {"name": "leg33_k72_q66", "m": 33, "k": 72, "q": 66, "rate": 128, "rank_target": 39, "anchor": "leg37_k72"},
+    {"name": "leg35_k72_q66", "m": 35, "k": 72, "q": 66, "rate": 128, "rank_target": 39, "anchor": "leg37_k72"},
+    {"name": "leg35_k80_q76", "m": 35, "k": 80, "q": 76, "rate": 152, "rank_target": 43, "anchor": "leg39_k80"},
+    {"name": "leg37_k80_q76", "m": 37, "k": 80, "q": 76, "rate": 152, "rank_target": 43, "anchor": "leg39_k80"}
+  ],
+  "scope": "Four new CPU minimal Recurrence Galerkin T72 uniform trajectories. Fixed existing quadrature mapping, layers, lift, initial and boundary data. Three scoring grids, four physical norms against both qualified FD references, a per-cell conservative comparison with the established same-rate larger Legendre anchor, and sustained alternating full-horizon probes. Exact observed rank is recorded. No speed comparison and no reuse of prior candidates' qualification."
+}

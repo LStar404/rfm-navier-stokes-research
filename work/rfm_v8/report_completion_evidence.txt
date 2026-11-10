@@ -1,0 +1,51 @@
+v8 report and publication completion checkpoint
+Status: NOT publication approval; CPU-only small-source/summary review.
+
+Confirmed: 78/78 T72 slots; 39/39 cache-policy pairs; 4 health and 24 T9 passes.
+Stock three-key install full process median: 2.6486956 s; 147782 bytes; not the ~0.93 s NVRTC subtotal.
+Fusion remains unpromoted (fresh-process wins 2/4).
+High RFM35: five seeds admitted, ranks 38/38/38/39/38.
+High Leg34: uniform only; combined guard fails. High Leg33 and mid RFM35 combined fail.
+
+Review bindings:
+- work/rfm_v8/theory_independent_review.json: 35 small inputs match; 1 large inputs deferred; 0 changed; 0 missing.
+- work/rfm_v8/operator_bottleneck_review.json: 18 small inputs match; 0 large inputs deferred; 0 changed; 0 missing.
+- work/rfm_v8/cuda_ptx_cache_independent_review.json: 42 small inputs match; 0 large inputs deferred; 0 changed; 0 missing.
+- work/rfm_v8/rank_fair_cache_design_independent_review.json: 15 small inputs match; 0 large inputs deferred; 0 changed; 0 missing.
+
+Completion checklist:
+[pending] formal_cohort: The prior 160-slot design has only two complete rows in its first 50-slot window at this snapshot. It is not a complete formal cohort.
+Required: Preserve the interrupted attempt, record its disposition and causal evidence, and independently verify every window of any prospectively frozen replacement design. Do not pool the two rows with later windows or rank incomplete blocks.
+
+[pending] rank_fair_review_scope: The rank-fair design review predates actual 78-slot qualification and formal execution. The PDF builder binds only the theory, operator and PTX-cache reviews.
+Required: Bind the 78-slot qualification and final formal evidence, with independent executed-window/isolation/numerical verification, into report_final_round.json and its publication review; bind the relevant review hashes in final report provenance.
+
+[pending] rank_results: New high RFM35 passes five seeds, with four rank-38 and one rank-39 spaces. High Leg34 uniform passes but combined triangle guard fails; high Leg33 fails; mid RFM35 seed7331 combined guard fails.
+Required: Distinguish high RFM35 from the older failed low configuration. Use full T72 promoted rows for final admission: initial T16 screening rows are not substitutes. Same-rank Leg34 is uniform-only, so do not call its combined arm qualified.
+
+[pending] private_context_scope: The initial private-context failure was followed by cuFFT teardown probing and a scoped-current-context fix with fresh-entry NULL protection. Four health runs and 24 T9 plus 78 T72 slots pass.
+Required: Describe the narrow tested fix and archived failure evidence. Do not claim general CUDA context safety or prove arbitrary caller-context support.
+
+[pending] cache_cost: Three-key stock PTX installation has complete process-through-terminal times 2.7292263, 2.6392008, 2.6486956 seconds and 147782 artifact bytes. NVRTC alone is about 0.93 seconds.
+Required: Charge complete installation once per distinct workload/key set and show amortization separately. PTX load/driver JIT remain. Empty-first and strict-hit clocks stay separate; three-key stock cost is not the eight-key exploratory artifact package cost.
+
+[pending] fusion_scope: All four strict-hit T9 fused cores improve solver time, but fresh-process wins are 2 of 4; promotion_eligible is false.
+Required: Keep fusion a diagnostic result, excluded from final formal ranking. T9 diagnostic dispatch-to-child-return clock is not the formal parent-observed-return clock.
+
+[pending] redaction_count: Report and original publication README mention two synthetic private-path logs, while two additional real private-context failure logs now also need separate public copies.
+Required: Publish both mapping families and identify synthetic versus real failures. Keep original hashes and public hashes distinct, preserve untouched originals locally, and avoid claiming public copies satisfy original hash checks.
+
+[prepared] report_include: Completion auto-prefixes do not include build_v8_report.py, build_flow_figures.py, build_cost_figure.py, final report artifacts or figure assets.
+Required: Use release_completion_include_plan.json after final artifacts exist; required missing members fail closed.
+
+[fixed_verified] rfmptx_binary_header: The dry-run scanner previously decoded the binary uint32 container header as UTF-8, rejecting two of eight valid project PTX containers.
+Required: Fixed by separately scanning verified JSON manifest and PTX text. All eight archived primary artifacts pass the corrected CPU-only scanner.
+
+[pending] replay_dependencies: Previous inventory has 48 historical overbroad snapshot exceptions, eight exact-source capsule exceptions, and one local vendor recipe. No unresolved dependency was reported there.
+Required: Re-audit all new JSON hash links and report/figure provenance. Classify exact historical aliases separately from required current dependencies; keep original frozen records unchanged. Report layout is already in the base manifest and requires locally installed Windows CJK/math fonts.
+
+[pending] pdf_final: The final addendum and publication PDF are absent at this checkpoint; existing PDF is a 13-page draft.
+Required: Review report_final_round.json, then build final PDF, extract text, render and visually inspect every page, check figures, equations, clipping, metadata/privacy and final SHA provenance. Do not rerun the already executed PDF skill marker.
+
+[deferred_until_quiet] full_release_audit: Large artifacts, complete NPZ privacy/CRC checks, current publication base rehash and complete manifest closure were deliberately not rerun during timing preparation.
+Required: Wait for root quiet notification, then run the full completion dry run, resolve every privacy blocker and required dependency, verify base HEAD/manifest and safe Git identity, and let root perform final publication.

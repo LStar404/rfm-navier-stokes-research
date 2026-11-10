@@ -1,0 +1,62 @@
+隔离的现代 CUDA 兼容性与未完成的性能试验
+
+硬件是 RTX 5060 Laptop，计算能力 12.0。Windows 驱动 596.13，驱动
+API 版本 13020。现代工具链采用 CUDA 12.9 Update 1 的 NVRTC
+12.9.86、cuFFT 11.4.1.4、nvJitLink 12.9.86。三个已校验 Windows
+wheel 共 312,060,432 字节，安装 561,795,670 字节，逐包峰值估计
+597,380,606 字节。安装在独立工作目录，保留旧 CUDA 11.8 和系统驱动。
+组件下载 URL、版本、wheel SHA-256 和许可证见 cuda129_vendor_plan.json
+及拟公开的 cuda129_vendor_public_manifest.json。库文件不随研究归档发布。
+
+用相同 CUDA 源和 FP64 计算，预先分开旧工具链、同目标的新编译器、
+新 PTX 目标、sm_120 CUBIN、仅新 cuFFT 以及 CUBIN 加新 cuFFT。
+初次显式指定 NVRTC DLL 时，库内部未找到匹配的 builtins DLL。
+保留失败，使用绝对路径加载固定的 builtins 并保留其进程内句柄后复测。
+六种配置共 66 个固定核输出逐位一致，24 个真实尺寸 FFT 图通过，
+相对于 NumPy 的最大正变换和往返相对差分别为 3.06e−16 和 3.74e−16。
+两族共 12 条 T9 均通过，60 个数组逐位一致，双参考最大物理差 0.0778%。
+这证明当前机器和固定配置的兼容性，不推广至其他驱动、架构或网格。
+
+T72 计划 36 条，包含中高档 RFM 和 Legendre、FD176 稠密及 FD184 带状。
+FD 的运行时由工厂在原初始化阶段构造，所有方法均从同一个固定策略
+加载器选择编译器和 cuFFT。六臂均在新进程禁用 CUDA 缓存，保存和评分
+在计时区间之外。该安排没有清空操作系统的文件缓存。
+
+高档 RFM41 的 NVRTC 12.9 compute_52 在 GO 后没有 RETURN。
+清理迟延，手工确认精确进程句柄退出，再终止该队列自己的协调进程。
+共 16 条有完整保存、1 条超时、1 条中断、18 条未启动。已保存的 16 条
+独立重算原双参考、三网格和四个场范数，并核对完整探针和尾迹。
+三条状态和探针并非逐位相同的 FD 轨迹也都达标。总体最大物理差
+0.4317%，实现场差 3.5724e−6，探针差 3.8793e−6，均在原门槛内。
+故障发生在哪个 CUDA 阶段未定位。无 GPU 的新看门狗通过四项测试，
+只证明普通进程的有界清理与记录，不证明驱动阻塞可被可靠解除。
+
+已保存队列没有一个完整旧 CUDA 基线。可计算八个同配置单次阶段差。
+高档 RFM 的 CUBIN 对同架构 PTX 将运行时准备缩短约 0.020 秒，
+推进多约 0.010 秒，完整求解差约 −0.012 秒。三组在 native 编译器下
+只换 cuFFT 的完整求解分别多约 0.027、0.090 和 0.038 秒。
+不足以晋升新版工具链，本研究不续跑中断队列、不作隔离速度主张。
+
+原始记录 SHA-256
+
+cuda129_vendor_plan.json
+3d13901596c780451ec24ee40b7fad8c520369123a5b2a4c238f0af5c20bcfcd
+cuda129_preflight.json
+32c02145c98d83934224c76dc272ce2e9f68216554bf367734e7c91bee9abe38
+cuda129_preflight_builtins.json
+02323f60cbb1f4c9fd2f84376be7d03ea3d4f63176846ff632bdb39dc047a022
+cuda129_t9_output/qualification.json
+73b0d208a673768c82f84f2bf7db67fd26f0e623da23385c437cef02c7e8b141
+cuda129_t72_diagnostic_output/protocol.json
+c5ffcd20866d386ec4f74ec337ebe4c9a2b161407934c0ad38b5ad5f4dcd05cc
+cuda129_t72_interruption.json
+cf55c5c795ef5e7b94c1e5b9a760287cbb869391744b59bf1ae51d81fa754734
+cuda129_t72_partial_rescore.json
+9ecd624e705ad66b82fbb3f5dfd4f1f94d138fc6bfedf658ceb5552fd0093e27
+watchdog_transport_smoke.json
+3d2b911d789789998f918846dcdfbf76f16387f5d9aa19fcd3378938384c7359
+
+版本与 API
+https://docs.nvidia.com/cuda/archive/12.9.1/cuda-toolkit-release-notes/index.html
+https://docs.nvidia.com/cuda/archive/12.9.1/nvrtc/index.html
+https://docs.nvidia.com/cuda/archive/12.9.1/eula/index.html

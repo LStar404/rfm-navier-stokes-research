@@ -1,0 +1,220 @@
+{
+  "status": "completion_checkpoint_not_publication_approval",
+  "created_utc": "2026-11-10T04:02:12.568192+00:00",
+  "scope": "CPU-only small-source and summary audit. No GPU, PDE solve, formal timing, full release scan, release checkout write or remote mutation.",
+  "publication_ready": false,
+  "source_sha256": {
+    "work/rfm_v8/build_v8_report.py": "510dae70a43bf8b6e01bcb9ed15af988a138fc4a7a3f54f514dcd8878a61e37f",
+    "work/rfm_v8/build_flow_figures.py": "7685aa17ec2c1ab6c7affa030f431838ab56fdd7ba93f2f2777af0239556d3b8",
+    "work/rfm_v8/build_cost_figure.py": "e076a764348fe633b8c8100a5f30d61e22f1983d95e690917493b5c4d12213a4",
+    "work/rfm_v8/report_draft_provenance.json": "23f822ab8b53643a7d3cb2374f4be03ae105ac23d0d21b1358732512976e6840",
+    "work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json": "1da5cd2cf5771a701ba172a3e979b2c8003f84328810ade76a692756f33231df",
+    "work/rfm_v8/rank_fair_cache_qualification_output/capture_summary.json": "750149e441ca5cb566aac0ee750634254a40c2bdbffa60ef06bfc492fc8b81bc",
+    "work/rfm_v8/rank_parity_expansion_output/summary.json": "546a5f3e5fc2d5e4ed80e032533d3243a325410a19ec78c56824032ad6007187",
+    "work/rfm_v8/cuda_private_scope_health_output/summary.json": "8b2280ff5b1c08604548e2aed3eb98ed024028c57c6f2c30a0c413b2552b57bf",
+    "work/rfm_v8/cuda_private_scope_t9_output/summary.json": "33dc08ff25ecdd973280eeefb361b58e344685fdf972f3e9b5c0e307d2ad3707",
+    "work/rfm_v8/stock_ptx_install_output/summary.json": "c9cbff3571456cc3873aad7ddccf06ebaab73041a638db3a663c654bf46b5015",
+    "work/rfm_v8/cuda_private_scope_solver_closure_audit.json": "b409c380b94623af37262b51eeedf31ae299334166e7f2d6ee5f232908f15bc7",
+    "work/rfm_v8/release_plan_v8_completion.py": "a64b163c7c863e0a15eb39c4a8151e7dd2c00e075669cf8af2a24e86e0efa99d"
+  },
+  "independent_reviews": [
+    {
+      "path": "work/rfm_v8/theory_independent_review.json",
+      "sha256": "e6c1831deced62d5a8fa975a6791e23bc57b034acf3c059f3700f2f0febf16c4",
+      "status": "review_complete",
+      "small_input_hashes_verified": 35,
+      "missing": [],
+      "changed": [],
+      "large_input_hashes_deferred": [
+        "work/rfm_v8/galerkin_phase_pencil_audit_canonical_mean.json"
+      ]
+    },
+    {
+      "path": "work/rfm_v8/operator_bottleneck_review.json",
+      "sha256": "2d29c4d5d03ab9b5bea3c66dc94309c0bd90a9807f5389c8e13c3332813d8966",
+      "status": "existing_metadata_review_complete",
+      "small_input_hashes_verified": 18,
+      "missing": [],
+      "changed": [],
+      "large_input_hashes_deferred": []
+    },
+    {
+      "path": "work/rfm_v8/cuda_ptx_cache_independent_review.json",
+      "sha256": "ec9485b7de3aaa7f1957009b21f68843be0854d6f8467a7ef6d0a58f9bccc760",
+      "status": "read_only_audit_passed_with_scope_limits",
+      "small_input_hashes_verified": 42,
+      "missing": [],
+      "changed": [],
+      "large_input_hashes_deferred": []
+    },
+    {
+      "path": "work/rfm_v8/rank_fair_cache_design_independent_review.json",
+      "sha256": "b35273625cc80b211808a358d89a807554a23a324c0cccb67601e58d3daa3553",
+      "status": "static_and_cpu_fixture_review_passed",
+      "small_input_hashes_verified": 15,
+      "missing": [],
+      "changed": [],
+      "large_input_hashes_deferred": []
+    }
+  ],
+  "confirmed": {
+    "qualification_slots": 78,
+    "qualification_passes": 78,
+    "policy_pairs": 39,
+    "policy_pair_passes": 39,
+    "qualification_missing": [],
+    "health_passes": 4,
+    "t9_slots": 24,
+    "t9_qualified": 24,
+    "fusion_fresh_wins": 2,
+    "fusion_promoted": false,
+    "stock_install_process_seconds": [
+      2.7292263,
+      2.6392008,
+      2.6486956
+    ],
+    "stock_install_median_seconds": 2.6486956,
+    "stock_artifact_bytes": 147782,
+    "high_rfm35_by_seed": [
+      {
+        "seed": 7331,
+        "rank": 38,
+        "qualified": true
+      },
+      {
+        "seed": 7687,
+        "rank": 38,
+        "qualified": true
+      },
+      {
+        "seed": 8011,
+        "rank": 38,
+        "qualified": true
+      },
+      {
+        "seed": 8353,
+        "rank": 39,
+        "qualified": true
+      },
+      {
+        "seed": 9041,
+        "rank": 38,
+        "qualified": true
+      }
+    ],
+    "old_interrupted_window_complete_rows": 2,
+    "private_context_redaction_records": 2
+  },
+  "prior_release_dryrun": {
+    "path": "work/rfm_v8_publication_dryrun_v3/inventory.json",
+    "member_count": 1349,
+    "bytes": 265175634,
+    "privacy_blockers": 0,
+    "dependency_exception_counts": {
+      "historical_overbroad_t9_snapshot": 48,
+      "historical_exact_source_capsule": 8,
+      "local_supply_chain_recipe": 1
+    },
+    "protected_base": {
+      "head": "dcb69a05c60a4d2c18422b9018a8421145ced190",
+      "manifest_sha256": "27299292a78718b57c18d22843dcae9b6fe55f249cd0af07e2e33f2b7a7c0089",
+      "members_verified": 1831,
+      "tracked_including_manifest": 1832,
+      "clean": true
+    }
+  },
+  "findings": [
+    {
+      "id": "formal_cohort",
+      "severity": "blocking",
+      "status": "pending",
+      "finding": "The prior 160-slot design has only two complete rows in its first 50-slot window at this snapshot. It is not a complete formal cohort.",
+      "required": "Preserve the interrupted attempt, record its disposition and causal evidence, and independently verify every window of any prospectively frozen replacement design. Do not pool the two rows with later windows or rank incomplete blocks."
+    },
+    {
+      "id": "rank_fair_review_scope",
+      "severity": "blocking",
+      "status": "pending",
+      "finding": "The rank-fair design review predates actual 78-slot qualification and formal execution. The PDF builder binds only the theory, operator and PTX-cache reviews.",
+      "required": "Bind the 78-slot qualification and final formal evidence, with independent executed-window/isolation/numerical verification, into report_final_round.json and its publication review; bind the relevant review hashes in final report provenance."
+    },
+    {
+      "id": "rank_results",
+      "severity": "required_narrative",
+      "status": "pending",
+      "finding": "New high RFM35 passes five seeds, with four rank-38 and one rank-39 spaces. High Leg34 uniform passes but combined triangle guard fails; high Leg33 fails; mid RFM35 seed7331 combined guard fails.",
+      "required": "Distinguish high RFM35 from the older failed low configuration. Use full T72 promoted rows for final admission: initial T16 screening rows are not substitutes. Same-rank Leg34 is uniform-only, so do not call its combined arm qualified."
+    },
+    {
+      "id": "private_context_scope",
+      "severity": "required_narrative",
+      "status": "pending",
+      "finding": "The initial private-context failure was followed by cuFFT teardown probing and a scoped-current-context fix with fresh-entry NULL protection. Four health runs and 24 T9 plus 78 T72 slots pass.",
+      "required": "Describe the narrow tested fix and archived failure evidence. Do not claim general CUDA context safety or prove arbitrary caller-context support."
+    },
+    {
+      "id": "cache_cost",
+      "severity": "required_narrative",
+      "status": "pending",
+      "finding": "Three-key stock PTX installation has complete process-through-terminal times 2.7292263, 2.6392008, 2.6486956 seconds and 147782 artifact bytes. NVRTC alone is about 0.93 seconds.",
+      "required": "Charge complete installation once per distinct workload/key set and show amortization separately. PTX load/driver JIT remain. Empty-first and strict-hit clocks stay separate; three-key stock cost is not the eight-key exploratory artifact package cost."
+    },
+    {
+      "id": "fusion_scope",
+      "severity": "required_narrative",
+      "status": "pending",
+      "finding": "All four strict-hit T9 fused cores improve solver time, but fresh-process wins are 2 of 4; promotion_eligible is false.",
+      "required": "Keep fusion a diagnostic result, excluded from final formal ranking. T9 diagnostic dispatch-to-child-return clock is not the formal parent-observed-return clock."
+    },
+    {
+      "id": "redaction_count",
+      "severity": "publication",
+      "status": "pending",
+      "finding": "Report and original publication README mention two synthetic private-path logs, while two additional real private-context failure logs now also need separate public copies.",
+      "required": "Publish both mapping families and identify synthetic versus real failures. Keep original hashes and public hashes distinct, preserve untouched originals locally, and avoid claiming public copies satisfy original hash checks."
+    },
+    {
+      "id": "report_include",
+      "severity": "publication",
+      "status": "prepared",
+      "finding": "Completion auto-prefixes do not include build_v8_report.py, build_flow_figures.py, build_cost_figure.py, final report artifacts or figure assets.",
+      "required": "Use release_completion_include_plan.json after final artifacts exist; required missing members fail closed."
+    },
+    {
+      "id": "rfmptx_binary_header",
+      "severity": "publication",
+      "status": "fixed_verified",
+      "finding": "The dry-run scanner previously decoded the binary uint32 container header as UTF-8, rejecting two of eight valid project PTX containers.",
+      "required": "Fixed by separately scanning verified JSON manifest and PTX text. All eight archived primary artifacts pass the corrected CPU-only scanner."
+    },
+    {
+      "id": "replay_dependencies",
+      "severity": "publication",
+      "status": "pending",
+      "finding": "Previous inventory has 48 historical overbroad snapshot exceptions, eight exact-source capsule exceptions, and one local vendor recipe. No unresolved dependency was reported there.",
+      "required": "Re-audit all new JSON hash links and report/figure provenance. Classify exact historical aliases separately from required current dependencies; keep original frozen records unchanged. Report layout is already in the base manifest and requires locally installed Windows CJK/math fonts."
+    },
+    {
+      "id": "pdf_final",
+      "severity": "blocking",
+      "status": "pending",
+      "finding": "The final addendum and publication PDF are absent at this checkpoint; existing PDF is a 13-page draft.",
+      "required": "Review report_final_round.json, then build final PDF, extract text, render and visually inspect every page, check figures, equations, clipping, metadata/privacy and final SHA provenance. Do not rerun the already executed PDF skill marker."
+    },
+    {
+      "id": "full_release_audit",
+      "severity": "blocking",
+      "status": "deferred_until_quiet",
+      "finding": "Large artifacts, complete NPZ privacy/CRC checks, current publication base rehash and complete manifest closure were deliberately not rerun during timing preparation.",
+      "required": "Wait for root quiet notification, then run the full completion dry run, resolve every privacy blocker and required dependency, verify base HEAD/manifest and safe Git identity, and let root perform final publication."
+    }
+  ],
+  "forbidden_actions": [
+    "GPU execution",
+    "publication checkout writes",
+    "git commit or push",
+    "account or quota data publication",
+    "vendor binary publication",
+    "private original-path log publication"
+  ]
+}

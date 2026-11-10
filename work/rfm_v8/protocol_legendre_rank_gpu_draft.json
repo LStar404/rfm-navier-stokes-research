@@ -1,0 +1,32 @@
+{
+  "status": "draft_not_frozen_not_run",
+  "study": "Full CUDA 11.8 qualification of stronger Legendre baselines",
+  "horizon": 72,
+  "switch_time": 8,
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "physical_grids": ["gauss123", "mid129", "layer144"],
+  "physical_norms": ["velocity", "vorticity", "near_velocity", "near_vorticity"],
+  "physical_references": ["angular_fine", "time_fine"],
+  "physical_gate": 0.005,
+  "reference_budget_fraction": 0.25,
+  "implementation_gate": 0.00001,
+  "warp_probe_relative_gate": 1e-12,
+  "warp_probe_scaled_absolute_gate": 1e-12,
+  "graph_steps": 24,
+  "arms": [
+    {"name": "leg35_k72_q66", "seed": 17, "rank": 39, "mean_rank": 30, "m": 35, "k": 72, "q": 66, "rates": [128, 112]},
+    {"name": "leg35_k80_q76", "seed": 17, "rank": 39, "mean_rank": 30, "m": 35, "k": 80, "q": 76, "rates": [152, 136]},
+    {"name": "leg36_k80_q76", "seed": 17, "rank": 40, "mean_rank": 30, "m": 36, "k": 80, "q": 76, "rates": [152, 136]}
+  ],
+  "schedules": ["uniform", "combined"],
+  "observers": ["serial", "warp"],
+  "registered_trajectories": 12,
+  "dispatch": "One exact-handle owned GPU child at a time. Run the serial observer before its matched warp observer. Record actual dependency closure, CUDA 11.8 DLL hashes, CUDA source and raw CPU/GPU state/probe hashes. Stop the cohort on the first numerical or transport anomaly. No fused nonlinear kernel or newer CUDA runtime in this numerical cohort.",
+  "watchdog": {"owner_cpu": 6, "worker_cpu": 4, "hard_deadline_seconds": 30, "kill_wait_seconds": 4, "policy": "Wait on the original Popen process handle, never on a reused PID. Timeout may terminate only that handle. If cleanup is unconfirmed, do not launch another child or reset the GPU."},
+  "cpu_evidence": "Keep the original four-case exploratory and supplemental rank40 records and the four-case fair switch archive. All GPU comparisons use each new configuration's own same-schedule CPU states and probes. No reuse of the larger Legendre37/39 qualifications. Legendre33/K72 remains an accuracy failure control only.",
+  "uniform_observations": "All 19 absolute physical checkpoints and 577 full-horizon probes. Match the same-space r128 or r152 CPU anchor on all four field norms and both probe types.",
+  "combined_observations": "Also save the two actual bridge instants t8+1/late_rate and t8+2/late_rate. CPU implementation comparison covers all 21 times. Physical and triangle checks cover only the original 19. The triangle uses the new configuration's own same-space uniform CPU anchor.",
+  "warp_scope": "In addition to the common CPU, physical and wake gates, compare the paired serial GPU state, times and probe times byte-for-byte. Compare both complete probe histories with relative L2 and pointwise max abs(delta)/max(1,abs(serial)), each at most 1e-12. The serial and warp outcomes remain separate; neither can inherit qualification from the other.",
+  "timing_scope": "Accuracy only. No speed ranking, no toolkit or fusion extrapolation. Future timed tuple must qualify at the final engine, observer, rank, and schedule before it is eligible."
+}

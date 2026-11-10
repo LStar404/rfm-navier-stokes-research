@@ -1,0 +1,169 @@
+{
+  "status": "frozen",
+  "template": {
+    "study": "Finite-annulus Lamb BDF2 short physical qualification",
+    "horizon": 16,
+    "physical_times": [
+      0.5,
+      1,
+      2,
+      4,
+      6,
+      8,
+      8.125,
+      8.5,
+      9,
+      10,
+      12,
+      16
+    ],
+    "probe_spacing": 0.125,
+    "families": {
+      "rfm37_k72": 7331,
+      "leg37_k72": 17
+    },
+    "rates": [
+      128,
+      64
+    ],
+    "reference_names": [
+      "angular_fine",
+      "time_fine"
+    ],
+    "physical_gate": 0.005,
+    "linear_rtol": 1e-09,
+    "original_equation_gate": 1e-07,
+    "raw_energy_defect_gate": 1e-07,
+    "work_corrected_energy_gate": 1e-11,
+    "baseline": "Existing same-spatial-model CPU Recurrence Galerkin uniform r128 anchor, scored against both references at the same absolute times",
+    "scope": "Four accuracy-only CPU cases. No speed ranking, late-time wake certificate or measured second-order convergence. Original-system and lift/residual energy work checked at each physical checkpoint. Nonlinear evaluation counts distinguish solve FFTs from diagnostic check FFTs."
+  },
+  "source_hashes": {
+    "rfm_v8/lamb_t16_qualification.py": "84fab8fd045a82705eb126abbba4e7c9ce43050fd81bd677694587c2cb64ae49",
+    "rfm_v8/protocol_lamb_t16.json": "0d7d4465bb4fdcf76b9853c1734e331f6b02376a2fbda1dc60c89234f94a4ff1",
+    "rfm_v8/lamb_symmetric_fixed_audit_output/protocol.json": "e9d79256cf9ef261ac82c713601943e65f230ca93bc756e3326f440409b50453",
+    "rfm_v8/lamb_symmetric_fixed_audit_output/summary.json": "144cc0634354c0c2528394930eef97bfa4b9249206a87a8681c83c4bbba61cd8",
+    "rfm_v7/switch_qualification_output/protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "rfm_v7/switch_qualification_output/qualification.json": "68805adcf166ad5009a62399cc49ae20648194bef78a1d1af006d7cf1a165073",
+    "rfm_v8/lamb_symmetric.py": "7842577b99187d29c945de55b3f142dfd0ae5b14ae3b7d39da8640b202c22cd9",
+    "rfm_v8/lamb_linearized.py": "4183cd2a52349e2a6cfa02539990f42df548d422b9298c46da337985c23bc743",
+    "rfm_v8/audit_lamb_linearized.py": "6c52a406ff8ddb0fc8503e293215d48fc998f8f471ea698f2d62f2c185a17cd4",
+    "rfm_v8/galerkin_minimal_model.py": "b97a9f31384778d17a57e37c37e176405a41a08cea390952bef12cf734a6b43e",
+    "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20",
+    "rfm_v7/switch_qualification_output/anchor_leg37_k72_17_cpu_recurrence.npz": "9ad0b84dd6a12f130f38ae6d899936c9d27e18d7a3edeb6efc8abf52ab62e501"
+  },
+  "jobs": [
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "rate": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "control": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      }
+    },
+    {
+      "name": "rfm37_k72",
+      "seed": 7331,
+      "rate": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "control": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "rate": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      },
+      "control": {
+        "path": "rfm_v7/switch_qualification_output/anchor_leg37_k72_17_cpu_recurrence.npz",
+        "sha256": "9ad0b84dd6a12f130f38ae6d899936c9d27e18d7a3edeb6efc8abf52ab62e501"
+      }
+    },
+    {
+      "name": "leg37_k72",
+      "seed": 17,
+      "rate": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      },
+      "control": {
+        "path": "rfm_v7/switch_qualification_output/anchor_leg37_k72_17_cpu_recurrence.npz",
+        "sha256": "9ad0b84dd6a12f130f38ae6d899936c9d27e18d7a3edeb6efc8abf52ab62e501"
+      }
+    }
+  ]
+}

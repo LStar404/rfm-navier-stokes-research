@@ -1,0 +1,140 @@
+{
+  "status": "registered_diagnostic",
+  "jobs": [
+    {
+      "case": "equal",
+      "repeat": 0,
+      "startup_rate": 128,
+      "late_rate": 128,
+      "switch_time": 8.0,
+      "graph_steps": 24
+    },
+    {
+      "case": "equal",
+      "repeat": 1,
+      "startup_rate": 128,
+      "late_rate": 128,
+      "switch_time": 8.0,
+      "graph_steps": 24
+    },
+    {
+      "case": "equal",
+      "repeat": 2,
+      "startup_rate": 128,
+      "late_rate": 128,
+      "switch_time": 8.0,
+      "graph_steps": 24
+    },
+    {
+      "case": "bridge",
+      "repeat": 0,
+      "startup_rate": 128,
+      "late_rate": 112,
+      "switch_time": 8.0,
+      "graph_steps": 24
+    },
+    {
+      "case": "bridge",
+      "repeat": 1,
+      "startup_rate": 128,
+      "late_rate": 112,
+      "switch_time": 8.0,
+      "graph_steps": 24
+    },
+    {
+      "case": "bridge",
+      "repeat": 2,
+      "startup_rate": 128,
+      "late_rate": 112,
+      "switch_time": 8.0,
+      "graph_steps": 24
+    },
+    {
+      "case": "odd_equal",
+      "repeat": 0,
+      "startup_rate": 128,
+      "late_rate": 128,
+      "switch_time": 8.0078125,
+      "graph_steps": 24
+    },
+    {
+      "case": "eager_bridge",
+      "repeat": 0,
+      "startup_rate": 128,
+      "late_rate": 112,
+      "switch_time": 8.0,
+      "graph_steps": 0
+    }
+  ],
+  "config": {
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "scale": 62.0,
+    "mean_order": 24,
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "backend": "fft",
+    "seed": 7331,
+    "family": "rfm"
+  },
+  "source_hashes": {
+    "rfm_v8/cuda_pingpong_pilot.py": "c263a7a2a17728fe3b30752533ab99e59d49b2da3d2b1f9fb98715f9e46b07c4",
+    "rfm_v8/galerkin_cuda_pingpong.py": "214d4dee093b152a1f6eb614a1938766fc1ef3ea06b3c1b686f26c466a518e3f",
+    "rfm_v8/cuda_pingpong_generation.json": "83e67e6394e8efed6fec77f48b1c6e3922e33fbb3225779b8e197853b2683ed6",
+    "rfm_v7/switch_qualification_output/protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "rfm_v7/galerkin_cuda_prepared.py": "e00b208e50d7c1f311de5521dc12eb3988e4c006850d5950f87fab373cb46b0e",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/galerkin_cuda_variable.py": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+    "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "rfm_v7/galerkin_phase_shared.py": "30d21dc4d3af74c5ca14b2f0d87aa31b0cceb2d70085b315648cac2da4ed17b9"
+  },
+  "scope": "T9 pairs, same in-process imports and new GPU runtime each solve, no external-load isolation",
+  "parity_checks": [
+    {
+      "steps": 1136,
+      "split": 1024,
+      "graph": 24,
+      "assignments_checked": 1135
+    },
+    {
+      "steps": 1152,
+      "split": 1025,
+      "graph": 24,
+      "assignments_checked": 1151
+    },
+    {
+      "steps": 1152,
+      "split": 1024,
+      "graph": 0,
+      "assignments_checked": 1151
+    },
+    {
+      "steps": 19,
+      "split": 13,
+      "graph": 24,
+      "assignments_checked": 18
+    },
+    {
+      "steps": 20,
+      "split": 14,
+      "graph": 7,
+      "assignments_checked": 19
+    },
+    {
+      "steps": 9920,
+      "split": 1216,
+      "graph": 24,
+      "assignments_checked": 9919
+    }
+  ]
+}

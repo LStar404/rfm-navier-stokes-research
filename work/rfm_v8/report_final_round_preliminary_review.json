@@ -1,0 +1,73 @@
+{
+  "status": "preliminary_text_review_revisions_required",
+  "reviewed_for_publication": false,
+  "created_utc": "2026-11-10T04:23:15.937910+00:00",
+  "scope": "Lightweight CPU-only text and small saved-score verification; no GPU, PDE solve, new timing, full re-scan or PDF approval.",
+  "reviewed_addendum_snapshot": "work/rfm_v8/release_completion_report_review_snapshot/report_final_round.json",
+  "reviewed_addendum_sha256": "32b487dc925d7d1600e5b258acac9dd2c2a0cc80b893207cdaa010107cfb0577",
+  "bound_addendum_evidence_all_match": true,
+  "evidence_sha256": {
+    "work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json": "1da5cd2cf5771a701ba172a3e979b2c8003f84328810ade76a692756f33231df",
+    "work/rfm_v8/rank_fair_cache_design_independent_review.json": "b35273625cc80b211808a358d89a807554a23a324c0cccb67601e58d3daa3553",
+    "work/rfm_v8/rank_parity_expansion_output/summary.json": "546a5f3e5fc2d5e4ed80e032533d3243a325410a19ec78c56824032ad6007187",
+    "work/rfm_v8/cuda_private_scope_t9_output/summary.json": "33dc08ff25ecdd973280eeefb361b58e344685fdf972f3e9b5c0e307d2ad3707",
+    "work/rfm_v8/cuda_private_context_independent_audit.json": "40355c2b13c025f34a5a21f29af37264f6fceb54a55d0218da3872ff319ff959",
+    "work/rfm_v8/cuda_private_scope_solver_closure_audit.json": "b409c380b94623af37262b51eeedf31ae299334166e7f2d6ee5f232908f15bc7",
+    "work/rfm_v8/stock_ptx_install_output/summary.json": "c9cbff3571456cc3873aad7ddccf06ebaab73041a638db3a663c654bf46b5015",
+    "work/rfm_v8/formal_interruption_review_20261110/formal_interruption_review.json": "a096efe5ef6b7757813aecf24612a0ba29ff435e4ffdfeff22027ddec977c470",
+    "work/rfm_v8/rank_fair_outer_watchdog_independent_review.json": "c8ba0e7a718274ab74adb862a791cf43f45eeb5fd91bd3ed5dfb529c5198d427",
+    "work/rfm_v8/rank_fair_outer_watchdog_v6_independent_review.json": "0b738b0edfcc4306ac868c11c14e0a606e1f603d6464627b1a94022389833ece",
+    "work/rfm_v8/rank_fair_isolation_cpu_fixture_v3_output/certificate.json": "0c3f144ad45f50138ea42cfce3c3de3dc278f49b077592d39ca0a72c48bc6075",
+    "work/rfm_v8/rank_fair_cache_recovery_t9_v2_output/t9_equivalence_certificate.json": "c99f9c2af88913f5da73db23632528d82a3c7a198dec2325c04e707748b9091b"
+  },
+  "verified_numbers": {
+    "t72_passes": 78,
+    "policy_pairs": 39,
+    "physical_relative_max": 0.004775428806959625,
+    "implementation_relative_max": 3.572075683009756e-06,
+    "probe_relative_max": 3.879179037889954e-06,
+    "qualified_triangle_relative_max": 0.00497729675053289,
+    "leg34_high_failed_combined_triangle_relative_max": 0.005096000652718006,
+    "stock_install_median_seconds": 2.6486956,
+    "stock_artifact_bytes": 147782,
+    "old_mid_completed": 2,
+    "old_mid_unknown": 1,
+    "old_mid_not_attempted": 47,
+    "old_monitor_samples": 8327
+  },
+  "numeric_check": "All 78 independent_score JSON files were matched to the frozen qualification summary SHA and their maxima were recomputed without loading trajectories.",
+  "findings": [
+    {
+      "id": "driver_jit_reuse",
+      "status": "requires_revision",
+      "page": "12",
+      "current": "Matrices, solutions, context, plans and driver JIT are not reused.",
+      "required": "State that the explicit project cache contains PTX only; matrix/solution/context/plans are fresh. Driver cache state remains natural/default across processes, and module loading or possible driver JIT work is still charged. Do not imply a cold driver cache."
+    },
+    {
+      "id": "current_watchdog_evidence",
+      "status": "requires_revision",
+      "page": "13",
+      "required": "Bind v6 independent review and final CPU integration certificate; label v5 as historical, with its later discovered default file-sharing conflict. The v6 single Read-method change preserves atomic replacement by permitting FileShare.Delete."
+    },
+    {
+      "id": "formal_results",
+      "status": "pending",
+      "page": "14",
+      "required": "Complete the prospectively frozen full formal batch and independent numerical/isolation verification, then replace the placeholder. Current review does not approve publication."
+    },
+    {
+      "id": "final_pdf",
+      "status": "pending",
+      "required": "After final narrative and source bindings settle, rebuild the final PDF and perform full text/privacy and rendered-page visual QA. This reviewer did not inspect a final PDF."
+    }
+  ],
+  "accepted_scope_statements": [
+    "RFM35 high has four rank-38 seeds and one rank-39 seed 8353.",
+    "Leg34 high uniform passes but combined triangle fails; full T72 promoted failures are not replaced by T16 screening successes.",
+    "Fusion remains diagnostic and unpromoted with only 2/4 fresh-process wins.",
+    "Three-key full install cost is separated from the roughly 0.93-second NVRTC subtotal.",
+    "Old stalled batch is incomplete; no root cause is inferred from process counters, and old rows cannot be pooled into the replacement.",
+    "Watchdog cleanup success is not scientific acceptance; pending remains immutable and does not authorize continuation."
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "status": "passed",
+  "source_sha256": "dfecdae121809b2f0ac99a813d89b0ae4131c12bfed85483151900a7583056b1",
+  "rows": [
+    {
+      "mode": "sleep",
+      "owner_mask": 64,
+      "expected_worker_mask": 16,
+      "timeout_seconds": 1.2,
+      "grace_seconds": 0.7,
+      "elapsed_seconds": 0.29233049997128546,
+      "failure_type": null,
+      "terminal": {
+        "pid": 33528,
+        "birth_filetime_100ns": 134387436090108512,
+        "exit_filetime_100ns": 134387436092932581,
+        "kernel_cpu_100ns": 468750,
+        "user_cpu_100ns": 625000,
+        "exit_code": 0
+      },
+      "events": [
+        {
+          "event": "create_entered",
+          "elapsed_seconds": 0.0014086999581195414
+        },
+        {
+          "event": "create_returned",
+          "elapsed_seconds": 0.01134759996784851,
+          "identity": {
+            "pid": 33528,
+            "birth_filetime_100ns": 134387436090108512,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 0,
+            "user_cpu_100ns": 0
+          }
+        },
+        {
+          "event": "ready",
+          "elapsed_seconds": 0.19540199998300523,
+          "pid": 33528,
+          "affinity_mask": 16
+        },
+        {
+          "event": "pipe_write_entered",
+          "elapsed_seconds": 0.19575989997247234,
+          "bytes": 3
+        },
+        {
+          "event": "pipe_write_completed",
+          "elapsed_seconds": 0.19582749996334314
+        },
+        {
+          "event": "return",
+          "elapsed_seconds": 0.27150449994951487,
+          "pid": 33528
+        },
+        {
+          "event": "pipe_write_entered",
+          "elapsed_seconds": 0.2718642999534495,
+          "bytes": 5
+        },
+        {
+          "event": "pipe_write_completed",
+          "elapsed_seconds": 0.2719402999500744
+        },
+        {
+          "event": "process_signaled",
+          "elapsed_seconds": 0.2881484999670647,
+          "identity": {
+            "pid": 33528,
+            "birth_filetime_100ns": 134387436090108512,
+            "exit_filetime_100ns": 134387436092932581,
+            "kernel_cpu_100ns": 468750,
+            "user_cpu_100ns": 625000,
+            "exit_code": 0
+          }
+        },
+        {
+          "event": "pipe_close_entered",
+          "elapsed_seconds": 0.29214769997633994
+        },
+        {
+          "event": "pipe_close_returned",
+          "elapsed_seconds": 0.2922344999969937,
+          "errors": [],
+          "closed": true
+        }
+      ],
+      "dedicated_kill_on_close_job": true,
+      "passed": true
+    },
+    {
+      "mode": "hang",
+      "owner_mask": 64,
+      "expected_worker_mask": 16,
+      "timeout_seconds": 1.2,
+      "grace_seconds": 0.7,
+      "elapsed_seconds": 1.215592699998524,
+      "failure_type": "TimeoutError",
+      "terminal": {
+        "pid": 11604,
+        "birth_filetime_100ns": 134387436095055040,
+        "exit_filetime_100ns": 134387436107103161,
+        "kernel_cpu_100ns": 312500,
+        "user_cpu_100ns": 10625000,
+        "exit_code": 57769
+      },
+      "events": [
+        {
+          "event": "create_entered",
+          "elapsed_seconds": 0.0013005000073462725
+        },
+        {
+          "event": "create_returned",
+          "elapsed_seconds": 0.016451400006189942,
+          "identity": {
+            "pid": 11604,
+            "birth_filetime_100ns": 134387436095055040,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 0,
+            "user_cpu_100ns": 0
+          }
+        },
+        {
+          "event": "ready",
+          "elapsed_seconds": 0.1967636999906972,
+          "pid": 11604,
+          "affinity_mask": 16
+        },
+        {
+          "event": "pipe_write_entered",
+          "elapsed_seconds": 0.19709640002110973,
+          "bytes": 3
+        },
+        {
+          "event": "pipe_write_completed",
+          "elapsed_seconds": 0.19714459998067468
+        },
+        {
+          "event": "deadline_or_failure",
+          "elapsed_seconds": 1.2037596000009216,
+          "error": "TimeoutError",
+          "pending_pipe_write": false
+        },
+        {
+          "event": "terminate_entered",
+          "elapsed_seconds": 1.2042960000107996,
+          "identity": {
+            "pid": 11604,
+            "birth_filetime_100ns": 134387436095055040,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 312500,
+            "user_cpu_100ns": 10625000
+          }
+        },
+        {
+          "event": "terminate_returned",
+          "elapsed_seconds": 1.2044612999889068,
+          "success": true,
+          "win32_error": null
+        },
+        {
+          "event": "process_signaled",
+          "elapsed_seconds": 1.2151255999924615,
+          "identity": {
+            "pid": 11604,
+            "birth_filetime_100ns": 134387436095055040,
+            "exit_filetime_100ns": 134387436107103161,
+            "kernel_cpu_100ns": 312500,
+            "user_cpu_100ns": 10625000,
+            "exit_code": 57769
+          }
+        },
+        {
+          "event": "pipe_close_entered",
+          "elapsed_seconds": 1.2154236999922432
+        },
+        {
+          "event": "pipe_close_returned",
+          "elapsed_seconds": 1.2154974000295624,
+          "errors": [],
+          "closed": true
+        }
+      ],
+      "dedicated_kill_on_close_job": true,
+      "passed": true
+    },
+    {
+      "mode": "pipe",
+      "owner_mask": 64,
+      "expected_worker_mask": 16,
+      "timeout_seconds": 1.2,
+      "grace_seconds": 0.7,
+      "elapsed_seconds": 1.229985799989663,
+      "failure_type": "TimeoutError",
+      "terminal": {
+        "pid": 52264,
+        "birth_filetime_100ns": 134387436109318800,
+        "exit_filetime_100ns": 134387436121506881,
+        "kernel_cpu_100ns": 937500,
+        "user_cpu_100ns": 312500,
+        "exit_code": 57769
+      },
+      "events": [
+        {
+          "event": "create_entered",
+          "elapsed_seconds": 0.0014466000138781965
+        },
+        {
+          "event": "create_returned",
+          "elapsed_seconds": 0.013327799970284104,
+          "identity": {
+            "pid": 52264,
+            "birth_filetime_100ns": 134387436109318800,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 0,
+            "user_cpu_100ns": 0
+          }
+        },
+        {
+          "event": "ready",
+          "elapsed_seconds": 0.19698429998243228,
+          "pid": 52264,
+          "affinity_mask": 16
+        },
+        {
+          "event": "pipe_write_entered",
+          "elapsed_seconds": 0.19751530000939965,
+          "bytes": 1048576
+        },
+        {
+          "event": "deadline_or_failure",
+          "elapsed_seconds": 1.2177973000216298,
+          "error": "TimeoutError",
+          "pending_pipe_write": true
+        },
+        {
+          "event": "terminate_entered",
+          "elapsed_seconds": 1.2182840000023134,
+          "identity": {
+            "pid": 52264,
+            "birth_filetime_100ns": 134387436109318800,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 937500,
+            "user_cpu_100ns": 312500
+          }
+        },
+        {
+          "event": "terminate_returned",
+          "elapsed_seconds": 1.2184537000139244,
+          "success": true,
+          "win32_error": null
+        },
+        {
+          "event": "pipe_write_failed",
+          "elapsed_seconds": 1.2228277999674901,
+          "error": "BrokenPipeError"
+        },
+        {
+          "event": "process_signaled",
+          "elapsed_seconds": 1.229401999968104,
+          "identity": {
+            "pid": 52264,
+            "birth_filetime_100ns": 134387436109318800,
+            "exit_filetime_100ns": 134387436121506881,
+            "kernel_cpu_100ns": 937500,
+            "user_cpu_100ns": 312500,
+            "exit_code": 57769
+          }
+        },
+        {
+          "event": "pipe_close_entered",
+          "elapsed_seconds": 1.2297866999870166
+        },
+        {
+          "event": "pipe_close_returned",
+          "elapsed_seconds": 1.2298770999768749,
+          "errors": [],
+          "closed": true
+        }
+      ],
+      "dedicated_kill_on_close_job": true,
+      "passed": true
+    },
+    {
+      "mode": "before_ready",
+      "owner_mask": 64,
+      "expected_worker_mask": 16,
+      "timeout_seconds": 1.2,
+      "grace_seconds": 0.7,
+      "elapsed_seconds": 1.2185997999622487,
+      "failure_type": "TimeoutError",
+      "terminal": {
+        "pid": 39724,
+        "birth_filetime_100ns": 134387436123663254,
+        "exit_filetime_100ns": 134387436135721411,
+        "kernel_cpu_100ns": 937500,
+        "user_cpu_100ns": 156250,
+        "exit_code": 57769
+      },
+      "events": [
+        {
+          "event": "create_entered",
+          "elapsed_seconds": 0.001310699968598783
+        },
+        {
+          "event": "create_returned",
+          "elapsed_seconds": 0.01247349998448044,
+          "identity": {
+            "pid": 39724,
+            "birth_filetime_100ns": 134387436123663254,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 0,
+            "user_cpu_100ns": 0
+          }
+        },
+        {
+          "event": "deadline_or_failure",
+          "elapsed_seconds": 1.2045406000106595,
+          "error": "TimeoutError",
+          "pending_pipe_write": false
+        },
+        {
+          "event": "terminate_entered",
+          "elapsed_seconds": 1.205197200004477,
+          "identity": {
+            "pid": 39724,
+            "birth_filetime_100ns": 134387436123663254,
+            "exit_filetime_100ns": 0,
+            "kernel_cpu_100ns": 937500,
+            "user_cpu_100ns": 156250
+          }
+        },
+        {
+          "event": "terminate_returned",
+          "elapsed_seconds": 1.2054140999680385,
+          "success": true,
+          "win32_error": null
+        },
+        {
+          "event": "process_signaled",
+          "elapsed_seconds": 1.2176468999823555,
+          "identity": {
+            "pid": 39724,
+            "birth_filetime_100ns": 134387436123663254,
+            "exit_filetime_100ns": 134387436135721411,
+            "kernel_cpu_100ns": 937500,
+            "user_cpu_100ns": 156250,
+            "exit_code": 57769
+          }
+        },
+        {
+          "event": "pipe_close_entered",
+          "elapsed_seconds": 1.2183162000146694
+        },
+        {
+          "event": "pipe_close_returned",
+          "elapsed_seconds": 1.2184512999956496,
+          "errors": [],
+          "closed": true
+        }
+      ],
+      "dedicated_kill_on_close_job": true,
+      "passed": true
+    }
+  ],
+  "scope": "Ordinary synthetic Windows children, no GPU or CUDA context. The owner records bounded exit uncertainty; this does not guarantee a driver-held process will exit."
+}

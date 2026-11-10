@@ -1,0 +1,142 @@
+{
+  "status": "api_review_passed_with_limits",
+  "scope": "Archived diagnostics, official CUDA 11.8 API, local header and Python CPU stand-in only. No real driver call or GPU work.",
+  "source_hashes": {
+    "work/rfm_v8/cuda_private_context.py": "29f785ac850eacc93172f13c82b32fe2cd0c5e40a430e3a7d511b70312a62bc1",
+    "work/rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "work/rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "work/rfm_v8/cuda_ptx_march_t9_phase_output/summary.json": "a8356cf4b97663a4f60a503ec4b51b26c10ebf592e4dd61311363aec5aec528e",
+    "work/rfm_v8/cuda_ptx_march_t9_phase_output/slot_007/phase_log.json": "93a97ffec984aa4364b00d7ed49294a53c19be062804d09ac1546efdc3c058ed",
+    "work/rfm_v8/cuda_ptx_march_t9_phase_output/slot_007/watchdog.json": "4575ccbbbd2f1357d2a9a7124b67c1c863d5aa01dd6fa9287f5d1f26c87c19fc"
+  },
+  "sdk_header_sha256": "df07ddd4f392a373023143a956f187c53855c64efdae11e8d6e5f1721c33c703",
+  "preceding_timeout": {
+    "qualified_before_stop": 7,
+    "last_marker": "context_retain_begin",
+    "first_unfinished_stage": "cuDevicePrimaryCtxRetain",
+    "failed_stock_policy": "disabled",
+    "wall_from_marker_to_terminate_seconds": 28.51849,
+    "process_cpu_from_marker_to_terminal_seconds": 28.484375,
+    "entered_nvrtc": false,
+    "owned_terminal_confirmed": true,
+    "conclusion": "The last committed phase bounds the location. It does not identify an internal driver mechanism."
+  },
+  "documented_contract": {
+    "create_abi": "CUresult(CUcontext*, unsigned int, CUdevice) exported as cuCtxCreate_v2 in CUDA 11.8 headers",
+    "destroy_abi": "CUresult(CUcontext) exported as cuCtxDestroy_v2 in CUDA 11.8 headers",
+    "create_flags": 0,
+    "stream_flags": 1,
+    "context_stack": "Create makes the private context current on the same thread. Destroy while it is still current pops it and restores the predecessor.",
+    "runtime_interop": "CUDA runtime normally uses a driver-created nonprimary context current to the calling thread, with documented exceptions. CUstream and cudaStream_t are identical. cuFFT single-GPU capture is supported subject to stream-capture restrictions. Actual local plan/exec/graph still requires the separate device smoke."
+  },
+  "cpu_standin": {
+    "trials": [
+      {
+        "case": "private_no_previous",
+        "passed": true,
+        "api_calls": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGet",
+          "cuCtxGetCurrent",
+          "cuCtxCreate_v2",
+          "cuCtxGetCurrent",
+          "cuStreamCreate",
+          "cuStreamDestroy_v2",
+          "cuCtxGetCurrent",
+          "cuCtxDestroy_v2",
+          "cuCtxGetCurrent"
+        ]
+      },
+      {
+        "case": "private_restores_nested_previous",
+        "passed": true,
+        "api_calls": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGet",
+          "cuCtxGetCurrent",
+          "cuCtxCreate_v2",
+          "cuCtxGetCurrent",
+          "cuStreamCreate",
+          "cuStreamDestroy_v2",
+          "cuCtxGetCurrent",
+          "cuCtxDestroy_v2",
+          "cuCtxGetCurrent"
+        ]
+      },
+      {
+        "case": "private_create_fails",
+        "passed": true,
+        "api_calls": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGet",
+          "cuCtxGetCurrent",
+          "cuCtxCreate_v2"
+        ]
+      },
+      {
+        "case": "private_stream_fails",
+        "passed": true,
+        "api_calls": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGet",
+          "cuCtxGetCurrent",
+          "cuCtxCreate_v2",
+          "cuCtxGetCurrent",
+          "cuStreamCreate",
+          "cuCtxGetCurrent",
+          "cuCtxDestroy_v2",
+          "cuCtxGetCurrent"
+        ]
+      },
+      {
+        "case": "primary_balanced_existing_context",
+        "passed": true,
+        "api_calls": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGet",
+          "cuCtxGetCurrent",
+          "cuDevicePrimaryCtxRetain",
+          "cuCtxSetCurrent",
+          "cuStreamCreate",
+          "cuStreamDestroy_v2",
+          "cuCtxSetCurrent",
+          "cuDevicePrimaryCtxRelease_v2"
+        ]
+      },
+      {
+        "case": "primary_stream_fails",
+        "passed": true,
+        "api_calls": [
+          "cuInit",
+          "cuDriverGetVersion",
+          "cuDeviceGet",
+          "cuCtxGetCurrent",
+          "cuDevicePrimaryCtxRetain",
+          "cuCtxSetCurrent",
+          "cuStreamCreate",
+          "cuCtxSetCurrent",
+          "cuDevicePrimaryCtxRelease_v2"
+        ]
+      }
+    ],
+    "limitations": "Modeled documented stack and call order only. No binary, driver or cuFFT execution evidence."
+  },
+  "scoped_findings": [
+    "Primary retain is distinct from context push. Existing code uses GetCurrent, retain, SetCurrent, and restoration before release with appropriate ABI. The observed stop was during acquisition before release or compilation. No source-local ABI error explains that observation.",
+    "The new private path registers context destroy immediately after create and registers stream destroy afterward. LIFO keeps stream destruction before context destruction and does not manually replace the context stack top.",
+    "On the normal solver path downloads synchronize. Existing outer solver resource stack can run graph/plan/buffer cleanup before the inner runtime's final sync on exceptional paths. This distinct cleanup concern does not explain a timeout during context acquisition.",
+    "Destroy verification can itself fail if the preceding GetCurrent or diagnostic callback raises. The bounded child boundary preserves a hard process lifetime. No GPU or context redesign is certified by these static/mock checks."
+  ],
+  "official_sources": [
+    "https://docs.nvidia.com/cuda/archive/11.8.0/cuda-driver-api/group__CUDA__CTX.html",
+    "https://docs.nvidia.com/cuda/archive/11.8.0/cuda-driver-api/group__CUDA__PRIMARY__CTX.html",
+    "https://docs.nvidia.com/cuda/archive/11.8.0/cuda-driver-api/group__CUDA__STREAM.html",
+    "https://docs.nvidia.com/cuda/archive/11.8.0/cuda-runtime-api/group__CUDART__DRIVER.html",
+    "https://docs.nvidia.com/cuda/archive/11.8.0/cufft/index.html"
+  ]
+}

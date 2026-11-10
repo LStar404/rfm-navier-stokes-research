@@ -1,0 +1,332 @@
+{
+  "status": "frozen",
+  "settings": {
+    "scope": "Same twelve deterministic fixed-state cases as the archived left-preconditioned audit, plus two explicitly registered mid-resolution r64 cases under both preconditioners. Original cases, gates, restart/cycle limits and tolerances are preserved.",
+    "preconditioner": "A=L L^T and x=L^-T y, giving I-h L^-1 F L^-T. Exact real Fourier pairing and original lifting preserved.",
+    "strict_rtol": 1e-12,
+    "screen_rtol": 1e-09,
+    "practical_rates": [
+      128,
+      64
+    ],
+    "required_practical_cases": 4,
+    "stress_rates": [
+      32,
+      8
+    ],
+    "preconditioned_skew_gate": 1e-12
+  },
+  "source_sha256": {
+    "audit_lamb_symmetric.py": "63bbcc5a765b2236c0cdd0d269f8e13b231eb91d1bd98cb2c2a10fe74029b50a",
+    "protocol_lamb_symmetric_fixed_audit.json": "1c6bec882e39dc5bae49b8421ad510f058eaba5b291f38c5fce1ec5cf61083f5",
+    "lamb_linearized_fixed_audit_output/protocol.json": "0db037ab2d9882e5c363f5bfd13e85e66612ad21aa20d8e33e41ae06fada400e",
+    "lamb_linearized_audit.json": "37af69c03f0bd94eccbc841ea0b22592e67602dedd7d342ad5dd8765fdb64ec1",
+    "lamb_symmetric.py": "7842577b99187d29c945de55b3f142dfd0ae5b14ae3b7d39da8640b202c22cd9",
+    "lamb_linearized.py": "4183cd2a52349e2a6cfa02539990f42df548d422b9298c46da337985c23bc743",
+    "audit_lamb_linearized.py": "6c52a406ff8ddb0fc8503e293215d48fc998f8f471ea698f2d62f2c185a17cd4"
+  },
+  "jobs": [
+    {
+      "family": "rfm",
+      "size": "small",
+      "rate": 128,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "small",
+      "rate": 32,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "small",
+      "rate": 8,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 32,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 8,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "small",
+      "rate": 128,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "small",
+      "rate": 32,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "small",
+      "rate": 8,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 32,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 8,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 64,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    }
+  ],
+  "fixed_gates": {
+    "skew_pairing_relative": 1e-12,
+    "original_flux_relative": 1e-12,
+    "extrapolated_curl_relative": 1e-12,
+    "original_equation_relative": 1e-07,
+    "raw_energy_defect_relative": 1e-07,
+    "work_corrected_energy_defect_relative": 1e-11
+  }
+}

@@ -1,0 +1,26 @@
+Formal interruption review — 2026-11-10
+
+Verdict: interrupted / incomplete / diagnostic only. No speed claim is supported.
+Mid window: 50 registered slots; 2 completed artifacts; 1 attempted with unknown outcome; 47 not attempted.
+Existing qualification summary: 78 qualified rows, pinned SHA-256 1da5cd2cf5771a701ba172a3e979b2c8003f84328810ade76a692756f33231df
+
+Recovered numerical evidence:
+  Formal 000 -> qualification 010: exact states at all 19 formal times, full 577-time probe arrays, configuration, non-time metadata, cache identity, raw SHA and terminal/latches verified. Raw SHA-256 0afc47f3a38fc12ce66f6b71e18ed714ee7c725e1df2c92f417c2929f3fa5ec6.
+  Formal 001 -> qualification 001: exact states at all 19 formal times, full 577-time probe arrays, configuration, non-time metadata, cache identity, raw SHA and terminal/latches verified. Raw SHA-256 6ffae4c0cdcb8788c3e22dc513881c41a839cb622a9f88f52198b431f26d2eac.
+
+Last provable progress:
+  Slot 002: leg35_k72_q66 / uniform / seed 17 / empty_first. READY and GO exist; no RETURN, SAVE, trajectory or terminal.
+  Last monitor sample: 2026-11-10T11:47:54.507715+08:00; GO-to-last-live 8294.559882 seconds.
+  Worker accumulated CPU: kernel 5285.687500s, user 2927.000000s. These do not reveal GPU progress or a blocked stack.
+  Samples: 8327; max start-to-start gap 1.0284105s; 0 acquisition issues; only slots 000/001 have terminal records.
+  No summary.json, isolation.json or execution_environment_guard.json. Current read-only process query finds none of the three old PIDs; no historical termination cause follows from that.
+
+Deadline risk:
+  Registered deadlines were 30s RETURN, 45s slot and 720s cohort. Exact worker identity persists in samples beyond all three; no timeout or termination was durably recorded.
+  Synchronous TerminateProcess has no independent call bound; its subsequent 4s wait does not bound that call. Attempt updates are written only after all launch/cleanup returns. This is an implementation risk, not proof of the call or root cause of this interruption.
+
+Required interpretation:
+  Preserve all original evidence. The two exact numerical recoveries are diagnostic times only. Slot 002 remains unknown. Do not fabricate closing guards, silently retry the failed prospective window, trim to completed rows, or report a cache-policy/method speed gain.
+  No app restart, driver fault, GPU failure, cancellation or exact blocked call is established.
+
+Audit performed no flow solve, no GPU calls, no modification of original files. All original mid-output file hashes and last-write values were stable across this audit.

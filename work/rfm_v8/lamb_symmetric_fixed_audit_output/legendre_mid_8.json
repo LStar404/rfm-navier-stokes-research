@@ -1,0 +1,95 @@
+{
+  "job": {
+    "family": "legendre",
+    "size": "mid",
+    "rate": 8,
+    "config": {
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 17,
+      "family": "legendre"
+    }
+  },
+  "status": "complete",
+  "preconditioned_skew_pairing_relative": 1.1624255146997558e-17,
+  "factor_roundtrip_relative": 1.557689745939921e-14,
+  "trials": {
+    "strict": {
+      "linear_work": {
+        "iterations": 203,
+        "operator_calls": 214,
+        "velocity_product_calls": 215,
+        "gmres_info": 0,
+        "requested_rtol": 1e-12,
+        "preconditioned_residual": 9.291814816356519e-13,
+        "final_reported_relative_residual": 9.291914869947044e-13,
+        "converged": true,
+        "preconditioner": "symmetric_block_cholesky"
+      },
+      "diagnostic_step_seconds": 0.2795987999998033,
+      "original_equation_relative": 1.9283623037586423e-13,
+      "energy_ratio": 0.4144041350768244,
+      "raw_energy_defect_relative": 6.15725682311648e-14,
+      "work_corrected_energy_defect_relative": 2.70232829003106e-16,
+      "lift_work_relative": 0.0,
+      "residual_work_relative": 6.13023354021617e-14,
+      "passed": true
+    },
+    "screen": {
+      "linear_work": {
+        "iterations": 151,
+        "operator_calls": 160,
+        "velocity_product_calls": 161,
+        "gmres_info": 0,
+        "requested_rtol": 1e-09,
+        "preconditioned_residual": 9.357325387169357e-10,
+        "final_reported_relative_residual": 9.357324801041827e-10,
+        "converged": true,
+        "preconditioner": "symmetric_block_cholesky"
+      },
+      "diagnostic_step_seconds": 0.20969150000019,
+      "original_equation_relative": 1.856552026280946e-10,
+      "energy_ratio": 0.4144041350757129,
+      "raw_energy_defect_relative": 4.7214765621388734e-11,
+      "work_corrected_energy_defect_relative": 1.5599250041823336e-16,
+      "lift_work_relative": 0.0,
+      "residual_work_relative": 4.7214609628888316e-11,
+      "passed": true
+    },
+    "screen_lift": {
+      "linear_work": {
+        "iterations": 154,
+        "operator_calls": 163,
+        "velocity_product_calls": 164,
+        "gmres_info": 0,
+        "requested_rtol": 1e-09,
+        "preconditioned_residual": 9.91820412069914e-10,
+        "final_reported_relative_residual": 9.918203984214883e-10,
+        "converged": true,
+        "preconditioner": "symmetric_block_cholesky"
+      },
+      "diagnostic_step_seconds": 0.21317339997040108,
+      "original_equation_relative": 3.5765743156573524e-10,
+      "energy_ratio": 1.242514883846376,
+      "raw_energy_defect_relative": 7.079852735430617e-10,
+      "work_corrected_energy_defect_relative": 3.841361903085075e-15,
+      "lift_work_relative": 1.216996807287983,
+      "residual_work_relative": 7.079814321811586e-10,
+      "passed": true
+    }
+  },
+  "screen_pass": true
+}

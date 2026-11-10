@@ -1,0 +1,287 @@
+{
+  "status": "frozen",
+  "settings": {
+    "scope": "Deterministic fixed-state skew, lifting, GMRES and BDF2 work audit. No trajectory or stability proof.",
+    "state_seed": 374783,
+    "families": [
+      "rfm",
+      "legendre"
+    ],
+    "sizes": [
+      "small",
+      "mid"
+    ],
+    "rates": [
+      128,
+      32,
+      8
+    ],
+    "strict_rtol": 1e-12,
+    "screen_rtol": 1e-09,
+    "gmres_restart": 24,
+    "gmres_max_cycles": 10,
+    "fixed_gates": {
+      "skew_pairing_relative": 1e-12,
+      "original_flux_relative": 1e-12,
+      "extrapolated_curl_relative": 1e-12,
+      "original_equation_relative": 1e-07,
+      "raw_energy_defect_relative": 1e-07,
+      "work_corrected_energy_defect_relative": 1e-11
+    },
+    "screen_basis": "The prior strict GMRES stopped at a true left-preconditioned residual of 2.353e-10. Retain a 1e-12 comparison and use 1e-9 only for fixed-state screening, with independent original-equation and energy-balance gates. Failure of any screen case is retained and blocks the trajectory pilot."
+  },
+  "source_sha256": {
+    "audit_lamb_linearized.py": "6c52a406ff8ddb0fc8503e293215d48fc998f8f471ea698f2d62f2c185a17cd4",
+    "protocol_lamb_fixed_audit.json": "53801771f35560b90099a60bad6580921e41928bf5f50dd8882f58d6c1a0910c",
+    "lamb_linearized.py": "4183cd2a52349e2a6cfa02539990f42df548d422b9298c46da337985c23bc743",
+    "lamb_linearized_audit_strict_v1_failure.json": "5f5dba718d921c60494922b544e83cf57f218d7ac12041fea7bfd469ac9c8694"
+  },
+  "jobs": [
+    {
+      "family": "rfm",
+      "size": "small",
+      "rate": 128,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "small",
+      "rate": 32,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "small",
+      "rate": 8,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 32,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "rfm",
+      "size": "mid",
+      "rate": 8,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "small",
+      "rate": 128,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "small",
+      "rate": 32,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "small",
+      "rate": 8,
+      "config": {
+        "m": 13,
+        "k": 8,
+        "q": 36,
+        "scale": 62.0,
+        "mean_order": 10,
+        "layers": [],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 128,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 32,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    },
+    {
+      "family": "legendre",
+      "size": "mid",
+      "rate": 8,
+      "config": {
+        "m": 37,
+        "k": 72,
+        "q": 66,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 17,
+        "family": "legendre"
+      }
+    }
+  ]
+}

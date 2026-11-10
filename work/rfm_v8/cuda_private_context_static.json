@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "scope": "Local headers and fake call-order fixture, no CUDA device call",
+  "cuda_header_sha256": "df07ddd4f392a373023143a956f187c53855c64efdae11e8d6e5f1721c33c703",
+  "cases": [
+    {
+      "injected_stream_failure": false,
+      "predecessor_present": false,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    },
+    {
+      "injected_stream_failure": false,
+      "predecessor_present": true,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuStreamDestroy_v2",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    },
+    {
+      "injected_stream_failure": true,
+      "predecessor_present": false,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    },
+    {
+      "injected_stream_failure": true,
+      "predecessor_present": true,
+      "events": [
+        "cuInit",
+        "cuDriverGetVersion",
+        "cuDeviceGet",
+        "cuCtxGetCurrent",
+        "cuCtxCreate_v2",
+        "cuCtxGetCurrent",
+        "cuStreamCreate",
+        "cuCtxGetCurrent",
+        "cuCtxDestroy_v2",
+        "cuCtxGetCurrent"
+      ]
+    }
+  ]
+}

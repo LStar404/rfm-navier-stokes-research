@@ -1,0 +1,36 @@
+{
+  "status": "independent_algebra_review_passed",
+  "created_utc": "2026-11-10T04:36:05.076334+00:00",
+  "source_sha256": {
+    "work/rfm_v8/theory_phase_pencil_scope_note.txt": "83ed6c73e1cc174317944bde40699b5df6bba488f36e9753152ccafc26b81604"
+  },
+  "scope": "Algebra-only audit of the stated positive-parameter matrix assumptions. No new matrix benchmark, PDE/GPU candidate or performance measurement.",
+  "checks": [
+    {
+      "id": "positive_definite_phases",
+      "passed": true,
+      "reason": "If M and K are symmetric positive semidefinite and a_ref M + h_ref K is positive definite for positive reference coefficients, their nullspaces have trivial intersection. Every positive a_j M + h_j K is therefore positive definite."
+    },
+    {
+      "id": "convex_diagonal",
+      "passed": true,
+      "reason": "H whitening followed by orthogonal diagonalization of the whitened M gives P^T H P=I and theta_i=a_ref lambda_i in [0,1]. The complementary h_ref K diagonal is 1-theta_i, so the phase diagonal formula is exact."
+    },
+    {
+      "id": "condition_bound",
+      "passed": true,
+      "reason": "After factoring a_j/a_ref, each diagonal entry is theta_i + (r_j/eta)(1-theta_i). Its ratio of largest to smallest is at most max(1,r_j/eta)/min(1,r_j/eta)=max(r_j/eta,eta/r_j)."
+    },
+    {
+      "id": "minimax_anchor",
+      "passed": true,
+      "reason": "The worst bound equals max(r_max/eta,eta/r_min). The two terms have fixed product r_max/r_min, so their maximum is at least its square root, with equality exactly at eta=sqrt(r_min*r_max) (also when the endpoints coincide)."
+    },
+    {
+      "id": "scope",
+      "passed": true,
+      "reason": "This minimizes the stated worst-case bound, not necessarily the actual condition number for a particular spectrum. Common reference scaling cancels from the condition bound. It does not force every d_ji near one, control the original coordinates, fix cross-mode noncommutativity, establish time-integration stability or establish runtime savings."
+    }
+  ],
+  "publication_note": "The earlier matrix and timing evidence remains unchanged; report this only as a mathematical correction and anchor-selection bound."
+}

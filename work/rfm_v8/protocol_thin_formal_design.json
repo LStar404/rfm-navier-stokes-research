@@ -1,0 +1,71 @@
+{
+  "status": "design_only_not_a_run_protocol",
+  "study": "Solver-only imports with unchanged FP64 Galerkin and FD4 trajectories",
+  "purpose": "Separate startup dependency cost from solver time and from random features",
+  "physical_problem": "Re=100 full finite annulus, no reflection constraint, prescribed original forcing, T=72",
+  "physical_gate": 0.005,
+  "implementation_gate": 0.00001,
+  "physical_metrics": ["velocity", "vorticity", "near_velocity", "near_vorticity"],
+  "physical_grids": ["gauss123", "mid129", "layer144"],
+  "physical_times": [0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, 72],
+  "probe_spacing": 0.125,
+  "qualification": "thin_t72_qualification_output/qualification.json",
+  "rfm_seeds": [7331, 7687, 8011, 8353, 9041],
+  "deterministic_seed": 17,
+  "blocks": 5,
+  "graph_steps": 24,
+  "toolchain": "Original CUDA 11.8; independent modern toolchain research is excluded from this cohort",
+  "galerkin_arms_each_family": [
+    {"arm": "uniform", "imports": "selected"},
+    {"arm": "uniform", "imports": "minimal"},
+    {"arm": "combined", "imports": "selected"},
+    {"arm": "combined", "imports": "minimal"}
+  ],
+  "scales": [
+    {"name": "mid", "rfm": "rfm37_k72", "legendre": "leg37_k72", "rates": [128, 112],
+     "fd_controls": ["fd176_dense"], "order_seed": 891753, "rows": 45},
+    {"name": "high", "rfm": "rfm41_k80", "legendre": "leg39_k80", "rates": [152, 136],
+     "fd_controls": ["fd176_dense", "fd184_band"], "order_seed": 891781, "rows": 50}
+  ],
+  "fairness": [
+    "Every primary method comparison uses its minimal equivalent dependency path, including both FD controls",
+    "Selected versus minimal import is paired within the same method, seed, time schedule, observations and graph width",
+    "Uniform versus combined minimal separates schedule/preparation from import savings",
+    "Legendre versus RFM is descriptive at separately qualified retained ranks, not an equal-rank causal feature test",
+    "Independent fresh processes, no simultaneous fluid solves, same logical CPU 4 and one BLAS thread",
+    "Qualification has already warmed operating-system and driver caches; fresh process does not mean cold machine"
+  ],
+  "clocks": {
+    "solver_seconds": "Immediately before solve/context entry through setup, march, CUDA teardown and model release; spatial fingerprint excluded",
+    "fresh_process_return_seconds": "Immediately before Popen through receipt of RETURN; includes imports, identity admission and spatial fingerprint",
+    "excluded_from_both": "Trajectory serialization after SAVE and numerical qualification after the cohort"
+  },
+  "monitor": {
+    "coordinator_cpu": 4,
+    "monitor_cpu": 6,
+    "poll_interval_seconds": 1,
+    "max_poll_gap_seconds": 2.5,
+    "budget_interval_seconds": 10,
+    "max_budget_lateness_seconds": 2,
+    "preflight_windows": 2,
+    "preflight_gpu_percent_max": 5,
+    "external_python_cpu_seconds_max": 0.2,
+    "known_background_individual_cpu_seconds_max": 0.5,
+    "known_background_total_cpu_seconds_max": 1.0,
+    "maximum_active_seconds": 720,
+    "known_background": [{"pid": 68656, "birth_filetime_100ns": 134387082580552623}],
+    "window": "Before first Popen through last exact child terminal and coordinator raw-hash close, with boundary samples",
+    "scope": "Observed Python process lifetimes and endpoint GPU activity; entirely between-poll lifetimes and other application loads are not fully covered"
+  },
+  "reporting": {
+    "attempts_per_scale": 1,
+    "retain_failed_preflight_and_all_slots": true,
+    "no_posthoc_window_trimming_or_slot_filtering": true,
+    "ratio_direction": "baseline_time / candidate_time",
+    "practical_improvement_ratio": 1.05,
+    "consistent_wins_required_per_clock": 5,
+    "both_clocks_required_for_overall_speed_claim": true,
+    "startup_only_improvement": "May be reported separately when fresh clock improves but unchanged solver clock does not",
+    "inference": "Descriptive paired results; five block-seed pairs are not independent random-feature causal evidence"
+  }
+}

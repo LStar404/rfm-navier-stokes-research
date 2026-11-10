@@ -1,0 +1,274 @@
+{
+  "status": "passed",
+  "scope": "CPU source/index and conditioning checks only. No kernel, device query, or trajectory.",
+  "source_sha256": {
+    "rfm_v8/audit_fused_nonlinear_fft_offline.py": "0d912fb18203162210164a306640afa43c92bf0603a3050626fa9343fac46e06",
+    "rfm_v8/fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba",
+    "rfm_v8/fused_nonlinear_fft.py": "8a4a945b72bcaf19b53209f2c60b634dc753e7646b27b73029fcef05b0722352",
+    "rfm_v8/fused_nonlinear_cuda_runtime.py": "d3f41a682439f9a1a1bb22d94feb5b48f68b0f01de9b32ba05452e219d79eb64",
+    "rfm_v8/verify_fused_nonlinear_fft.py": "2dfba015be11e36b408f86874fc0f7ef4af1b6857ae86e4b7994c80a85450eff",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385"
+  },
+  "stages": [
+    {
+      "ntheta": 200,
+      "stages": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          40,
+          5
+        ]
+      ],
+      "one_and_two_plane_writes_disjoint": true,
+      "packed_product_permutation_complete": true,
+      "hermitian_and_twiddle_bounds_valid": true
+    },
+    {
+      "ntheta": 225,
+      "stages": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          45,
+          5
+        ]
+      ],
+      "one_and_two_plane_writes_disjoint": true,
+      "packed_product_permutation_complete": true,
+      "hermitian_and_twiddle_bounds_valid": true
+    },
+    {
+      "ntheta": 243,
+      "stages": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          27,
+          3
+        ],
+        [
+          81,
+          3
+        ]
+      ],
+      "one_and_two_plane_writes_disjoint": true,
+      "packed_product_permutation_complete": true,
+      "hermitian_and_twiddle_bounds_valid": true
+    }
+  ],
+  "global_contract": {
+    "phase_order_checked": true,
+    "source_stage_barriers": true,
+    "state_not_passed": true,
+    "input_spectra_mean_terms_and_step_const": true,
+    "ascending_fd_mean_and_ring_same": true,
+    "layouts": [
+      {
+        "ntheta": 225,
+        "rows": 66,
+        "input_fields": 3,
+        "output_fields": 2,
+        "history_spectrum_slots": 14916
+      },
+      {
+        "ntheta": 243,
+        "rows": 76,
+        "input_fields": 3,
+        "output_fields": 2,
+        "history_spectrum_slots": 18544
+      },
+      {
+        "ntheta": 243,
+        "rows": 175,
+        "input_fields": 4,
+        "output_fields": 1,
+        "history_spectrum_slots": 21350
+      },
+      {
+        "ntheta": 243,
+        "rows": 183,
+        "input_fields": 4,
+        "output_fields": 1,
+        "history_spectrum_slots": 22326
+      }
+    ],
+    "host_precondition": "Spectrum, flux, history and FD mean buffers are independent allocations. Equal-pointer validation is not an arbitrary subview-overlap detector."
+  },
+  "stress": {
+    "fd_near_cancellation": [
+      {
+        "delta": 0.0009765625,
+        "fused": {
+          "error_over_uncancelled_term": 3.511886340966358e-16,
+          "relative_error_if_nonzero": 3.5961716131495504e-13
+        },
+        "numpy_separate": {
+          "error_over_uncancelled_term": 1.3404184723488593e-16,
+          "relative_error_if_nonzero": 1.372588515685232e-13
+        }
+      },
+      {
+        "delta": 9.5367431640625e-07,
+        "fused": {
+          "error_over_uncancelled_term": 2.657223348139872e-16,
+          "relative_error_if_nonzero": 2.7863006294991146e-10
+        },
+        "numpy_separate": {
+          "error_over_uncancelled_term": 1.3641554774329293e-16,
+          "relative_error_if_nonzero": 1.4304206939047113e-10
+        }
+      },
+      {
+        "delta": 9.313225746154785e-10,
+        "fused": {
+          "error_over_uncancelled_term": 3.538390717716207e-16,
+          "relative_error_if_nonzero": 3.799318103265269e-07
+        },
+        "numpy_separate": {
+          "error_over_uncancelled_term": 1.29811592824984e-16,
+          "relative_error_if_nonzero": 1.3938413645624365e-07
+        }
+      },
+      {
+        "delta": 9.094947017729282e-13,
+        "fused": {
+          "error_over_uncancelled_term": 2.767354047718506e-16,
+          "relative_error_if_nonzero": 0.0003042737953639477
+        },
+        "numpy_separate": {
+          "error_over_uncancelled_term": 1.4073392322691733e-16,
+          "relative_error_if_nonzero": 0.0001547385850105305
+        }
+      },
+      {
+        "delta": 3.552713678800501e-15,
+        "fused": {
+          "error_over_uncancelled_term": 3.684430623372237e-16,
+          "relative_error_if_nonzero": 0.10370750239057282
+        },
+        "numpy_separate": {
+          "error_over_uncancelled_term": 1.3523760098207031e-16,
+          "relative_error_if_nonzero": 0.03806600058683323
+        }
+      },
+      {
+        "delta": 0.0,
+        "fused": {
+          "error_over_uncancelled_term": 2.8621350215405213e-16,
+          "relative_error_if_nonzero": null
+        },
+        "numpy_separate": {
+          "error_over_uncancelled_term": 0.0,
+          "relative_error_if_nonzero": null
+        }
+      }
+    ],
+    "gal_weak_channel": [
+      {
+        "first_channel_ratio": 1.0,
+        "weak_flux": {
+          "relative_l2": 7.04927077349103e-16,
+          "max_abs": 2.567674660784192e-14
+        },
+        "all_flux": {
+          "relative_l2": 6.875768066969964e-16,
+          "max_abs": 2.567674660784192e-14
+        }
+      },
+      {
+        "first_channel_ratio": 0.0001,
+        "weak_flux": {
+          "relative_l2": 3.1202572538929696e-12,
+          "max_abs": 8.530503795507513e-15
+        },
+        "all_flux": {
+          "relative_l2": 6.877775591179265e-16,
+          "max_abs": 1.936672687823644e-14
+        }
+      },
+      {
+        "first_channel_ratio": 1e-08,
+        "weak_flux": {
+          "relative_l2": 2.925025379069502e-08,
+          "max_abs": 7.466133819322255e-15
+        },
+        "all_flux": {
+          "relative_l2": 6.936019276684237e-16,
+          "max_abs": 2.180030391500409e-14
+        }
+      },
+      {
+        "first_channel_ratio": 1e-10,
+        "weak_flux": {
+          "relative_l2": 2.7372894601987964e-06,
+          "max_abs": 8.708044072841315e-15
+        },
+        "all_flux": {
+          "relative_l2": 6.433237392155468e-16,
+          "max_abs": 2.049305189239704e-14
+        }
+      },
+      {
+        "first_channel_ratio": 1e-12,
+        "weak_flux": {
+          "relative_l2": 0.00031563461703199214,
+          "max_abs": 9.376222513059162e-15
+        },
+        "all_flux": {
+          "relative_l2": 6.979559040014914e-16,
+          "max_abs": 2.0523615324102575e-14
+        }
+      },
+      {
+        "first_channel_ratio": 1e-14,
+        "weak_flux": {
+          "relative_l2": 0.025945731118486245,
+          "max_abs": 6.7779284568866574e-15
+        },
+        "all_flux": {
+          "relative_l2": 6.633280813895719e-16,
+          "max_abs": 2.020070329588467e-14
+        }
+      }
+    ],
+    "fd_mean_signed_fixture_byte_exact": true,
+    "history_signed_zero_byte_exact": true,
+    "warning": "Tiny per-channel or cancelled outputs are ill-conditioned. Neither aggregate flux norm nor this fixed CPU check substitutes for the existing T72 per-field and probe gates."
+  }
+}

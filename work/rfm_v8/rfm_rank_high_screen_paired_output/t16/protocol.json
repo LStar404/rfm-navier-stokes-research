@@ -1,0 +1,361 @@
+{
+  "status": "frozen",
+  "stage": "t16",
+  "horizon": 16,
+  "seed": 7331,
+  "physical_times": [
+    0.5,
+    1,
+    2,
+    4,
+    6,
+    8,
+    8.125,
+    8.5,
+    9,
+    10,
+    12,
+    16
+  ],
+  "grid_names": [
+    "gauss123",
+    "mid129",
+    "layer144"
+  ],
+  "physical_gate": 0.005,
+  "reference_budget": 0.00125,
+  "probe_spacing": 0.125,
+  "switch_time": 8,
+  "startup_rate": 152,
+  "late_rate": 136,
+  "cpu": [
+    10,
+    12
+  ],
+  "ranks": {
+    "35": {
+      "rank": 38,
+      "mean_rank": 30,
+      "angular_fft": 243,
+      "real_state_dofs": 6110
+    },
+    "37": {
+      "rank": 39,
+      "mean_rank": 30,
+      "angular_fft": 243,
+      "real_state_dofs": 6270
+    },
+    "39": {
+      "rank": 39,
+      "mean_rank": 30,
+      "angular_fft": 243,
+      "real_state_dofs": 6270
+    },
+    "41": {
+      "rank": 40,
+      "mean_rank": 30,
+      "angular_fft": 243,
+      "real_state_dofs": 6430
+    }
+  },
+  "archive_census": {
+    "scope": "Saved NPZ configs and JSON files with explicit m/k/q/seed in work",
+    "counts": {
+      "npz": 1352,
+      "json": 1985
+    },
+    "unreadable": {
+      "npz": 16,
+      "json": 0
+    },
+    "exact": [
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/m35_uniform.npz",
+        "m": 35,
+        "seed": 7331,
+        "horizon": 16,
+        "dt": 0.006578947368421052,
+        "startup_rate": null,
+        "late_rate": null
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/m37_uniform.npz",
+        "m": 37,
+        "seed": 7331,
+        "horizon": 16,
+        "dt": 0.006578947368421052,
+        "startup_rate": null,
+        "late_rate": null
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/m39_uniform.npz",
+        "m": 39,
+        "seed": 7331,
+        "horizon": 16,
+        "dt": 0.006578947368421052,
+        "startup_rate": null,
+        "late_rate": null
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/protocol.json",
+        "m": 35,
+        "seed": 7331
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/protocol.json",
+        "m": 37,
+        "seed": 7331
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/protocol.json",
+        "m": 39,
+        "seed": 7331
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/summary.json",
+        "m": 35,
+        "seed": 7331
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/summary.json",
+        "m": 37,
+        "seed": 7331
+      },
+      {
+        "path": "rfm_v8/rfm_rank_high_screen_output/t16/summary.json",
+        "m": 39,
+        "seed": 7331
+      }
+    ],
+    "other_seed_near_neighbors": [
+      {
+        "path": "rfm_v6/weak_candidate_rfm39_k80_17.npz",
+        "m": 39,
+        "seed": 17,
+        "horizon": 72.0,
+        "dt": 0.006944444444444444,
+        "startup_rate": null,
+        "late_rate": null
+      }
+    ],
+    "matching_archives_are_original_failed_harness": true
+  },
+  "model_class": "basis_recurrence_model.RecurrenceGalerkin",
+  "first_attempt": {
+    "path": "rfm_v8/rfm_rank_high_screen_output/t16/summary.json",
+    "sha256": "da846b101fdde07e7f1585cd33c69c11f5ae72d66133cdd922b371e21d8d7237"
+  },
+  "jobs": [
+    {
+      "config": {
+        "m": 35,
+        "k": 80,
+        "q": 76,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "expected": {
+        "rank": 38,
+        "mean_rank": 30,
+        "angular_fft": 243,
+        "real_state_dofs": 6110
+      }
+    },
+    {
+      "config": {
+        "m": 37,
+        "k": 80,
+        "q": 76,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "expected": {
+        "rank": 39,
+        "mean_rank": 30,
+        "angular_fft": 243,
+        "real_state_dofs": 6270
+      }
+    },
+    {
+      "config": {
+        "m": 39,
+        "k": 80,
+        "q": 76,
+        "scale": 62.0,
+        "mean_order": 24,
+        "layers": [
+          16,
+          36,
+          80,
+          165,
+          340,
+          660
+        ],
+        "split": true,
+        "backend": "fft",
+        "seed": 7331,
+        "family": "rfm"
+      },
+      "expected": {
+        "rank": 39,
+        "mean_rank": 30,
+        "angular_fft": 243,
+        "real_state_dofs": 6270
+      }
+    }
+  ],
+  "source_hashes": {
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "rfm_v7/prepared_process_identity.py": "8e57d288e8c9348b1edd3fea641b074020598af734083c5d7fd37e62fbbaa46c",
+    "rfm_v8/fresh_worker_diagnostic.py": "5d64ea5ae5d9ffe7c3dcd0b8a9b9c9b154ba07e305e26f7aafd4e54cc1d3d5c2",
+    "rfm_v8/galerkin_cuda_prepared_minimal.py": "b6d37e7ba155d814a50a7de933ed1af8d4f29d25d55be9fb13a981e0507330f5",
+    "rfm_v8/galerkin_cuda_variable_minimal.py": "313881e3d974f3711cbf51362966904618ef40396711bd0e0927db40782d0ac3",
+    "rfm_v8/galerkin_minimal_model.py": "b97a9f31384778d17a57e37c37e176405a41a08cea390952bef12cf734a6b43e",
+    "rfm_v8/galerkin_phase_shared_minimal.py": "e8c83aea761147b06ce36e7731def7205b682097269f63843aea2c4a25ec86fc",
+    "rfm_v8/sbdf2_schedule_minimal.py": "c2a1735f8ee2d55e2996383e8fd6dbb5edb35e040d6f128345db21a2e447537d",
+    "rfm_v8/solver_worker.py": "a39244428173f36af97667f6b792da46af816726bba1de3c408bb28e689b13d2",
+    "rfm_v8/thin_t72_qualification.py": "a79e7d89671e803a0ae1b9af212ab8d41f06018bcce3e6d467e43849a6859557",
+    "rfm_v7/protocol_cpu.json": "84d3951f64e35fa5c961632ee9c9b1a9f8504ba19543c99bde611eaab046ccc1",
+    "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+    "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+    "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+    "rfm_v6/fd_full_band.c": "77d3ac68d7fbe3165bafe24ff454de6dc47d2ae4d18643a51d3f41513d779cb2",
+    "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "rfm_v7/cpu_formal_joint.py": "f328c85a2dfb3b31994a105b4458230f06b1b138911b24d54e99f5626ba1196c",
+    "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+    "rfm_v7/joint_hardware.py": "aec20356358ecf7ba14e2143825de9100ac08717eb76e32d035d7fac02b9b834",
+    "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+    "rfm_v7/fd_cpu_buffered.c": "5144d0a313ff800aad65473fb8ecf9aa4ba5fcd6e5727243214d6399a37ad0cf",
+    "rfm_v7/fd_cpu_buffered.dll": "6d875585dbbc1c9d58fb10fc0efd0a75c575f7cc88989922fd57ab4d570a3069",
+    "rfm_v7/joint_hardware_pow2.py": "486edac66c62fc54975424c57c72ab6eeb9143f8ef8504bcf98cc3449b9d74fa",
+    "rfm_v7/protocol_joint_hardware_pow2.json": "3e4ff883394a5cc5689d28aecec9585daf07993fb2af10d16652875a7bb89258",
+    "rfm_v7/cpu_formal_reference_point1.py": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+    "rfm_v7/cpu_formal_projection.py": "ed95684899c8f44a17d54c79a911a2ef355623095a6d99be3649b2a3b155e023",
+    "rfm_v7/protocol_point1_ref.json": "7c8b19df854cc36dc6f3c0c40c457a3f9e281cbc7f38baf7e18d9975fe547d27",
+    "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+    "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+    "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+    "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+    "rfm_v7/fd_pow2_reference_chain.py": "4c2fe32ff26444cc966f5631d219d3119178dd5c3f3ed0f392ffc40f980442cd",
+    "rfm_v7/protocol_fd_pow2_reference.json": "5badda274fb0478e684e590403f4065ec56a53daa5872bec656b93178294f665",
+    "rfm_v7/cpu_formal_point1_rescore.py": "467f31133a990c011e198593cc74e80f61836f19d08f8eaeeb45a8aa0ccb1a5d",
+    "rfm_v7/cpu_formal_layer_tangent.py": "6e482ddc98f61deab2616e2595bc299d66a116b674342847b9f570e309e8d832",
+    "rfm_v7/cpu_formal_rfm_bandwidth.py": "835db405dceeb5294c77e0f23eb0a217a77d9692b7b6f5cd710877639dc529ff",
+    "rfm_v7/cpu_formal_error_diagnostics.py": "08998e2677e1b24986c76b51d3d11aaade2708bdfb1581240de8fe1dbf153432",
+    "rfm_v7/r128_operator_qualification.py": "7534db122d520301d7c94dc4dc0a046def406e0b76b474226338b28de1338d11",
+    "rfm_v7/protocol_r128_operator_qualification.json": "e977915d9e619d7c616699bb65eb03c08a07be74e5dd5a399b630c88db9f35b2",
+    "rfm_v7/cpu_precontracted.py": "e09a64e23967118e4b0834d415d4b219a5cd8fcda2b610fc0da9c2a60e6419cb",
+    "rfm_v7/cpu_precontracted_native.py": "eb440eee40e82a830e60e378497d5899b9295f5591156e8bfd38382a2c0e8b96",
+    "rfm_v7/galerkin_cpu_contract.c": "6022ac22ae22e513ec00298ebf81398a2d74cf2ee5b9aa4a831c87f7a01baf57",
+    "rfm_v7/galerkin_cpu_contract.dll": "73bd61940a4d9eee5edd8f6cd58e3980f27c8847f7467c33d030276630f378ee",
+    "rfm_v7/protocol_step_screen_draft.json": "ad5c4030a72998c04899e64bf0741cda7abb47341c3eca99e79b21bacc73ca1a",
+    "rfm_v7/cpu_formal_step_screen.py": "ad9eacf286fd4926df9b8faa5490ec3f5b69e425829d25345c1bca53a87331cd",
+    "rfm_v7/cpu_native_qualification.py": "5d545655d099fd0a0bf1b79cf4cf43f16a78dbd2439344fd81b9774ca61a2e09",
+    "rfm_v7/protocol_cpu_native_qualification.json": "ea55954db038fd8f4f88911b1bb768825388dfc4054bff944f91abfd8862bfcc",
+    "rfm_v7/cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "rfm_v7/cpu_sbdf2_switch_pilot.py": "6a9e0292977118ff4c70ccfcb51a016c36b469b09ed5708c7b439c0abd29a802",
+    "rfm_v7/protocol_switch_qualification.json": "a377173a44b5661cbeaf11d6d1fef9598e5adf4aae9ed587ddc6dc6a6bd12311",
+    "rfm_v7/switch_qualification.py": "95976f65f1502f2ccc1da42aaa85cf88f915f115e0dafd23dbef19fd797795cb",
+    "rfm_v7/galerkin_cuda_variable.py": "6d9cdc18f87c26ed30c7be05cd9d5bf036dabeb5ccf91d1e46b8b2afcfcd2737",
+    "rfm_v7/early_reference_continuation_output/protocol.json": "3276378f155180bc047a1418c80dcc403b62f269cf7bf7d024ebabc2a8ed6ccc",
+    "rfm_v7/early_reference_continuation_output/runs.json": "cb0a7023d9fde3d7e1673faa03470b588327faa35002320c45188e83df4dc912",
+    "rfm_v7/early_reference_continuation_output/reference_audit.json": "7e1eb2fd0a5086cd3f56512b9ac3225b9723ec91d356c4640ed683eb48e1839a",
+    "rfm_v7/r128_operator_qualification_output/protocol.json": "60922a136e7cde9dd28feac189f96edcdd722670a67b2c8dc0fee0cd235caeb7",
+    "rfm_v7/r128_operator_qualification_output/runs.json": "8b4c15ee728e89f36e11a99e4a79ef48231757b5d82a389a1615464271299d63",
+    "rfm_v7/r128_operator_qualification_output/qualification.json": "232baa37c563707b9b5719cf62be7ef999a61fe1c426614de7695f588562d60b",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/runs.json": "3a2b47b9f0543b9494e02e35efcf78df36a3835c0b78ce3f6bc54b3e4a10efe4",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/reference_audit.json": "ae67918d78aa718927188fae0b4e9ac7253610c547e2bf7fa3499890444bb2ff",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/protocol.json": "d4a6c3210b93550819ba38a8ee637d2e21995cb1673c673b0dfd3c8160d28400",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/fixed_audit.json": "2fc89f753d798fbbecdce93390b93bd23cf0caef1eb5ae7be60a03aa7f07ddfc",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/fixed_decimal_audit.json": "d54a6199e179fb58561e014d2158ab88343af06986066c9925ecea57f6613792",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/fixed_screen_rejected.json": "55053dc324d79fac4b6574dcaef65b94bd5c647e093205714c65c2d72fce95fd",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/protocol_fixed_backward_floor_rejected.json": "dd78fa83494b4a68b43240ea1d747ca400426c256602c057ba8bace01e06356b",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/protocol_fixed_forward_floor_rejected.json": "86cee2d2283ef420a0c000b43d61c14ba73133212e0839411846005b4e6e7f87",
+    "rfm_v7/cpu_sbdf2_switch_pilot_output/pilot.json": "3bdb0a845dcba885b395fcdf961658e2b730b6fde35ea66986682b1bda715bcb",
+    "rfm_v7/galerkin_cuda_variable_output/fixed.json": "96cd78aef97afff4e140fd279dfe813eef1ee5943525188a9c30e231a3c22660",
+    "rfm_v7/galerkin_cuda_variable_output/march.json": "e7c04beb7c8f05ea73106b853303ba75b5d0d3726deaf0d091eb4b38574c6ee6",
+    "rfm_v7/galerkin_cuda_variable_output/comparison.json": "d3f15700fbe1992c27ecc6d339d344516f5e21a44e9b7b77dec06d6c60ed54de",
+    "rfm_v7/galerkin_cuda_variable_output/pilot_score.json": "0f59094be915eb62e9fcca0b4b70888e6681dc7228d66d55d124bbc7e20330e0",
+    "rfm_v7/galerkin_cuda_variable_audit.py": "bd16d6be11866ac07b32dfb670887b02af67c278096d5f55d70e776009ce2899",
+    "rfm_v7/cpu_sbdf2_switch_decimal.py": "d93342bab178a1d2154e5bf92887f2fb08db26c1b408c40aaae2c98390dc2a4d",
+    "rfm_v7/early_reference_chain.py": "d3dcd81e0220f00b00b5fae922ea394ceb120b2816381d79a88c9b618c5cbf96",
+    "rfm_v7/protocol_early_reference.json": "3413dce09225b6b0cbabb250525415c48d49b221b365cd095cc3c230bfd034c2",
+    "rfm_v7/protocol_early_reference_continuation.json": "415e75101ba7c561a5404ba4a4f990821d16ab57e7f0706ff82d702dbac139ff",
+    "rfm_v7/early_reference_continuation.py": "24d4ecf6f79f204f0255746770aa0b7da0dbe75c26ada1cf7e80b3155b6a0110",
+    "rfm_v7/early_reference_output/protocol.json": "617f08662d200f02d96e14e5d8a37db011007788fdb0ee6ca78432bb93840dd6",
+    "rfm_v7/early_reference_output/runs.json": "8638afb166ceb07662d41103e0855c096b183823d2f05c91fd9164f740667523",
+    "rfm_v7/early_reference_output/reference_audit.json": "9a30de576ed8b4bf293c4aed79e9b52855e2803ac90288c42680767afbf9705d",
+    "rfm_v7/early_reference_output/radial_coarse_n384_k128_r384.npz": "4726fac293d66c5c8ff7cf2962471ffcca101e363b253cb8b5d870d1c9cfa934",
+    "rfm_v7/early_reference_output/radial_coarse/resume_fd384_k128_rate384.npz": "d43cada498032f90c09d39f810764432d9db995b6c28433880c598804c0a61b3",
+    "rfm_v7/early_reference_output/radial_fine_n448_k128_r384.npz": "6fa0b28ee080229b73a8fa3bfd911216e60b2dfc2a887e5f730d16e4e328c01f",
+    "rfm_v7/early_reference_output/radial_fine/resume_fd448_k128_rate384.npz": "b25b58327f08bcd9c072bf597166843d7cc6876b6cb4941e4c1075caa8c13a44",
+    "rfm_v7/early_reference_output/angular_fine_n448_k144_r384.npz": "ed9bf65089ec3de998ecd4e01050f6037fe7b59b8e9074ad53b9d56653632fd7",
+    "rfm_v7/early_reference_output/angular_fine/resume_fd448_k128_rate384.npz": "3584d8b0cdf425ef427aa7ddeabf300f2b7325c8f5673067dea8457ff05914d4",
+    "rfm_v7/early_reference_output/time_fine_n448_k144_r512.npz": "14afe62928fdaf3592b2afcf5f82f468db9df311784ca6f60048354362c927ef",
+    "rfm_v7/early_reference_output/time_fine/resume_fd448_k128_rate384.npz": "f76099d2ddae6af52df54ced789421e7165eaf7a929dfcb342b0739a0cd622a1",
+    "rfm_v7/early_reference_continuation_output/restart_input_radial_coarse.npz": "9db698a8c220ec8b35a4a2be23fb122b90f81bf9db8333e723e6c956f012a043",
+    "rfm_v7/early_reference_continuation_output/restart_input_radial_fine.npz": "d22ccd768ba02264e90f17d430fcacfe5b6e739e797424f53eb3e4d993868536",
+    "rfm_v7/early_reference_continuation_output/restart_input_angular_fine.npz": "8c1c2cb7d2b11cba0df6bafcc1d510367d573c46312715734b80c9e3d529de66",
+    "rfm_v7/early_reference_continuation_output/restart_input_time_fine.npz": "ba08b11c865c798e70b88ec6935d05b561653d11401d4343644c1c145beab3e3",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/saved_candidate_rescore.json": "8f999c597ea2a4d6c4b04e8f91d1a933c5b0fd4af563766e8fbd2a78d08cfb54",
+    "rfm_v7/hardware_pow2_output/post_audit_manifest.json": "69f76f7f0330c30259962a86c344de2e57c6ab3dc123ce2fa5c90656146a76ed",
+    "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077",
+    "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+    "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7",
+    "rfm_v8/rfm_rank_high_screen_paired.py": "d67d8496298a85447b51691ced860eb862e7c9b641f5898f5618966474ca689e",
+    "rfm_v8/thin_t72_qualification_output/protocol.json": "05b6816fec5565edb949eb16d570b2a70fe30f26b5e00a068d7f29546750b0dc",
+    "rfm_v7/switch_qualification_output/protocol.json": "44b0d7ccd886c87f6cdd4a26fbd1d4312577222fe5ded4e2e177df2c333615ad",
+    "rfm_v8/rank_fair_stock_qualification.py": "7118cc50b8982600758b87b136bdc55eab27cce502b1837831ebfa849a51e575",
+    "rfm_v8/legendre_rank_uniform.py": "9d922916eae696d222f6535782774dd171fe2b775b8a7ed09cd7897d14cae73e",
+    "rfm_v7/verify_switch_qualification.py": "4d7c146cf16562bb914b14c756b9c6ad90cffde8b601e8bcada46e652ab6ea92",
+    "rfm_v8/rfm_rank_high_screen_output/t16/protocol.json": "005f47fa467acd444c8eaf80dc7f7357b6d2dd761842d7e626a96572ced388a5",
+    "rfm_v8/rfm_rank_high_screen_output/t16/summary.json": "da846b101fdde07e7f1585cd33c69c11f5ae72d66133cdd922b371e21d8d7237",
+    "rfm_v8/rfm_rank_high_screen.py": "ca02a99cd001de533d178ba4ffcc417896a24ca84f10679d5a79157dd0ddc5af"
+  },
+  "promotion": "Require both physical references and the own-uniform triangle guard, exact prefix and 129 probes at T16. Only passes advance to T72. Wake gate is tested at T72.",
+  "scope": "Seed 7331 only, accuracy screening without speed claims or any changes to the 65-slot formal design."
+}

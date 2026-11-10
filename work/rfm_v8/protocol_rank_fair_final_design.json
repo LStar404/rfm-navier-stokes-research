@@ -1,0 +1,31 @@
+{
+  "status": "design_only_not_a_frozen_run",
+  "study": "Same-tolerance GPU comparison with matched and cheaper deterministic Galerkin baselines",
+  "physical_gate": 0.005,
+  "implementation_gate": 0.00001,
+  "qualification": "Use only hash-bound full trajectories for the exact engine, observer, solver, rank, and time schedule chosen before timing. CPU controls and physical references remain unchanged. Each added Legendre arm must be qualified on its own. Archive all qualification failures and never time them as accuracy-matched results.",
+  "rfm_seeds": [7331, 7687, 8011, 8353, 9041],
+  "deterministic_seed": 17,
+  "blocks_per_scale": 5,
+  "graph_steps": 24,
+  "scales": [
+    {"name": "mid", "rates": [128, 112], "order_seed": 465491, "groups": [
+      ["rfm37_k72", "uniform"], ["rfm37_k72", "combined"],
+      ["leg35_k72_q66", "uniform"], ["leg35_k72_q66", "combined"],
+      ["fd176_k80", "dense"]], "expected_rows_if_all_qualified": 25},
+    {"name": "high", "rates": [152, 136], "order_seed": 465503, "groups": [
+      ["rfm41_k80", "uniform"], ["rfm41_k80", "combined"],
+      ["leg36_k80_q76", "uniform"], ["leg36_k80_q76", "combined"],
+      ["leg35_k80_q76", "uniform"], ["leg35_k80_q76", "combined"],
+      ["fd176_k80", "dense"], ["fd184_k80", "band"]], "expected_rows_if_all_qualified": 40}
+  ],
+  "basis_contrasts": [
+    "Mid RFM37 versus Legendre35, retained rank 39, K72, q66, mean rank30, identical schedules",
+    "High RFM41 versus Legendre36, retained rank 40, K80, q76, mean rank30, identical schedules",
+    "High RFM41 and Legendre36 versus the smaller qualified Legendre35 rank39, K80/q76. Treat this as a distinct accuracy-matched alternative, not an equal-rank basis contrast."
+  ],
+  "toolkit_and_observer_selection": "Decide once before a future freeze. All methods use the same qualified CUDA toolkit and comparable solver-only imports. If warp is chosen, qualify it for every timed RFM seed, Legendre arm and both FD baselines; never pair a warp candidate with an avoidably serial FD observer. Fused Galerkin, if selected, must independently qualify for both Galerkin families and may not be interpreted as a randomized-basis advantage. Do not infer validity of combinations from individual ablations.",
+  "timing": "Separate sampled-isolation windows per scale. One fresh process and complete fresh solver/context per job. All setup, host factors, compile/load, plans, graph capture, march, observations, synchronization, download, model cleanup and context release count in the solver clock. Popen to flushed result adds imports and handshake. Serialize and score after the return marker. Do not charge a previously paid setup to a different arm or clear shared system caches. Reuse audited identity ledger with terminal CPU snapshots and two quiet preflight intervals; fix monitor bounds before launch and keep every failure without filling individual slots or pooling older windows.",
+  "reporting": "Within each randomized block use the same RFM seed across all schedules and seed17 for deterministic methods. Compare same-clock baseline/candidate ratios, medians, ranges, and all five wins. Retain qualified FD176 in both scales and FD184 as a second high-scale control. Require five wins and median ratio at least 1.05 on both clocks for a stable practical claim. Provide actual errors, full registered candidate set and scope. A five-block rank-controlled comparison is descriptive for the tested basis realizations, not a proof of a universal random-feature effect.",
+  "historical_scope": "Thin high50 was a valid sampled-isolated comparison against higher-rank Legendre39 (rank43 versus RFM41 rank40). It remains historical evidence about those configurations and cannot establish a random-feature advantage against the new same-rank and smaller deterministic baselines. Thin mid preflight rejection remains zero timed rows. The low Legendre33 failure is retained without a speed ranking."
+}

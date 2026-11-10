@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "<WORKSPACE>\work\rfm_v8\cuda_private_context_diagnostic.py", line 343, in <module>
+    health_worker(root,args.health_worker)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\cuda_private_context_diagnostic.py", line 122, in health_worker
+    with ExitStack() as resources:
+         ~~~~~~~~~^^
+  File "<USER_HOME>\miniconda3\Lib\contextlib.py", line 619, in __exit__
+    raise exc
+  File "<USER_HOME>\miniconda3\Lib\contextlib.py", line 604, in __exit__
+    if cb(*exc_details):
+       ~~^^^^^^^^^^^^^^
+  File "<USER_HOME>\miniconda3\Lib\contextlib.py", line 482, in _exit_wrapper
+    callback(*args, **kwds)
+    ~~~~~~~~^^^^^^^^^^^^^^^
+  File "<WORKSPACE>\work\rfm_v8\cuda_private_context.py", line 85, in close_context
+    raise RuntimeError("Private CUDA context teardown did not restore the observed predecessor")
+RuntimeError: Private CUDA context teardown did not restore the observed predecessor

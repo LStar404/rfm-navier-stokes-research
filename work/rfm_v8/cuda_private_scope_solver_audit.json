@@ -1,0 +1,163 @@
+{
+  "status": "passed",
+  "scope": "CPU code-binding, ABI closure and artifact checks only",
+  "thin_source_sha256": "97a3457c5ca3fe73e6417b857aa324ae96ceef071476f16bb60d23ab3524531b",
+  "verifier_source_sha256": "0bf60351c972dc3b1c63b157afc976e4e7612793a9b4c5318b68af80a054a06e",
+  "original_march_sha256": "e0f504571bc3876389cd3e61b4140d7148a39ee2c205247c284df6b8bf92b8ae",
+  "scoped_plan_stack_ast_sha256": "15a9e10bfe705a40d8d2b1633a6bfb8b2ab587373c1818b740f972807277ca2f",
+  "context_mode": "private_cuCtxCreate_v2_scoped_cufft",
+  "driver_api": 13020,
+  "runtime_bindings": {
+    "stock": "_OwnedDriver",
+    "cache": "_OwnedDriver"
+  },
+  "arm_policy_bindings": [
+    {
+      "arm": "uniform",
+      "policy": "disabled",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "policy": "empty_first",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "uniform",
+      "policy": "strict_hit",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "combined",
+      "policy": "disabled",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "combined",
+      "policy": "empty_first",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "combined",
+      "policy": "strict_hit",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "fd",
+      "policy": "disabled",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "fd",
+      "policy": "empty_first",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    },
+    {
+      "arm": "fd",
+      "policy": "strict_hit",
+      "same_code_object": true,
+      "replaced_globals": [
+        "ExitStack",
+        "FusedMarchRuntime"
+      ]
+    }
+  ],
+  "invalid_calls_rejected": 6,
+  "forbidden_loaded": [],
+  "local_dependency_sha256": {
+    "rfm_v8/build_cuda_ptx_artifacts.py": "fd1a92a47c7d2625105298b24277a6f845fbcc04e08c9cc9c42bde39da06ace7",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v8/cuda_private_context.py": "29f785ac850eacc93172f13c82b32fe2cd0c5e40a430e3a7d511b70312a62bc1",
+    "rfm_v8/cuda_private_context_scope.py": "98f63c9c40c24bb5ba9c548deb13acf6a901d3cf01f1eb49c9ac32c157c1596f",
+    "rfm_v8/cuda_private_scope_solver.py": "97a3457c5ca3fe73e6417b857aa324ae96ceef071476f16bb60d23ab3524531b",
+    "rfm_v8/cuda_ptx_cache.py": "48ba138e8d2871c4a2e137201f11ccd04629865b7d4f0e4a00143bd05114484b",
+    "rfm_v8/cuda_ptx_march_runtime.py": "af4340da06c50f87b50a0a15ff3cbd24d82e9786d94a12a67dfc8575514f5fdc",
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+    "rfm_v8/fused_marches.py": "e0f504571bc3876389cd3e61b4140d7148a39ee2c205247c284df6b8bf92b8ae",
+    "rfm_v8/fused_nonlinear_cuda_runtime.py": "d3f41a682439f9a1a1bb22d94feb5b48f68b0f01de9b32ba05452e219d79eb64",
+    "rfm_v8/fused_nonlinear_fft.py": "8a4a945b72bcaf19b53209f2c60b634dc753e7646b27b73029fcef05b0722352",
+    "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "rfm_v8/galerkin_cuda_variable_minimal.py": "313881e3d974f3711cbf51362966904618ef40396711bd0e0927db40782d0ac3",
+    "rfm_v8/galerkin_minimal_model.py": "b97a9f31384778d17a57e37c37e176405a41a08cea390952bef12cf734a6b43e",
+    "rfm_v8/galerkin_phase_shared_minimal.py": "e8c83aea761147b06ce36e7731def7205b682097269f63843aea2c4a25ec86fc",
+    "rfm_v8/make_fused_marches.py": "b9642d3d481a12d30a9c7d68432f343978a9645403c1628d95a89748576a6df5",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v8/sbdf2_schedule_minimal.py": "c2a1735f8ee2d55e2996383e8fd6dbb5edb35e040d6f128345db21a2e447537d",
+    "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v6/fd_full_band.dll": "8d2d3e4829167bd706667847a4f112c8ffea86b1e414b5745b6e7742d99217e6"
+  },
+  "numpy_version": "2.4.1",
+  "scipy_version": "1.16.3",
+  "stock_artifacts": [
+    {
+      "family": "uniform",
+      "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c",
+      "artifact": "rfm_v8/cuda_ptx_artifact_output/artifacts/e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c.rfmptx",
+      "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855",
+      "ptx_sha256": "e7ee82ad06af9acd2a4244f54e6fa12fdd05de04f584c36a96d6ea2477b6539a"
+    },
+    {
+      "family": "combined",
+      "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439",
+      "artifact": "rfm_v8/cuda_ptx_artifact_output/artifacts/b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439.rfmptx",
+      "artifact_sha256": "d943a666907f7ed2750e5806190b4b85e1f8d5ac2d3ae5986668e7a816b04b0b",
+      "ptx_sha256": "99e098beda76d6be715e5ffd8a62905854a13a3b93c59f5cffcc031f8df0d026"
+    },
+    {
+      "family": "fd",
+      "key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466",
+      "artifact": "rfm_v8/cuda_ptx_artifact_output/artifacts/496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466.rfmptx",
+      "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3",
+      "ptx_sha256": "dad320f4f94ff083c349559281e46841e437669a50dd6b74dd3df61e6414e596"
+    }
+  ],
+  "artifact_manifest_sha256": "4669f0e559179a3642ed8b31be56e0ed04c3a40125175ad830f27ec743eb0748",
+  "t9_protocol_sha256": "bff03405bac43a1d60b896304fa5ad01606098c928f1cd6f9e8b2d19d085ba44",
+  "t9_summary_sha256": "33dc08ff25ecdd973280eeefb361b58e344685fdf972f3e9b5c0e307d2ad3707",
+  "gpu_contexts_created": 0
+}

@@ -1,0 +1,21 @@
+{
+  "study": "Same-state CUDA observation reduction microdiagnostic",
+  "scope": "CUDA events around a repeated graph of the observation kernel only. Reused fixed archived state and hot weights; diagnostic, not a full-march or end-to-end speed claim. No reuse of these warmed runtimes by an accuracy or timing arm.",
+  "arms": [
+    {"name": "rfm37_uniform", "case": "rfm37_k72", "family": "uniform", "seed": 7331},
+    {"name": "rfm37_combined", "case": "rfm37_k72", "family": "combined", "seed": 7331},
+    {"name": "leg37_combined", "case": "leg37_k72", "family": "combined", "seed": 17},
+    {"name": "fd176_dense", "case": "fd176_k80", "family": "fd", "seed": 17},
+    {"name": "fd184_band", "case": "fd184_k80", "family": "fd", "seed": 17}
+  ],
+  "cases": ["no_probe_no_snapshot", "probe_only", "probe_and_snapshot"],
+  "frozen_source_time": 8,
+  "comparison": "One original 128-thread block with six serial dot products versus one 192-thread block with six full FP64 warps. Each lane accumulates source indices lane+32j, then uses a fixed shuffle tree. Checkpoint, state, and index semantics are unchanged.",
+  "graph_observations": 64,
+  "graph_repetitions_per_event": 8,
+  "event_pairs": 7,
+  "order_seed": 218782,
+  "accuracy": {"original_implementation_relative_gate": 1e-5, "tight_relative_l2_gate": 1e-12, "tight_scaled_absolute_gate": 1e-12},
+  "observation_inventory": {"horizon": 72, "saved_probe_times": 577, "active_probe_kernels": 576, "overlap_probe_and_snapshot": 19, "t0": "Zero-initialized, no dot product"},
+  "promotion_rule": "Microseconds are scope-limited. Candidate must preserve bitwise states, checkpoints and index, both strict probe gates, and full physical and wake qualification before any end-to-end claim. If speed benefit is confined to hot fixed-state kernels, keep it as a diagnostic."
+}

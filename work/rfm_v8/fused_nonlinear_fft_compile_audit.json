@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "scope": "CPU NVRTC compilation only; no CUDA context, kernel launch or timing",
+  "option": "--gpu-architecture=compute_52",
+  "toolchain": "CUDA 11.8",
+  "standalone": {
+    "entries": [
+      "fused_fd_200",
+      "fused_fd_225",
+      "fused_fd_243",
+      "fused_gal_200",
+      "fused_gal_225",
+      "fused_gal_243"
+    ],
+    "ptx_bytes": 378960,
+    "ptx_sha256": "8677e527d23be06e0ad49d50d0e68d898636f3cfc57f95bd1e50c924682e8f53",
+    "sources_sha256": {
+      "fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba"
+    }
+  },
+  "galerkin_bundle": {
+    "entries": [
+      "advance",
+      "advance_bridge",
+      "fused_fd_200",
+      "fused_fd_225",
+      "fused_fd_243",
+      "fused_gal_200",
+      "fused_gal_225",
+      "fused_gal_243",
+      "observe",
+      "observe_absolute",
+      "products",
+      "spectrum"
+    ],
+    "ptx_bytes": 429222,
+    "ptx_sha256": "df5a9ea9a9fbee36c83481c92230f8896a753899c4fe4a0bb6e84c496a240c6d",
+    "sources_sha256": {
+      "galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+      "galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+      "fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba"
+    }
+  },
+  "fd_bundle": {
+    "entries": [
+      "fd_band",
+      "fd_dense",
+      "fd_fields",
+      "fd_observe",
+      "fd_products",
+      "fd_rhs",
+      "fused_fd_200",
+      "fused_fd_225",
+      "fused_fd_243",
+      "fused_gal_200",
+      "fused_gal_225",
+      "fused_gal_243"
+    ],
+    "ptx_bytes": 434712,
+    "ptx_sha256": "22565317a28ed998f67ecc7344028c9110b63b8cffdc8923a156aa6803fcc1d4",
+    "sources_sha256": {
+      "fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+      "fused_nonlinear_fft.cu": "2d5c40665f9bdb8c3b33c09d44bde5d8ebf393a1a4d8ff5bbc969df34caae9ba"
+    }
+  },
+  "audit_source_sha256": "0716ce6f9ef033a5379b05113f76c82026250a358e824c44aaf79e5815f6bfc7"
+}

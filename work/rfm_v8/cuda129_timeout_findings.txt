@@ -1,0 +1,46 @@
+现代 CUDA T72 中断的证据范围
+
+冻结队列计划 36 条。保留 16 条正常返回、1 条 RETURN 超时、1 条已有请求
+但无完整结果，以及 18 个未启动槽位。没有完整 legacy 槽位。独立 CPU
+后处理对已保存的 16 条全部重新计算双参考、三个网格、全域和近场速度及
+涡量、577 点探针和尾迹。三条状态未逐位一致的 FD 轨迹也通过原有门槛。
+单次同配置阶段差只有八对，不能形成完整时间比较或支持晋升新版工具链。
+
+槽位 12 是高档 RFM41 使用 NVRTC 12.9 和 compute_52。原行记录 READY
+及 GO，然后是 RETURN 队列的 TimeoutError。按照冻结源码顺序，GO 的
+写入和 flush 已返回，SAVE 从未写入。没有并行的 stdin 写线程，也没有
+记录表明 close 时还有未发送字节。缓冲流的 close 一般会 flush，有在途
+阻塞写或线程锁时可能拖延，但该机制没有被此次原始证据证实。
+
+原清理先 close stdin，再等待、调用 Popen.kill 并再次等待。原记录没有
+这些 API 的独立阶段时间，因此只能把 GO 至实际终态的 306.310 秒拆为
+RETURN 等待及未定位的清理延迟。无法判定哪个原清理调用延误，也无法
+证明原 TerminateProcess 是否已调用。独立清理重新核实出生 FILETIME，
+得到 STILL_ACTIVE 和零退出 FILETIME。随后用这个确切句柄调用
+TerminateProcess，约 0.16 毫秒返回成功，并取得 signaled 和终态时间。
+成功的终止请求与已确认退出是两条不同证据。
+
+子进程原终态累计约 195.4 秒内核 CPU 时间和 111.2 秒用户 CPU 时间。
+原父子共用一个逻辑核，因而监测时序受该核负载约束。CPU 时间分布
+无法识别执行的是哪一段库代码，也无法证明协调器发生 CPU 饥饿。
+本次没有 NVRTC、模块加载、FFT 计划、图捕获或推进内部的最后到达
+事件，无法把这次失响应归因到特定 CUDA 库或驱动故障。
+
+新的无 GPU 模拟由 CPU6 上的专用看门狗持有从 Popen 获得的精确句柄，
+目标子进程使用 CPU4。绝对时限涵盖创建、导入/READY、运行、RETURN
+和退出，另设有界清理宽限。记录到达硬截止后不会在管道关闭、终止
+线程或 stdout 读取线程上无限等待。精确句柄确认终止且 signaled 后才
+关闭管道。专用 Windows Job 的关闭只请求清理该测试自身的后代。
+普通 sleep、忙循环、实际阻塞管道写和 READY 前睡眠四条测试均通过。
+遇到未 signaled 的内核进程时应停止队列并保存待退出状态，不能依此
+保证硬件资源已释放。
+
+若获准进一步定位，可冻结独立单臂、阶段落盘的正确性试验。顺序分别
+记录设备上下文、NVRTC 前后、模块加载前后、FFT 计划、图捕获、首次
+图发射及最终同步。该日志会改变计时条件，不用于速度测量。应先确认
+旧环境和已验证融合路径，再决定是否值得重现未定位的 compute_52 槽。
+
+Windows API 文档
+https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-terminateprocess
+https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject
+https://learn.microsoft.com/en-us/windows/win32/procthread/job-objects

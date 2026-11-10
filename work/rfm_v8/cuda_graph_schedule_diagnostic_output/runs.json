@@ -1,0 +1,3341 @@
+{
+  "status": "complete",
+  "rows": [
+    {
+      "index": 0,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 48,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.495112600037828,
+      "model_release_seconds": 3.160000778734684e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.050757499993778765,
+        "runtime_init_seconds": 0.4923675000318326,
+        "upload_seconds": 0.006584399961866438,
+        "plan_seconds": 0.015586199995595962,
+        "graph_setup_seconds": 0.004507899982854724,
+        "march_seconds": 0.9185563999926671,
+        "download_seconds": 0.0004913000157102942
+      },
+      "setup_seconds": 0.5698034999659285,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 170,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.7762094,
+      "artifact": "block1_rfm37_k72_g48.npz",
+      "artifact_sha256": "e45a07be087228de67faafd598390fa1ceb283bba589949bc42e6c2c9a05d9f0",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 1,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 64,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5359757999540307,
+      "model_release_seconds": 2.9699993319809437e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05337350000627339,
+        "runtime_init_seconds": 0.5115478000370786,
+        "upload_seconds": 0.006789899955037981,
+        "plan_seconds": 0.016475800017360598,
+        "graph_setup_seconds": 0.00570559996413067,
+        "march_seconds": 0.9358665000181645,
+        "download_seconds": 0.0004607000155374408
+      },
+      "setup_seconds": 0.5938925999798812,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 126,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7710325,
+      "artifact": "block1_leg37_k72_g64.npz",
+      "artifact_sha256": "43fd1ff6a738da0ce3fe020c3c94d889f92450f9cc5d153e8982c2fbbf5dc2b8",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 2,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5427068999852054,
+      "model_release_seconds": 3.7999998312443495e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05499269999563694,
+        "runtime_init_seconds": 0.5063869999721646,
+        "upload_seconds": 0.006763899989891797,
+        "plan_seconds": 0.016498000011779368,
+        "graph_setup_seconds": 0.01244389999192208,
+        "march_seconds": 0.9392244000337087,
+        "download_seconds": 0.00044979999074712396
+      },
+      "setup_seconds": 0.5970854999613948,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 62,
+        "eager_nonlinear_evaluations": 255,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7960823,
+      "artifact": "block1_leg37_k72_g128.npz",
+      "artifact_sha256": "1f840af8bf8108cc40b204668b768e3d5d559699334391942a48e635bbcd9e33",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 3,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 24,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.541490999981761,
+      "model_release_seconds": 2.8699985705316067e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05978579999646172,
+        "runtime_init_seconds": 0.5174364999984391,
+        "upload_seconds": 0.006648799986578524,
+        "plan_seconds": 0.01747850002720952,
+        "graph_setup_seconds": 0.002373000024817884,
+        "march_seconds": 0.9319642999907956,
+        "download_seconds": 0.0004897999460808933
+      },
+      "setup_seconds": 0.6037226000335068,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 340,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.724715,
+      "artifact": "block1_leg37_k72_g24.npz",
+      "artifact_sha256": "ced4904403689940c3a38e45ee6fafdda066fc1f85bc468185ebe7070d0d7b7b",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 4,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 1,
+        "graph_steps": 64,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.9787065000273287,
+      "model_release_seconds": 0.0002730999840423465,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1692316999542527,
+        "runtime_init_seconds": 0.5331622999510728,
+        "upload_seconds": 0.007909599982667714,
+        "plan_seconds": 0.017076499992981553,
+        "graph_setup_seconds": 0.003860199998598546,
+        "march_seconds": 2.1729300000006333,
+        "download_seconds": 0.0006562000489793718
+      },
+      "setup_seconds": 0.7312402998795733,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 143,
+        "eager_nonlinear_evaluations": 63,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.1527149,
+      "artifact": "block1_fd176_k80_g64.npz",
+      "artifact_sha256": "74fbf09bf564243e95dcb85e31c02dc86e7ae852f2f3a7cb450b19df78fd5aaf",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 5,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 1,
+        "graph_steps": 24,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.980994899990037,
+      "model_release_seconds": 0.00028819998260587454,
+      "phase_seconds": {
+        "host_setup_seconds": 0.15560329996515065,
+        "runtime_init_seconds": 0.5448519000201486,
+        "upload_seconds": 0.00834300002316013,
+        "plan_seconds": 0.017026099958457053,
+        "graph_setup_seconds": 0.001649899990297854,
+        "march_seconds": 2.181054199987557,
+        "download_seconds": 0.0006493999972008169
+      },
+      "setup_seconds": 0.7274741999572143,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 383,
+        "eager_nonlinear_evaluations": 23,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.2081565,
+      "artifact": "block1_fd176_k80_g24.npz",
+      "artifact_sha256": "e581f9cd7942024290561e351bb346e602e313167f5de3207eac548b644a0c36",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 6,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 48,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5073730999720283,
+      "model_release_seconds": 3.170000854879618e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05470239999704063,
+        "runtime_init_seconds": 0.4881021000328474,
+        "upload_seconds": 0.006399300007615238,
+        "plan_seconds": 0.016024600015953183,
+        "graph_setup_seconds": 0.004487299942411482,
+        "march_seconds": 0.9324231999926269,
+        "download_seconds": 0.00045490002958104014
+      },
+      "setup_seconds": 0.5697156999958679,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 170,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7934089,
+      "artifact": "block1_leg37_k72_g48.npz",
+      "artifact_sha256": "8b0a0071e4f407057910352c9405e6725e865ceda9c7a2b2a2f598b7822918e3",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 7,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 64,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.5069533999776468,
+      "model_release_seconds": 3.260001540184021e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.053544199967291206,
+        "runtime_init_seconds": 0.500290900003165,
+        "upload_seconds": 0.006740699987858534,
+        "plan_seconds": 0.01595229998929426,
+        "graph_setup_seconds": 0.006007499992847443,
+        "march_seconds": 0.9188795000081882,
+        "download_seconds": 0.00045439996756613255
+      },
+      "setup_seconds": 0.5825355999404564,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 126,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.6825893,
+      "artifact": "block1_rfm37_k72_g64.npz",
+      "artifact_sha256": "8705c9ed386936317c90ec8d5f8d491e40700d715510d0b6e129fb5fe39a17cf",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 8,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 1,
+        "graph_steps": 128,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.969536099990364,
+      "model_release_seconds": 0.0002761000068858266,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1638088999898173,
+        "runtime_init_seconds": 0.5105351999518462,
+        "upload_seconds": 0.00798729999223724,
+        "plan_seconds": 0.016046800010371953,
+        "graph_setup_seconds": 0.007702399976551533,
+        "march_seconds": 2.1891091000288725,
+        "download_seconds": 0.0006209000130183995
+      },
+      "setup_seconds": 0.7060805999208242,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 71,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.2175077,
+      "artifact": "block1_fd176_k80_g128.npz",
+      "artifact_sha256": "87ce679a6df39bcd069a69aaa4c063a2e9733e2633d91a6da909b6246eca0790",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 9,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 1,
+        "graph_steps": 48,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.981752499996219,
+      "model_release_seconds": 0.0002660999889485538,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1564471999881789,
+        "runtime_init_seconds": 0.5330135999829508,
+        "upload_seconds": 0.0075221999431960285,
+        "plan_seconds": 0.015647899999748915,
+        "graph_setup_seconds": 0.0028171000303700566,
+        "march_seconds": 2.193049900000915,
+        "download_seconds": 0.0007670000195503235
+      },
+      "setup_seconds": 0.7154479999444447,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 191,
+        "eager_nonlinear_evaluations": 47,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.1716529,
+      "artifact": "block1_fd176_k80_g48.npz",
+      "artifact_sha256": "eb62e9a9bf61eb21bfa30a1d86c4cd4c5c9cae86314ec573687fcb4c8a72f7e3",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 10,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.5254811000195332,
+      "model_release_seconds": 6.75999908708036e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05321889999322593,
+        "runtime_init_seconds": 0.5071124999667518,
+        "upload_seconds": 0.006302900030277669,
+        "plan_seconds": 0.015770900005009025,
+        "graph_setup_seconds": 0.012263100012205541,
+        "march_seconds": 0.9241222999989986,
+        "download_seconds": 0.0004474000306800008
+      },
+      "setup_seconds": 0.59466830000747,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 62,
+        "eager_nonlinear_evaluations": 255,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.8603078,
+      "artifact": "block1_rfm37_k72_g128.npz",
+      "artifact_sha256": "26848fe134ae5cadd90b82683f97eacac7537b81df7f4e15a6e2a936f5620dfc",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 11,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 1,
+        "graph_steps": 24,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.5127537000225857,
+      "model_release_seconds": 0.00021710002329200506,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05381640000268817,
+        "runtime_init_seconds": 0.508589299977757,
+        "upload_seconds": 0.0067347000003792346,
+        "plan_seconds": 0.017195200023707002,
+        "graph_setup_seconds": 0.002326599962543696,
+        "march_seconds": 0.9184550000354648,
+        "download_seconds": 0.00044979999074712396
+      },
+      "setup_seconds": 0.5886621999670751,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 340,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.7013872,
+      "artifact": "block1_rfm37_k72_g24.npz",
+      "artifact_sha256": "03fa3765b5d4042a34a807997137229545953c8332d2647d051e9eaba98f41cd",
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 12,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 2,
+        "graph_steps": 24,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 3.0069248000509106,
+      "model_release_seconds": 0.0002674999996088445,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1659282999462448,
+        "runtime_init_seconds": 0.5341029000119306,
+        "upload_seconds": 0.008214400033466518,
+        "plan_seconds": 0.017043099971488118,
+        "graph_setup_seconds": 0.001686299976427108,
+        "march_seconds": 2.2046008000033908,
+        "download_seconds": 0.0006509999511763453
+      },
+      "setup_seconds": 0.7269749999395572,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 383,
+        "eager_nonlinear_evaluations": 23,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.3569141,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 13,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 24,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.5131856999942102,
+      "model_release_seconds": 3.2100011594593525e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05129399994621053,
+        "runtime_init_seconds": 0.515305399952922,
+        "upload_seconds": 0.0075255000265315175,
+        "plan_seconds": 0.016349200042895973,
+        "graph_setup_seconds": 0.002543399983551353,
+        "march_seconds": 0.9150168999913149,
+        "download_seconds": 0.0004722000448964536
+      },
+      "setup_seconds": 0.5930174999521114,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 340,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.748739,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 14,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 64,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.4942031999817118,
+      "model_release_seconds": 2.7499976567924023e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.050970899988897145,
+        "runtime_init_seconds": 0.4907163000316359,
+        "upload_seconds": 0.006597100000362843,
+        "plan_seconds": 0.015679200005251914,
+        "graph_setup_seconds": 0.005957300018053502,
+        "march_seconds": 0.9188605999806896,
+        "download_seconds": 0.0004532000166364014
+      },
+      "setup_seconds": 0.5699208000442013,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 126,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.758694,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 15,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 64,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5138950999826193,
+      "model_release_seconds": 0.00018929998623207211,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05446630000369623,
+        "runtime_init_seconds": 0.4897319999872707,
+        "upload_seconds": 0.006172399967908859,
+        "plan_seconds": 0.015621100028511137,
+        "graph_setup_seconds": 0.005565499945078045,
+        "march_seconds": 0.9365668999962509,
+        "download_seconds": 0.0004592000041157007
+      },
+      "setup_seconds": 0.571557299932465,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 126,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7178416,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 16,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5347096000332385,
+      "model_release_seconds": 2.9799994081258774e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05634740000823513,
+        "runtime_init_seconds": 0.49880430003395304,
+        "upload_seconds": 0.006189000036101788,
+        "plan_seconds": 0.016519299999345094,
+        "graph_setup_seconds": 0.012496800045482814,
+        "march_seconds": 0.9375765000004321,
+        "download_seconds": 0.0004687000182457268
+      },
+      "setup_seconds": 0.5903568001231179,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 62,
+        "eager_nonlinear_evaluations": 255,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.716513,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 17,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 2,
+        "graph_steps": 64,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 3.0059630999458022,
+      "model_release_seconds": 0.00026949995663017035,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1644531000056304,
+        "runtime_init_seconds": 0.5276838000281714,
+        "upload_seconds": 0.008302999951411039,
+        "plan_seconds": 0.016883799980860204,
+        "graph_setup_seconds": 0.003646400000434369,
+        "march_seconds": 2.2093104000086896,
+        "download_seconds": 0.0006412999937310815
+      },
+      "setup_seconds": 0.7209700999665074,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 143,
+        "eager_nonlinear_evaluations": 63,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.3006603,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 18,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 48,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.4950181000167504,
+      "model_release_seconds": 3.390002530068159e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05160459998296574,
+        "runtime_init_seconds": 0.491011600010097,
+        "upload_seconds": 0.006820100010372698,
+        "plan_seconds": 0.015971299959346652,
+        "graph_setup_seconds": 0.004491999978199601,
+        "march_seconds": 0.9190982000436634,
+        "download_seconds": 0.0004943000385537744
+      },
+      "setup_seconds": 0.5698995999409817,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 170,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.7499261,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 19,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 2,
+        "graph_steps": 48,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.98394919995917,
+      "model_release_seconds": 0.0002793999738059938,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1583958999835886,
+        "runtime_init_seconds": 0.517306900001131,
+        "upload_seconds": 0.007365899975411594,
+        "plan_seconds": 0.016100000008009374,
+        "graph_setup_seconds": 0.002946399967186153,
+        "march_seconds": 2.204749200027436,
+        "download_seconds": 0.0007096999906934798
+      },
+      "setup_seconds": 0.7021150999353267,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 191,
+        "eager_nonlinear_evaluations": 47,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.2374491,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 20,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 48,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5106765999807976,
+      "model_release_seconds": 2.8399983420968056e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05350039998302236,
+        "runtime_init_seconds": 0.4918136999476701,
+        "upload_seconds": 0.006070600007660687,
+        "plan_seconds": 0.01590960001340136,
+        "graph_setup_seconds": 0.004437800031155348,
+        "march_seconds": 0.9331513000070117,
+        "download_seconds": 0.0004681000136770308
+      },
+      "setup_seconds": 0.5717320999829099,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 170,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7220967,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 21,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 2,
+        "graph_steps": 128,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 3.093167299986817,
+      "model_release_seconds": 0.0002722999779507518,
+      "phase_seconds": {
+        "host_setup_seconds": 0.15938219998497516,
+        "runtime_init_seconds": 0.517858500010334,
+        "upload_seconds": 0.00744650000706315,
+        "plan_seconds": 0.01613439997890964,
+        "graph_setup_seconds": 0.0076966999913565814,
+        "march_seconds": 2.311072999960743,
+        "download_seconds": 0.0006873999955132604
+      },
+      "setup_seconds": 0.7085182999726385,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 71,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.3436958,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 22,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.5058970999671146,
+      "model_release_seconds": 2.8399983420968056e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05086089996621013,
+        "runtime_init_seconds": 0.48970359994564205,
+        "upload_seconds": 0.00658280000789091,
+        "plan_seconds": 0.015520400018431246,
+        "graph_setup_seconds": 0.012827200000174344,
+        "march_seconds": 0.9240356999798678,
+        "download_seconds": 0.0004923000233247876
+      },
+      "setup_seconds": 0.5754948999383487,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 62,
+        "eager_nonlinear_evaluations": 255,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.7649907,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 23,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 2,
+        "graph_steps": 24,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5325064999633469,
+      "model_release_seconds": 0.0004437000025063753,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05745369999203831,
+        "runtime_init_seconds": 0.50861800002167,
+        "upload_seconds": 0.00647459999890998,
+        "plan_seconds": 0.01762080000480637,
+        "graph_setup_seconds": 0.0025077000027522445,
+        "march_seconds": 0.9336818999727257,
+        "download_seconds": 0.000526699994225055
+      },
+      "setup_seconds": 0.5926748000201769,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 340,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.8521906,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 24,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 3,
+        "graph_steps": 48,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 3.0065727999899536,
+      "model_release_seconds": 0.00030590000096708536,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1718554999679327,
+        "runtime_init_seconds": 0.5218162999954075,
+        "upload_seconds": 0.008159100019838661,
+        "plan_seconds": 0.0159404999576509,
+        "graph_setup_seconds": 0.0029546000296249986,
+        "march_seconds": 2.209493200003635,
+        "download_seconds": 0.0007069000275805593
+      },
+      "setup_seconds": 0.7207259999704547,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 191,
+        "eager_nonlinear_evaluations": 47,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.3044892,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 25,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5257159000029787,
+      "model_release_seconds": 0.000221800000872463,
+      "phase_seconds": {
+        "host_setup_seconds": 0.057290000026114285,
+        "runtime_init_seconds": 0.49065260001225397,
+        "upload_seconds": 0.006432800029870123,
+        "plan_seconds": 0.01565169997047633,
+        "graph_setup_seconds": 0.011666200007312,
+        "march_seconds": 0.9374623000039719,
+        "download_seconds": 0.0004477000329643488
+      },
+      "setup_seconds": 0.5816933000460267,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 62,
+        "eager_nonlinear_evaluations": 255,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7911684,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 26,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 64,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5160998000064865,
+      "model_release_seconds": 3.0499999411404133e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05456720001529902,
+        "runtime_init_seconds": 0.48933720000786707,
+        "upload_seconds": 0.006995100004132837,
+        "plan_seconds": 0.016661000030580908,
+        "graph_setup_seconds": 0.006581900001037866,
+        "march_seconds": 0.9362677999888547,
+        "download_seconds": 0.00045380002120509744
+      },
+      "setup_seconds": 0.5741424000589177,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 126,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.718321,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 27,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 3,
+        "graph_steps": 24,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.9803080000565387,
+      "model_release_seconds": 0.00028190005104988813,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1577038000104949,
+        "runtime_init_seconds": 0.5193090999964625,
+        "upload_seconds": 0.008001700043678284,
+        "plan_seconds": 0.015586299996357411,
+        "graph_setup_seconds": 0.0015926000196486712,
+        "march_seconds": 2.205353599973023,
+        "download_seconds": 0.0006334999925456941
+      },
+      "setup_seconds": 0.7021935000666417,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 383,
+        "eager_nonlinear_evaluations": 23,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.3166023,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 28,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 3,
+        "graph_steps": 64,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.9804575000307523,
+      "model_release_seconds": 0.00026220001745969057,
+      "phase_seconds": {
+        "host_setup_seconds": 0.15709140000399202,
+        "runtime_init_seconds": 0.5150913000106812,
+        "upload_seconds": 0.008336200029589236,
+        "plan_seconds": 0.01615389995276928,
+        "graph_setup_seconds": 0.003983300004620105,
+        "march_seconds": 2.2060797000303864,
+        "download_seconds": 0.0006812000065110624
+      },
+      "setup_seconds": 0.7006561000016518,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 143,
+        "eager_nonlinear_evaluations": 63,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.2032816,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 29,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 48,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.51645140000619,
+      "model_release_seconds": 2.929999027401209e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05138459999579936,
+        "runtime_init_seconds": 0.5112041999818757,
+        "upload_seconds": 0.0063643999747000635,
+        "plan_seconds": 0.018645700009074062,
+        "graph_setup_seconds": 0.004841500020120293,
+        "march_seconds": 0.9187888999585994,
+        "download_seconds": 0.0004211000050418079
+      },
+      "setup_seconds": 0.5924403999815695,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 170,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.7935725,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 30,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 128,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.503991200006567,
+      "model_release_seconds": 3.120000474154949e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.049461400019936264,
+        "runtime_init_seconds": 0.4902338000247255,
+        "upload_seconds": 0.006262200011406094,
+        "plan_seconds": 0.0156872000079602,
+        "graph_setup_seconds": 0.012550499988719821,
+        "march_seconds": 0.9233623000327498,
+        "download_seconds": 0.0004841999616473913
+      },
+      "setup_seconds": 0.5741951000527479,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 62,
+        "eager_nonlinear_evaluations": 255,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.7654271,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 31,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 24,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5174339999794029,
+      "model_release_seconds": 0.000638199970126152,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05377520003821701,
+        "runtime_init_seconds": 0.4973889999673702,
+        "upload_seconds": 0.006703899998683482,
+        "plan_seconds": 0.01644569996278733,
+        "graph_setup_seconds": 0.002678500022739172,
+        "march_seconds": 0.9343955000513233,
+        "download_seconds": 0.0005062000127509236
+      },
+      "setup_seconds": 0.5769922999897972,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 340,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7627222,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 32,
+      "job": {
+        "name": "leg37_k72",
+        "seed": 17,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 48,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        }
+      },
+      "solver_seconds": 1.5112969999900088,
+      "model_release_seconds": 3.219995414838195e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05497160000959411,
+        "runtime_init_seconds": 0.4923255000030622,
+        "upload_seconds": 0.006206299993209541,
+        "plan_seconds": 0.01574230002006516,
+        "graph_setup_seconds": 0.004600400046911091,
+        "march_seconds": 0.9316120000439696,
+        "download_seconds": 0.00047400000039488077
+      },
+      "setup_seconds": 0.5738461000728421,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 170,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            41,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "aef9f6848c77ae6219c7863bfe9591c119567978a34ac4d0313fad934a006cd0"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "f8fddd1952dbf4f282538507c0737b87b66ec4517e4e3fa4b6a5b48e8433c0ee"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "137c7b83f3e49da27eb3ab853d925c48d7c4326c18a298a3120e22f89ea65e11"
+        }
+      },
+      "fresh_process_seconds": 3.7312733,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 33,
+      "job": {
+        "name": "fd176_k80",
+        "seed": 17,
+        "solver": "legacy_fd_dense",
+        "rates": [
+          128
+        ],
+        "block": 3,
+        "graph_steps": 128,
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        }
+      },
+      "solver_seconds": 2.979330400004983,
+      "model_release_seconds": 0.00026270002126693726,
+      "phase_seconds": {
+        "host_setup_seconds": 0.1579588000313379,
+        "runtime_init_seconds": 0.5253289999673143,
+        "upload_seconds": 0.008333400008268654,
+        "plan_seconds": 0.01623519998975098,
+        "graph_setup_seconds": 0.00797699997201562,
+        "march_seconds": 2.189118899987079,
+        "download_seconds": 0.0010769999935291708
+      },
+      "setup_seconds": 0.7158333999686874,
+      "work": {
+        "graph_executables": 1,
+        "graph_launches": 71,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 9215,
+        "marching_fft_batches": 18430
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            81,
+            175
+          ],
+          "dtype": "<c16",
+          "sha256": "6cbff4108d715d5912626520372d7723135fa002ff025a606cf1a9e6fb43a93b"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a2e603295bb1cf3996061a126549ae5ff92ff3ff67d361228b2e29fb92feef8b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "5bbc8e6c630325caad8136a27dd0ac623d5f5c57cf70eb131590ec6b1fb9dd3a"
+        }
+      },
+      "fresh_process_seconds": 5.2356602,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 34,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 24,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.4916940999682993,
+      "model_release_seconds": 2.7499976567924023e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05073630000697449,
+        "runtime_init_seconds": 0.4914402000140399,
+        "upload_seconds": 0.006504399992991239,
+        "plan_seconds": 0.01581480004824698,
+        "graph_setup_seconds": 0.0025531999999657273,
+        "march_seconds": 0.9190832999884151,
+        "download_seconds": 0.0005016999784857035
+      },
+      "setup_seconds": 0.5670489000622183,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 340,
+        "eager_nonlinear_evaluations": 31,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.6584412,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    },
+    {
+      "index": 35,
+      "job": {
+        "name": "rfm37_k72",
+        "seed": 7331,
+        "solver": "legacy_prepared_combined",
+        "rates": [
+          128,
+          112
+        ],
+        "block": 3,
+        "graph_steps": 64,
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        }
+      },
+      "solver_seconds": 1.5187691999599338,
+      "model_release_seconds": 3.3299962524324656e-05,
+      "phase_seconds": {
+        "host_setup_seconds": 0.05297610000707209,
+        "runtime_init_seconds": 0.5118409999995492,
+        "upload_seconds": 0.006360900006256998,
+        "plan_seconds": 0.01606520003406331,
+        "graph_setup_seconds": 0.00673250004183501,
+        "march_seconds": 0.9195615000207908,
+        "download_seconds": 0.0004773999680764973
+      },
+      "setup_seconds": 0.5939757000887766,
+      "work": {
+        "graph_executables": 2,
+        "graph_launches": 126,
+        "eager_nonlinear_evaluations": 127,
+        "nonlinear_evaluations": 8191,
+        "marching_fft_batches": 16382
+      },
+      "array_fingerprints": {
+        "states": {
+          "shape": [
+            19,
+            39,
+            73
+          ],
+          "dtype": "<c16",
+          "sha256": "c5ee7ea1633899bc0b8fef8a06f18e355f7d11e7f6da783eace580bce294d46e"
+        },
+        "times": {
+          "shape": [
+            19
+          ],
+          "dtype": "<f8",
+          "sha256": "677312195adb209649b13768f52932f10aae78129bce486cdbe25bff792d53d5"
+        },
+        "probe_times": {
+          "shape": [
+            577
+          ],
+          "dtype": "<f8",
+          "sha256": "843ccf31f95c75ba37a1330d209da02f84dd10bbf31d8b0dee255229b5d865d2"
+        },
+        "transverse": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "83a16984cbfa096977ce61c10daf7ec15011c01d1571c6c77b8767e76f48264b"
+        },
+        "vorticity": {
+          "shape": [
+            577,
+            3
+          ],
+          "dtype": "<f8",
+          "sha256": "a9393e4fef3edb8fa0810f75cf2d134da03656f3ad1fc72fcc1ef9c2f07ff845"
+        }
+      },
+      "fresh_process_seconds": 3.6772055,
+      "status": "complete",
+      "bitwise_qualified_baseline": true
+    }
+  ]
+}

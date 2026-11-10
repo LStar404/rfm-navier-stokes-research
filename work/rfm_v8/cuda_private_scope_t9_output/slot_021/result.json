@@ -1,0 +1,131 @@
+{
+  "status": "complete",
+  "index": 21,
+  "protocol_sha256": "bff03405bac43a1d60b896304fa5ad01606098c928f1cd6f9e8b2d19d085ba44",
+  "job": {
+    "name": "fd176_k80",
+    "arm": "fd",
+    "seed": 17,
+    "scale": "mid",
+    "family": "fd",
+    "config": {
+      "n": 176,
+      "k": 80,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native"
+    },
+    "args": {
+      "horizon": 9,
+      "snapshots": [
+        0.5,
+        1,
+        2,
+        4,
+        6,
+        8,
+        8.125,
+        8.5,
+        9
+      ],
+      "probe_spacing": 0.125,
+      "graph_steps": 24,
+      "n": 176,
+      "k": 80,
+      "stretch": 1.0,
+      "grid": "outer",
+      "angular": "fft",
+      "linear": "native",
+      "steps": 1152,
+      "cuda_linear_solve": "dense"
+    },
+    "control": {
+      "single": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cpu_buffered.npz",
+        "sha256": "1bea2450f464358e3a54126a796ec1b8ddf0e1a35ab383a901649ac126ee4d23"
+      }
+    },
+    "anchor": {
+      "single": {
+        "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cpu_buffered.npz",
+        "sha256": "1bea2450f464358e3a54126a796ec1b8ddf0e1a35ab383a901649ac126ee4d23"
+      }
+    },
+    "engine": "warp_fused",
+    "pair": 2,
+    "policy": "empty_first",
+    "artifact_key": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257",
+    "artifact_sha256": "2c267bc93990e5fcee89e08037e9811a07a132563ba263fd0e20066890becbe3",
+    "angular_length": 243,
+    "original_t9": {
+      "path": "rfm_v8/fused_march_t9_output/slot_005/trajectory.npz",
+      "sha256": "08c391349194ba15a1ebfa967ca97b67d5712f0684a2bcc9c03a33205f019525"
+    }
+  },
+  "metadata": {
+    "steps": 1152,
+    "horizon": 9,
+    "dt": 0.0078125,
+    "seconds": 1.3149289999855682,
+    "time_order": 2,
+    "implementation": "native-fp64-fd4-cufft",
+    "cuda_linear_solve": "dense",
+    "graph_steps": 24,
+    "host_setup_seconds": 0.1685351000051014,
+    "host_linear_precompute_seconds": 0.06922590004978701,
+    "runtime_init_seconds": 0.8679325000266545,
+    "upload_seconds": 0.006517399975564331,
+    "plan_seconds": 0.0009475999977439642,
+    "graph_setup_seconds": 0.001261900004465133,
+    "march_seconds": 0.16347979998681694,
+    "download_seconds": 0.000492699968162924,
+    "linear_bytes": 19845000,
+    "method": "fd4",
+    "n": 176,
+    "k": 80,
+    "stretch": 1.0,
+    "grid": "outer",
+    "angular": "fft",
+    "linear": "native",
+    "ntheta": 243,
+    "band_lower": 6,
+    "band_upper": 6,
+    "nonlinear_engine": "warp_fused",
+    "observation_reduction": "warp",
+    "compiled_cuda_modules": 1,
+    "active_fused_entries": 1,
+    "nonlinear_evaluations": 1151,
+    "logical_fft_groups": 2302,
+    "inverse_field_transforms": 4604,
+    "forward_field_transforms": 1151,
+    "fft_radial_lines": 175,
+    "logical_field_transforms_all_radial_rows": 1007125,
+    "cufft_marching_calls": 0,
+    "nonlinear_graph_nodes_per_evaluation": 1,
+    "priming_logical_field_transforms": 875,
+    "priming_cuda_nodes": 1,
+    "nvrtc_compile_load_seconds": 0.7530665000085719,
+    "ptx_cache_policy": "empty_first",
+    "ptx_cache_key": "1100b0c2b4b8e09f145c31f6fe10ed7b8692d26536fd820f57fe2433ac558257",
+    "ptx_sha256": "1c12beebb1df7746786e62274a76adf4f355e126c856e9d4233aeebda1837378",
+    "ptx_artifact_sha256": "2c267bc93990e5fcee89e08037e9811a07a132563ba263fd0e20066890becbe3",
+    "ptx_recipe_seconds": 0.003521600039675832,
+    "ptx_context_seconds": 0.11047610000241548,
+    "ptx_compiler_identity_seconds": 0.06806640001013875,
+    "ptx_cache_total_seconds": 0.6825882000266574,
+    "ptx_nvrtc_seconds": 0.6578386999899521,
+    "ptx_driver_load_seconds": 0.0019002999761141837
+  },
+  "spatial_sha256": "ff2b9091b0dfe57268ac59e878529c50eee447aa766310508b2bc5af4be266d6",
+  "trajectory_sha256": "0cf236b34ad0da91d2ecbec03b4abd2b0aab5d1a1896eea716310c5f88b3d463",
+  "affinity_mask": 16,
+  "solve_return_monotonic_ns": 297855808818500,
+  "identity": {
+    "pid": 15008,
+    "birth_filetime_100ns": 134387463510821166,
+    "exit_filetime_100ns": 0,
+    "kernel_cpu_100ns": 12968750,
+    "user_cpu_100ns": 11562500
+  }
+}

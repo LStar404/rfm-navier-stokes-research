@@ -1,0 +1,171 @@
+{
+  "status": "complete",
+  "index": 2,
+  "protocol_sha256": "bff03405bac43a1d60b896304fa5ad01606098c928f1cd6f9e8b2d19d085ba44",
+  "job": {
+    "name": "rfm37_k72",
+    "arm": "uniform",
+    "seed": 7331,
+    "scale": "mid",
+    "family": "rfm",
+    "config": {
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 7331,
+      "family": "rfm"
+    },
+    "args": {
+      "horizon": 9,
+      "snapshots": [
+        0.5,
+        1,
+        2,
+        4,
+        6,
+        8,
+        8.125,
+        8.5,
+        9
+      ],
+      "probe_spacing": 0.125,
+      "graph_steps": 24,
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 7331,
+      "family": "rfm",
+      "steps": 1152
+    },
+    "control": {
+      "early": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      },
+      "late": {
+        "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+      }
+    },
+    "anchor": {
+      "early": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      },
+      "late": {
+        "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+      }
+    },
+    "engine": "warp_fused",
+    "pair": 0,
+    "policy": "strict_hit",
+    "artifact_key": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69",
+    "artifact_sha256": "f063c685da8453a77d27a9c197ba4438b9583a007866524305308e8f54a4205d",
+    "angular_length": 225,
+    "original_t9": {
+      "path": "rfm_v8/fused_march_t9_output/slot_001/trajectory.npz",
+      "sha256": "84131b7fcb7afd89e73db72b7a53e019b00f58f5adb81de3ad89d27485a6e370"
+    }
+  },
+  "metadata": {
+    "steps": 1152,
+    "horizon": 9,
+    "dt": 0.0078125,
+    "seconds": 0.27609850000590086,
+    "time_order": 2,
+    "implementation": "native-fp64-cufft-precontracted",
+    "graph_steps": 24,
+    "host_setup_seconds": 0.0238520999555476,
+    "runtime_init_seconds": 0.11187339999014512,
+    "upload_seconds": 0.0029925000271759927,
+    "plan_seconds": 0.0007162999827414751,
+    "graph_setup_seconds": 0.0008877000072970986,
+    "march_seconds": 0.09961659996770322,
+    "download_seconds": 0.0002959999837912619,
+    "m": 37,
+    "k": 72,
+    "q": 66,
+    "method": "rfm",
+    "scale": 62.0,
+    "warp": 0.0,
+    "seed": 7331,
+    "rank": 39,
+    "mean_order": 24,
+    "mean_rank": 30,
+    "backend": "fft",
+    "ntheta": 225,
+    "mapping": "inner",
+    "layers": [
+      16,
+      36,
+      80,
+      165,
+      340,
+      660
+    ],
+    "split": true,
+    "jet_backend": "buffered",
+    "basis_evaluation": "differentiated-recurrence",
+    "nonlinear_engine": "warp_fused",
+    "observation_reduction": "warp",
+    "compiled_cuda_modules": 1,
+    "active_fused_entries": 1,
+    "nonlinear_evaluations": 1151,
+    "logical_fft_groups": 2302,
+    "inverse_field_transforms": 3453,
+    "forward_field_transforms": 2302,
+    "fft_radial_lines": 66,
+    "logical_field_transforms_all_radial_rows": 379830,
+    "cufft_marching_calls": 0,
+    "nonlinear_graph_nodes_per_evaluation": 1,
+    "priming_logical_field_transforms": 330,
+    "priming_cuda_nodes": 1,
+    "nvrtc_compile_load_seconds": 0.0037263999693095684,
+    "ptx_cache_policy": "strict_hit",
+    "ptx_cache_key": "bf8aae4a11849accad0e108f0cd9aec5c139bd7d505898b3a87fd5ecf589ce69",
+    "ptx_sha256": "7cc40bd3e8b77b53c4873746a5aaa3b39732aaddc8a883d7b585ba86903a3c7f",
+    "ptx_artifact_sha256": "f063c685da8453a77d27a9c197ba4438b9583a007866524305308e8f54a4205d",
+    "ptx_recipe_seconds": 0.0029681999585591257,
+    "ptx_context_seconds": 0.1045346999890171,
+    "ptx_compiler_identity_seconds": 0.0,
+    "ptx_cache_total_seconds": 0.0017441000090911984,
+    "ptx_nvrtc_seconds": 0.0,
+    "ptx_driver_load_seconds": 0.0016272999928332865
+  },
+  "spatial_sha256": "ee1b39e876c316923d4b5cf80babbdc64c611c2d22d30844bcec5aec15813184",
+  "trajectory_sha256": "a75905a9f811edbef7a6d75b1fc364937d266fa6af85ae31a09f1e7f08a8aead",
+  "affinity_mask": 16,
+  "solve_return_monotonic_ns": 297775679953500,
+  "identity": {
+    "pid": 53144,
+    "birth_filetime_100ns": 134387462719144969,
+    "exit_filetime_100ns": 0,
+    "kernel_cpu_100ns": 2656250,
+    "user_cpu_100ns": 9687500
+  }
+}

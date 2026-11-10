@@ -1,0 +1,19 @@
+CPU-only 独立诊断：活跃槽状态发布兼容性
+
+结论：发现可复现的文件发布组合风险，但没有证明正式槽011当时的具体锁持有者或底层根因。不能用本次工程诊断恢复失败计时资格，也没有再次运行GPU。
+
+正式证据：槽011有solved RETURN、完整NPZ和精确exit0；独立terminal记录与遗留.tmp逐字节一致，live state仍为active，ledger仍monitor_registered。失败位于终态live-state发布之后续未执行的边界；原日志只存PermissionError，未存Win32错误码、调用栈或锁持有者。
+
+静态链：v6 SlotGuard只通过一个ShareReadWrite|Delete FileStream读取live state。Hash确实使用File.OpenRead，但目标是request与不可变inputs；实际inputs不含本次live-state文件，closing hash也在owner结束后。因此没有‘SlotGuard随后又用无shareDelete的Hash读state’这条调用链。
+
+CPU交叉实验：没有读者时Path.replace、MoveFileExW、ReplaceFileW均成功。持有native share7或.NET ShareReadWrite|Delete目标句柄时，前两者均WinError5，旧目标与临时文件保留；ReplaceFileW成功。直接反射调用冻结v6 Read与原Python替换并发，也重现WinError5。这证明shareDelete本身不是该API组合在本机可靠替换的充分条件；不等同于追溯证明正式运行由同一读者触发。
+
+ReplaceFileW仅是未集成对照：并发512次写均成功，但冻结读者产生776次短暂IOException。官方文档还列出可能已部分改名/改元数据的失败状态，WRITE_THROUGH标志不受支持。不能将其直接当成原子事务或稳定生产替代；未修改ACL、未加入重试、未启动后续GPU。
+
+更小的未来方向：直接使用每槽不可变active/terminal文件，完整临时文件发布到此前不存在的名称，避免覆盖共享live-state目标。针对性测试发布512个完整JSON（256对active/terminal），冻结v6 Read并发逐序校验，512全部通过、0读取异常；故意覆写既有名称被拒绝，原512份哈希不变。这仅验证发布原语，未集成新watchdog，也不是T72资格。
+
+所有冻结production源和原始计时证据保留。本目录含实际Win32错误记录、失败的早期测试、14格API矩阵、未集成候选及不可变发布CPU证书。未来首先保留失败operation/errno/winerror/filename信息，仍须完整身份、截止、终态和独立数值隔离检查。
+
+官方API参考：
+https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw
+https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-replacefilew

@@ -1,0 +1,120 @@
+{
+  "index": 0,
+  "job": {
+    "name": "rfm37_k72",
+    "arm": "uniform",
+    "seed": 7331,
+    "scale": "mid",
+    "family": "rfm",
+    "config": {
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 7331,
+      "family": "rfm"
+    },
+    "args": {
+      "horizon": 9,
+      "snapshots": [
+        0.5,
+        1,
+        2,
+        4,
+        6,
+        8,
+        8.125,
+        8.5,
+        9
+      ],
+      "probe_spacing": 0.125,
+      "graph_steps": 24,
+      "m": 37,
+      "k": 72,
+      "q": 66,
+      "scale": 62.0,
+      "mean_order": 24,
+      "layers": [
+        16,
+        36,
+        80,
+        165,
+        340,
+        660
+      ],
+      "split": true,
+      "backend": "fft",
+      "seed": 7331,
+      "family": "rfm",
+      "steps": 1152
+    },
+    "control": {
+      "early": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      },
+      "late": {
+        "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+      }
+    },
+    "anchor": {
+      "early": {
+        "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+      },
+      "late": {
+        "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+        "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+      }
+    },
+    "engine": "warp_cufft",
+    "pair": 0,
+    "policy": "disabled",
+    "artifact_key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c",
+    "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855",
+    "angular_length": 225,
+    "original_t9": {
+      "path": "rfm_v8/fused_march_t9_output/slot_000/trajectory.npz",
+      "sha256": "ab8c95c44a380e7758ada3a206156009cadd3ab711b27c62eb37f7d4331d264f"
+    }
+  },
+  "protocol_sha256": "9edc2792f3d46766a960847cbc9d56abb0da5b8af6ae28981ea23d1e2f7f077a",
+  "watchdog": {
+    "status": "deadline_exceeded",
+    "deadline_seconds": 30,
+    "kill_wait_seconds": 4,
+    "identity": {
+      "pid": 30876,
+      "birth_filetime_100ns": 134387449644412766,
+      "exit_filetime_100ns": 0,
+      "kernel_cpu_100ns": 0,
+      "user_cpu_100ns": 0
+    },
+    "first_wait_status": 258,
+    "termination_attempt_ns": 296496324129100,
+    "terminate_process_ok": true,
+    "post_terminate_wait_status": 0,
+    "terminal_identity": {
+      "pid": 30876,
+      "birth_filetime_100ns": 134387449644412766,
+      "exit_filetime_100ns": 134387449944691867,
+      "kernel_cpu_100ns": 186562500,
+      "user_cpu_100ns": 107656250
+    },
+    "exit_code": 771,
+    "wall_seconds": 30.0483664
+  },
+  "qualified": false
+}

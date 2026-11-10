@@ -1,0 +1,286 @@
+{
+  "status": "passed",
+  "runner_sha256": "1ec106f79a821a1b10f7f9a4b1fd60d0e273d2ef103f42086e3d6242ab1b1bd6",
+  "source_audit_sha256": "628322a7c4d6136639b91ba80f6e39570b72e73c089e28b75ded4aa9a9ccae6d",
+  "order_seed": 882393,
+  "modules": {
+    "old_prepared": [
+      "galerkin_cuda_prepared"
+    ],
+    "lean_prepared": [
+      "galerkin_cuda_prepared_minimal"
+    ],
+    "old_uniform_recurrence": [
+      "galerkin_cuda_native",
+      "basis_recurrence_model"
+    ],
+    "lean_uniform_recurrence": [
+      "galerkin_cuda_native",
+      "galerkin_minimal_model"
+    ],
+    "fd": [
+      "fd_cuda_native"
+    ]
+  },
+  "excluded_modules": [
+    "basis_recurrence",
+    "cpu_formal",
+    "cpu_implicit_stride",
+    "cpu_precontracted",
+    "cpu_precontracted_native",
+    "cpu_profile",
+    "cpu_sbdf2_switch",
+    "diagnostic_wake",
+    "fd_full",
+    "prepared_formal_eligibility",
+    "prepared_qualification",
+    "scipy.signal",
+    "scipy.stats",
+    "matplotlib",
+    "reportlab"
+  ],
+  "rows": [
+    {
+      "block": 0,
+      "label": "lean_prepared",
+      "excluded_modules_loaded": [],
+      "total_modules": 535,
+      "import_seconds": 1.0255365999764763,
+      "fresh_seconds": 1.2658449000446126,
+      "importtime": "0_lean_prepared.importtime.txt",
+      "importtime_sha256": "d59d0021c5bd5110ed92b3e6450b6d471915d6eee93eac0378a29cdef6642022"
+    },
+    {
+      "block": 0,
+      "label": "lean_uniform_recurrence",
+      "excluded_modules_loaded": [],
+      "total_modules": 530,
+      "import_seconds": 0.9799497000058182,
+      "fresh_seconds": 1.2158131000469439,
+      "importtime": "0_lean_uniform_recurrence.importtime.txt",
+      "importtime_sha256": "bd3931a9c0a5e14d3dcbcd3f349fbabc1d8c99ad4911ad3e9a0c48722fdfdd1e"
+    },
+    {
+      "block": 0,
+      "label": "old_prepared",
+      "excluded_modules_loaded": [
+        "basis_recurrence",
+        "cpu_formal",
+        "cpu_implicit_stride",
+        "cpu_precontracted",
+        "cpu_precontracted_native",
+        "cpu_profile",
+        "cpu_sbdf2_switch",
+        "diagnostic_wake",
+        "fd_full",
+        "scipy.signal",
+        "scipy.stats"
+      ],
+      "total_modules": 930,
+      "import_seconds": 1.9607378999935463,
+      "fresh_seconds": 2.2591199000016786,
+      "importtime": "0_old_prepared.importtime.txt",
+      "importtime_sha256": "8de5e4948fdfb17a15611c8b4202bec4312f9677f9b037e549792a473da2e7e1"
+    },
+    {
+      "block": 0,
+      "label": "old_uniform_recurrence",
+      "excluded_modules_loaded": [
+        "basis_recurrence",
+        "cpu_formal",
+        "cpu_implicit_stride",
+        "cpu_profile",
+        "diagnostic_wake",
+        "fd_full",
+        "scipy.signal",
+        "scipy.stats"
+      ],
+      "total_modules": 923,
+      "import_seconds": 1.9244303000159562,
+      "fresh_seconds": 2.218267399992328,
+      "importtime": "0_old_uniform_recurrence.importtime.txt",
+      "importtime_sha256": "a025de071659bf2844a170585e608774325c6b512dc8da65f4fceaf72e607f1f"
+    },
+    {
+      "block": 0,
+      "label": "fd",
+      "excluded_modules_loaded": [
+        "fd_full"
+      ],
+      "total_modules": 724,
+      "import_seconds": 1.3611417000065558,
+      "fresh_seconds": 1.6153350999811664,
+      "importtime": "0_fd.importtime.txt",
+      "importtime_sha256": "c8e82cb2c1da841b6971668fe0dd2f56417000e1902e06e5d634b00dc94ed984"
+    },
+    {
+      "block": 1,
+      "label": "fd",
+      "excluded_modules_loaded": [
+        "fd_full"
+      ],
+      "total_modules": 724,
+      "import_seconds": 1.3387708999798633,
+      "fresh_seconds": 1.5936158999684267,
+      "importtime": "1_fd.importtime.txt",
+      "importtime_sha256": "622940011d4e38f2bae59ef74e0b4ecb05444f26c63dac52562ebef918692ed6"
+    },
+    {
+      "block": 1,
+      "label": "lean_uniform_recurrence",
+      "excluded_modules_loaded": [],
+      "total_modules": 530,
+      "import_seconds": 1.040350200026296,
+      "fresh_seconds": 1.274239899998065,
+      "importtime": "1_lean_uniform_recurrence.importtime.txt",
+      "importtime_sha256": "13c0e16e66626cbf707b1a273ad049e9d617b55974a674331719adbfd8c133d8"
+    },
+    {
+      "block": 1,
+      "label": "old_uniform_recurrence",
+      "excluded_modules_loaded": [
+        "basis_recurrence",
+        "cpu_formal",
+        "cpu_implicit_stride",
+        "cpu_profile",
+        "diagnostic_wake",
+        "fd_full",
+        "scipy.signal",
+        "scipy.stats"
+      ],
+      "total_modules": 923,
+      "import_seconds": 1.9407456000335515,
+      "fresh_seconds": 2.2229755999869667,
+      "importtime": "1_old_uniform_recurrence.importtime.txt",
+      "importtime_sha256": "e06520d8161b32b8517b183367420f58742ec9c4ea7e146eb83bcd9afdd5f96e"
+    },
+    {
+      "block": 1,
+      "label": "lean_prepared",
+      "excluded_modules_loaded": [],
+      "total_modules": 535,
+      "import_seconds": 1.0424300999729894,
+      "fresh_seconds": 1.2886763999704272,
+      "importtime": "1_lean_prepared.importtime.txt",
+      "importtime_sha256": "f0948c3ed6909b71cd4d43d131c9d026ae1d1391c835142803ffc831099f9a92"
+    },
+    {
+      "block": 1,
+      "label": "old_prepared",
+      "excluded_modules_loaded": [
+        "basis_recurrence",
+        "cpu_formal",
+        "cpu_implicit_stride",
+        "cpu_precontracted",
+        "cpu_precontracted_native",
+        "cpu_profile",
+        "cpu_sbdf2_switch",
+        "diagnostic_wake",
+        "fd_full",
+        "scipy.signal",
+        "scipy.stats"
+      ],
+      "total_modules": 930,
+      "import_seconds": 1.96170499996515,
+      "fresh_seconds": 2.247029099962674,
+      "importtime": "1_old_prepared.importtime.txt",
+      "importtime_sha256": "38418b170e5cf0f2c1759c91e0648fe6104b84b48b3a52662486187fb655c600"
+    },
+    {
+      "block": 2,
+      "label": "old_prepared",
+      "excluded_modules_loaded": [
+        "basis_recurrence",
+        "cpu_formal",
+        "cpu_implicit_stride",
+        "cpu_precontracted",
+        "cpu_precontracted_native",
+        "cpu_profile",
+        "cpu_sbdf2_switch",
+        "diagnostic_wake",
+        "fd_full",
+        "scipy.signal",
+        "scipy.stats"
+      ],
+      "total_modules": 930,
+      "import_seconds": 1.93951349996496,
+      "fresh_seconds": 2.21594309998909,
+      "importtime": "2_old_prepared.importtime.txt",
+      "importtime_sha256": "5f6f6fdba041e5b6c8123c35536796f79e6279136a7541edd35176a34728eb59"
+    },
+    {
+      "block": 2,
+      "label": "old_uniform_recurrence",
+      "excluded_modules_loaded": [
+        "basis_recurrence",
+        "cpu_formal",
+        "cpu_implicit_stride",
+        "cpu_profile",
+        "diagnostic_wake",
+        "fd_full",
+        "scipy.signal",
+        "scipy.stats"
+      ],
+      "total_modules": 923,
+      "import_seconds": 1.9356781999813393,
+      "fresh_seconds": 2.2232797000324354,
+      "importtime": "2_old_uniform_recurrence.importtime.txt",
+      "importtime_sha256": "13d5129d8df89d11d1e3417441c255c78c2644a5d33ec333efab51ad6074c21a"
+    },
+    {
+      "block": 2,
+      "label": "lean_prepared",
+      "excluded_modules_loaded": [],
+      "total_modules": 535,
+      "import_seconds": 1.099077999999281,
+      "fresh_seconds": 1.347578099987004,
+      "importtime": "2_lean_prepared.importtime.txt",
+      "importtime_sha256": "501b4403dc4c95e15869bcc11601b63282cbe9805411776809749b0a171e0097"
+    },
+    {
+      "block": 2,
+      "label": "lean_uniform_recurrence",
+      "excluded_modules_loaded": [],
+      "total_modules": 530,
+      "import_seconds": 0.9737279000109993,
+      "fresh_seconds": 1.2003742999513634,
+      "importtime": "2_lean_uniform_recurrence.importtime.txt",
+      "importtime_sha256": "5489c7d73615d570b0754a090d3ec6382fd485d159e841acf4ba96a650412d29"
+    },
+    {
+      "block": 2,
+      "label": "fd",
+      "excluded_modules_loaded": [
+        "fd_full"
+      ],
+      "total_modules": 724,
+      "import_seconds": 1.3639508999767713,
+      "fresh_seconds": 1.609767500020098,
+      "importtime": "2_fd.importtime.txt",
+      "importtime_sha256": "1aeed8f124ecfa0e69036696514466e236824867d9f9d298c9b3bc939f96ebc8"
+    }
+  ],
+  "medians": {
+    "old_prepared": {
+      "import_seconds": 1.9607378999935463,
+      "fresh_seconds": 2.247029099962674
+    },
+    "lean_prepared": {
+      "import_seconds": 1.0424300999729894,
+      "fresh_seconds": 1.2886763999704272
+    },
+    "old_uniform_recurrence": {
+      "import_seconds": 1.9356781999813393,
+      "fresh_seconds": 2.2229755999869667
+    },
+    "lean_uniform_recurrence": {
+      "import_seconds": 0.9799497000058182,
+      "fresh_seconds": 1.2158131000469439
+    },
+    "fd": {
+      "import_seconds": 1.3611417000065558,
+      "fresh_seconds": 1.609767500020098
+    }
+  },
+  "scope": "Randomized 3-block import-only diagnostics with -X importtime. No solver or CUDA context."
+}

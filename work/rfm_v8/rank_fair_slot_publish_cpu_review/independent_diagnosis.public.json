@@ -1,0 +1,347 @@
+{
+  "schema": "rfm-v8-live-slot-publication-postfailure-audit-1",
+  "status": "completed_cpu_only_limited_diagnosis",
+  "gpu_contexts_created": 0,
+  "flow_solves_run": 0,
+  "no_frozen_source_or_raw_edits": true,
+  "formal_retry_allowed": false,
+  "formal_window_accepted": false,
+  "speed_claim_supported": false,
+  "preserved_raw_hashes_verified": 148,
+  "evidence_sha256": {
+    "rfm_v8/rank_fair_outer_watchdog.cs": "285b5df008d19a2229369abf186f4355770a77f2395fdfb1922e852967b3de39",
+    "rfm_v8/rank_fair_isolation_v2/coordinator_v2.py": "c812036a3a16d583c9189f2134e574145e1015b0f6a1c66c56c5ab8501cab921",
+    "rfm_v8/formal_timing_coordinator.py": "fec135619b10c0b913418fb79aa2c193a2065e6b57f8eb8f2d7a9fa607b22692",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/protocol.json": "e193ee5c5d93c4126401d55aed97a0b349ff76b3d4dbac59cf000185d610a6c6",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/watchdog_request.json": "36fb60e1a0c62706d121f5b4acd9d7fd3d12c78a56a85549207a55690ebaab59",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/capture/summary.json": "ff88418900dc1048b3b3d94bf33afd60c60bfc38c592f872f28c162ed18df0d0",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/capture/attempt_011.json": "283a480aedae508ca242b79c288ae0f0a9e7f4e4bcbf4ecdbdf34e3e328f21c9",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/capture/outer_slot_terminal_011.json": "974dd6b965db8dd308a54883c6650222a33bd232d7a0c8b839858b8501f4eb4a",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/capture/outer_slot_state.json.tmp": "974dd6b965db8dd308a54883c6650222a33bd232d7a0c8b839858b8501f4eb4a",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/capture/outer_slot_state.json": "ae26497f9a4f5524116bf24c719a6bb5371bdc22785290164a6df45a9f91e644",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/capture/identity_ledger.json": "696d74c06a9efd0d455b0ace8477e598aa81aa2ace882a2143c86f5bad3d6089",
+    "rfm_v8/rank_fair_cache_recovery_formal_v3_output/mid_b1_b5/outer/watchdog_terminal.json": "c5b1074e369ad956784f677b998cb7c9c65ad1a408fb96d312e610f1d2e6b6c0",
+    "rfm_v8/rank_fair_slot_publish_cpu_review/api_matrix_output/summary.json": "89a7ff8ffb4f1e5dd2db1a7382763c02c0d77234c30fbf95ecc39d19d03dac4d",
+    "rfm_v8/rank_fair_slot_publish_cpu_review/future_candidate_cpu_output/certificate.json": "fac0610e74cfd3541fea4a4dc443d25ba51294b9b8669dff6624ff4f54b4e311",
+    "rfm_v8/rank_fair_slot_publish_cpu_review/immutable_publication_cpu_output/certificate.json": "1883c32cc547070df837a8ef113467e98f06cfb7ad4d59c5b4aa897d88681ed4"
+  },
+  "observed_failure": {
+    "slot_index": 11,
+    "solver_return": "solved",
+    "exact_worker_exit_code": 0,
+    "complete_npz": true,
+    "terminal_sidecar_and_temporary_byte_identical": true,
+    "live_state_phase": "active",
+    "ledger_phase": "monitor_registered",
+    "recorded_exception_type": "PermissionError",
+    "recorded_exception_winerror": null,
+    "recorded_exception_stack": null,
+    "localized_operation": "Terminal live-state save/replace after terminal sidecar and before ledger/EXIT update; the retained complete temporary strongly identifies replacement, but exact original Win32 error was not captured."
+  },
+  "static_call_path": {
+    "slot_read": "SlotGuard.Poll -> TryRead -> Read -> one FileStream(Read, ShareReadWrite|Delete)",
+    "hash_read": "Hash uses File.OpenRead for request and immutable input hashes; no Hash call on live slot-state path",
+    "actual_input_guard_contains_live_slot_state": false,
+    "closing_hash_runs_after_owner_wait": true,
+    "synchronous_read_and_publish_os_calls_remain": true
+  },
+  "experimentally_confirmed_risk": {
+    "description": "On this host, even a target reader granting Read/Write/Delete sharing conflicts with Path.replace/MoveFileExW replacement.",
+    "held_native_share7_winerror": 5,
+    "held_dotnet_share7_winerror": 5,
+    "exact_frozen_v6_reader_reproduction_winerror": 5,
+    "historical_slot011_lock_owner_identified": false,
+    "historical_slot011_root_cause": "not established"
+  },
+  "replacement_api_matrix": [
+    {
+      "mode": "no_reader",
+      "api": "python_path_replace",
+      "success": true,
+      "source_after": {
+        "exists": false
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      }
+    },
+    {
+      "mode": "no_reader",
+      "api": "MoveFileExW",
+      "success": true,
+      "source_after": {
+        "exists": false
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      }
+    },
+    {
+      "mode": "no_reader",
+      "api": "ReplaceFileW",
+      "success": true,
+      "source_after": {
+        "exists": false
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      }
+    },
+    {
+      "mode": "native_share_read",
+      "api": "python_path_replace",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 5,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "native_share_read",
+      "api": "MoveFileExW",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 5,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "native_share_read",
+      "api": "ReplaceFileW",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 32,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "native_share_read_write_delete",
+      "api": "python_path_replace",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 5,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "native_share_read_write_delete",
+      "api": "MoveFileExW",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 5,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "native_share_read_write_delete",
+      "api": "ReplaceFileW",
+      "success": true,
+      "source_after": {
+        "exists": false
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      }
+    },
+    {
+      "mode": "dotnet_share_read_write_delete",
+      "api": "python_path_replace",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 5,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "dotnet_share_read_write_delete",
+      "api": "MoveFileExW",
+      "success": false,
+      "type": "PermissionError",
+      "errno": 13,
+      "winerror": 5,
+      "source_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": -1
+        }
+      }
+    },
+    {
+      "mode": "dotnet_share_read_write_delete",
+      "api": "ReplaceFileW",
+      "success": true,
+      "source_after": {
+        "exists": false
+      },
+      "target_after": {
+        "exists": true,
+        "content": {
+          "sequence": 0
+        }
+      }
+    },
+    {
+      "mode": "exact_v6_poll",
+      "api": "python_path_replace",
+      "successful_replacements": 0,
+      "failure": {
+        "index": 0,
+        "success": false,
+        "type": "PermissionError",
+        "errno": 13,
+        "winerror": 5,
+        "source_after": {
+          "exists": true,
+          "content": {
+            "sequence": 0
+          }
+        },
+        "target_after": {
+          "exists": true,
+          "content": {
+            "sequence": -1
+          }
+        }
+      },
+      "reader": {
+        "mode": "poll_exact_v6",
+        "reads": 1,
+        "read_errors": 0,
+        "last_error": null
+      }
+    },
+    {
+      "mode": "exact_v6_poll",
+      "api": "ReplaceFileW",
+      "successful_replacements": 512,
+      "failure": null,
+      "reader": {
+        "mode": "poll_exact_v6",
+        "reads": 64835,
+        "read_errors": 776,
+        "last_error": "IOException: 文件“<WORKSPACE>\\work\\rfm_v8\\rank_fair_slot_publish_cpu_review\\api_matrix_output\\exact_v6_poll__ReplaceFileW\\state.json”正由另一进程使用，因此该进程无法访问此文件。"
+      }
+    }
+  ],
+  "replacefile_future_candidate": {
+    "not_integrated": true,
+    "cpu_certificate_status": "passed_tested_cpu_cases_only",
+    "matrix_write_successes": 512,
+    "matrix_read_ioexceptions": 776,
+    "direct_production_deployment_supported": false,
+    "limitations": "ReplaceFileW can expose transient read errors and documented partially modified failure states; unsupported WRITE_THROUGH and ACL-ignore flags were not used. Any failure remains unconfirmed, with no retries or next slot."
+  },
+  "minimal_future_direction": {
+    "description": "Retain immutable per-slot active and terminal records as the authoritative publication; publish complete temporaries to previously unused names, and avoid replacing a shared live-state target.",
+    "targeted_test_records": 512,
+    "slot_pairs": 256,
+    "reader_exact_frozen_v6": true,
+    "reader_errors": 0,
+    "existing_name_overwrite_rejected": true,
+    "production_integration": false,
+    "T72_qualified": false,
+    "future_requirements": "An integrated watcher would still need exact slot identity/token/deadline and terminal audits, fail-closed behavior and fresh qualification. No such integration or GPU run occurred here."
+  },
+  "discarded_test_assumption": "The first targeted fixture assumed ShareDelete would make Path.replace succeed; it failed and is retained under fixtures/ and first_fixture_source_snapshot/. Its unproduced audit_summary is not a passing certificate.",
+  "official_reference_urls": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexw",
+    "https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-replacefilew"
+  ],
+  "local_review_source_sha256": {
+    "api_matrix.py": "b3fcbb6daf0ab0c0a1e595f07d46ad5562d1d1644611b92ee6c40b6a4dcbdec0",
+    "atomic_publish_observed.py": "973d6b0885ebf7e7a705dac0434d60d1954432f5353a0d1e5417b66d359ad422",
+    "atomic_publish_replacefile_future.py": "b5c13863e9b7fe292b37b3037b613e67267b79e8f46ec7f87253d9113dd8412a",
+    "audit_slot_publish.py": "2fd07b11b1410d29381bce1a11db8a85dbf5135ee9f6ad573c3ae1608dff1dad",
+    "finalize_audit.py": "76f5fbb12d56b2398e724ad28e999e858b557618ef7054d0b785e5be6f20f6cd",
+    "immutable_reader_fixture.cs": "f9bb3adb715cba68acc2b263499573a1499ed47994f0f98c5542a961c318842f",
+    "immutable_reader_fixture.exe": "342bffa0a26e254e93cd98e95c8876ef9589fe0fb28d6be37337090bc223b63c",
+    "reader_fixture.cs": "dd045ac00a6218289ba3adda8aa54f72db7c70f335d015d0eed9068efc975f5b",
+    "reader_fixture.exe": "c13227e4c841f43930547671e62d62e2887b66dcdf2d623646a34993da5a9817",
+    "verify_future_candidate.py": "c64dfd56111e8745425b16a586b343d7ab0efe77079ea62ea5adb499ad6ce322",
+    "verify_immutable_publish.py": "6e35b6cf57261ded894a5620e3336e41f0a154d645a07c49854fc0a64251eb65"
+  }
+}

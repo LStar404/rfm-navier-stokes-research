@@ -1,0 +1,1355 @@
+{
+  "status": "existing_metadata_review_complete",
+  "scope": "No new numerical work, GPU, timing, or utilization sampling. Phase comparisons only within their original cohorts.",
+  "source_sha256": {
+    "work/rfm_v8/operator_bottleneck_review.txt": "e06da5eec48b5baf9117a33faa1bb7ba0efb732c9f6485034b1513820c548707",
+    "work/rfm_v8/thin_formal_high_verification.json": "d340ef4976a5ef3a12d22e50164f465c04306640666fb86a8f991945e2aa9382",
+    "work/rfm_v8/thin_formal_high_output/protocol.json": "94921d5fac032234649f72ff457f90a98a8b3a8147364699ba8d627e897d4981",
+    "work/rfm_v8/thin_formal_high_output/summary.json": "24fbffbaefa66f4495b45bbb1e492f311929c82faf948ee28a2f4c1b23f99c0b",
+    "work/rfm_v8/thin_formal_high_output/runs.json": "9af377607c7b3d0278d33b55cf7dd653ee8ffc751635a5e1a76b6b0a2d4735d1",
+    "work/rfm_v8/fused_march_t9_output/summary.json": "06fca774177fb54bd104568e34833ac94ad84bcc6301b133a2ba2c9fd23e2b2d",
+    "work/rfm_v8/galerkin_minimal_import_audit_output/audit.json": "5d96a0547f54c44ccf74d3fdb2ba26feb2061337fb7eb4c7e3a9b5809d7150d9",
+    "work/rfm_v8/cuda_ptx_artifact_output/manifest.json": "4669f0e559179a3642ed8b31be56e0ed04c3a40125175ad830f27ec743eb0748",
+    "work/rfm_v8/cuda_ptx_artifact_output/fresh_cpu_hit.json": "7641a9bc7a0161c87fac189fb8a35006a60feffffa84aeeaf0187f650def7835",
+    "work/rfm_v8/cuda_ptx_march_t9_output/summary.json": "c62aaafa75b92040e4039644ddb7caaf4165ba5b83f3081106b262945bea7b6b",
+    "work/rfm_v8/solver_worker_formal.py": "cab0bdfc7901082bb9400f47b65c49f4230dc6711e34d08f4b2db45aec3e0c20",
+    "work/rfm_v8/fused_marches.py": "e0f504571bc3876389cd3e61b4140d7148a39ee2c205247c284df6b8bf92b8ae",
+    "work/rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+    "work/rfm_v8/galerkin_cuda_prepared_minimal.py": "b6d37e7ba155d814a50a7de933ed1af8d4f29d25d55be9fb13a981e0507330f5",
+    "work/rfm_v8/galerkin_phase_shared_minimal.py": "e8c83aea761147b06ce36e7731def7205b682097269f63843aea2c4a25ec86fc",
+    "work/rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "work/rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404",
+    "work/rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3"
+  },
+  "thin_high_t72": {
+    "scope": "Observed Python process scope with GPU preflight endpoints; complete lifecycle coverage is unavailable.",
+    "accepted_slots": 50,
+    "logical_cpu_count": 32,
+    "coordinator_and_worker_logical_cpu": 4,
+    "monitor_logical_cpu": 6,
+    "blas_threads": 1,
+    "clock_note": "The solver clock includes model release and excludes the spatial signature. The fresh clock also includes interpreter, imports, admission, signatures and receipt. Serialization after SAVE and independent score are outside both.",
+    "groups": [
+      {
+        "name": "fd176_k80",
+        "arm": "fd",
+        "imports": "minimal",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 3.0780493000056595,
+            "median": 3.08870709995972,
+            "maximum": 3.1445223999908194
+          },
+          "fresh_process_seconds": {
+            "minimum": 4.3378156,
+            "median": 4.3718291,
+            "maximum": 4.5469834
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.2597662999943404,
+            "median": 1.27805680000482,
+            "maximum": 1.4024610000091808
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 1.2477628,
+            "median": 1.2667287,
+            "maximum": 1.3910645
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.41e-05,
+            "median": 0.0001128,
+            "maximum": 0.0001277
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.011215300004819628,
+            "median": 0.011889699994340752,
+            "maximum": 0.014060700014386196
+          },
+          "host_setup_seconds": {
+            "minimum": 0.1605876999674365,
+            "median": 0.16141420003259555,
+            "maximum": 0.16806100000394508
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0.06497619999572635,
+            "median": 0.06567360000917688,
+            "maximum": 0.06947790004778653
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.5054006999707781,
+            "median": 0.5069779999903403,
+            "maximum": 0.5709747999790125
+          },
+          "march_seconds": {
+            "minimum": 2.3101746999891475,
+            "median": 2.3146964000188746,
+            "maximum": 2.3239147000131197
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.07299703129357121,
+            "median": 0.07330889354360548,
+            "maximum": 0.07677969708763042
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.16407913407280258,
+            "median": 0.16432462598249703,
+            "maximum": 0.1815775902822888
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.11473257267546502,
+            "median": 0.11660230554270605,
+            "maximum": 0.12557222003031998
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.7346663200732462,
+            "median": 0.7516371813745625,
+            "maximum": 0.7524436605317549
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.078745196895576,
+            "median": 1.0791082303831898,
+            "maximum": 1.0831650872986902
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.1962854867736878,
+            "median": 1.196636913198133,
+            "maximum": 1.2218629257047326
+          }
+        }
+      },
+      {
+        "name": "fd184_k80",
+        "arm": "fd",
+        "imports": "minimal",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 3.481210599944461,
+            "median": 3.491862599970773,
+            "maximum": 3.6580869000172243
+          },
+          "fresh_process_seconds": {
+            "minimum": 4.7607659,
+            "median": 4.8054149,
+            "maximum": 4.9223055
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.264218599982776,
+            "median": 1.2999232000362042,
+            "maximum": 1.3135523000292268
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 1.2530164,
+            "median": 1.2878351,
+            "maximum": 1.2996206
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.22e-05,
+            "median": 9.45e-05,
+            "maximum": 0.0001158
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.01108639998277594,
+            "median": 0.011878600055538868,
+            "maximum": 0.013834200029227084
+          },
+          "host_setup_seconds": {
+            "minimum": 0.16241300001274794,
+            "median": 0.1631628000177443,
+            "maximum": 0.1713527999818325
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0.0006612999713979661,
+            "median": 0.0007072000298649073,
+            "maximum": 0.0007430999539792538
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.5027496999828145,
+            "median": 0.5065411999821663,
+            "maximum": 0.6756603000103496
+          },
+          "march_seconds": {
+            "minimum": 2.786802800022997,
+            "median": 2.7888313000439666,
+            "maximum": 2.789967999968212
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.04479089876277917,
+            "median": 0.04694031110853485,
+            "maximum": 0.04894072597518912
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.14441806536807492,
+            "median": 0.14506332522545592,
+            "maximum": 0.18470318460919238
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.1053388627168145,
+            "median": 0.10560269304206167,
+            "maximum": 0.13726500722280435
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.7626775624113227,
+            "median": 0.7989913463352093,
+            "maximum": 0.8005269201660644
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0468911976495663,
+            "median": 1.0492522259158108,
+            "maximum": 1.0514591753761842
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.1687951317370957,
+            "median": 1.169677274944031,
+            "maximum": 1.2265471680036626
+          }
+        }
+      },
+      {
+        "name": "leg39_k80",
+        "arm": "combined",
+        "imports": "minimal",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 1.9683487000293098,
+            "median": 1.970441099954769,
+            "maximum": 2.10125639999751
+          },
+          "fresh_process_seconds": {
+            "minimum": 2.9589831,
+            "median": 3.0035405,
+            "maximum": 3.1223737
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.9906343999706904,
+            "median": 1.0291110999048971,
+            "maximum": 1.0419142000468842
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.9771404,
+            "median": 1.0151799,
+            "maximum": 1.030263
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.78e-05,
+            "median": 9.93e-05,
+            "maximum": 0.0001024
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.011552000046884281,
+            "median": 0.013519900002489926,
+            "maximum": 0.015001800045230995
+          },
+          "host_setup_seconds": {
+            "minimum": 0.06614700000500306,
+            "median": 0.06655589997535571,
+            "maximum": 0.06977629999164492
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.47971939999843016,
+            "median": 0.4809652999974787,
+            "maximum": 0.6106362999998964
+          },
+          "march_seconds": {
+            "minimum": 1.3903442000155337,
+            "median": 1.3912221000064164,
+            "maximum": 1.3928985999664292
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.031785316634802344,
+            "median": 0.033744681517656784,
+            "maximum": 0.03531656822244317
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.24360986990166358,
+            "median": 0.24429164532096745,
+            "maximum": 0.2906053254617666
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.15981768849425274,
+            "median": 0.16043262025867097,
+            "maximum": 0.19556797445478627
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.662888450913501,
+            "median": 0.7061829038103986,
+            "maximum": 0.7065956860193185
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.032828790123619,
+            "median": 1.0349231521650595,
+            "maximum": 1.0366094897653293
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.3220690754782753,
+            "median": 1.3232618030598906,
+            "maximum": 1.409652533198012
+          }
+        }
+      },
+      {
+        "name": "leg39_k80",
+        "arm": "combined",
+        "imports": "selected",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 1.9730881999712437,
+            "median": 2.000399100012146,
+            "maximum": 2.007293300004676
+          },
+          "fresh_process_seconds": {
+            "minimum": 3.884738,
+            "median": 3.9086223,
+            "maximum": 3.977586
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.9013289999953242,
+            "median": 1.9254111000287564,
+            "maximum": 1.9771868999878541
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 1.8892212,
+            "median": 1.9109951,
+            "maximum": 1.9659848
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.82e-05,
+            "median": 0.0001008,
+            "maximum": 0.000101
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.011102399987854117,
+            "median": 0.014317800028756267,
+            "maximum": 0.014990500012466379
+          },
+          "host_setup_seconds": {
+            "minimum": 0.06629899999825284,
+            "median": 0.06965080002555624,
+            "maximum": 0.07229790004203096
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.4806109999772161,
+            "median": 0.5063172000227496,
+            "maximum": 0.5124701999593526
+          },
+          "march_seconds": {
+            "minimum": 1.390542800014373,
+            "median": 1.3916208999580704,
+            "maximum": 1.3917950000031851
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.03357090890463376,
+            "median": 0.03525406503458063,
+            "maximum": 0.036021730274052
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.2435831302342291,
+            "median": 0.25310809229002124,
+            "maximum": 0.25530409529995385
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.1232810276449751,
+            "median": 0.12729258400013213,
+            "maximum": 0.1311127452656023
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.6931903250574236,
+            "median": 0.6951326862754187,
+            "maximum": 0.7053009084836411
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0347370637059197,
+            "median": 1.0365423307389674,
+            "maximum": 1.03736778245457
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.3220223397577795,
+            "median": 1.3388818243674212,
+            "maximum": 1.342829997705959
+          }
+        }
+      },
+      {
+        "name": "leg39_k80",
+        "arm": "uniform",
+        "imports": "minimal",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 2.001729500014335,
+            "median": 2.0243053999729455,
+            "maximum": 2.030512399971485
+          },
+          "fresh_process_seconds": {
+            "minimum": 3.0180374,
+            "median": 3.0359447,
+            "maximum": 3.0595587
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.9938128000020212,
+            "median": 1.0163816000285149,
+            "maximum": 1.0352533000270547
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.9814483,
+            "median": 1.0056429,
+            "maximum": 1.0231722
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.55e-05,
+            "median": 0.0001014,
+            "maximum": 0.0001185
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.010626600028514677,
+            "median": 0.01197970002705473,
+            "maximum": 0.012804499985664908
+          },
+          "host_setup_seconds": {
+            "minimum": 0.031545599980745465,
+            "median": 0.031673099962063134,
+            "maximum": 0.0320386000094004
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.4292847000178881,
+            "median": 0.4299138000351377,
+            "maximum": 0.43451370002003387
+          },
+          "march_seconds": {
+            "minimum": 1.5157903999788687,
+            "median": 1.5395043999888003,
+            "maximum": 1.540007500036154
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.015557934798015073,
+            "median": 0.015778578850269676,
+            "maximum": 0.01580719984063997
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.21206518543280348,
+            "median": 0.21286085326491924,
+            "maximum": 0.21477117664102915
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.1403093524624607,
+            "median": 0.14225068915244676,
+            "maximum": 0.14260873532851287
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.7572403763685421,
+            "median": 0.7593872188955486,
+            "maximum": 0.7607888472641285
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0158038094347615,
+            "median": 1.0160315336683465,
+            "maximum": 1.0160610805505592
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.2691405196371333,
+            "median": 1.270423411347066,
+            "maximum": 1.273514127668293
+          }
+        }
+      },
+      {
+        "name": "leg39_k80",
+        "arm": "uniform",
+        "imports": "selected",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 2.0228909999714233,
+            "median": 2.0254909000359476,
+            "maximum": 2.0521359000122175
+          },
+          "fresh_process_seconds": {
+            "minimum": 3.8047836,
+            "median": 3.8229828,
+            "maximum": 3.8869928
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.7804674000030256,
+            "median": 1.785931500028577,
+            "maximum": 1.8348568999877823
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 1.7689614,
+            "median": 1.7723778,
+            "maximum": 1.8237776
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.5e-05,
+            "median": 9.52e-05,
+            "maximum": 0.000116
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.010963299987782449,
+            "median": 0.011410800003025745,
+            "maximum": 0.013458700028576853
+          },
+          "host_setup_seconds": {
+            "minimum": 0.031093999976292253,
+            "median": 0.03138510003918782,
+            "maximum": 0.03173289995174855
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.4270630999817513,
+            "median": 0.42999189998954535,
+            "maximum": 0.451715899980627
+          },
+          "march_seconds": {
+            "minimum": 1.5337750999606214,
+            "median": 1.5397814000025392,
+            "maximum": 1.5414750999771059
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.015360248550270322,
+            "median": 0.015446132087055146,
+            "maximum": 0.01563035280320084
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.2111152306218102,
+            "median": 0.21241340655683535,
+            "maximum": 0.2207287509561691
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.11185594350793093,
+            "median": 0.11301349700664852,
+            "maximum": 0.11788363265123859
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.7511564414266758,
+            "median": 0.7603978867423837,
+            "maximum": 0.7611786300024524
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0155998663751435,
+            "median": 1.015688458082845,
+            "maximum": 1.0158785399851689
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.2676122531662188,
+            "median": 1.2697016535390835,
+            "maximum": 1.2832502177220118
+          }
+        }
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "combined",
+        "imports": "minimal",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 1.7018565000034869,
+            "median": 1.7060705000185408,
+            "maximum": 1.7216591999749653
+          },
+          "fresh_process_seconds": {
+            "minimum": 2.711512,
+            "median": 2.742059,
+            "maximum": 2.8314433
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.0054414999814592,
+            "median": 1.0203998000250345,
+            "maximum": 1.1216106000305892
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.9910705,
+            "median": 1.0071026,
+            "maximum": 1.1103176
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.76e-05,
+            "median": 0.0001008,
+            "maximum": 0.0001167
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.010816099996513229,
+            "median": 0.011191300030589213,
+            "maximum": 0.014271199981459315
+          },
+          "host_setup_seconds": {
+            "minimum": 0.05724210001062602,
+            "median": 0.0582863999879919,
+            "maximum": 0.05987759999698028
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.4814829000388272,
+            "median": 0.4835654000053182,
+            "maximum": 0.5001102999667637
+          },
+          "march_seconds": {
+            "minimum": 1.1314995000138879,
+            "median": 1.132497200043872,
+            "maximum": 1.1369666999671608
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.03355564205947445,
+            "median": 0.034164121580766135,
+            "maximum": 0.034874464636068817
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.28281445314150866,
+            "median": 0.28291627410292275,
+            "maximum": 0.2904815889079766
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.17078406620585276,
+            "median": 0.1775095030087647,
+            "maximum": 0.18238495231749707
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.6572145637361569,
+            "median": 0.6649578639989171,
+            "maximum": 0.6654481150681927
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0347207180462834,
+            "median": 1.0353725952246482,
+            "maximum": 1.0361346408919938
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.3943393092350076,
+            "median": 1.3945372958352837,
+            "maximum": 1.4094066966647065
+          }
+        }
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "combined",
+        "imports": "selected",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 1.694123299967032,
+            "median": 1.6989437000011094,
+            "maximum": 1.71750400000019
+          },
+          "fresh_process_seconds": {
+            "minimum": 3.5412402,
+            "median": 3.5718573,
+            "maximum": 3.719815
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.8437321999879783,
+            "median": 1.870392600011281,
+            "maximum": 2.025691700032968
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 1.8308577,
+            "median": 1.85722,
+            "maximum": 2.0119713
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.8e-05,
+            "median": 0.0001009,
+            "maximum": 0.0001059
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.012281599998890558,
+            "median": 0.012776499987978474,
+            "maximum": 0.01361990003296798
+          },
+          "host_setup_seconds": {
+            "minimum": 0.054375600011553615,
+            "median": 0.05591379996621981,
+            "maximum": 0.05704730004072189
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.4792705000145361,
+            "median": 0.4801715999492444,
+            "maximum": 0.49673680000705644
+          },
+          "march_seconds": {
+            "minimum": 1.1301207999931648,
+            "median": 1.1326095000258647,
+            "maximum": 1.1343081000377424
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.032032603092986035,
+            "median": 0.03291091986519818,
+            "maximum": 0.03321523562141083
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.2824461504841126,
+            "median": 0.2827880002334514,
+            "maximum": 0.2892201706703457
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.1288425634109589,
+            "median": 0.13470689323944135,
+            "maximum": 0.13745202471923662
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.6593832095960477,
+            "median": 0.6666656675541156,
+            "maximum": 0.6673073116567718
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0330926467103552,
+            "median": 1.0340309083632822,
+            "maximum": 1.0343563912519456
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.393623629327152,
+            "median": 1.3942878818612885,
+            "maximum": 1.4069054280044961
+          }
+        }
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "uniform",
+        "imports": "minimal",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 1.7208207999938168,
+            "median": 1.7249596000183374,
+            "maximum": 1.7258968999958597
+          },
+          "fresh_process_seconds": {
+            "minimum": 2.6980915,
+            "median": 2.7123249,
+            "maximum": 2.7355329
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.9728198999924547,
+            "median": 0.9915041000061833,
+            "maximum": 1.0105732999816626
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.96044,
+            "median": 0.9790922,
+            "maximum": 0.996413
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.66e-05,
+            "median": 0.0001099,
+            "maximum": 0.00012
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.012269999992454705,
+            "median": 0.012915300004140207,
+            "maximum": 0.014040299981662674
+          },
+          "host_setup_seconds": {
+            "minimum": 0.02741570002399385,
+            "median": 0.027590900019276887,
+            "maximum": 0.028241099964361638
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.42891819996293634,
+            "median": 0.42952509998576716,
+            "maximum": 0.4307484000455588
+          },
+          "march_seconds": {
+            "minimum": 1.2402823000447825,
+            "median": 1.2432229000260122,
+            "maximum": 1.2449648999609053
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.015890657461627464,
+            "median": 0.016033569572947996,
+            "maximum": 0.01637203559089814
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.2486843231048947,
+            "median": 0.24925210106972065,
+            "maximum": 0.2495794505723906
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.157016974639847,
+            "median": 0.15813673353178903,
+            "maximum": 0.15924463162284389
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.7202384193960452,
+            "median": 0.7207504116926289,
+            "maximum": 0.7216051663723327
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0161472478460978,
+            "median": 1.0162948339263864,
+            "maximum": 1.0166445406020288
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.3309984481258397,
+            "median": 1.3320050597875444,
+            "maximum": 1.3325861088995494
+          }
+        }
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "uniform",
+        "imports": "selected",
+        "metrics": {
+          "solver_seconds": {
+            "minimum": 1.7192756999866106,
+            "median": 1.7214186000055633,
+            "maximum": 1.7249914999702014
+          },
+          "fresh_process_seconds": {
+            "minimum": 3.4724242,
+            "median": 3.5047609,
+            "maximum": 3.544756
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 1.7525182999877638,
+            "median": 1.7833422999944366,
+            "maximum": 1.8208457999978624
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 1.7389399,
+            "median": 1.7721518,
+            "maximum": 1.8092261
+          },
+          "ready_to_go_seconds": {
+            "minimum": 9.37e-05,
+            "median": 9.45e-05,
+            "maximum": 0.0001139
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": 0.011076599994436664,
+            "median": 0.012060700013389436,
+            "maximum": 0.013483899987764003
+          },
+          "host_setup_seconds": {
+            "minimum": 0.0264585999539122,
+            "median": 0.026789400028064847,
+            "maximum": 0.027479799988213927
+          },
+          "fd_linear_precompute_seconds": {
+            "minimum": 0,
+            "median": 0,
+            "maximum": 0
+          },
+          "runtime_init_seconds": {
+            "minimum": 0.42739179998170584,
+            "median": 0.4276722999638878,
+            "maximum": 0.4320268000010401
+          },
+          "march_seconds": {
+            "minimum": 1.2411075999843888,
+            "median": 1.2421520000207238,
+            "maximum": 1.244372499990277
+          },
+          "host_setup_and_fd_precompute_fraction_of_solver": {
+            "minimum": 0.015383748583991694,
+            "median": 0.015562397215865024,
+            "maximum": 0.015940389463546218
+          },
+          "runtime_init_fraction_of_solver": {
+            "minimum": 0.24808270173432323,
+            "median": 0.24871636350919477,
+            "maximum": 0.25045155295461063
+          },
+          "runtime_init_fraction_of_fresh": {
+            "minimum": 0.1206492915066334,
+            "median": 0.12237716414872325,
+            "maximum": 0.1236878520700999
+          },
+          "march_fraction_of_solver": {
+            "minimum": 0.7201114904448904,
+            "median": 0.7218313923710957,
+            "maximum": 0.7221742189398385
+          },
+          "hypothetical_solver_ratio_if_host_setup_and_fd_precompute_zero": {
+            "minimum": 1.0156241059010227,
+            "median": 1.0158084140344215,
+            "maximum": 1.0161986014799007
+          },
+          "hypothetical_solver_ratio_if_all_runtime_init_zero": {
+            "minimum": 1.3299334944235683,
+            "median": 1.3310552119448946,
+            "maximum": 1.3341365777513836
+          }
+        }
+      }
+    ],
+    "same_block_import_ablations": [
+      {
+        "name": "leg39_k80",
+        "arm": "combined",
+        "selected_minus_minimal_seconds": {
+          "solver_seconds": {
+            "minimum": -0.09396309999283403,
+            "median": 0.0060783998924307525,
+            "maximum": 0.03662240010453388
+          },
+          "fresh_process_seconds": {
+            "minimum": 0.7862486000000004,
+            "median": 0.9312745999999996,
+            "maximum": 0.9599334000000002
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.8802116999928344,
+            "median": 0.8946521998954657,
+            "maximum": 0.93527269994097
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.8795722000000001,
+            "median": 0.8949262,
+            "maximum": 0.9357218
+          },
+          "ready_to_go_seconds": {
+            "minimum": -1.3999999999999934e-06,
+            "median": -1.0999999999999996e-06,
+            "maximum": 2.9999999999999916e-06
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": -0.0015131000071657574,
+            "median": -0.0002770001045340198,
+            "maximum": 0.001161700107569219
+          },
+          "host_setup_seconds": {
+            "minimum": -0.0002568999771028757,
+            "median": 0.0026017000200226903,
+            "maximum": 0.0061509000370278955
+          },
+          "runtime_init_seconds": {
+            "minimum": -0.09816610004054382,
+            "median": 0.004516799992416054,
+            "maximum": 0.031013399944640696
+          },
+          "march_seconds": {
+            "minimum": -0.0012657999177463353,
+            "median": -0.00031869998201727867,
+            "maximum": 0.0014507999876514077
+          }
+        },
+        "fresh_baseline_over_candidate_ratio": 1.3100589454345628,
+        "solver_baseline_over_candidate_ratio": 1.0030873377157323
+      },
+      {
+        "name": "leg39_k80",
+        "arm": "uniform",
+        "selected_minus_minimal_seconds": {
+          "solver_seconds": {
+            "minimum": -0.006196199974510819,
+            "median": 0.0011855000630021095,
+            "maximum": 0.03999409999232739
+          },
+          "fresh_process_seconds": {
+            "minimum": 0.7578895999999999,
+            "median": 0.7820064999999996,
+            "maximum": 0.8689553999999999
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.761460300007673,
+            "median": 0.7776081000465038,
+            "maximum": 0.8410440999857611
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.7630151000000001,
+            "median": 0.7758011999999999,
+            "maximum": 0.8423293000000001
+          },
+          "ready_to_go_seconds": {
+            "minimum": -2.349999999999999e-05,
+            "median": -3.1999999999999965e-06,
+            "maximum": 1.4600000000000003e-05
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": -0.0015544999923271519,
+            "median": 0.00022059993699752312,
+            "maximum": 0.0018304000465034775
+          },
+          "host_setup_seconds": {
+            "minimum": -0.000944600033108145,
+            "median": -0.00020949996542185545,
+            "maximum": 7.290003122761846e-05
+          },
+          "runtime_init_seconds": {
+            "minimum": -0.004538100038189441,
+            "median": 0.00041719997534528375,
+            "maximum": 0.022397999942768365
+          },
+          "march_seconds": {
+            "minimum": 3.170000854879618e-05,
+            "median": 0.0006746000144630671,
+            "maximum": 0.017984699981752783
+          }
+        },
+        "fresh_baseline_over_candidate_ratio": 1.2555945404806255,
+        "solver_baseline_over_candidate_ratio": 1.0005856330092375
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "combined",
+        "selected_minus_minimal_seconds": {
+          "solver_seconds": {
+            "minimum": -0.022715499973855913,
+            "median": -0.00836799998069182,
+            "maximum": 0.01143349998164922
+          },
+          "fresh_process_seconds": {
+            "minimum": 0.7404139999999999,
+            "median": 0.8240906000000003,
+            "maximum": 1.0073805
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.7487819999806917,
+            "median": 0.8468060999738563,
+            "maximum": 1.015113700036455
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.7469024000000002,
+            "median": 0.8477205999999999,
+            "maximum": 1.0123261
+          },
+          "ready_to_go_seconds": {
+            "minimum": -1.62e-05,
+            "median": 1.0999999999999996e-06,
+            "maximum": 4.199999999999994e-06
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": -0.0016704999816492538,
+            "median": 0.0017463999986291334,
+            "maximum": 0.002803800036454751
+          },
+          "host_setup_seconds": {
+            "minimum": -0.003963800030760467,
+            "median": -0.0028664999990724027,
+            "maximum": -0.001239099947270006
+          },
+          "runtime_init_seconds": {
+            "minimum": -0.019938700017519295,
+            "median": -0.0024116000276990235,
+            "maximum": 0.014107100025285035
+          },
+          "march_seconds": {
+            "minimum": -0.0027330999728292227,
+            "median": -0.0023764000507071614,
+            "maximum": 0.0011100000119768083
+          }
+        },
+        "fresh_baseline_over_candidate_ratio": 1.3005371510970407,
+        "solver_baseline_over_candidate_ratio": 0.9951059539445927
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "uniform",
+        "selected_minus_minimal_seconds": {
+          "solver_seconds": {
+            "minimum": -0.0053656999953091145,
+            "median": -0.0015451000072062016,
+            "maximum": 3.189995186403394e-05
+          },
+          "fresh_process_seconds": {
+            "minimum": 0.7573468999999999,
+            "median": 0.7941186999999998,
+            "maximum": 0.8200514999999999
+          },
+          "fresh_minus_solver_seconds": {
+            "minimum": 0.7573150000481359,
+            "median": 0.795663800007206,
+            "maximum": 0.8204137999647632
+          },
+          "popen_to_ready_seconds": {
+            "minimum": 0.7585107,
+            "median": 0.7959213,
+            "maximum": 0.8220284000000001
+          },
+          "ready_to_go_seconds": {
+            "minimum": -2.56e-05,
+            "median": -5.600000000000001e-06,
+            "maximum": 1.4199999999999993e-05
+          },
+          "go_to_return_minus_solver_seconds": {
+            "minimum": -0.0018387000097035422,
+            "median": -0.001170099951864012,
+            "maximum": 0.0012138999953092977
+          },
+          "host_setup_seconds": {
+            "minimum": -0.001574499998241663,
+            "median": -0.0009571000700816512,
+            "maximum": -7.569999434053898e-05
+          },
+          "runtime_init_seconds": {
+            "minimum": -0.0024269000277854502,
+            "median": -0.0016562000382691622,
+            "maximum": 0.002501700015272945
+          },
+          "march_seconds": {
+            "minimum": -0.002893199969548732,
+            "median": -0.001070900005288422,
+            "maximum": 0.0024852000060491264
+          }
+        },
+        "fresh_baseline_over_candidate_ratio": 1.2927815543042058,
+        "solver_baseline_over_candidate_ratio": 0.9991021145216215
+      }
+    ],
+    "separate_import_only_diagnostic_medians": {
+      "old_prepared": {
+        "import_seconds": 1.9607378999935463,
+        "fresh_seconds": 2.247029099962674
+      },
+      "lean_prepared": {
+        "import_seconds": 1.0424300999729894,
+        "fresh_seconds": 1.2886763999704272
+      },
+      "old_uniform_recurrence": {
+        "import_seconds": 1.9356781999813393,
+        "fresh_seconds": 2.2229755999869667
+      },
+      "lean_uniform_recurrence": {
+        "import_seconds": 0.9799497000058182,
+        "fresh_seconds": 1.2158131000469439
+      },
+      "fd": {
+        "import_seconds": 1.3611417000065558,
+        "fresh_seconds": 1.609767500020098
+      }
+    }
+  },
+  "fused_t9": {
+    "scope": "Sequential bounded diagnostic, no paired fresh-return measure and no isolated ranking.",
+    "pairs": [
+      {
+        "name": "rfm37_k72",
+        "arm": "uniform",
+        "stock_seconds": {
+          "seconds": 0.6278832000098191,
+          "host_setup_seconds": 0.02425850002327934,
+          "host_linear_precompute_seconds": 0,
+          "runtime_init_seconds": 0.4604708999977447,
+          "nvrtc_compile_load_seconds": 0.3206297000288032,
+          "upload_seconds": 0.0037206000415608287,
+          "plan_seconds": 0.016155999968759716,
+          "graph_setup_seconds": 0.0011710000107996166,
+          "march_seconds": 0.1200107999611646,
+          "download_seconds": 0.0002389000146649778
+        },
+        "fused_seconds": {
+          "seconds": 1.0028238000231795,
+          "host_setup_seconds": 0.024134800012689084,
+          "host_linear_precompute_seconds": 0,
+          "runtime_init_seconds": 0.8368003999930806,
+          "nvrtc_compile_load_seconds": 0.7154633000027388,
+          "upload_seconds": 0.003298599971458316,
+          "plan_seconds": 0.0006785999867133796,
+          "graph_setup_seconds": 0.0009512000251561403,
+          "march_seconds": 0.09958910004934296,
+          "download_seconds": 0.00020370003767311573
+        },
+        "fused_minus_stock_seconds": {
+          "seconds": 0.3749406000133604,
+          "host_setup_seconds": -0.00012370001059025526,
+          "host_linear_precompute_seconds": 0,
+          "runtime_init_seconds": 0.37632949999533594,
+          "nvrtc_compile_load_seconds": 0.39483359997393563,
+          "upload_seconds": -0.00042200007010251284,
+          "plan_seconds": -0.015477399982046336,
+          "graph_setup_seconds": -0.00021979998564347625,
+          "march_seconds": -0.020421699911821634,
+          "download_seconds": -3.519997699186206e-05
+        },
+        "observed_fused_over_stock_complete_solver_ratio": 1.5971502343230348
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "combined",
+        "stock_seconds": {
+          "seconds": 0.734439600026235,
+          "host_setup_seconds": 0.056669000012334436,
+          "host_linear_precompute_seconds": 0,
+          "runtime_init_seconds": 0.5014087000163272,
+          "nvrtc_compile_load_seconds": 0.37753779999911785,
+          "upload_seconds": 0.006492199958302081,
+          "plan_seconds": 0.015487900003790855,
+          "graph_setup_seconds": 0.006486100028268993,
+          "march_seconds": 0.14444400003412738,
+          "download_seconds": 0.0003229000139981508
+        },
+        "fused_seconds": {
+          "seconds": 1.2436875000130385,
+          "host_setup_seconds": 0.05633970000781119,
+          "host_linear_precompute_seconds": 0,
+          "runtime_init_seconds": 1.0154913000296801,
+          "nvrtc_compile_load_seconds": 0.8995724000269547,
+          "upload_seconds": 0.006132000009529293,
+          "plan_seconds": 0.0007488999981433153,
+          "graph_setup_seconds": 0.0018982000183314085,
+          "march_seconds": 0.12762970000039786,
+          "download_seconds": 0.000298099999781698
+        },
+        "fused_minus_stock_seconds": {
+          "seconds": 0.5092478999868035,
+          "host_setup_seconds": -0.0003293000045232475,
+          "host_linear_precompute_seconds": 0,
+          "runtime_init_seconds": 0.5140826000133529,
+          "nvrtc_compile_load_seconds": 0.5220346000278369,
+          "upload_seconds": -0.00036019994877278805,
+          "plan_seconds": -0.01473900000564754,
+          "graph_setup_seconds": -0.004587900009937584,
+          "march_seconds": -0.016814300033729523,
+          "download_seconds": -2.4800014216452837e-05
+        },
+        "observed_fused_over_stock_complete_solver_ratio": 1.6933829547979338
+      },
+      {
+        "name": "fd176_k80",
+        "arm": "fd",
+        "stock_seconds": {
+          "seconds": 0.9629760000389069,
+          "host_setup_seconds": 0.16136500000720844,
+          "host_linear_precompute_seconds": 0.06604860001243651,
+          "runtime_init_seconds": 0.5161697999574244,
+          "nvrtc_compile_load_seconds": 0.39476019999710843,
+          "upload_seconds": 0.006883100024424493,
+          "plan_seconds": 0.01583840005332604,
+          "graph_setup_seconds": 0.0014939000247977674,
+          "march_seconds": 0.19193209998775274,
+          "download_seconds": 0.00035719998413696885
+        },
+        "fused_seconds": {
+          "seconds": 1.552274000016041,
+          "host_setup_seconds": 0.15952470002230257,
+          "host_linear_precompute_seconds": 0.06581840000580996,
+          "runtime_init_seconds": 1.1195729000028223,
+          "nvrtc_compile_load_seconds": 1.0160596999921836,
+          "upload_seconds": 0.0063127000466920435,
+          "plan_seconds": 0.0008175999973900616,
+          "graph_setup_seconds": 0.0011409000144340098,
+          "march_seconds": 0.16199829999823123,
+          "download_seconds": 0.0003725999849848449
+        },
+        "fused_minus_stock_seconds": {
+          "seconds": 0.5892979999771342,
+          "host_setup_seconds": -0.0018402999849058688,
+          "host_linear_precompute_seconds": -0.00023020000662654638,
+          "runtime_init_seconds": 0.6034031000453979,
+          "nvrtc_compile_load_seconds": 0.6212994999950752,
+          "upload_seconds": -0.0005703999777324498,
+          "plan_seconds": -0.015020800055935979,
+          "graph_setup_seconds": -0.0003530000103637576,
+          "march_seconds": -0.029933799989521503,
+          "download_seconds": 1.5400000847876072e-05
+        },
+        "observed_fused_over_stock_complete_solver_ratio": 1.6119550227142991
+      },
+      {
+        "name": "fd184_k80",
+        "arm": "fd",
+        "stock_seconds": {
+          "seconds": 0.9987280000350438,
+          "host_setup_seconds": 0.16100680001545697,
+          "host_linear_precompute_seconds": 0.000645300024189055,
+          "runtime_init_seconds": 0.5128763000248,
+          "nvrtc_compile_load_seconds": 0.3966103999991901,
+          "upload_seconds": 0.005480699997860938,
+          "plan_seconds": 0.016058200038969517,
+          "graph_setup_seconds": 0.0015601000050082803,
+          "march_seconds": 0.2976504000253044,
+          "download_seconds": 0.00040339998668059707
+        },
+        "fused_seconds": {
+          "seconds": 1.2258088999660686,
+          "host_setup_seconds": 0.16165709996130317,
+          "host_linear_precompute_seconds": 0.000651500013191253,
+          "runtime_init_seconds": 0.7516654999926686,
+          "nvrtc_compile_load_seconds": 0.6494932000059634,
+          "upload_seconds": 0.005134299979545176,
+          "plan_seconds": 0.0007650000043213367,
+          "graph_setup_seconds": 0.0011399000068195164,
+          "march_seconds": 0.2699891999945976,
+          "download_seconds": 0.00044520001392811537
+        },
+        "fused_minus_stock_seconds": {
+          "seconds": 0.22708089993102476,
+          "host_setup_seconds": 0.0006502999458462,
+          "host_linear_precompute_seconds": 6.199989002197981e-06,
+          "runtime_init_seconds": 0.23878919996786863,
+          "nvrtc_compile_load_seconds": 0.2528828000067733,
+          "upload_seconds": -0.0003464000183157623,
+          "plan_seconds": -0.01529320003464818,
+          "graph_setup_seconds": -0.00042019999818876386,
+          "march_seconds": -0.027661200030706823,
+          "download_seconds": 4.18000272475183e-05
+        },
+        "observed_fused_over_stock_complete_solver_ratio": 1.2273701147089666
+      }
+    ],
+    "timing_diagnostic_signal": false,
+    "maximum_absolute_host_setup_delta_seconds": 0.0018402999849058688,
+    "march_seconds_saved": {
+      "minimum": 0.016814300033729523,
+      "median": 0.024041449971264228,
+      "maximum": 0.029933799989521503
+    },
+    "nvrtc_plus_driver_module_load_delta_seconds": {
+      "minimum": 0.2528828000067733,
+      "median": 0.45843410000088625,
+      "maximum": 0.6212994999950752
+    },
+    "scope_note": "NVRTC plus driver load is a nested component of runtime init. Its delta must not be added to runtime init or attributed wholly to NVRTC."
+  },
+  "ptx": {
+    "cpu_per_key_nvrtc_seconds": {
+      "warp_cufft": {
+        "minimum": 0.3152828000020236,
+        "median": 0.34613800002261996,
+        "maximum": 0.34682939999038354
+      },
+      "warp_fused": {
+        "minimum": 0.5543518000049517,
+        "median": 0.7074315000209026,
+        "maximum": 0.8695218999637291
+      }
+    },
+    "fresh_cpu_per_key_verification_seconds": {
+      "minimum": 0.000986300001386553,
+      "median": 0.0010800000163726509,
+      "maximum": 0.0011301000486128032
+    },
+    "registered_gpu_t9": 24,
+    "successful_gpu_t9": 0,
+    "strict_hit_gpu_t9_attempted": 0,
+    "empty_first_gpu_t9_attempted": 0,
+    "first_gpu_slot_policy": "disabled",
+    "first_gpu_slot_result": "deadline_exceeded",
+    "scope_note": "Verified hits bypass source-to-PTX NVRTC. Initial artifact generation, IO, driver loading and possible driver JIT remain. CPU compiler timing does not establish a GPU solve speedup."
+  },
+  "interpretations": {
+    "rust": "Changing only host-language wrappers does not change the operations of the same CUDA/cuFFT/BLAS/LAPACK routines. There is no matched Rust wall-clock result.",
+    "stage_upper_bound": "The zero-stage ratios are per-row accounting thought experiments with all remaining work unchanged. Neither a measured minimum nor a predicted reachable speed. NVRTC is only a subset of runtime init.",
+    "utilization": "The historical latency benchmark is serial and single-core pinned for each child. One of 32 logical processors is a count-based scale only. Aggregate CPU utilization and same-gate time-to-solution measure different things.",
+    "throughput": "Simultaneous independent GPU jobs have not been measured under a matched field gate in this round. Report qualified solves per elapsed wall time if such a separate throughput experiment exists."
+  }
+}

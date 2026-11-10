@@ -1,0 +1,21 @@
+{
+  "status": "design_only_not_a_frozen_run",
+  "parent_design": "protocol_rank_fair_final_design.json",
+  "inherited_numerical_and_monitor_policy": "protocol_thin_formal_design.json",
+  "engine": "warp_cufft",
+  "observer": "warp",
+  "imports": "minimal",
+  "cuda_toolkit": "11.8",
+  "runtime_api": "fused_marches.py: solve_uniform_fused, solve_combined_fused, solve_fd_fused with engine=warp_cufft",
+  "admission": "Require exact all-warp stock API qualification at T72 for every unique name, seed and schedule, including the two mixed-step bridge observations. State and spatial identity and the 577 complete probes must be checked against a matched previously qualified path. Full 19-time two-reference physical and triangle gates remain binding. No exact-runtime evidence means no formal freeze.",
+  "scales": {"mid": {"slots": 25, "unique_controls": 13, "maximum_active_seconds": 720}, "high": {"slots": 40, "unique_controls": 16, "maximum_active_seconds": 720}},
+  "deadlines_seconds": {"ready": 12, "solve_to_return": 30, "save_to_exit": 12, "whole_slot_from_popen": 45, "owned_termination_grace": 4},
+  "transport": "File-latch READY/GO/RETURN/SAVE with exact process-handle ownership and separate independent sampler. Each worker owns a new CUDA context. Kill only the known Popen handle, wait for its terminal identity before closing inherited I/O, stop the cohort at first failure, and retain partial artifacts, original journal, and every unattempted registered slot.",
+  "solver_clock": "GPU solve invocation through all setup, runtime compile and load, plans, capture, march, probe observations, synchronization, download, teardown, and model release; excludes spatial signature.",
+  "fresh_clock": "Immediately before Popen through receipt of the atomic RETURN latch. Includes imports, admission, signature, setup, and file-latch overhead. SAVE and serialization follow both clocks. Fresh process with existing OS and driver caches.",
+  "future_optional_ablation": {
+    "status": "not_admitted",
+    "reason": "Four original-CUDA11.8 T9 paired fused pilots passed numerical gates but all full solve clocks regressed. No T72 qualification, no fused slot in the ranking, no asymmetric compile cache.",
+    "design_if_prospectively_reopened": "Add the eight high-scale fused counterparts to the high stock schedule before freezing a new 80-slot high cohort. Five same-block engine contrasts within each method and schedule identify high-scale engineering effects; 2x2 within each Galerkin configuration separates engine, schedule/preparation and interaction. FD176 and FD184 each use their own stock/fused pair. Mid remains a 25-slot stock result; no cross-scale engine inference or pooling of unpaired historical runs. A full two-scale factorial would need 130 slots."
+  }
+}

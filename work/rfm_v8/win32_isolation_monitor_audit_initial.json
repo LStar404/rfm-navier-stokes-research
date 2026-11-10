@@ -1,0 +1,494 @@
+{
+  "status": "passed",
+  "scope": "No fluid solves or formal timing windows",
+  "windows_build": 26200,
+  "source_sha256": {
+    "verify_win32_isolation_monitor.py": "43bc5aca8065b957ebe5dd12593e943962593529302d52ea82ed544135ef39ae",
+    "win32_isolation_monitor.py": "2de2292b1527db73bac1c96d4b2a377ad6a3df947d6fa68ff7ae5ea036fdc6ec"
+  },
+  "v7_frozen_window_audit": {
+    "mid": {
+      "source_sha256": {
+        "protocol.json": "498414d660a6a609aa99189640aa721b033e1e089deca98bde88d7355a9b945a",
+        "isolation.json": "0e755fe66659af10ade44a127f1e880238178ac5c1b630f7ed4f24efeab5e34c",
+        "execution.json": "8bc3273a5c735882346013352356b0a54b0478023b64fc02965fff49ba42e5d3",
+        "identity_ledger.json": "65e6b4e962abb7ce75912af44b12f465be05c8250acf2e8e0770aa68783de340",
+        "timing.json": "ae0779d7d4ac2829cd7278690a6ea6b4b2609f446b8b83ef532cd92df4b71ac5",
+        "summary.json": "c912a8bfd8bc67ce3725c16b760bd1fedac0519c729d812e1bad024222622788"
+      },
+      "status": "diagnostic_only",
+      "rows": 55,
+      "fixed_seconds": 600,
+      "owned_coordinator_exit_elapsed_seconds": 309.5802061,
+      "unresolved": [
+        {
+          "target_seconds": 490,
+          "issue": {
+            "pid": 37716,
+            "stage": "open_enumerated",
+            "win32_error": 87
+          },
+          "after_owned_coordinator_exit": true,
+          "ledger_pid_matches": 0,
+          "exact_issue_identity_present": false,
+          "matching_pid_exit_during_snapshot": false
+        }
+      ],
+      "external_sample_targets_seconds": [],
+      "external_intervals_overlapping_first_child_birth_to_coordinator_exit": []
+    },
+    "high": {
+      "source_sha256": {
+        "protocol.json": "ac1910d9d66518eb24c5445d7d347b98fecccda67757e8f40a2927b6cd22df2f",
+        "isolation.json": "7e44a965c3274d111d78f834feea67ee74168dce014d7c68812d4344289da7c3",
+        "execution.json": "d08e678573b5e92dbce8b488c8a0ad4cff1ca59ca2ba16b92c1b944f2120ceb2",
+        "identity_ledger.json": "c9888cb3bf9e38c607f556e7f5989c4e1545506832e24fc947f62dcbfd92cab0",
+        "timing.json": "ab6cf4176ad62a383cd6398631298c33b1f99e49d6a8cfab93d81f93cdcb62a8",
+        "summary.json": "ea8db9d67217380119ac0ff65692f763a32cb094d2145d440edd80b5b6c9c5d7"
+      },
+      "status": "diagnostic_only",
+      "rows": 40,
+      "fixed_seconds": 480,
+      "owned_coordinator_exit_elapsed_seconds": 275.8235283,
+      "unresolved": [
+        {
+          "target_seconds": 240,
+          "issue": {
+            "pid": 13840,
+            "stage": "identify_enumerated_image",
+            "win32_error": 31
+          },
+          "after_owned_coordinator_exit": false,
+          "ledger_pid_matches": 1,
+          "exact_issue_identity_present": false,
+          "matching_pid_exit_during_snapshot": false
+        }
+      ],
+      "external_sample_targets_seconds": [
+        150,
+        160,
+        170,
+        180,
+        190,
+        200,
+        210,
+        220,
+        230,
+        240,
+        250,
+        260,
+        270,
+        280,
+        290,
+        300,
+        310,
+        320,
+        330,
+        350,
+        360,
+        370,
+        380,
+        390,
+        400
+      ],
+      "external_intervals_overlapping_first_child_birth_to_coordinator_exit": [
+        150,
+        160,
+        170,
+        180,
+        190,
+        200,
+        210,
+        220,
+        230,
+        240,
+        250,
+        260,
+        270,
+        280
+      ]
+    }
+  },
+  "etw_permission": {
+    "start_win32_status": 5,
+    "stop_win32_status": null,
+    "providers_enabled": 0,
+    "trace_files": 0
+  },
+  "calibration": {
+    "identity_and_counters_passed": true,
+    "before": {
+      "pid": 12944,
+      "birth_filetime_100ns": 134387404507505067,
+      "exit_filetime_100ns": 0,
+      "kernel_cpu_100ns": 1718750,
+      "user_cpu_100ns": 2968750
+    },
+    "native": {
+      "pid": 12944,
+      "parent_pid": 65916,
+      "birth_filetime_100ns": 134387404507505067,
+      "kernel_cpu_100ns": 1718750,
+      "user_cpu_100ns": 3125000,
+      "exit_filetime_100ns": 0
+    },
+    "after": {
+      "pid": 12944,
+      "birth_filetime_100ns": 134387404507505067,
+      "exit_filetime_100ns": 0,
+      "kernel_cpu_100ns": 1718750,
+      "user_cpu_100ns": 3125000
+    }
+  },
+  "observed_lifetimes": {
+    "owned_child_calibration": {
+      "identity_and_counters_passed": true,
+      "before": {
+        "pid": 72008,
+        "birth_filetime_100ns": 134387404513462927,
+        "exit_filetime_100ns": 0,
+        "kernel_cpu_100ns": 0,
+        "user_cpu_100ns": 468750
+      },
+      "native": {
+        "pid": 72008,
+        "parent_pid": 12944,
+        "birth_filetime_100ns": 134387404513462927,
+        "kernel_cpu_100ns": 0,
+        "user_cpu_100ns": 468750,
+        "exit_filetime_100ns": 0
+      },
+      "after": {
+        "pid": 72008,
+        "birth_filetime_100ns": 134387404513462927,
+        "exit_filetime_100ns": 0,
+        "kernel_cpu_100ns": 0,
+        "user_cpu_100ns": 468750
+      }
+    },
+    "sampled_terminals_exact": true,
+    "owned": {
+      "identity": [
+        72008,
+        134387404513462927
+      ],
+      "role": "cohort_child",
+      "kernel_delta_100ns": 468750,
+      "user_delta_100ns": 937500,
+      "total_delta_100ns": 1406250,
+      "terminal": true
+    },
+    "external": {
+      "identity": [
+        28904,
+        134387404514311594
+      ],
+      "role": "external_python",
+      "kernel_delta_100ns": 3281250,
+      "user_delta_100ns": 937500,
+      "total_delta_100ns": 4218750,
+      "terminal": true
+    },
+    "boundary_verdict": "observed_external_activity",
+    "maximum_poll_gap_ns": 198433000,
+    "controlled_raw_samples": [
+      {
+        "qpc_start_ns": 291953203367400,
+        "qpc_end_ns": 291953215739200,
+        "start_filetime_100ns": 134387404513291765,
+        "end_filetime_100ns": 134387404513415355,
+        "live": [],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953401800400,
+        "qpc_end_ns": 291953414607500,
+        "start_filetime_100ns": 134387404515276091,
+        "end_filetime_100ns": 134387404515404093,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 468750,
+            "user_cpu_100ns": 312500,
+            "exit_filetime_100ns": 0
+          },
+          {
+            "pid": 72008,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404513462927,
+            "kernel_cpu_100ns": 0,
+            "user_cpu_100ns": 468750,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953418054500,
+        "qpc_end_ns": 291953430721200,
+        "start_filetime_100ns": 134387404515438638,
+        "end_filetime_100ns": 134387404515565223,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 625000,
+            "user_cpu_100ns": 312500,
+            "exit_filetime_100ns": 0
+          },
+          {
+            "pid": 72008,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404513462927,
+            "kernel_cpu_100ns": 156250,
+            "user_cpu_100ns": 468750,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953454435800,
+        "qpc_end_ns": 291953467244100,
+        "start_filetime_100ns": 134387404515802584,
+        "end_filetime_100ns": 134387404515930418,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 937500,
+            "user_cpu_100ns": 312500,
+            "exit_filetime_100ns": 0
+          },
+          {
+            "pid": 72008,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404513462927,
+            "kernel_cpu_100ns": 156250,
+            "user_cpu_100ns": 781250,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953490776300,
+        "qpc_end_ns": 291953503265500,
+        "start_filetime_100ns": 134387404516165961,
+        "end_filetime_100ns": 134387404516290692,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 1406250,
+            "user_cpu_100ns": 312500,
+            "exit_filetime_100ns": 0
+          },
+          {
+            "pid": 72008,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404513462927,
+            "kernel_cpu_100ns": 468750,
+            "user_cpu_100ns": 937500,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953526580600,
+        "qpc_end_ns": 291953538750500,
+        "start_filetime_100ns": 134387404516523996,
+        "end_filetime_100ns": 134387404516645487,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 1718750,
+            "user_cpu_100ns": 312500,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [
+          {
+            "pid": 72008,
+            "birth_filetime_100ns": 134387404513462927,
+            "exit_filetime_100ns": 134387404516317337,
+            "kernel_cpu_100ns": 468750,
+            "user_cpu_100ns": 937500,
+            "parent_pid": 12944
+          }
+        ],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953562031100,
+        "qpc_end_ns": 291953574294500,
+        "start_filetime_100ns": 134387404516878506,
+        "end_filetime_100ns": 134387404517000932,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 1875000,
+            "user_cpu_100ns": 468750,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953597736800,
+        "qpc_end_ns": 291953610976200,
+        "start_filetime_100ns": 134387404517235574,
+        "end_filetime_100ns": 134387404517367718,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 2031250,
+            "user_cpu_100ns": 781250,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953634753600,
+        "qpc_end_ns": 291953647632500,
+        "start_filetime_100ns": 134387404517605734,
+        "end_filetime_100ns": 134387404517734310,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 2343750,
+            "user_cpu_100ns": 781250,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953671502300,
+        "qpc_end_ns": 291953684555300,
+        "start_filetime_100ns": 134387404517973302,
+        "end_filetime_100ns": 134387404518103538,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 2656250,
+            "user_cpu_100ns": 781250,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953708231800,
+        "qpc_end_ns": 291953721025000,
+        "start_filetime_100ns": 134387404518340512,
+        "end_filetime_100ns": 134387404518468276,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 2968750,
+            "user_cpu_100ns": 937500,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953744524100,
+        "qpc_end_ns": 291953756722200,
+        "start_filetime_100ns": 134387404518703451,
+        "end_filetime_100ns": 134387404518825205,
+        "live": [
+          {
+            "pid": 28904,
+            "parent_pid": 12944,
+            "birth_filetime_100ns": 134387404514311594,
+            "kernel_cpu_100ns": 3281250,
+            "user_cpu_100ns": 937500,
+            "exit_filetime_100ns": 0
+          }
+        ],
+        "terminals": [],
+        "acquisition_issues": []
+      },
+      {
+        "qpc_start_ns": 291953780478200,
+        "qpc_end_ns": 291953793104200,
+        "start_filetime_100ns": 134387404519062874,
+        "end_filetime_100ns": 134387404519189027,
+        "live": [],
+        "terminals": [
+          {
+            "pid": 28904,
+            "birth_filetime_100ns": 134387404514311594,
+            "exit_filetime_100ns": 134387404518808617,
+            "kernel_cpu_100ns": 3281250,
+            "user_cpu_100ns": 937500,
+            "parent_pid": 12944
+          }
+        ],
+        "acquisition_issues": []
+      }
+    ]
+  },
+  "post_census_race": {
+    "identity": [
+      54828,
+      134387404519396052
+    ],
+    "actual_attach_issues": [],
+    "actual_retained_terminal_seen": true,
+    "deterministic_injected_attach_failure_win32": 87,
+    "unknown_coverage_failed": true,
+    "exact_owned_terminal_reconciled": true
+  },
+  "entirely_between_polls": {
+    "identity": [
+      52728,
+      134387404521059596
+    ],
+    "owned_oracle_cpu_100ns": 2812500,
+    "not_seen_by_sampler": true,
+    "interval_poll_gap_ns": 341877100,
+    "full_lifecycle_verified": false
+  },
+  "synthetic": {
+    "exact_pid_reuse_rejected": true,
+    "missing_end_anchor_rejected": true,
+    "over_limit_gap_rejected": true
+  },
+  "capture_overhead_ns": {
+    "count": 24,
+    "median": 14512300.0,
+    "maximum": 16666600
+  }
+}

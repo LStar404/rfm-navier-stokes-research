@@ -1,0 +1,14 @@
+{
+  "name": "T72 same-solver CUDA graph chunk diagnostic",
+  "horizon": 72,
+  "graph_steps": [24, 48, 64, 128],
+  "blocks": 3,
+  "order_seed": 412881,
+  "arms": [
+    {"name": "rfm37_k72", "seed": 7331, "solver": "legacy_prepared_combined", "rates": [128, 112]},
+    {"name": "leg37_k72", "seed": 17, "solver": "legacy_prepared_combined", "rates": [128, 112]},
+    {"name": "fd176_k80", "seed": 17, "solver": "legacy_fd_dense", "rates": [128]}
+  ],
+  "scope": "Non-isolated diagnostic only. One fresh child and fresh CUDA runtime per solve, same full legacy dependency path in every arm. Original precision, dealiased spatial operators, nonlinear work, 19 common snapshots and 577 probes. No attempt overwrite or timing ranking. First-block raw trajectories and all array hashes retained.",
+  "promotion_screen": "All archived trajectory arrays must match the qualified graph24 controls byte-for-byte. Any prospective graph benefit needs at least 2% median improvement in both march and full solver clocks, all three march pairs favoring the candidate, and no median fresh-clock regression. This screen cannot establish isolated performance."
+}

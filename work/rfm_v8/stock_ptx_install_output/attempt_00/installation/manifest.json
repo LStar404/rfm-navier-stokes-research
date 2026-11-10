@@ -1,0 +1,211 @@
+{
+  "status": "passed",
+  "scope": "Three stock NVRTC PTX modules, CPU only",
+  "engine": "warp_cufft",
+  "reference_manifest_sha256": "4669f0e559179a3642ed8b31be56e0ed04c3a40125175ad830f27ec743eb0748",
+  "compiler": {
+    "api_version": [
+      11,
+      8
+    ],
+    "library_sha256": {
+      "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd",
+      "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8"
+    }
+  },
+  "modules": [
+    {
+      "family": "uniform",
+      "ntheta_recipe": 225,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "observe",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "325ef62d1f43e323b4c0f9177909301714a20d7913f7e12d926367595bda8a2f",
+          "target": "compute_52"
+        },
+        "key": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c",
+        "ptx_bytes": 34707,
+        "ptx_sha256": "e7ee82ad06af9acd2a4244f54e6fa12fdd05de04f584c36a96d6ea2477b6539a"
+      },
+      "artifact": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c.rfmptx",
+      "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855",
+      "bytes": 35748,
+      "recipe_seconds": 0.001212799979839474,
+      "cpu_empty_cache": {
+        "mode": "miss",
+        "cache_seconds": 0.33745719998842105,
+        "nvrtc_seconds": 0.31426790001569316,
+        "artifact": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c.rfmptx",
+        "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855"
+      },
+      "cpu_verified_hit": {
+        "mode": "hit",
+        "cache_seconds": 0.0013828999944962561,
+        "nvrtc_seconds": 0.0,
+        "artifact": "e55ee23d4f9856254c5007e8a1c754c1c5eba86ca3e3c4c9d6660c38384ce81c.rfmptx",
+        "artifact_sha256": "f4dad3138de732324a886dc916a8a72a51255f39ecf0a8d176420837848ad855"
+      },
+      "byte_comparison_and_recheck_seconds": 0.0019283999572508037,
+      "original_bytes_equal": true
+    },
+    {
+      "family": "combined",
+      "ntheta_recipe": 225,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "advance",
+            "advance_bridge",
+            "observe",
+            "observe_absolute",
+            "products",
+            "spectrum"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+            "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+            "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "aa173a13e4c98d2a52dcda363b4e4a6f6d8924dcaac5dfe6bbbdb9862e76a475",
+          "target": "compute_52"
+        },
+        "key": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439",
+        "ptx_bytes": 52096,
+        "ptx_sha256": "99e098beda76d6be715e5ffd8a62905854a13a3b93c59f5cffcc031f8df0d026"
+      },
+      "artifact": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439.rfmptx",
+      "artifact_sha256": "d943a666907f7ed2750e5806190b4b85e1f8d5ac2d3ae5986668e7a816b04b0b",
+      "bytes": 53382,
+      "recipe_seconds": 0.0016202999977394938,
+      "cpu_empty_cache": {
+        "mode": "miss",
+        "cache_seconds": 0.3193456999724731,
+        "nvrtc_seconds": 0.2957673000055365,
+        "artifact": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439.rfmptx",
+        "artifact_sha256": "d943a666907f7ed2750e5806190b4b85e1f8d5ac2d3ae5986668e7a816b04b0b"
+      },
+      "cpu_verified_hit": {
+        "mode": "hit",
+        "cache_seconds": 0.0011594999814406037,
+        "nvrtc_seconds": 0.0,
+        "artifact": "b26e2243897396d3e21fc4aa7721e71b16dc9007e4590a7ff029442438c89439.rfmptx",
+        "artifact_sha256": "d943a666907f7ed2750e5806190b4b85e1f8d5ac2d3ae5986668e7a816b04b0b"
+      },
+      "byte_comparison_and_recheck_seconds": 0.0017183999880217016,
+      "original_bytes_equal": true
+    },
+    {
+      "family": "fd",
+      "ntheta_recipe": 243,
+      "manifest": {
+        "contract": {
+          "compiler": {
+            "api_version": [
+              11,
+              8
+            ],
+            "library_sha256": {
+              "nvrtc-builtins64_118.dll": "8642cd940445f0eb79ae73c04b3dfb8c8e61fc3aca191dc2239b28a9cb6964d8",
+              "nvrtc64_112_0.dll": "7a1d6c894d9db5f043e7cca5ea328bc4f29c45aa7af3f0dd1bde1f31f02b41bd"
+            }
+          },
+          "entry_points": [
+            "fd_band",
+            "fd_dense",
+            "fd_fields",
+            "fd_observe",
+            "fd_products",
+            "fd_rhs"
+          ],
+          "filename": "rfm_v8_warp_march.cu",
+          "flags": [
+            "--gpu-architecture=compute_52"
+          ],
+          "format": "ptx",
+          "schema": "rfm-nvrtc-ptx-v1",
+          "source_dependencies_sha256": {
+            "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+            "rfm_v8/fused_march_runtime.py": "85e439e34d7562e606d833cdfdecc52d71db802d86342919956d79ab1baaa774",
+            "rfm_v8/warp_observe_cuda.py": "1201aa8edd322c24d0a83cabb9df30db5056026f07eb47e587d90d15d3ecb884"
+          },
+          "source_sha256": "6f4c868b1c7ba224a866ffff627df9b6a5ba2a3ed7be4d83864c1dc28516376c",
+          "target": "compute_52"
+        },
+        "key": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466",
+        "ptx_bytes": 57590,
+        "ptx_sha256": "dad320f4f94ff083c349559281e46841e437669a50dd6b74dd3df61e6414e596"
+      },
+      "artifact": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466.rfmptx",
+      "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3",
+      "bytes": 58652,
+      "recipe_seconds": 0.0010299999848939478,
+      "cpu_empty_cache": {
+        "mode": "miss",
+        "cache_seconds": 0.3445302000036463,
+        "nvrtc_seconds": 0.32241680001607165,
+        "artifact": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466.rfmptx",
+        "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3"
+      },
+      "cpu_verified_hit": {
+        "mode": "hit",
+        "cache_seconds": 0.0012038000277243555,
+        "nvrtc_seconds": 0.0,
+        "artifact": "496b675d6d599fc4666c4f7380d46e5ce84f184ea446431a05161a8468e23466.rfmptx",
+        "artifact_sha256": "e0806c23c011769953e7c72a08381328670e0175e2168d9cdc2a12d54a22e2d3"
+      },
+      "byte_comparison_and_recheck_seconds": 0.0018188999965786934,
+      "original_bytes_equal": true
+    }
+  ],
+  "source_sha256": {
+    "install_stock_ptx.py": "15f019849be1a72dc044b296472940b0521ea8caced299334ba664acc9ba3c7f",
+    "build_cuda_ptx_artifacts.py": "fd1a92a47c7d2625105298b24277a6f845fbcc04e08c9cc9c42bde39da06ace7",
+    "cuda_ptx_cache.py": "48ba138e8d2871c4a2e137201f11ccd04629865b7d4f0e4a00143bd05114484b"
+  },
+  "compiler_compiles": 3,
+  "gpu_contexts_created": 0
+}

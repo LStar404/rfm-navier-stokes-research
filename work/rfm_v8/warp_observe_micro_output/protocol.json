@@ -1,0 +1,99 @@
+{
+  "status": "registered_diagnostic",
+  "template": {
+    "study": "Same-state CUDA observation reduction microdiagnostic",
+    "scope": "CUDA events around a repeated graph of the observation kernel only. Reused fixed archived state and hot weights; diagnostic, not a full-march or end-to-end speed claim. No reuse of these warmed runtimes by an accuracy or timing arm.",
+    "arms": [
+      {
+        "name": "rfm37_uniform",
+        "case": "rfm37_k72",
+        "family": "uniform",
+        "seed": 7331
+      },
+      {
+        "name": "rfm37_combined",
+        "case": "rfm37_k72",
+        "family": "combined",
+        "seed": 7331
+      },
+      {
+        "name": "leg37_combined",
+        "case": "leg37_k72",
+        "family": "combined",
+        "seed": 17
+      },
+      {
+        "name": "fd176_dense",
+        "case": "fd176_k80",
+        "family": "fd",
+        "seed": 17
+      },
+      {
+        "name": "fd184_band",
+        "case": "fd184_k80",
+        "family": "fd",
+        "seed": 17
+      }
+    ],
+    "cases": [
+      "no_probe_no_snapshot",
+      "probe_only",
+      "probe_and_snapshot"
+    ],
+    "frozen_source_time": 8,
+    "comparison": "One original 128-thread block with six serial dot products versus one 192-thread block with six full FP64 warps. Each lane accumulates source indices lane+32j, then uses a fixed shuffle tree. Checkpoint, state, and index semantics are unchanged.",
+    "graph_observations": 64,
+    "graph_repetitions_per_event": 8,
+    "event_pairs": 7,
+    "order_seed": 218782,
+    "accuracy": {
+      "original_implementation_relative_gate": 1e-05,
+      "tight_relative_l2_gate": 1e-12,
+      "tight_scaled_absolute_gate": 1e-12
+    },
+    "observation_inventory": {
+      "horizon": 72,
+      "saved_probe_times": 577,
+      "active_probe_kernels": 576,
+      "overlap_probe_and_snapshot": 19,
+      "t0": "Zero-initialized, no dot product"
+    },
+    "promotion_rule": "Microseconds are scope-limited. Candidate must preserve bitwise states, checkpoints and index, both strict probe gates, and full physical and wake qualification before any end-to-end claim. If speed benefit is confined to hot fixed-state kernels, keep it as a diagnostic."
+  },
+  "references": {
+    "rfm37_uniform": {
+      "path": "rfm_v7/switch_formal_timing_output/b1_rfm37_k72_cuda_graph128_7331.npz",
+      "sha256": "4ff0854d221b9e303bd64666b43aa76a7707f32225add3b8213f2af9f25a2302"
+    },
+    "rfm37_combined": {
+      "path": "rfm_v7/prepared_qualification_output/mid_rfm37_k72_7331_combined.npz",
+      "sha256": "a6a47c95e467aa4226241561bfc030b7e272eb01c6593f3f57aed87e79ded4bd"
+    },
+    "leg37_combined": {
+      "path": "rfm_v7/prepared_qualification_output/mid_leg37_k72_17_combined.npz",
+      "sha256": "187ab42ae1f0c0bbdb043625537c5e42a2c4e599162afa36c39a5b67cadc4920"
+    },
+    "fd176_dense": {
+      "path": "rfm_v7/fd_early_multiscale_output/fd176_k80_17_cuda_graph.npz",
+      "sha256": "ca61859f950e683cb7c71914963d5eb3f44b5ed793c645464360c44bdbe035ad"
+    },
+    "fd184_band": {
+      "path": "rfm_v7/fd184_band_followup/fd184_k80_17_cuda_graph_band.npz",
+      "sha256": "0c9771208f4102688e19ff942146eedd05468e8dcd59279baf5647962b23d2ef"
+    }
+  },
+  "source_hashes": {
+    "rfm_v8/warp_observe_micro.py": "7a72cbb150b062000242b2742f83f36d40988075893cde520e8b92debdf68659",
+    "rfm_v8/protocol_warp_observe_micro.json": "98b1869a95470a5349da97ea4fc815e1ff18e303fe6dd1f05306dbb83c8014a8",
+    "rfm_v8/warp_observe_cuda.py": "b19fd8d1ac94a4efcc03bc720da4ebae72de54e909451398e82387d5fc66f122",
+    "rfm_v7/prepared_formal_timing_mid_output/protocol.json": "498414d660a6a609aa99189640aa721b033e1e089deca98bde88d7355a9b945a",
+    "rfm_v7/prepared_formal_timing_high_output/protocol.json": "ac1910d9d66518eb24c5445d7d347b98fecccda67757e8f40a2927b6cd22df2f",
+    "rfm_v7/galerkin_cuda_native.cu": "247c1aae4dd5dfaac349c9ab51b7f205421516164e8a4913aeccfd015234af87",
+    "rfm_v7/galerkin_cuda_variable.cu": "79dbc24fb8e9aba9c0d2c38add94459711a07320ec3556ddcbb09e1327455852",
+    "rfm_v7/fd_cuda_native.cu": "f44035689a4bee2adcc76823557cc4c5eaea5338f4ee3340734b9ee78bc66385",
+    "rfm_v7/galerkin_cuda_module_bundle.py": "03519857b1a94540817c2550b02343741c34b7ccbdfdeba3cbabe940df3d776e",
+    "rfm_v7/cuda_environment_native.py": "b37d2b5c72ccd14f6fabad269196d160323efa9d82ba3cc9c70055cb8b8f36d3",
+    "rfm_v7/fd_cuda_native.py": "48c26d2a6dc5605a22a00db1beaaa02d32ebfa879d03813f0b7cf8c922d9328a",
+    "rfm_v7/galerkin_cuda_native.py": "f9bccc3339ab951da0dd56ad5b71c12bc7a4e46a759bbf37ebbc3c412e3ef404"
+  }
+}

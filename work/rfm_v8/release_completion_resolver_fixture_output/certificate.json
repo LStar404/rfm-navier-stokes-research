@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "scope": "AST-extracted resolver only; no reportlab import, GPU, report generation or release mutation.",
+  "builder_sha256": "1475cb6cd25a546e4ff6dfbef11d501cf96a3ec31544a7b4727c1c307c472042",
+  "verifier_sha256": "af182cb41f4bce70b6b2653e200d02293a01894886281fd947c5e1a656ead74e",
+  "cases": [
+    {
+      "case": "public_derivative",
+      "passed": true,
+      "resolution_accepted": true,
+      "rejection_reason": null
+    },
+    {
+      "case": "exact_historical_alias",
+      "passed": true,
+      "resolution_accepted": true,
+      "rejection_reason": null
+    },
+    {
+      "case": "tampered_public",
+      "passed": true,
+      "resolution_accepted": false,
+      "rejection_reason": "Public snapshot integrity failed: work/rfm_v8/example.public.json"
+    },
+    {
+      "case": "unmanifested_map",
+      "passed": true,
+      "resolution_accepted": false,
+      "rejection_reason": "Public evidence map lacks manifest authentication"
+    },
+    {
+      "case": "wrong_original_sha",
+      "passed": true,
+      "resolution_accepted": false,
+      "rejection_reason": "Public source resolution must be unique: work/rfm_v8/example_original.json"
+    },
+    {
+      "case": "changed_manifest_after_verification",
+      "passed": true,
+      "resolution_accepted": false,
+      "rejection_reason": "Public manifest changed after verification"
+    },
+    {
+      "case": "historical_changed_bytes",
+      "passed": true,
+      "resolution_accepted": false,
+      "rejection_reason": "Historical source alias must preserve exact original bytes"
+    },
+    {
+      "case": "ambiguous_mapping",
+      "passed": true,
+      "resolution_accepted": false,
+      "rejection_reason": "Public source resolution must be unique: work/rfm_v8/example_original.json"
+    }
+  ]
+}

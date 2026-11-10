@@ -1,0 +1,97 @@
+{
+  "status": "passed",
+  "kind": "fixed",
+  "layout_index": 2,
+  "family": "gal",
+  "ntheta": 243,
+  "k": 80,
+  "radial_rows": 76,
+  "arrays": [
+    {
+      "profile": "eager_full",
+      "vs_cufft": {
+        "relative_l2": 5.388785404075423e-16,
+        "max_abs": 1.0606439709309234e-11
+      },
+      "vs_numpy": {
+        "relative_l2": 6.05467260509043e-16,
+        "max_abs": 1.1101797659406386e-11
+      },
+      "per_flux_vs_numpy": [
+        {
+          "relative_l2": 5.975925810851879e-16,
+          "max_abs": 1.1101797659406386e-11
+        },
+        {
+          "relative_l2": 6.133601486742578e-16,
+          "max_abs": 1.0913936421275139e-11
+        }
+      ]
+    },
+    {
+      "profile": "graph_prior_smooth",
+      "vs_cufft": {
+        "relative_l2": 3.8304916120413473e-16,
+        "max_abs": 2.0349948914059276e-13
+      },
+      "vs_numpy": {
+        "relative_l2": 4.0978578138972375e-16,
+        "max_abs": 2.2737367544323206e-13
+      },
+      "per_flux_vs_numpy": [
+        {
+          "relative_l2": 4.328288521205678e-16,
+          "max_abs": 2.2737367544323206e-13
+        },
+        {
+          "relative_l2": 3.9101539595012777e-16,
+          "max_abs": 1.9118749672591252e-13
+        }
+      ]
+    },
+    {
+      "profile": "graph_final_edge",
+      "vs_cufft": {
+        "relative_l2": 5.200056550004908e-16,
+        "max_abs": 9.094947017729282e-13
+      },
+      "vs_numpy": {
+        "relative_l2": 5.502877126759291e-16,
+        "max_abs": 9.460630381621078e-13
+      },
+      "per_flux_vs_numpy": [
+        {
+          "relative_l2": 5.200965512858064e-16,
+          "max_abs": 9.094947017729282e-13
+        },
+        {
+          "relative_l2": 5.890033509517957e-16,
+          "max_abs": 9.460630381621078e-13
+        }
+      ]
+    },
+    {
+      "profile": "eager_imbalanced",
+      "vs_cufft": {
+        "relative_l2": 5.363855686380253e-16,
+        "max_abs": 9.495403454739563e-12
+      },
+      "vs_numpy": {
+        "relative_l2": 6.07092710496853e-16,
+        "max_abs": 9.795557720525728e-12
+      },
+      "per_flux_vs_numpy": [
+        {
+          "relative_l2": 2.5241413688957016e-06,
+          "max_abs": 5.365301466417212e-12
+        },
+        {
+          "relative_l2": 5.524184466073611e-16,
+          "max_abs": 9.795557720525728e-12
+        }
+      ]
+    }
+  ],
+  "history_copy_byte_exact": true,
+  "fd_mean_byte_exact": null
+}

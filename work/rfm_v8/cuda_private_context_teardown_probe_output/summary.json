@@ -1,0 +1,133 @@
+{
+  "status": "completed_observation",
+  "protocol_sha256": "cc27b34686139b48effaf24478068218eb60993dfbc86e2f365f9b4fcddc85ac",
+  "watchdog": {
+    "status": "child_failed",
+    "deadline_seconds": 20,
+    "kill_wait_seconds": 4,
+    "identity": {
+      "pid": 52496,
+      "birth_filetime_100ns": 134387460052418603,
+      "exit_filetime_100ns": 0,
+      "kernel_cpu_100ns": 0,
+      "user_cpu_100ns": 0
+    },
+    "first_wait_status": 0,
+    "terminal_identity": {
+      "pid": 52496,
+      "birth_filetime_100ns": 134387460052418603,
+      "exit_filetime_100ns": 134387460073127068,
+      "kernel_cpu_100ns": 6093750,
+      "user_cpu_100ns": 9843750
+    },
+    "exit_code": 1,
+    "wall_seconds": 2.0910331,
+    "phase_log_sha256": "25af1d446ec5599ea140e1cd35af17b2e74c480dba88ecbbbba62dfd6c22cd16",
+    "last_phase": "cleanup_callback_after"
+  },
+  "cleanup_callbacks": [
+    {
+      "callback": "cuGraphExecDestroy_1",
+      "before": "owned",
+      "after": "owned",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cufftDestroy_2",
+      "before": "owned",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cufftDestroy_1",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cuMemFree_v2_4",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cuMemFree_v2_3",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cuMemFree_v2_2",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cuMemFree_v2_1",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cuModuleUnload_1",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "cuStreamDestroy_v2_1",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    },
+    {
+      "callback": "close_context_1",
+      "before": "other_1",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": null,
+      "python_exception_type": "RuntimeError"
+    }
+  ],
+  "context_changes": [
+    {
+      "callback": "cufftDestroy_2",
+      "before": "owned",
+      "after": "other_1",
+      "before_get_current_status": 0,
+      "after_get_current_status": 0,
+      "return_code": 0,
+      "python_exception_type": null
+    }
+  ],
+  "pending_callbacks": [],
+  "evidence_is_lifecycle_qualification": false
+}

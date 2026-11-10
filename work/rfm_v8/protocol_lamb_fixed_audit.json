@@ -1,0 +1,20 @@
+{
+  "scope": "Deterministic fixed-state skew, lifting, GMRES and BDF2 work audit. No trajectory or stability proof.",
+  "state_seed": 374783,
+  "families": ["rfm", "legendre"],
+  "sizes": ["small", "mid"],
+  "rates": [128, 32, 8],
+  "strict_rtol": 1e-12,
+  "screen_rtol": 1e-9,
+  "gmres_restart": 24,
+  "gmres_max_cycles": 10,
+  "fixed_gates": {
+    "skew_pairing_relative": 1e-12,
+    "original_flux_relative": 1e-12,
+    "extrapolated_curl_relative": 1e-12,
+    "original_equation_relative": 1e-7,
+    "raw_energy_defect_relative": 1e-7,
+    "work_corrected_energy_defect_relative": 1e-11
+  },
+  "screen_basis": "The prior strict GMRES stopped at a true left-preconditioned residual of 2.353e-10. Retain a 1e-12 comparison and use 1e-9 only for fixed-state screening, with independent original-equation and energy-balance gates. Failure of any screen case is retained and blocks the trajectory pilot."
+}
