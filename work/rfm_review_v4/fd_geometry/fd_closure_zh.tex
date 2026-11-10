@@ -1,0 +1,34 @@
+\subsection{实际径向网格上的FD4壁面闭合}
+\label{sec:fd-wall-closure}
+
+圆环有限差分对照使用对数坐标 $s=\log(r/a)$，不是物理半径上的均匀网格。登记的外侧加密网格为
+\begin{equation}
+ s_j=L\sin\!\left(\frac{\pi j}{2n}\right),\qquad
+ r_j=a e^{s_j},\qquad j=0,\ldots,n.
+ \label{eq:fd-radial-grid}
+\end{equation}
+合格的FD176/FD184与两套FD448参考采用相同网格族。最终实现由 \path{work/rfm_v6/fd_full.py} 调用 \path{work/rfm_v3/cylinder_fd.py} 中的 \texttt{wall\_second}，根据实际非均匀节点重新计算单侧Hermite权重。较早的 \path{work/rfm_ns/cfd_reference_fourth.py} 对应Cartesian方腔，不是本圆环对照。
+
+在内壁记 $h=s_1-s_0$、$z_j=(s_j-s_0)/h$、$d_w=\psi_s(0)$。五个函数值权重 $a_j$ 和斜率权重 $b$ 满足
+\begin{equation}
+ \begin{gathered}
+ \sum_{j=0}^{4}a_j z_j^m+b\,\delta_{m1}=2\delta_{m2},
+ \quad m=0,\ldots,5,\\
+ D_{s,w}^2\psi=\frac{1}{h^2}\sum_{j=0}^{4}a_j\psi(s_j)
+                     +\frac{b}{h}d_w.
+ \end{gathered}
+ \label{eq:fd-hermite-moments}
+\end{equation}
+因此该闭合对五次及以下多项式精确；在函数光滑且局部节点比例有界时具有四阶精度。在均匀 $s$ 网格这一特例中，它化为
+\begin{equation}
+ \begin{split}
+ D_{s,w}^2\psi={}&\frac{-\frac{415}{72}\psi(0)+8\psi(h)-3\psi(2h)
+                         +\frac89\psi(3h)-\frac18\psi(4h)}{h^2}
+                    -\frac{25}{6h}d_w,\\
+ D_{s,w}^2\psi-\psi_{ss}(0)={}&-\frac{h^4}{15}\psi^{(6)}(0)+O(h^5).
+ \end{split}
+ \label{eq:fd-uniform-wall}
+\end{equation}
+省略壁面函数值项需要 $\psi(0)=0$，不能将这些常系数原样用于式~\eqref{eq:fd-radial-grid}的非均匀网格。本算例非零角模的无滑移条件为 $\psi_k(0)=\psi_{k,s}(0)=0$，实现中的壁面涡量为 $\omega_k(0)=-a^{-2}D_{s,w}^2\psi_k$。角向均值的切向速度块则采用独立的一阶导数边界重构。
+
+新增的纯空间审计使用精确有理算术核验均匀系数与多项式矩。实际 $n=176,184,384,448$ 非均匀权重在FP64下对六个缩放矩的最大残差为 $2.85\times10^{-14}$；构造的FD184壁面涡量算子对五次多项式的绝对误差为 $2.31\times10^{-14}$。这些是差分模板和实现检查，不增加流场轨迹，也不构成长期收敛证书。

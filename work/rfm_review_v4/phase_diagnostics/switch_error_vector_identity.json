@@ -1,0 +1,492 @@
+{
+  "status": "complete",
+  "scope": "Post-review error-vector algebra on stored physical fields; no new trajectory or timing",
+  "source_sha256": {
+    "analyze_switch_error_vectors.py": "d566995e106a363e0fd174882cd3063c72b3da71835e77a206c7aee93ec77b87",
+    "rfm_review_v3/profiles_bridge/review_common.py": "7227ffedcb2601bf86c07c5f5db4067201220cbb6f31cc658e9c81baeb7ef796"
+  },
+  "imported_local_source_hashes": {
+    "rfm_review_v4/phase_diagnostics/analyze_switch_error_vectors.py": "d566995e106a363e0fd174882cd3063c72b3da71835e77a206c7aee93ec77b87",
+    "rfm_v6/full_case.py": "f24ff06baf9158c49acb78a7246327a0645b0d3ff179ba0cd528d504f0e6edf2",
+    "rfm_v6/diagnostic_wake.py": "6277b9bfdca4ac215c85fca04571e4773ed9c78b2c390783ae7b079409ef178d",
+    "rfm_v6/full_nonlinear.py": "6fa79ecc6b20757b47ba802dad119904eb7f3ad5f210ea8b863bbba69ae17080",
+    "rfm_v3/cylinder_case.py": "d9d2401028852d0e8572082ee955e7f20ad34f9a851a17350aff295e8f4044fa",
+    "rfm_v3/cylinder_fd.py": "10161244c5de47e5ec60ae1b742860bfaf1dfcb674003c7dc2491776cbc9e6a6",
+    "rfm_v6/fd_full.py": "f8dc2ca8949dd167ccf62677f37a431a3a8235ca74f1e26edcf19eaf09c637a8",
+    "rfm_v6/radial_layers.py": "bc1234362bcf23e4534e52ee6fa648cd98929f15f26640ebb145c6e21d906446",
+    "rfm_v3/cylinder_rfm.py": "3bff81eea0d34e2cff2d14637f2e989072ae188b2cb80230b1896f948afe5d58",
+    "rfm_v6/full_galerkin.py": "41752fecac7ec7555a87094d30217d2d00c0f4fa8f8882611d2457faba7cccf2",
+    "rfm_v6/full_galerkin_buffered.py": "15ea94f16cce17b33d15860675f1dc123d5673dbb8e7bcfb2ad8353722d18d3b",
+    "rfm_v5/timing_v5.py": "eb98f6d6122f24cf8b4822ef461844c9d6ce6f8eeada9ec0b183f4a7176227eb",
+    "rfm_v6/full_formal.py": "d31ea761b49eada7ceec570d9466827d1a8688842c3b4153c040b3b64af1cb82",
+    "rfm_v7/cpu_formal.py": "88a82d11302361892f08d5ed01f4d8770424627827187c03b93b69fc39ac9604",
+    "rfm_v7/basis_recurrence.py": "4cf0fcfbccd0a07ca08cd3ec6f82947909a9a5207fcf8c64167117686b7d4c6f",
+    "rfm_v7/cpu_profile.py": "bf7c935253161a6e947ca88a44b19531b5f9d579b55b0aa1922349232ba6c2ce",
+    "rfm_v7/cpu_implicit_stride.py": "0ecd71a47389a012f65c57aafbecc4900a59d35afd8300c5ed7ad559f0db3de4",
+    "rfm_v7/basis_recurrence_model.py": "1c87093f15d70ee30ca748c6ccff40f87da69e32c40f6054d7aff9d2667013d9",
+    "rfm_v7/cpu_precontracted.py": "e09a64e23967118e4b0834d415d4b219a5cd8fcda2b610fc0da9c2a60e6419cb",
+    "rfm_v7/cpu_precontracted_native.py": "eb440eee40e82a830e60e378497d5899b9295f5591156e8bfd38382a2c0e8b96",
+    "rfm_v7/cpu_sbdf2_switch.py": "dab6e364ada2647fb642d46ad34af4ecc4e4bfb6a602e3dd4520bc1d2d9ff66a",
+    "rfm_v7/fd_cpu_buffered.py": "bc4d70a545e1d282402eea2d66ffff80c51751b0bde1880c836b5cf76259afc8",
+    "rfm_v7/cpu_formal_reference_point1.py": "2b6373f13de03410ef6444e0c71161d9ae09b17dfe8b5c596f8933d9a2ecf688",
+    "rfm_v7/cpu_formal_fd_equilibrate.py": "3d005e33a328b4d94f8a669106762443212dd8d762bdb25c81287eb3baff09b1",
+    "rfm_v7/fd_equilibration_precision.py": "2573a1d28d913eebc66380016988dd2ba78b5186d93b5cce354ebc82868ff7dc",
+    "rfm_v7/fd_equilibration_pow2.py": "b1556c34b0563e06f0d04b71c8dafd724e65289d1d3e7e6f6d13fd8f997fcb41",
+    "rfm_v7/fd_pow2_long.py": "7c0286506d21ff35560e21c656f713b005f7e83fdbf7b9361479b62a5ed0ce74",
+    "rfm_review_v3/profiles_bridge/review_common.py": "7227ffedcb2601bf86c07c5f5db4067201220cbb6f31cc658e9c81baeb7ef796"
+  },
+  "control_inputs": {
+    "rfm37_k72": {
+      "archived_controls": {
+        "uniform": {
+          "early": {
+            "path": "rfm_v7/switch_qualification_output/anchor_rfm37_k72_7331_cpu_recurrence.npz",
+            "sha256": "b95161cbf8de6b5e908fe51a336de4f3ee9aec93ee81b4c3c1eca04b3657ab20"
+          },
+          "late": {
+            "path": "rfm_v7/r128_operator_qualification_output/rfm37_k72_7331_cpu_recurrence.npz",
+            "sha256": "8122a041c78712a07c0bcdbc2beb705a352f75b5076e7c1534b88af1caaa4876"
+          }
+        },
+        "combined": {
+          "single": {
+            "path": "rfm_v7/switch_qualification_output/candidate_rfm37_k72_7331_cpu_recurrence.npz",
+            "sha256": "333cdd1f4b8154380c4479f9e3b40d9b6403079cfa5c0bb8ca07d52e2546d932"
+          }
+        }
+      },
+      "switch12": {
+        "path": "rfm_review_v3/profiles_bridge/rfm37_k72_switch12.npz",
+        "sha256": "bcc7d445097568c9f1ee8d1359a32811f834ccfdc24f6d85fabb6d65ecd2c42c"
+      }
+    },
+    "leg35_k72_q66": {
+      "archived_controls": {
+        "uniform": {
+          "single": {
+            "path": "rfm_v8/legendre_rank_uniform_output/leg35_k72_q66.npz",
+            "sha256": "abc5101697baaf0562382217e1b4feac803f418e745668587e4315cf92da7b73"
+          }
+        },
+        "combined": {
+          "single": {
+            "path": "rfm_v8/legendre_rank_switch_output/leg35_k72_q66.npz",
+            "sha256": "7630c7b83c5f1a13c45a86ce0f82c9db0a28fc66920e4ebe944b9d6fe23bb871"
+          }
+        }
+      },
+      "switch12": {
+        "path": "rfm_review_v3/profiles_bridge/leg35_k72_q66_switch12.npz",
+        "sha256": "1f21de451f64df1824a4000c0ab76c101e818fcd9a054e9547c7f401b3c9b9da"
+      }
+    },
+    "rfm41_k80": {
+      "archived_controls": {
+        "uniform": {
+          "early": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7331_cpu_recurrence_anchor_early.npz",
+            "sha256": "b274fb6692431e96e09b344d840f5adf95f3fe3411e6c54b310023c2eb71d157"
+          },
+          "late": {
+            "path": "rfm_v7/cuda_multiscale_pow2_output/block01_cpu_rfm41_k80_7331.npz",
+            "sha256": "ea40c952e435c9256404e6091f3be7b09cafa389c835a511959ee59cef30f5f9"
+          }
+        },
+        "combined": {
+          "single": {
+            "path": "rfm_v7/multiscale_switch_qualification_output/high_rfm41_k80_7331_cpu_recurrence_candidate.npz",
+            "sha256": "5fc03fb05510ef00c8dfcb35bc32e40194adabdf479b1668000cb15de66a2e14"
+          }
+        }
+      },
+      "switch12": {
+        "path": "rfm_review_v3/profiles_bridge/rfm41_k80_switch12.npz",
+        "sha256": "6b4fd35bf761d08154b86a2e88c116f78b09bd74882d83c341ab7a5ed0f79601"
+      }
+    },
+    "leg36_k80_q76": {
+      "archived_controls": {
+        "uniform": {
+          "single": {
+            "path": "rfm_v8/legendre_rank_match_high_output/leg36_k80_q76.npz",
+            "sha256": "300e67d133f3404dbb91a3984c845d68e75370ea979b834e4b7031fb03ae486e"
+          }
+        },
+        "combined": {
+          "single": {
+            "path": "rfm_v8/legendre_rank_switch_output/leg36_k80_q76.npz",
+            "sha256": "47ac7437a58507debc6566bd67a1a875c5540083a40708aa18b15fe3e2f88edb"
+          }
+        }
+      },
+      "switch12": {
+        "path": "rfm_review_v3/profiles_bridge/leg36_k80_q76_switch12.npz",
+        "sha256": "cc791db4a89310132d9e2ba9d36afbb25e934d1d844f26c613794ba3c0813ca2"
+      }
+    }
+  },
+  "reference_inputs": {
+    "radial_coarse": {
+      "path": "rfm_v7/early_reference_continuation_output/radial_coarse_n384_k128_r384.npz",
+      "sha256": "8a126a28ba447feeb5ea4a5aa651dda8001491b261d1ba32e734d45868d5dce2"
+    },
+    "radial_fine": {
+      "path": "rfm_v7/early_reference_continuation_output/radial_fine_n448_k128_r384.npz",
+      "sha256": "f7f0c721d946a4e261ad34251d6a645dde58eb5d51005eafc7e5759c86e25a0c"
+    },
+    "angular_fine": {
+      "path": "rfm_v7/early_reference_continuation_output/angular_fine_n448_k144_r384.npz",
+      "sha256": "74605df05e4e4561aa9f4295980f9cf381d992cfb05b398eb6070c6432a62a72"
+    },
+    "time_fine": {
+      "path": "rfm_v7/early_reference_continuation_output/time_fine_n448_k144_r512.npz",
+      "sha256": "bb6e8d4d80ae6ed09ab83e80e2b1ad4c8e1a1584218d22195eef6a9713d7bbf7"
+    },
+    "late": {
+      "rfm_v7/cpu_formal_point1_pow2_output/fd384_k128_rate384_pow2.npz": "9716fb9acc8a506bda90480b1e9744a2981c7dc171f3785d540ca3e91e91a077",
+      "rfm_v7/cpu_formal_point1_pow2_output/fd448_k128_rate384_pow2.npz": "aa173515a523634ef65070fcefd87d6824c55b0baf8be472055a40fa90e70fd4",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate384_pow2.npz": "90f9366bbea17dd59267a9eadfd2fb6b33b3b4da917b0376233bc1356e359c5a",
+      "rfm_v7/cpu_formal_point1_pow2_chain_output/fd448_k144_rate512_pow2.npz": "1ee498aff1d3df09bb5c0ff8d78095602b56ca44c136e5e0faea5ffb830b3ff7"
+    }
+  },
+  "common_norm": "Physical-area L2 over existing layer144 grid; all terms use the same reference denominator",
+  "identity": "e8=e12+delta; ||e8||^2=||e12||^2+2<e12,delta>+||delta||^2; deterministic, not a statistical variance decomposition",
+  "reviewer_arithmetic": {
+    "source_sha256": "e5f34116a7ac25dd4a145a721cd39eac3cee73667e944670bd6e46722242d5e8",
+    "rfm37_velocity_maxima": {
+      "uniform": 0.000294284810595416,
+      "switch8": 0.0004467235626353335,
+      "switch12": 0.00043821163730086956
+    },
+    "norm_max_recovery_fraction": 0.05583832995585676,
+    "interpretation": "Fraction of the observed increase in maximum norm recovered by postponing the switch; not a causal error budget"
+  },
+  "results": [
+    {
+      "name": "rfm37_k72",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.00027098524067563557,
+      "relative_error_switch8": 0.0004202050530598555,
+      "relative_error_switch12": 0.0004117853345438332,
+      "norm_difference_recovery_fraction": 0.056424937020713564,
+      "error8_squared": 1.7657228661703595e-07,
+      "error12_squared": 1.695671617453766e-07,
+      "cross_term": 6.920196407300886e-09,
+      "delta_squared": 8.492846435824457e-11,
+      "identity_absolute_residual": 2.1619140790897647e-22,
+      "identity_residual_relative_to_lhs": 1.224379046400807e-15,
+      "norm_of_intervention_delta": 9.215664075813776e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.9878762383377268,
+      "error12_delta_cosine": 0.9117817890952233
+    },
+    {
+      "name": "rfm37_k72",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.0037368542052302407,
+      "relative_error_switch8": 0.004061938150107214,
+      "relative_error_switch12": 0.00404204264868891,
+      "norm_difference_recovery_fraction": 0.06120111968566648,
+      "error8_squared": 1.649934153529642e-05,
+      "error12_squared": 1.633810877382006e-05,
+      "cross_term": 1.5938354557552303e-07,
+      "delta_squared": 1.849215900828693e-09,
+      "identity_absolute_residual": 5.184354489176101e-21,
+      "identity_residual_relative_to_lhs": 3.142158417707402e-16,
+      "norm_of_intervention_delta": 4.300251040147183e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9885307682886456,
+      "error12_delta_cosine": 0.45847830189585687
+    },
+    {
+      "name": "rfm37_k72",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.0002942848105954158,
+      "relative_error_switch8": 0.0004467235626353331,
+      "relative_error_switch12": 0.0004382116373008694,
+      "norm_difference_recovery_fraction": 0.0558383299558554,
+      "error8_squared": 1.9956194141360438e-07,
+      "error12_squared": 1.920294390659087e-07,
+      "cross_term": 7.44757389736116e-09,
+      "delta_squared": 8.49284503347261e-11,
+      "identity_absolute_residual": 2.0437823478595354e-22,
+      "identity_residual_relative_to_lhs": 1.0241343281100231e-15,
+      "norm_of_intervention_delta": 9.215663314961442e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.9887250681892581,
+      "error12_delta_cosine": 0.9220921376281302
+    },
+    {
+      "name": "rfm37_k72",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.0037795262319660866,
+      "relative_error_switch8": 0.004129334877986731,
+      "relative_error_switch12": 0.0041083191002631945,
+      "norm_difference_recovery_fraction": 0.060077925353212755,
+      "error8_squared": 1.7051406534557693e-05,
+      "error12_squared": 1.6878285829587382e-05,
+      "cross_term": 1.712714774179472e-07,
+      "delta_squared": 1.8492275523562545e-09,
+      "identity_absolute_residual": 7.332542539976314e-21,
+      "identity_residual_relative_to_lhs": 4.3002567120287813e-16,
+      "norm_of_intervention_delta": 4.300264587622783e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9893182762126533,
+      "error12_delta_cosine": 0.48472531547916464
+    },
+    {
+      "name": "leg35_k72_q66",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.0002438203078896439,
+      "relative_error_switch8": 0.0003845685685232937,
+      "relative_error_switch12": 0.00037638670673980696,
+      "norm_difference_recovery_fraction": 0.05813117509695643,
+      "error8_squared": 1.4789298389605525e-07,
+      "error12_squared": 1.4166695301043747e-07,
+      "cross_term": 6.141132232305859e-09,
+      "delta_squared": 8.489865331184884e-11,
+      "identity_absolute_residual": 7.352860163772148e-23,
+      "identity_residual_relative_to_lhs": 4.971743736633249e-16,
+      "norm_of_intervention_delta": 9.214046522123102e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.9863639203094801,
+      "error12_delta_cosine": 0.885388294299195
+    },
+    {
+      "name": "leg35_k72_q66",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.003601561707021722,
+      "relative_error_switch8": 0.003895345314495701,
+      "relative_error_switch12": 0.003876759561446071,
+      "norm_difference_recovery_fraction": 0.06326341081258594,
+      "error8_squared": 1.5173715119163612e-05,
+      "error12_squared": 1.5029264697263533e-05,
+      "cross_term": 1.4260200354322677e-07,
+      "delta_squared": 1.8484183568691314e-09,
+      "identity_absolute_residual": 1.6997527612199027e-20,
+      "identity_residual_relative_to_lhs": 1.1201955143293838e-15,
+      "norm_of_intervention_delta": 4.299323617581179e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9872037870672974,
+      "error12_delta_cosine": 0.4277860601711715
+    },
+    {
+      "name": "leg35_k72_q66",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.00026497693344535773,
+      "relative_error_switch8": 0.00041042601252109075,
+      "relative_error_switch12": 0.0004021146518305636,
+      "norm_difference_recovery_fraction": 0.05714275224939406,
+      "error8_squared": 1.6844951175396253e-07,
+      "error12_squared": 1.6169619321681537e-07,
+      "cross_term": 6.66841989785406e-09,
+      "delta_squared": 8.489863929325282e-11,
+      "identity_absolute_residual": 1.5503174136833698e-22,
+      "identity_residual_relative_to_lhs": 9.20345448046038e-16,
+      "norm_of_intervention_delta": 9.214045761404315e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.9874286043482021,
+      "error12_delta_cosine": 0.8998967440145499
+    },
+    {
+      "name": "leg35_k72_q66",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.0036386601995345336,
+      "relative_error_switch8": 0.003958917902051147,
+      "relative_error_switch12": 0.003939123504470627,
+      "norm_difference_recovery_fraction": 0.06180771742560343,
+      "error8_squared": 1.5673030955181053e-05,
+      "error12_squared": 1.5516693983472954e-05,
+      "cross_term": 1.544885417047802e-07,
+      "delta_squared": 1.848430003371533e-09,
+      "identity_absolute_residual": 5.330537982929535e-20,
+      "identity_residual_relative_to_lhs": 3.4010894243575855e-15,
+      "norm_of_intervention_delta": 4.2993371621350344e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9881766290908495,
+      "error12_delta_cosine": 0.4561053598134055
+    },
+    {
+      "name": "rfm41_k80",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.00016372437442378467,
+      "relative_error_switch8": 0.00023533921128236494,
+      "relative_error_switch12": 0.00023100508964447641,
+      "norm_difference_recovery_fraction": 0.06051988425872185,
+      "error8_squared": 5.538454436700561e-08,
+      "error12_squared": 5.336335144165259e-08,
+      "cross_term": 1.992919202203417e-09,
+      "delta_squared": 2.8273723149631877e-11,
+      "identity_absolute_residual": 3.046674217094726e-23,
+      "identity_residual_relative_to_lhs": 5.500946612300253e-16,
+      "norm_of_intervention_delta": 5.317304124237383e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.9860113684374473,
+      "error12_delta_cosine": 0.8112349386999061
+    },
+    {
+      "name": "rfm41_k80",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.0029745038940125826,
+      "relative_error_switch8": 0.00309322224093941,
+      "relative_error_switch12": 0.003085617579518624,
+      "norm_difference_recovery_fraction": 0.06405632842472918,
+      "error8_squared": 9.568023831842225e-06,
+      "error12_squared": 9.521035847034372e-06,
+      "cross_term": 4.63725367634571e-08,
+      "delta_squared": 6.154480444112928e-10,
+      "identity_absolute_residual": 1.5622856831712465e-20,
+      "identity_residual_relative_to_lhs": 1.632819598517288e-15,
+      "norm_of_intervention_delta": 2.4808225337804653e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9869020123567246,
+      "error12_delta_cosine": 0.3028956667713531
+    },
+    {
+      "name": "rfm41_k80",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.00018191862450090343,
+      "relative_error_switch8": 0.00025947995560368035,
+      "relative_error_switch12": 0.00025495947674811925,
+      "norm_difference_recovery_fraction": 0.05828263635097994,
+      "error8_squared": 6.732984736008793e-08,
+      "error12_squared": 6.500433478367476e-08,
+      "cross_term": 2.297238857932094e-09,
+      "delta_squared": 2.827371848103129e-11,
+      "identity_absolute_residual": 4.1740309191250045e-23,
+      "identity_residual_relative_to_lhs": 6.199376773872362e-16,
+      "norm_of_intervention_delta": 5.317303685236653e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.9878419412701341,
+      "error12_delta_cosine": 0.8472538173107895
+    },
+    {
+      "name": "rfm41_k80",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.003000702070240641,
+      "relative_error_switch8": 0.0031397300867393252,
+      "relative_error_switch12": 0.003131142800918943,
+      "norm_difference_recovery_fraction": 0.06176658515777212,
+      "error8_squared": 9.857905017576131e-06,
+      "error12_squared": 9.804055239746523e-06,
+      "cross_term": 5.323432590740002e-08,
+      "delta_squared": 6.154519222223417e-10,
+      "identity_absolute_residual": 1.3879677088333528e-20,
+      "identity_residual_relative_to_lhs": 1.4079743174220878e-15,
+      "norm_of_intervention_delta": 2.4808303493434245e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9885709477919133,
+      "error12_delta_cosine": 0.342658746954946
+    },
+    {
+      "name": "leg36_k80_q76",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.00013800119517550833,
+      "relative_error_switch8": 0.00016894588856373034,
+      "relative_error_switch12": 0.0001659843325812456,
+      "norm_difference_recovery_fraction": 0.09570480939429676,
+      "error8_squared": 2.8542713262588387e-08,
+      "error12_squared": 2.7550798662441547e-08,
+      "cross_term": 9.636498694745136e-10,
+      "delta_squared": 2.826473067226923e-11,
+      "identity_absolute_residual": 5.742442908707972e-23,
+      "identity_residual_relative_to_lhs": 2.0118770265035484e-15,
+      "norm_of_intervention_delta": 5.316458470849672e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.971504874846945,
+      "error12_delta_cosine": 0.5460089341638149
+    },
+    {
+      "name": "leg36_k80_q76",
+      "reference": "angular_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.002849194133333592,
+      "relative_error_switch8": 0.0028997308518372684,
+      "relative_error_switch12": 0.0028954694196190183,
+      "norm_difference_recovery_fraction": 0.08432348487249157,
+      "error8_squared": 8.40843901309689e-06,
+      "error12_squared": 8.383743159948894e-06,
+      "cross_term": 2.4080643464941984e-08,
+      "delta_squared": 6.152096830797335e-10,
+      "identity_absolute_residual": 2.5532687365250874e-20,
+      "identity_residual_relative_to_lhs": 3.0365549807141904e-15,
+      "norm_of_intervention_delta": 2.4803420793909326e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9750885430291717,
+      "error12_delta_cosine": 0.1676515327273275
+    },
+    {
+      "name": "leg36_k80_q76",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "velocity",
+      "relative_error_uniform": 0.00014071062606450812,
+      "relative_error_switch8": 0.00018692177733799394,
+      "relative_error_switch12": 0.0001834217986336086,
+      "norm_difference_recovery_fraction": 0.0757388337648601,
+      "error8_squared": 3.4939750843194585e-08,
+      "error12_squared": 3.3643556213988055e-08,
+      "cross_term": 1.2679299032013306e-09,
+      "delta_squared": 2.8264726005153493e-11,
+      "identity_absolute_residual": 4.5404460810918535e-23,
+      "identity_residual_relative_to_lhs": 1.299507286548445e-15,
+      "norm_of_intervention_delta": 5.3164580319187594e-06,
+      "cross_term_fraction_of_squared_error_difference": 0.978194072581136,
+      "error12_delta_cosine": 0.6501175815230382
+    },
+    {
+      "name": "leg36_k80_q76",
+      "reference": "time_fine",
+      "time": 72.0,
+      "grid": "layer144",
+      "field": "vorticity",
+      "relative_error_uniform": 0.0028550062201537713,
+      "relative_error_switch8": 0.0029282415242857184,
+      "relative_error_switch12": 0.002922848131143783,
+      "norm_difference_recovery_fraction": 0.07364471556256898,
+      "error8_squared": 8.574598424551148e-06,
+      "error12_squared": 8.543041197730705e-06,
+      "cross_term": 3.094201326104633e-08,
+      "delta_squared": 6.152135593889169e-10,
+      "identity_absolute_residual": 7.954375565463052e-21,
+      "identity_residual_relative_to_lhs": 9.276674162008278e-16,
+      "norm_of_intervention_delta": 2.480349893440272e-05,
+      "cross_term_fraction_of_squared_error_difference": 0.9805048281682873,
+      "error12_delta_cosine": 0.21340243594673033
+    }
+  ],
+  "limitations": [
+    "The intervention changes four time units of fine versus coarse integration, the bridge time/state/operator, and the later error history simultaneously.",
+    "t=8 is inside the analytic sin^4 pulse, not a nonsmooth forcing junction. t=12 is its C3 endpoint.",
+    "An observed 5.6% recovery does not identify bridge-local error; the remaining 94.4% is not an isolated coarse-step truncation term.",
+    "No time-refinement series or controlled bridge-only defect experiment is supplied."
+  ]
+}

@@ -4,10 +4,5 @@
 The historical single-bridge diagnostic records about $\Delta M_0=0.119$~s of marching savings and $\Delta P=0.206$--$0.240$~s of additional preparation. These measurements come from a window marked \texttt{diagnostic\_only}, with external activity, and precede the final configuration set. They cannot supply a measured final speed ratio. They can, however, make the assumptions of a crossover estimate explicit.
 
 Let $N$ count steps of the piecewise candidate, including the unchanged first $N_s=1024$ steps. Its $T=72$ trajectory has $N_0=8192$ steps. If the extra preparation stays constant and the saved marching time grows linearly with only the later work, the modeled candidate-minus-control time is
-\begin{equation}
- \Delta T(N)=\Delta P-
-       \frac{N-N_s}{N_0-N_s}\Delta M_0,\qquad
- N_* = N_s+(N_0-N_s)\frac{\Delta P}{\Delta M_0}.
- \label{eq:schedule-amortization}
-\end{equation}
+\input{equations/schedule_amortization.tex}
 Substitution gives $N_*\simeq13{,}432$--$15{,}480$ candidate steps. A coarser model that scales the savings with all steps instead gives $N_*=N_0\Delta P/\Delta M_0\simeq14{,}181$--$16{,}522$. Their difference reflects the treatment of startup, not additional measurements. Thus a scale of roughly $1.5\times10^4$ steps is a conditional planning estimate, not an observed threshold. Neither model proves accuracy beyond $T=72$, constant device efficiency, or superiority to a different qualified method. Multiple short solves amortize preparation only when the relevant prepared objects are actually shared; a PTX cache alone does not share spatial matrices or FFT plans. A new longer-horizon qualification and isolated experiment are required to validate a crossover.

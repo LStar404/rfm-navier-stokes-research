@@ -1,0 +1,27 @@
+\paragraph{Saved-probe evidence for accumulated phase drift.}
+We analyse the existing 577 observations at spacing $0.125$, without integrating a new trajectory or shifting the physical scoring times. The primary window is $24\leq t\leq72$. After subtracting a least-squares linear trend, upward zero crossings are linearly interpolated and their times are fitted to an affine function of crossing index; the inverse slope estimates frequency. Both velocity and vorticity at $x=1.5,2.5,3.5$, $y=0$ are retained, with windows starting at 36 and 48, mean-only detrending, and both finer FD references as sensitivity checks. These finite-window estimates are descriptive, not confidence intervals or an unbounded-cylinder Strouhal validation.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Stored midpoint-frequency trajectories: vorticity at $(2.5,0)$ over $[24,72]$, using the time-fine FD reference. Each fit uses eight upward crossings (seven complete intervals). Reference frequency is $0.17534308$. Bias is relative frequency error in percent; delay is the candidate-minus-reference time at the matched reference crossing $t=66.797754$.}
+\label{tab:review-phase-probes}
+\begin{tabular}{llrrrr}
+\toprule
+Resolution & Nonzero layers & Rank & Frequency & Bias (\%) & Delay\\
+\midrule
+Mid & Present & 39 & 0.17534574 & $+0.00152$ & $-0.00101$\\
+Mid & Absent & 34 & 0.16799056 & $-4.19322$ & $+1.75259$\\
+High & Present & 40 & 0.17534385 & $+0.00044$ & $-0.00020$\\
+High & Absent & 35 & 0.16837253 & $-3.97538$ & $+1.67221$\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Across all five random seeds and the midpoint controls, the primary-window no-layer frequency biases range from $-4.27\%$ to $-3.35\%$ over the six probe signals; including both references, windows and detrending variants expands this range to $-5.20\%$ to $-1.88\%$. The observed delays in Figure~\ref{fig:review-phase-probes} support accumulated phase drift as one component of the long-time mismatch. For the two no-layer midpoint rows, $2\pi(f-f_{\rm ref})48$ equals approximately $-2.22$ and $-2.10$ radians, a fitted rate-mismatch estimate rather than a measured full-field phase correction. The data do not support assigning all $70\%$-level field error to phase. The removed enrichments are localized at the \emph{outer} boundary, retained rank changes simultaneously, and no inner-wall separation-angle measurement was made. Thus an inner-wall underresolution--frequency-shift causal chain is not established.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/review_phase_probes.pdf}
+\caption{Original-time vorticity signals and accumulated crossing delays for the midpoint-frequency ablation. The first candidate crossing is paired with the nearest initial reference crossing, after which crossing indices remain fixed. The lower panels use linearly detrended signals for event detection only; no trajectory or field-error score is time shifted.}
+\label{fig:review-phase-probes}
+\end{figure}

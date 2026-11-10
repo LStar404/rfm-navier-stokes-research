@@ -1,0 +1,34 @@
+\subsection{The FD4 wall closure on the actual radial grid}
+\label{sec:fd-wall-closure}
+
+The annular finite-difference baseline uses the logarithmic coordinate $s=\log(r/a)$, rather than a uniform physical-radius grid. Its registered outer-clustered grid is
+\begin{equation}
+ s_j=L\sin\!\left(\frac{\pi j}{2n}\right),\qquad
+ r_j=a e^{s_j},\qquad j=0,\ldots,n.
+ \label{eq:fd-radial-grid}
+\end{equation}
+The qualified FD176/FD184 configurations and the two FD448 references use this same grid family. The canonical implementation is \path{work/rfm_v6/fd_full.py}, which calls \texttt{wall\_second} in \path{work/rfm_v3/cylinder_fd.py}. It recomputes one-sided Hermite weights for the actual nonuniform nodes. The earlier \path{work/rfm_ns/cfd_reference_fourth.py} implements a Cartesian cavity and is not this annular baseline.
+
+For the inner wall, set $h=s_1-s_0$, $z_j=(s_j-s_0)/h$, and $d_w=\psi_s(0)$. The five value weights $a_j$ and the slope weight $b$ satisfy
+\begin{equation}
+ \begin{gathered}
+ \sum_{j=0}^{4}a_j z_j^m+b\,\delta_{m1}=2\delta_{m2},
+ \quad m=0,\ldots,5,\\
+ D_{s,w}^2\psi=\frac{1}{h^2}\sum_{j=0}^{4}a_j\psi(s_j)
+                     +\frac{b}{h}d_w.
+ \end{gathered}
+ \label{eq:fd-hermite-moments}
+\end{equation}
+Thus the closure reproduces polynomials through degree five. For smooth functions and bounded local node ratios it is fourth-order accurate. On the special uniform-$s$ grid it reduces to
+\begin{equation}
+ \begin{split}
+ D_{s,w}^2\psi={}&\frac{-\frac{415}{72}\psi(0)+8\psi(h)-3\psi(2h)
+                         +\frac89\psi(3h)-\frac18\psi(4h)}{h^2}
+                    -\frac{25}{6h}d_w,\\
+ D_{s,w}^2\psi-\psi_{ss}(0)={}&-\frac{h^4}{15}\psi^{(6)}(0)+O(h^5).
+ \end{split}
+ \label{eq:fd-uniform-wall}
+\end{equation}
+Omitting the wall-value term requires $\psi(0)=0$; the constant coefficients must not be inserted unchanged on the nonuniform grid in Eq.~\eqref{eq:fd-radial-grid}. For the present nonzero angular modes, no slip gives $\psi_k(0)=\psi_{k,s}(0)=0$, and the implemented wall vorticity is $\omega_k(0)=-a^{-2}D_{s,w}^2\psi_k$. The angular-mean tangential-velocity block instead uses its separate first-derivative boundary reconstruction.
+
+An additional spatial-only audit verifies the uniform coefficients and polynomial moments using exact rational arithmetic. The actual nonuniform rows at $n=176,184,384,448$ reproduce the six scaled moments to $2.85\times10^{-14}$ in FP64; a degree-five test of the constructed FD184 wall-vorticity operator has absolute error $2.31\times10^{-14}$. These are stencil and implementation checks, not a new flow trajectory or a long-time convergence certificate.

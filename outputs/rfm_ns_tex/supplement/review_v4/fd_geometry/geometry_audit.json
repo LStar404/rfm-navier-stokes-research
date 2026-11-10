@@ -1,0 +1,39 @@
+{
+  "status": "checked",
+  "scope": "Mathematical scope audit; no geometric PDE simulation or measured iteration count",
+  "radial_map": {
+    "claim": "A smooth invertible radial reparameterization r=rho(eta) retains theta-independent metrics and angular block separation if boundary operators also remain angle independent.",
+    "qualification": "This applies to the implicit linear operator; nonlinear products still couple Fourier modes. Radial conditioning and quadrature can change."
+  },
+  "angle_dependent_map": {
+    "claim": "Angle-dependent metric coefficients generally couple Fourier modes in the current representation.",
+    "qualification": "Sparse direct, assembled, matrix-free, convolutional and iterative representations are choices; PCG and per-product FFTs are not necessary for all geometries."
+  },
+  "pcg": {
+    "required_conditions": [
+      "A is symmetric positive definite on the chosen discrete space",
+      "B is a fixed symmetric positive definite preconditioner with exact applications in the stated exact-arithmetic theorem",
+      "alpha B <= A <= beta B in the quadratic-form sense is assumed",
+      "epsilon denotes a reduction in the A-energy norm of algebraic error, not automatically the relative residual or physical velocity/vorticity error"
+    ],
+    "bound": "||e_j||_A / ||e_0||_A <= 2*((sqrt(kappa)-1)/(sqrt(kappa)+1))^j, kappa=cond_2(B^(-1/2) A B^(-1/2)) <= beta/alpha",
+    "implication": "For kappa>1, O(sqrt(beta/alpha)*log(1/epsilon)) is a sufficient worst-case iteration scale, not a measured count or lower bound. Kappa=1 gives exact one-step convergence in exact arithmetic.",
+    "not_established": "No mesh-independent alpha,beta for arbitrary mapped bodies or empirical nonseparable operator speed result is established here.",
+    "primary_reference": {
+      "author": "R. Barrett et al.",
+      "title": "Templates for the Solution of Linear Systems: Building Blocks for Iterative Methods",
+      "edition": "2",
+      "publisher": "SIAM",
+      "year": 1994,
+      "convergence_url": "https://netlib.org/linalg/html_templates/node22.html",
+      "author_bibliography_url": "https://netlib.org/linalg/html_templates/Templates.html",
+      "checked_date": "2026-11-10"
+    }
+  },
+  "boundary_transform_curvature": {
+    "definition": "Bq=chi*q-b*[(chi*q)'']_(z=1), chi=16*z^2*(1-z), b=z^2*(1-z)^2/2; all primes are z derivatives",
+    "endpoint_identities": "chi(0)=chi'(0)=0, chi''(0)=32, b''(0)=1, chi(1)=0, chi'(1)=-16, chi''(1)=-64",
+    "inner_curvature": "(Bq)''(0)=32*q(0)-[(chi*q)'']_(z=1)=32*q(0)+64*q(1)+32*q'(1)",
+    "consequence": "The homogeneous no-slip constraints do not force inner-wall curvature to vanish. For s derivatives the second derivative has the additional L^(-2) factor."
+  }
+}

@@ -1,0 +1,10 @@
+Pure radial reparameterization should be distinguished from an angle-dependent geometry. For a smooth invertible map $r=\rho(\eta)$, the metric coefficients remain independent of $\theta$. With the same angularly invariant boundary operators, Fourier orthogonality preserves the implicit modal blocks; only the radial matrices and their conditioning change. The $O(Kd^2)$ independent dense-solve cost remains applicable to the current Galerkin design. A map for an eccentric or noncircular body generally introduces angle-dependent coefficients in this representation and couples angular modes. This observation is about the chosen coordinates and operators, not a theorem that every irregular geometry requires a particular iterative algorithm.
+
+If the coupled implicit matrix $A$ and a fixed preconditioner $B$ are SPD and the assumed spectral-equivalence inequality holds, exact-arithmetic PCG gives the standard energy-error bound\cite{r21}
+\begin{equation}
+ \frac{\|e_j\|_A}{\|e_0\|_A}
+ \leq2\left(\frac{\sqrt{\kappa}-1}{\sqrt{\kappa}+1}\right)^j,
+ \qquad \kappa=\kappa_2(B^{-1/2}AB^{-1/2})\leq\beta/\alpha.
+ \label{eq:geometry-pcg-bound}
+\end{equation}
+For $\kappa>1$, this supplies a sufficient iteration scale $O(\sqrt{\beta/\alpha}\log(1/\varepsilon))$ for relative energy-error reduction $\varepsilon$; it is not a measured iteration count or a lower bound. The cost also includes applying $A$, solving with $B$, and reductions. The bound does not automatically apply to nonsymmetric discretizations, indefinite systems, or variable/inexact preconditioners. Smooth mapping alone has not established the needed $\alpha,\beta$ for this study. A pseudospectral metric product may use angular FFTs, whereas an assembled sparse coupling or a short Fourier convolution may use other products. Thus neither PCG nor an FFT at every matrix--vector product is mandatory, and the annular timing results cannot predict the new operator balance.

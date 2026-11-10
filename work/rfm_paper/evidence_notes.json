@@ -1,0 +1,1286 @@
+{
+  "scope": "Paper evidence audit of archived results only; no PDE solve, GPU call, or timing run performed.",
+  "recommended_claim": "固定随机特征Galerkin不可压NS求解器的成本分解、条件性分析与同精度验证；具有局部算子/启动收益和数值可行性，但尚未建立最终强对照下稳定整体速度优势。",
+  "problem": {
+    "equations": "u_t+(u·∇)u=-∇p+νΔu, ∇·u=0; 2D finite annulus a<r<R. Re=U_inf D/ν=100, D=2a=1,U_inf=1,a=0.5,R=6,ν=0.01,T=72.",
+    "coordinates": "s=ln(r/a), L=ln(R/a), z=s/L. Nonzero angular modes use ψ; ur=(1/r)∂θψ, uθ=-(1/r)∂sψ, ω=-(1/r²)(ψ_ss+ψ_θθ). Mode0 tangential velocity v(s,t) advanced independently, ω0=(v+v_s)/r.",
+    "angular_representation": "Real fields c0+2Re(sum_{k=1}^K c_k exp(ikθ)); complex c_k retain both sine and cosine. No reflection constraint; negative modes follow real-field conjugacy, not discarded physical parity.",
+    "initial": "Rest: ψ=0 and v=0 at t=0; all state coefficients and histories zero. First time step backward Euler with ramp-consistent zero nonlinearity.",
+    "boundary": "At cylinder r=a: ψ=ψ_s=0 (no slip), v=0. At outer r=R: ψ=R[U(t)sinθ-V(t)cosθ], nonzero-mode ω=0; mean satisfies v_s+v=0. This does not prescribe full uniform velocity on outer circle.",
+    "forcing": "U(t)=1-exp[-(t/0.8)^3]; V(t)=0.12 sin^4[π(t-4)/8] for 4<t<12, zero otherwise.",
+    "lift": "ψ_lift=ell(s)[U sinθ-V cosθ], ell=R[(1-b)z²+b z³], b=(L²-2)/4. In complex mode1 code amplitude=-(V+iU)/2. ell(0)=ell_s(0)=0; ell(L)=R, ell_ss(L)=R, hence outer ω1=0.",
+    "sources": [
+      "work/rfm_v6/full_case.py:speed,lift",
+      "work/rfm_v6/full_galerkin.py:fields_on,mean_jets",
+      "work/rfm_v6/fd_full.py:FullFD.__init__"
+    ]
+  },
+  "discretization": {
+    "RFM_features": "For odd m, p=(m-1)/2. Frequencies b_j=(j+ξ_j)*62/p for j=0..p-1, ξ_j~Uniform(0.2,0.8), independently under NumPy default_rng(seed). Include constant and paired cos/sin via phases 0,-π/2. Raw arguments (z-1/2)b_j+phase. Boundary correction clamped(...farfield) and six outer-layer enrichments follow before weighted column-scaled SVD.",
+    "RFM_boundary_transform": "Multiply seed functions g(z) by 16z²(1-z), then subtract [z²(1-z)²/2] times the product second derivative at z=1. This enforces ψ=ψ_s=0 at0 and ψ=ψ_ss=0 at1. Derivatives in s carry L^-1,L^-2.",
+    "layers": "β=(16,36,80,165,340,660); d=L-s. Nonzero mode fβ=z²[d+(β+2/L)d²]exp(-βd). Mean fβ=z[1+(β+1+1/L)d]exp(-βd).",
+    "SVD": "Nonzero transform via column-scaled sampled (f_ss-f) sqrt(w)/r, relative singular-value cutoff 1e-10. Thus input m and final retained rank differ. Mean base order24 plus6layers gives mean retained rank30. Fixed feature weights; no PINN residual training.",
+    "Legendre": "Same boundary/layer/quadrature/SVD pipeline, polynomial seed functions Legendre degree0..m-1 in2z-1, evaluated by differentiated recurrence. The deterministic Galerkin baseline is itself traditional CFD.",
+    "FD": "n denotes intervals, n+1 nodes; n-1=175 or183 interior radial unknowns per mode for FD176/184, so protocol retained_rank=n for FD is a label, not the Galerkin algebraic rank. s_j=L sin(πj/(2n)), outer clustering. Fourth-order radial differences; all time schemes remain second-order SBDF2. FD176 dense CUDA andFD184 band CUDA both qualified; FD184dense failed implementation gate historically.",
+    "quadrature": "Split Gauss in s over[0,L-0.12],[L-0.12,L-0.018],[L-0.018,L], counts q-2b,b,b with b=max(8,floor(q/6)). Midq66=>44+11+11;highq76=>52+12+12.",
+    "FFT": "N=next_fast_len(3K+1,real=True), N225 forK72 andN243 forK80, strictN>3K prevents wrapped quadratic modes entering retained band. Galerkin3inverse+2forward;FD4inverse+1forward;5 logical field transforms per nonlinear evaluation.",
+    "sources": [
+      "work/rfm_v3/cylinder_rfm.py:Trial,clamped",
+      "work/rfm_v6/full_galerkin.py:scaled_svd,FullGalerkin",
+      "work/rfm_v6/radial_layers.py",
+      "work/rfm_v6/full_nonlinear.py",
+      "work/rfm_v6/fd_full.py",
+      "work/rfm_v7/basis_recurrence_model.py"
+    ]
+  },
+  "validation": {
+    "metrics": "For field f, e_f=||f_h-f_ref||_W/||f_ref||_W. Velocity uses ur²+uθ² jointly; vorticity separate. W includes r²ds dθ. Check entire annulus andr≤2.5 separately at each absolute time; maxima never phase-aligned.",
+    "physical_gate": 0.005,
+    "implementation_gate": 1e-05,
+    "grids": [
+      {
+        "name": "gauss123",
+        "radial": 123,
+        "angular": 433,
+        "theta_shift": 0.23,
+        "weights": "Gauss(s)*r²"
+      },
+      {
+        "name": "mid129",
+        "radial": 129,
+        "angular": 449,
+        "theta_shift": 0.43,
+        "weights": "L/129*r²"
+      },
+      {
+        "name": "layer144",
+        "radial": 144,
+        "angular": 457,
+        "theta_shift": 0.31,
+        "radial_counts": [
+          96,
+          24,
+          24
+        ],
+        "weights": "split Gauss(s)*r²"
+      }
+    ],
+    "physical_times": [
+      0.5,
+      1,
+      2,
+      4,
+      6,
+      8,
+      8.125,
+      8.5,
+      9,
+      10,
+      12,
+      16,
+      24,
+      36,
+      48,
+      54,
+      60,
+      66,
+      72
+    ],
+    "switch_extra_times": "8+1/late_rate, 8+2/late_rate, giving21savedfields for switched vs19uniform.",
+    "probe": "x/D=1.5,2.5,3.5 at y=0. t=0:0.125:72 =>577 samples. After initial zero,576 actual reductions. Full-horizon CPU/GPU relative probe norms≤1e-5. Wake checker also requires sustained alternating probe signs; saturation/frequency diagnostics are not independent engineering accuracy benchmarks.",
+    "triangle_guard": "Let b=||f_uniform-f_ref||/||f_ref|| and d=||f_switch-f_uniform||/||f_uniform|| at same grid,time,metric. Require b+(1+b)d≤0.005 in addition to direct reference comparison. Must use same trial space/seed uniform control. Triangle inequality is rigorous for those discrete norms, not a bound against exact continuum solution.",
+    "reference": "Two frozen fine references angular_fine andtime_fine; ladder radial384→448,angularK128→144,time rate384→512. Early composed empiricalbudget0.00010112530180312808;late0.00029014373411140326;allowed0.00125=0.005/4. These are reference differences/empirical convergence diagnostics, not strict PDE error certificates. Late budget0.0290144% does not meet quarter of0.1%=0.025%.",
+    "source": [
+      "work/rfm_v6/full_case.py:score,evaluation_grids,layer_scoring_grid",
+      "work/rfm_v7/verify_switch_qualification.py:bound=delta*(1+e)+e",
+      "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/independent_score.json:reference_budget",
+      "work/rfm_v8/rank_fair_cache_qualification_output/protocol.json"
+    ]
+  },
+  "qualification": {
+    "numerical_identities": 39,
+    "cache_policies": 2,
+    "gpu_trajectories": 78,
+    "passed": 78,
+    "cache_pairs": 39,
+    "all_pairs_bitwise": true,
+    "engine": "warp_cufft only; fused nonlinear not selected",
+    "seeds": [
+      7331,
+      7687,
+      8011,
+      8353,
+      9041
+    ],
+    "maxima": {
+      "physical_worst": {
+        "value": 0.004775428806959625,
+        "field": "slot_077.physical_worst.time_fine.vorticity"
+      },
+      "guard_worst": {
+        "value": 0.00497729675053289,
+        "field": "slot_023.guard_worst.time_fine.vorticity"
+      },
+      "implementation_worst": {
+        "value": 3.572075683009756e-06,
+        "field": "slot_025.implementation_worst.vorticity"
+      },
+      "probes": {
+        "value": 3.879179037889954e-06,
+        "field": "slot_025.probes.vorticity"
+      }
+    },
+    "groups": [
+      {
+        "name": "rfm37_k72",
+        "arm": "uniform",
+        "ranks": [
+          39
+        ],
+        "seeds": [
+          7331,
+          7687,
+          8011,
+          8353,
+          9041
+        ],
+        "indices": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "physical_worst": {
+          "velocity": 0.0002942847889852114,
+          "vorticity": 0.004095963040491825,
+          "near_velocity": 0.00025070107689948926,
+          "near_vorticity": 0.002100432991925024
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        },
+        "angular_fft_length": 225,
+        "time_args": {
+          "steps": 9216
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "rfm37_k72",
+        "arm": "combined",
+        "ranks": [
+          39
+        ],
+        "seeds": [
+          7331,
+          7687,
+          8011,
+          8353,
+          9041
+        ],
+        "indices": [
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "physical_worst": {
+          "velocity": 0.0004467236297246263,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.0021655590725919013
+        },
+        "guard_worst": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.002357017457881236
+        },
+        "config": {
+          "m": 37,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        },
+        "angular_fft_length": 225,
+        "time_args": {
+          "startup_rate": 128,
+          "late_rate": 112,
+          "switch_time": 8
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg35_k72_q66",
+        "arm": "uniform",
+        "ranks": [
+          39
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          20,
+          21
+        ],
+        "physical_worst": {
+          "velocity": 0.0002676332390441039,
+          "vorticity": 0.004420654551549681,
+          "near_velocity": 0.00023628275422163053,
+          "near_vorticity": 0.002382092766189029
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 35,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 225,
+        "time_args": {
+          "steps": 9216
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg35_k72_q66",
+        "arm": "combined",
+        "ranks": [
+          39
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          22,
+          23
+        ],
+        "physical_worst": {
+          "velocity": 0.00041042599162220667,
+          "vorticity": 0.004566492392510435,
+          "near_velocity": 0.0003788979921378435,
+          "near_vorticity": 0.0024168373272645503
+        },
+        "guard_worst": {
+          "velocity": 0.0004357513208287623,
+          "vorticity": 0.00497729675053289,
+          "near_velocity": 0.0003899710379335722,
+          "near_vorticity": 0.0025732860999140533
+        },
+        "config": {
+          "m": 35,
+          "k": 72,
+          "q": 66,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 225,
+        "time_args": {
+          "startup_rate": 128,
+          "late_rate": 112,
+          "switch_time": 8
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "fd176_k80",
+        "arm": "fd",
+        "ranks": [
+          176
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          24,
+          25
+        ],
+        "physical_worst": {
+          "velocity": 0.0008648420890619326,
+          "vorticity": 0.004087590798277695,
+          "near_velocity": 0.0010496824092313156,
+          "near_vorticity": 0.002547239707801601
+        },
+        "guard_worst": {},
+        "config": {
+          "n": 176,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 9216
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "uniform",
+        "ranks": [
+          40
+        ],
+        "seeds": [
+          7331,
+          7687,
+          8011,
+          8353,
+          9041
+        ],
+        "indices": [
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ],
+        "physical_worst": {
+          "velocity": 0.00018191865479862614,
+          "vorticity": 0.003318904266947242,
+          "near_velocity": 0.00014839839258224948,
+          "near_vorticity": 0.001798792006998707
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 41,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 10944
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "rfm41_k80",
+        "arm": "combined",
+        "ranks": [
+          40
+        ],
+        "seeds": [
+          7331,
+          7687,
+          8011,
+          8353,
+          9041
+        ],
+        "indices": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45
+        ],
+        "physical_worst": {
+          "velocity": 0.00025948472466957227,
+          "vorticity": 0.003403369592857587,
+          "near_velocity": 0.00023097918581715035,
+          "near_vorticity": 0.0018238446069579982
+        },
+        "guard_worst": {
+          "velocity": 0.0002805582349019644,
+          "vorticity": 0.0036866926100803535,
+          "near_velocity": 0.00023956840535836271,
+          "near_vorticity": 0.0019464502316462878
+        },
+        "config": {
+          "m": 41,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "startup_rate": 152,
+          "late_rate": 136,
+          "switch_time": 8
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg36_k80_q76",
+        "arm": "uniform",
+        "ranks": [
+          40
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          46,
+          47
+        ],
+        "physical_worst": {
+          "velocity": 0.000161324689460552,
+          "vorticity": 0.003620492654836971,
+          "near_velocity": 0.00013928203000243276,
+          "near_vorticity": 0.0020466994419239284
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 36,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 10944
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg36_k80_q76",
+        "arm": "combined",
+        "ranks": [
+          40
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          48,
+          49
+        ],
+        "physical_worst": {
+          "velocity": 0.0001971721162988658,
+          "vorticity": 0.0036633798859253166,
+          "near_velocity": 0.00017373776742428832,
+          "near_vorticity": 0.002056300648698358
+        },
+        "guard_worst": {
+          "velocity": 0.0002405042117203254,
+          "vorticity": 0.0039404595714263345,
+          "near_velocity": 0.00020343800666219094,
+          "near_vorticity": 0.002156725016017977
+        },
+        "config": {
+          "m": 36,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "startup_rate": 152,
+          "late_rate": 136,
+          "switch_time": 8
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg35_k80_q76",
+        "arm": "uniform",
+        "ranks": [
+          39
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          50,
+          51
+        ],
+        "physical_worst": {
+          "velocity": 0.0001895865020368743,
+          "vorticity": 0.004151973774644447,
+          "near_velocity": 0.00016743342613952485,
+          "near_vorticity": 0.002368509693982854
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 35,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 10944
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg35_k80_q76",
+        "arm": "combined",
+        "ranks": [
+          39
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          52,
+          53
+        ],
+        "physical_worst": {
+          "velocity": 0.0002234542353162063,
+          "vorticity": 0.004191380361719105,
+          "near_velocity": 0.00020076303210562232,
+          "near_vorticity": 0.0023781950191437383
+        },
+        "guard_worst": {
+          "velocity": 0.00026777359888802566,
+          "vorticity": 0.004472169550547655,
+          "near_velocity": 0.00022909773990757986,
+          "near_vorticity": 0.0024786376395459614
+        },
+        "config": {
+          "m": 35,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "startup_rate": 152,
+          "late_rate": 136,
+          "switch_time": 8
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "fd184_k80",
+        "arm": "fd",
+        "ranks": [
+          184
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          54,
+          55
+        ],
+        "physical_worst": {
+          "velocity": 0.0006429559012944665,
+          "vorticity": 0.003065184582065558,
+          "near_velocity": 0.0007899592485334769,
+          "near_vorticity": 0.0019147930190420198
+        },
+        "guard_worst": {},
+        "config": {
+          "n": 184,
+          "k": 80,
+          "stretch": 1.0,
+          "grid": "outer",
+          "angular": "fft",
+          "linear": "native"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 9216
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "uniform",
+        "ranks": [
+          38,
+          39
+        ],
+        "seeds": [
+          7331,
+          7687,
+          8011,
+          8353,
+          9041
+        ],
+        "indices": [
+          56,
+          57,
+          60,
+          61,
+          64,
+          65,
+          68,
+          69,
+          72,
+          73
+        ],
+        "physical_worst": {
+          "velocity": 0.00019349597739409184,
+          "vorticity": 0.004281834080639644,
+          "near_velocity": 0.00013947062666099538,
+          "near_vorticity": 0.0023373412081516753
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 35,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 10944
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "rfm35_k80",
+        "arm": "combined",
+        "ranks": [
+          38,
+          39
+        ],
+        "seeds": [
+          7331,
+          7687,
+          8011,
+          8353,
+          9041
+        ],
+        "indices": [
+          58,
+          59,
+          62,
+          63,
+          66,
+          67,
+          70,
+          71,
+          74,
+          75
+        ],
+        "physical_worst": {
+          "velocity": 0.0002308712856101713,
+          "vorticity": 0.004324513819216593,
+          "near_velocity": 0.00018681031085808386,
+          "near_vorticity": 0.0023466259121228024
+        },
+        "guard_worst": {
+          "velocity": 0.00028303385157772156,
+          "vorticity": 0.00464943189583957,
+          "near_velocity": 0.0002150094914147843,
+          "near_vorticity": 0.0024691327582233333
+        },
+        "config": {
+          "m": 35,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 7331,
+          "family": "rfm"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "startup_rate": 152,
+          "late_rate": 136,
+          "switch_time": 8
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      },
+      {
+        "name": "leg34_k80_q76",
+        "arm": "uniform",
+        "ranks": [
+          38
+        ],
+        "seeds": [
+          17
+        ],
+        "indices": [
+          76,
+          77
+        ],
+        "physical_worst": {
+          "velocity": 0.00023014618850970467,
+          "vorticity": 0.004775428806959625,
+          "near_velocity": 0.00020857565654806484,
+          "near_vorticity": 0.00271448726892632
+        },
+        "guard_worst": {},
+        "config": {
+          "m": 34,
+          "k": 80,
+          "q": 76,
+          "scale": 62.0,
+          "mean_order": 24,
+          "layers": [
+            16,
+            36,
+            80,
+            165,
+            340,
+            660
+          ],
+          "split": true,
+          "backend": "fft",
+          "seed": 17,
+          "family": "legendre"
+        },
+        "angular_fft_length": 243,
+        "time_args": {
+          "steps": 10944
+        },
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/independent_score.json, fields physical_worst[reference][metric], guard_worst[reference][metric]"
+      }
+    ],
+    "source": "work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json andslot_*/independent_score.json"
+  },
+  "work_counts": [
+    {
+      "uniform_slot": 0,
+      "switched_slot": 10,
+      "uniform_steps": 9216,
+      "switched_steps": 8192,
+      "uniform_nonlinear": 9215,
+      "switched_nonlinear": 8191,
+      "reduction": 0.1111231687466088,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/result.json: metadata.steps, metadata.nonlinear_evaluations"
+    },
+    {
+      "uniform_slot": 26,
+      "switched_slot": 36,
+      "uniform_steps": 10944,
+      "switched_steps": 9920,
+      "uniform_nonlinear": 10943,
+      "switched_nonlinear": 9919,
+      "reduction": 0.09357580188248195,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_XXX/result.json: metadata.steps, metadata.nonlinear_evaluations"
+    }
+  ],
+  "negative_selection": {
+    "high_rfm35_ranks": [
+      {
+        "seed": 7331,
+        "rank": 38,
+        "qualified": true
+      },
+      {
+        "seed": 7687,
+        "rank": 38,
+        "qualified": true
+      },
+      {
+        "seed": 8011,
+        "rank": 38,
+        "qualified": true
+      },
+      {
+        "seed": 8353,
+        "rank": 39,
+        "qualified": true
+      },
+      {
+        "seed": 9041,
+        "rank": 38,
+        "qualified": true
+      }
+    ],
+    "leg34_high": "rank38 uniform passes; switched guard0.50960% fails. Do not call Leg34 unconditionally failed based on summary high_legendre_qualified_options (requires botharms).",
+    "leg33_high": "rank37 failsT72; do not promote based onT16.",
+    "mid_rfm35": "switched guard fails; not retained.",
+    "source": "work/rfm_v8/rank_parity_expansion_output/summary.json promoted_rows, work/rfm_v8/report_final_round.json"
+  },
+  "finite_domain": {
+    "common_grid": "r≤4, absolute times with no phase alignment",
+    "common_unshifted": {
+      "velocity": 0.16951472067303214,
+      "vorticity": 0.5038884214115161,
+      "near_velocity": 0.1784421849176946,
+      "near_vorticity": 0.3520684793948423
+    },
+    "R8_refinement": {
+      "velocity": 3.89941805228233e-05,
+      "vorticity": 0.00026689887159231764,
+      "near_velocity": 6.272249598219574e-05,
+      "near_vorticity": 0.0001475830729648665
+    },
+    "R6_St": 0.17555841987160722,
+    "R8_St": 0.17370147589140056,
+    "note": "50.388842% vorticity difference includes accumulated phase effects. Demonstrates strong sensitivity of this finite-boundary problem; not a strict0.5039 exact-PDE error and not an infinite-domain extrapolation. HistoricalR6 here isFD320reference, not thelatestFD448chain.",
+    "source": "work/rfm_v7/domain_output/domain_sensitivity.json:common_unshifted.vorticity,reference_R6.wake.strouhal,reference_R8.wake.strouhal"
+  },
+  "performance_evidence": {
+    "local_fft": "Published fixed-state timings us:GalN225q66 42.12→22.64;GalN243q76 40.32→25.48;FD17685.13→61.00;FD18490.35→69.38. These are microkernel diagnostics, not isolated fullcase ranking. Sourcework/rfm_v8/report_text.txt FFTtable andfusedmicro audits referenced byoperator_bottleneck_review.json.",
+    "fused_t9": [
+      {
+        "pair": 0,
+        "name": "rfm37_k72",
+        "arm": "uniform",
+        "old_over_fused_total": 0.6261151759614262,
+        "old_over_fused_march": 1.2050595888676912,
+        "old_total_seconds": 0.6278832000098191,
+        "fused_total_seconds": 1.0028238000231795
+      },
+      {
+        "pair": 1,
+        "name": "rfm41_k80",
+        "arm": "combined",
+        "old_over_fused_total": 0.590533876089078,
+        "old_over_fused_march": 1.1317428469523716,
+        "old_total_seconds": 0.734439600026235,
+        "fused_total_seconds": 1.2436875000130385
+      },
+      {
+        "pair": 2,
+        "name": "fd176_k80",
+        "arm": "fd",
+        "old_over_fused_total": 0.6203647036727766,
+        "old_over_fused_march": 1.1847784821806668,
+        "old_total_seconds": 0.9629760000389069,
+        "fused_total_seconds": 1.552274000016041
+      },
+      {
+        "pair": 3,
+        "name": "fd184_k80",
+        "arm": "fd",
+        "old_over_fused_total": 0.8147501621685806,
+        "old_over_fused_march": 1.1024529871241529,
+        "old_total_seconds": 0.9987280000350438,
+        "fused_total_seconds": 1.2258088999660686
+      }
+    ],
+    "fused_t9_source": "work/rfm_v8/fused_march_t9_output/summary.json:paired_diagnostic. All8 trajectories pass; old/fusedmarch ratio>1,old/fusedtotal<1; first-usecompile cost dominates. NotT72promotion.",
+    "warp": "6serialthreads→6warps,approx19–22xGalerkin and27xFD observation node. Saved states unchanged; sensor-only rounding difference audited. Do not call NSnonlinear speedup.",
+    "thin_historical_scope": {
+      "status": "sampled_isolated_and_numerically_qualified",
+      "scope": "Observed Python process scope with GPU preflight endpoints; complete lifecycle coverage is unavailable.",
+      "registered_slots": 50,
+      "attempted_slots": 50,
+      "numerical_qualified_slots": 50,
+      "isolated_speed_claim_supported": true,
+      "monitor": {
+        "verified": true,
+        "eligible": true,
+        "reason": "no_sampled_external_activity",
+        "preflight_passed": true,
+        "active_samples": 195,
+        "max_poll_gap_ns": 1013613900,
+        "full_lifecycle_verified": false
+      }
+    },
+    "thin_rfm_import_contrasts": [
+      {
+        "kind": "import_only",
+        "baseline": [
+          "rfm41_k80",
+          "uniform",
+          "selected"
+        ],
+        "candidate": [
+          "rfm41_k80",
+          "uniform",
+          "minimal"
+        ],
+        "clocks": {
+          "solver_seconds": {
+            "values": [
+              0.9991021145216215,
+              0.997405233191909,
+              0.9968899389549531,
+              1.0000184931588332,
+              0.9997898824201104
+            ],
+            "median": 0.9991021145216215,
+            "minimum": 0.9968899389549531,
+            "maximum": 1.0000184931588332,
+            "candidate_wins": 1,
+            "meets_practical_threshold": false,
+            "isolated_practical_improvement_supported": false
+          },
+          "fresh_process_return_seconds": {
+            "values": [
+              1.2927815543042058,
+              1.2956852733233992,
+              1.2869927502458682,
+              1.276855343249573,
+              1.300968967460508
+            ],
+            "median": 1.2927815543042058,
+            "minimum": 1.276855343249573,
+            "maximum": 1.300968967460508,
+            "candidate_wins": 5,
+            "meets_practical_threshold": true,
+            "isolated_practical_improvement_supported": true
+          }
+        },
+        "complete_five_pairs": true,
+        "overall_two_clock_practical_improvement": false,
+        "startup_only_practical_improvement": true,
+        "descriptive_rank_contrast": false
+      },
+      {
+        "kind": "import_only",
+        "baseline": [
+          "rfm41_k80",
+          "combined",
+          "selected"
+        ],
+        "candidate": [
+          "rfm41_k80",
+          "combined",
+          "minimal"
+        ],
+        "clocks": {
+          "solver_seconds": {
+            "values": [
+              0.9950887691213969,
+              0.9868060415358706,
+              1.0067016573943017,
+              0.9954560210943525,
+              0.9951059539445927
+            ],
+            "median": 0.9951059539445927,
+            "minimum": 0.9868060415358706,
+            "maximum": 1.0067016573943017,
+            "candidate_wins": 1,
+            "meets_practical_threshold": false,
+            "isolated_practical_improvement_supported": false
+          },
+          "fresh_process_return_seconds": {
+            "values": [
+              1.288231037896015,
+              1.3005371510970407,
+              1.3327959455831286,
+              1.3713934843403592,
+              1.2614970252097224
+            ],
+            "median": 1.3005371510970407,
+            "minimum": 1.2614970252097224,
+            "maximum": 1.3713934843403592,
+            "candidate_wins": 5,
+            "meets_practical_threshold": true,
+            "isolated_practical_improvement_supported": true
+          }
+        },
+        "complete_five_pairs": true,
+        "overall_two_clock_practical_improvement": false,
+        "startup_only_practical_improvement": true,
+        "descriptive_rank_contrast": false
+      }
+    ],
+    "thin_schedule_and_preparation": [
+      {
+        "kind": "schedule_and_preparation",
+        "baseline": [
+          "rfm41_k80",
+          "uniform",
+          "minimal"
+        ],
+        "candidate": [
+          "rfm41_k80",
+          "combined",
+          "minimal"
+        ],
+        "clocks": {
+          "solver_seconds": {
+            "values": [
+              1.0087548640314024,
+              1.0024614046850597,
+              1.0112545759327036,
+              1.0135752338782988,
+              1.0084451537262962
+            ],
+            "median": 1.0087548640314024,
+            "minimum": 1.0024614046850597,
+            "maximum": 1.0135752338782988,
+            "candidate_wins": 5,
+            "meets_practical_threshold": false,
+            "isolated_practical_improvement_supported": false
+          },
+          "fresh_process_return_seconds": {
+            "values": [
+              0.9866885395230194,
+              0.9864659002596224,
+              0.9950505474436403,
+              1.0085157448041602,
+              0.9623023353496077
+            ],
+            "median": 0.9866885395230194,
+            "minimum": 0.9623023353496077,
+            "maximum": 1.0085157448041602,
+            "candidate_wins": 1,
+            "meets_practical_threshold": false,
+            "isolated_practical_improvement_supported": false
+          }
+        },
+        "complete_five_pairs": true,
+        "overall_two_clock_practical_improvement": false,
+        "startup_only_practical_improvement": false,
+        "descriptive_rank_contrast": false
+      }
+    ],
+    "thin_historical_warning": "OldLegendre39rank43vsRFM40; serialobserver; differentcachepolicy. Can show startup-specific gain and historicalFDvsGalerkin only, not final randomfeatures superiority. Sampled isolation not proof of complete external-process absence.",
+    "thin_source": "work/rfm_v8/thin_formal_high_verification.json:paired",
+    "final_closure": {
+      "status": "closed_without_new_isolated_ranking",
+      "formal_timing_eligible": false,
+      "speed_claim_supported": false,
+      "total_registered": 160,
+      "total_attempted": 12,
+      "raw_successful": 11,
+      "failed_slots": [
+        11
+      ],
+      "unattempted": 148,
+      "numerical_archives_matching_prior_qualification": 12,
+      "formal_accepted": 0,
+      "independent_disqualifying_reasons": [
+        "Slot 011 remained failed after PermissionError during terminal-state journal update; exact terminal was not committed to identity ledger or EXIT event",
+        "Active monitor recorded external Python CPU activity above the original budget, independently preventing isolated timing acceptance"
+      ],
+      "windows": [
+        {
+          "window": "mid_b1_b5",
+          "registered": 50,
+          "attempted": 12,
+          "raw_successful": 11,
+          "failed": 1,
+          "unattempted": 38,
+          "formal_accepted": 0
+        },
+        {
+          "window": "high_b1_b3",
+          "registered": 66,
+          "attempted": 0,
+          "raw_successful": 0,
+          "failed": 0,
+          "unattempted": 66,
+          "formal_accepted": 0
+        },
+        {
+          "window": "high_b4_b5",
+          "registered": 44,
+          "attempted": 0,
+          "raw_successful": 0,
+          "failed": 0,
+          "unattempted": 44,
+          "formal_accepted": 0
+        }
+      ]
+    },
+    "final_closure_source": "work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json",
+    "no_ranking": "Do not pool old2 slots withlast12, do not convert exit0 atfailedslot11into formal accepted, do not divide cross-batchmedians. High110slotsnotrun."
+  },
+  "suggested_tables": [
+    {
+      "title": "算例与独立精度验收协议",
+      "data": "problem+validation compactly; state0.5%relative not0.5absolute"
+    },
+    {
+      "title": "同精度候选及实际空间维度",
+      "data": "qualification.groups; maxover5seeds,2cachepolicies,2references,3grids,alltimes; physicalu/omega andtriangle separately; labeluniformguard n/a; FDn labelnotrank"
+    },
+    {
+      "title": "分段时间步的真实工作量",
+      "data": "work_counts; exact9215→8191 and10943→9919; count reductionnotseconds"
+    },
+    {
+      "title": "融合非线性算子的短程成本",
+      "data": "performance_evidence.fused_t9; 4rows; printoriginal/fusedtotal secandmarch ratio; markT9sequentialdiagnostic"
+    },
+    {
+      "title": "性能主张的证据层级",
+      "data": "localFFT,warp,thin startup,78numericqualification,160formalrejected; no one winning headline"
+    }
+  ],
+  "suggested_figures": [
+    {
+      "title": "有限圆环内交替涡脱落",
+      "path": "outputs/rfm_v8_figures/finite_annulus_vorticity.png",
+      "source": "outputs/rfm_v8_figures/provenance.json",
+      "caption": "RFM41rank40acceptedtrajectory t24,48,72; fixedcolor[-5,5], visualnearwake subset; actualdomainR6. Visualizationonly,accuracyfromindependentnorms."
+    },
+    {
+      "title": "未对齐的探针时间历程",
+      "path": "outputs/rfm_v8_figures/unshifted_wake_probes.png",
+      "source": "outputs/rfm_v8_figures/provenance.json",
+      "caption": "x2.5D,y0;RFM41rank40 andFD176acceptedGPU,Leg36rank40CPUqualification,FD448fine reference. Original absolute times,noalignment; notsametimingbatch. Archivearrays577samples."
+    }
+  ],
+  "important_notation_warning": "K is angular Fouriercutoff inexperimenttables; use a distinct symbol S or D for diffusion stiffness in theory to avoid overloadingK.",
+  "paper_scope_limits": [
+    "No trainedadvancedPINN same-gate comparison inthisphase.",
+    "RFMfixedfeaturesGalerkindoesnotjustifyPINNtrainingclaims.",
+    "Finiteannulusboundarysensitivityandreferenceerrorsmustbeexplicit.",
+    "NotnewRe1000standardcavityexperiment;smoothlid16x²(1-x)²historicalonly.",
+    "No verified finalrankingorpercentageattributionbetweenmathematical/operator/engineeringchanges."
+  ]
+}

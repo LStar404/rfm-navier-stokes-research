@@ -1,0 +1,10 @@
+\paragraph{A norm reduction is not a causal error budget.}
+For the middle RFM velocity maxima, postponing the switch recovers approximately $5.584\%$ of the increase relative to the uniform schedule. This is the arithmetic ratio $(E_8-E_{12})/(E_8-E_U)$; it does not isolate a bridge-local error. The intervention simultaneously changes four time units of fine versus coarse integration, the bridge time and state, and the subsequent error history. Moreover, $t=8$ is inside the analytic pulse, not a nonsmooth forcing junction.
+
+The saved fields make the nonadditivity explicit. Let $e_8=u_8-u_{\rm ref}$, $e_{12}=u_{12}-u_{\rm ref}$ and $\delta=e_8-e_{12}$, with a common physical-area inner product divided by $\|u_{\rm ref}\|^2$. Then
+\begin{equation}
+ \|e_8\|_{\rm ref}^2=\|e_{12}\|_{\rm ref}^2+
+ 2\langle e_{12},\delta\rangle_{\rm ref}+\|\delta\|_{\rm ref}^2.
+ \label{eq:review-switch-attribution}
+\end{equation}
+At $t=72$ on layer144 against the time-fine reference, for RFM37 seed7331 these four terms are $1.9956194141\times10^{-7}$, $1.9202943907\times10^{-7}$, $7.4475738974\times10^{-9}$ and $8.4928450335\times10^{-11}$, respectively. They are squared relative errors, without percent scaling. The unrounded identity residual is $2.04\times10^{-22}$; the cross term accounts for about $98.87\%$ of the squared-norm difference. This deterministic identity illustrates why neither the $5.6\%$ recovery nor its $94.4\%$ complement is an independent physical error component. A causal bridge/coarse-step split would need separately controlled interventions and a timestep-refinement study.

@@ -323,4 +323,6 @@ Lamb--BDF2候选冻结外推涡量，再迭代求解所得速度系统。附录~
 原有NS证据对应归档修订
 \href{https://github.com/LStar404/rfm-navier-stokes-research/tree/6f2b3500964d3d5153b8400018236c4702ef94f8}{\texttt{6f2b350}}，保留源码、协议、配置身份、资格评分和失败尝试。附录~\ref{sec:app-evidence}将这些归档表图映射到来源记录。仓库现公开可访问，归档提交及修订清单用于识别各批证据。
 
-本轮修订的新证据在 \path{work/rfm_review_v3/} 独立保存：\texttt{ablation/} 包含16条CPU消融与复算轨迹、10条冻结GPU控制的重评分、12项容量构造检查和覆盖验证；\texttt{profiles\_bridge/} 包含4条延后换步CPU轨迹、径向及角向误差数据、双参考逐格评分和Parseval核验；\texttt{maintenance/} 包含显式工厂维护包与7项测试。协议、源文件哈希、运行输出和统计脚本随修订上传，不覆盖冻结结果。这20条新CPU轨迹不增加原有GPU资格数，也不产生新的隔离性能结论。上一轮独立GPU算子示例及36项正确性检查仍单独保留。本轮逐条回复见同源项目的 \path{response.tex}。
+第三版修订的证据在 \path{work/rfm_review_v3/} 独立保存：\texttt{ablation/} 包含16条CPU消融与复算轨迹、10条冻结GPU控制的重评分、12项容量构造检查和覆盖验证；\texttt{profiles\_bridge/} 包含4条延后换步CPU轨迹、径向及角向误差数据、双参考逐格评分和Parseval核验；\texttt{maintenance/} 包含显式工厂维护包与7项测试。协议、源文件哈希、运行输出和统计脚本随修订上传，不覆盖冻结结果。这20条新CPU轨迹不增加原有GPU资格数，也不产生新的隔离性能结论。上一轮独立GPU算子示例及36项正确性检查仍单独保留。本轮逐条回复见同源项目的 \path{response.tex}。
+
+第四版诊断另存于 \path{work/rfm_review_v4/}：公式审计将三个共享定义绑定到第三版原本正确的数学表达；FD审计检验非均匀壁面闭合；保存探针和场数据的分析检查频率漂移及时间策略误差归因的边界。脚本、输入哈希与验证记录随修订提供。第四版没有新增NS轨迹、参考解或计时实验。

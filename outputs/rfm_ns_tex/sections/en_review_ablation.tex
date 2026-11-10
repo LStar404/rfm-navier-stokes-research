@@ -11,7 +11,7 @@ as replicates. All cells retain the same 24 mean-mode functions, six mean-mode
 layers, quadrature, and time step. Adapter checks confirm bitwise equality of
 the mean-mode discretization arrays and implicit operators across the four cells.
 
-We computed 16 new CPU trajectories to $T=72$: 14 ablation trajectories and
+Revision 3 computed 16 CPU trajectories to $T=72$: 14 ablation trajectories and
 two enriched-random CPU controls. Ten frozen enriched-random GPU trajectories
 were reused and independently rescored. Every trajectory was evaluated at the
 same 19 physical checkpoints on three grids against both fine FD references,
@@ -26,7 +26,7 @@ the archived GPU fields by less than $2.0\times10^{-10}$ in the worst field metr
 \centering\small
 \caption{Additional CPU accuracy ablation. Errors are percentages. Pass counts
 exclude the two separate CPU controls. Random rows report the worst of five
-seeds; midpoint rows contain one deterministic configuration.}
+seeds; midpoint rows contain one deterministic configuration. The two enriched-random CPU controls have relative field-metric differences from their archived GPU controls below $2.0\times10^{-10}$; this bound does not cover the other ablation arms.}
 \label{tab:review-ablation}
 \begin{tabular}{lrrrrrr}
 \hline
@@ -65,3 +65,7 @@ purported equal-rank $T=72$ control or tune the bandwidth/cutoff after failure.
 Concurrent CPU elapsed times are
 diagnostic only: they provide neither isolated timing nor new GPU speedup
 evidence, and do not extend the original 78 GPU qualification trajectories.
+
+\input{sections/en_representation_limits.tex}
+
+\input{sections/en_phase_diagnostics.tex}

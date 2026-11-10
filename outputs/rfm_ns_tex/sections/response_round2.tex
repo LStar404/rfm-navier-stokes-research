@@ -1,0 +1,82 @@
+本回复核对的基准是提交 \texttt{353b9cf}。我们采纳可由源码与数据支持的改进，并明确区分事实纠正、描述性诊断和尚未验证的因果解释。二审所称三处中文公式笔误在该提交中均不存在；本轮将它们改为中英文共用数学源文件，并增加绑定审定公式的检查。本轮另补充非均匀FD壁面闭合、条件PCG界、保存探针的频率与过零诊断及时间策略误差恒等式。没有新增PDE积分、参考解、GPU实验或计时，第三版的20条CPU轨迹与原78条GPU资格记录保持不变。
+
+\noindent\textbf{Scope.}
+We audited commit \texttt{353b9cf} and distinguish factual corrections from descriptive diagnostics and unverified causal explanations. None of the three alleged Chinese formula errors is present in that commit. The definitions now share one mathematical source across languages, with a regression check against their already-correct mathematics. We add the actual nonuniform FD wall closure, a conditional PCG bound, saved-probe frequency/crossing diagnostics, and a schedule-error identity. No PDE integration, reference solution, GPU run, or timing experiment was added. The previous 20 CPU trajectories and original 78 GPU qualification records are preserved.
+
+\section{R2-M1--M3：三个公式的事实核验与一致性防护}
+\textbf{处理结果：核验通过，未发现所称错误。}
+我们逐字读取基准提交的中英源码。\path{eq:review-profile-norm} 两语均为周向平方平均，包含 $|f_{\rm ref}|^2$ 和 $|e_f|^2$；\path{eq:review-modal-error} 分母均为同一 $L^2_\theta$ 能量；\path{eq:schedule-amortization} 均含 $\Delta P-$。基准PDF的实际编号是(9.1)、(9.2)、(10.2)，不是全篇连续编号47--49。修订不改变这些数学定义。
+
+为降低未来中英编辑分叉风险，两份正文现从 \path{equations/} 引用相同的三个公式文件。检查器递归展开本地输入，分别比较两语及基准数学块；3/3通过。另用4个合成用例验证检查器，包括必须拒绝单语漏平方和两语共同漏掉 $\Delta P-$，防止“双方同错”仍被当作通过。报告保留基准文件哈希、源码位置与旧版标签映射。
+
+\noindent\textbf{English response.}
+Both languages already contain the squared angular norms, complete absolute-value notation, and preparation penalty in the reviewed commit. We therefore do not report a nonexistent mathematical typo as corrected. Instead, both editions now include the same three equation files. The check compares each language with an audited revision-3 canonical body, not merely with the other language. All three definitions pass; four positive/negative fixtures confirm that single-language corruption and identical corruption in both languages are detected. The original equation numbers are (9.1), (9.2), and (10.2).
+
+\noindent\textbf{定位 / Location:} \path{equations/}；\path{work/rfm_review_v4/formula_audit/}。
+
+\section{R2-S1：相位漂移有何数据支持}
+\textbf{处理结果：补充实际诊断，限制机理归因。}
+对每条已保存探针序列的577个时间采样点，固定主窗口 $24\leq t\leq72$，以线性去趋势后的同向过零估计频率，另报告窗口、去趋势、三处探针、两字段、两参考及五个种子的敏感性。以下主表数值取 $x=2.5$ 的涡量探针和时间细化参考，均为有限圆环内的频率，不是无限外域圆柱的Strouhal验证。
+
+中、高档确定性无层配置频率分别为0.167991、0.168373，参考为0.175343，偏差约 $-4.193\%$、$-3.975\%$。在最后匹配的参考过零时刻 $t=66.797754$，对应滞后约1.75259、1.67221个时间单位。它们支持存在相位漂移，但不支持预先指定的1\%--2\%频偏。完整窗口/去趋势/参考敏感性中的无层频偏范围约为 $-5.20\%$ 至 $-1.88\%$，不能将单个估计当作精确恒定脱涡频率。
+
+删除的 $E_\gamma$ 集中于外边界，且保留秩同步变化；本研究没有测量内壁分离角。因而修订不把“内壁欠分辨、分离角改变、频偏、全部70\%误差”写成已识别的因果链。资格评分始终采用原始时间，不用相位平移后的误差替换。新增图和统计只描述保存波形中的频率差与滞后。
+
+\noindent\textbf{English response.}
+The saved probes support frequency mismatch and phase drift, with a main-window bias near four percent for the deterministic no-layer controls, rather than an assumed one to two percent. Matched crossing times provide a separate lag diagnostic; sensitivity to windows, detrending, probes, seeds, and references is retained. The removed features are outer-boundary enrichments, retained rank also changes, and inner-wall separation angles were not measured. We therefore do not identify a unique physical causal chain or assign all final field error to phase. Original-time qualification scores are unchanged; the new diagnostics do not use phase-aligned errors for admission.
+
+\noindent\textbf{定位 / Location:} 消融后的保存探针诊断、图与表；\path{work/rfm_review_v4/phase_diagnostics/}。
+
+\section{R2-S2：Legendre对照与端点解释的前提}
+\textbf{处理结果：纠正前提，补充表示能力的边界。}
+最终 Legendre35/36 与 RFM37/41 都使用同样的六个解析层函数；相关52条资格记录及构造代码已核对。因此，现有数据没有给出“Legendre无层达标、RFM无层失败”的比较。两族也使用相同的求积点；Legendre试验基本身不会把该共同求积替换为专用Gauss--Lobatto网格。不能把未改变的节点配置当作本实验已经识别的解释因素。
+
+实际远场包络是 $\chi(z)=16z^2(1-z)$，并带边界修正，不是二审引用的平方包络。无滑移条件不强迫内壁曲率为零：以 $z$ 为微分变量，$(\mathcal Bq)''(0)=32q(0)-[(\chi q)'']_{z=1}$ 通常非零。本轮据此补充表示能力的限制，而不宣称“硬边界必然压掉内壁二阶导数自由度”。固定中点与五种子最坏值相当，也不证明随机化在其它配置中永远无益。
+
+\noindent\textbf{English response.}
+The premise is incorrect: both matched Legendre controls include the same six analytic layers as RFM. The quadrature is shared, so endpoint clustering of hypothetical polynomial interpolation nodes is not an experimentally varied factor here. We clarify the actual far-field boundary operator and show that it does not force inner-wall streamfunction curvature to vanish. The revision limits its claim to the tested enriched spaces and avoids inferring a universal disadvantage of randomization from a midpoint control and a five-seed worst-case summary.
+
+\noindent\textbf{定位 / Location:} 消融讨论中的表示能力段落；\path{sections/en_representation_limits.tex} 及中文对应文件。
+
+\section{补充方法学意见：不能把5.6\%与94.4\%当作因果分摊}
+\textbf{处理结果：保留描述比例，拒绝未经识别的误差分解。}
+从三个最大误差作差，约5.6\%可以描述延后换步恢复了多少范数增量，但它不是方差分解，也不能单独识别桥接误差。$t_s=12$ 同时改变切换位置和 $8<t\leq12$ 的步长历史；$t=8$ 位于解析脉冲内部，不能称为“非光滑激振点”。跨两条非线性轨迹的误差范数一般不可相加。
+
+在相同 $T=72$、layer144网格及时间细化参考上，令 $e_8=u_8-u_{\rm ref}$、$e_{12}=u_{12}-u_{\rm ref}$、$\delta=u_8-u_{12}$，则
+\[
+ \|e_8\|^2=\|e_{12}\|^2+2\langle e_{12},\delta\rangle+\|\delta\|^2.
+\]
+中档RFM实测共同归一化后的四项约为
+$1.9956194\times10^{-7}=1.9202944\times10^{-7}+7.4475739\times10^{-9}+8.4928450\times10^{-11}$，恒等式残差为 $2.04\times10^{-22}$。交叉项占两策略平方误差之差的约98.87\%，直接说明不能把误差范数差解释成独立来源之和。本文没有据此将另94.4\%确定归于 $O(h^2)$ 粗步误差，也没有运行新的时间收敛阶试验。
+
+\noindent\textbf{English response.}
+The 5.6\% recovery ratio is a descriptive difference of error norms, not an identified bridge-versus-coarse-step decomposition. Delaying the switch changes both its location and the intervening step history. The pulse is smooth at $t=8$. At a common final time, grid, and reference, the exact squared-norm identity includes a cross term, which accounts for approximately $98.87\%$ of the observed squared-error difference in the reported velocity comparison. The identity is verified numerically, but does not assign causal percentages or establish a temporal convergence order.
+
+\noindent\textbf{定位 / Location:} 换步敏感性小节的新增误差恒等式；\path{switch_error_vector_identity.json}。
+
+\section{R2-S3：纯径向映射、模态耦合与条件PCG界}
+\textbf{处理结果：采纳结构区分，补齐算法前提。}
+新增说明：纯径向重参数化且边界算子仍与角度无关时，隐式角模分块保留；一般角度相关度量会耦合模态。仅当耦合矩阵及固定预条件算子均对称正定，并已满足假设的谱等价关系时，标准PCG能量误差界给出充分迭代量级 $O(\sqrt{\beta/\alpha}\log(1/\varepsilon))$。引用Netlib作者版标准文献，并明确光滑映射本身没有在本文中证明这些常数。
+
+该界不是必需算法或实测迭代次数。非对称、非定、可变或不精确预条件情形不能自动套用；稀疏组装、短Fourier卷积和伪谱乘积的矩阵作用方式不同，并非每次矩阵--向量乘积都必须FFT。旧稳态方腔的映射包装器也不作为圆环几何推广的实验证据。
+
+\noindent\textbf{English response.}
+We distinguish radial reparameterization from angle-dependent coupling and give the standard conditional PCG energy-error bound with a primary reference. It requires SPD operators and a fixed SPD preconditioner satisfying the stated spectral-equivalence assumption. It supplies a sufficient convergence scale, not a mandatory algorithm or measured iteration count. Smooth mapping alone does not establish the bound's constants here, and every matrix--vector product need not use an FFT. No new irregular-geometry experiment is claimed.
+
+\noindent\textbf{定位 / Location:} 非可分几何小节的扩展；\path{sections/en_geometry_extension.tex} 及中文对应文件。
+
+\section{R2-N1：实际FD4壁面闭合与跨设备表注}
+\textbf{处理结果：补入真实非均匀算子及均匀特例。}
+最终圆环路径为 \path{work/rfm_v6/fd_full.py} 调用 \path{work/rfm_v3/cylinder_fd.py} 的 \texttt{wall\_second}。节点是非均匀对数坐标 $s_j=L\sin(\pi j/(2n))$，按实际节点重新求Hermite权重；二审引用的旧Cartesian方腔脚本不是本算例基线。正文补入六个矩条件、实际壁面涡量关系以及均匀 $s$ 特例。一般均匀式须包含 $-415\psi(0)/(72h^2)$，只有 $\psi(0)=0$ 才能省略；算子误差的首项为 $-h^4\psi^{(6)}(0)/15$。
+
+精确有理数检查验证均匀权重及五次以下多项式矩；实际 $n=176,184,384,448$ 非均匀行的六矩最大残差约 $2.84\times10^{-14}$，FD184壁面涡量算子检查误差约 $2.31\times10^{-14}$。这些空间算子检查不是新流场积分。
+
+消融表注补入两条随机有层CPU复算相对对应GPU控制的场范数偏差 $<2.0\times10^{-10}$，并明确适用范围。$t_s=12$ 四条新CPU轨迹没有相应GPU记录，因此换步表不能附上同一个界。基准提交的消融、换步表实际为表8、表9，本稿继续通过标签引用。
+
+\noindent\textbf{English response.}
+The paper now states the actual nonuniform logarithmic grid, Hermite moment conditions, wall-vorticity reconstruction, and uniform-grid special case. The cited constant coefficients require uniform spacing; the general formula also includes the wall-value term. Exact-rational and FP64 moment checks support the stated fourth-order closure, without claiming new long-time flow convergence. The small CPU--GPU bound is added only to the two ablation controls that actually support it. No such bound is assigned to the CPU-only delayed-switch rows.
+
+\noindent\textbf{定位 / Location:} 方法章FD4壁面闭合小节、两表表注；\path{work/rfm_review_v4/fd_geometry/}。
+
+\noindent\textbf{其它事实与边界 / Further scope.}
+最终几何为 $a=0.5,R=6,L=\log12$。维护包位于 \path{work/rfm_review_v3/maintenance/}，冻结旧包装器没有被覆盖。Canonical geometry and archived sources remain unchanged. This revision neither establishes a speed ranking nor constitutes a journal acceptance.
