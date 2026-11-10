@@ -1,0 +1,632 @@
+\section{Flow model and the fixed approximation space}
+\label{sec:governing-equations}
+\label{sec:space-discretization}
+
+\subsection{A driven finite-annulus problem}
+
+We consider the two-dimensional incompressible Navier--Stokes equations
+\begin{equation}
+ \partial_t\boldsymbol u+(\boldsymbol u\cdot\nabla)\boldsymbol u
+ =-\nabla p+\nu\Delta\boldsymbol u,\qquad
+ \nabla\cdot\boldsymbol u=0,\qquad
+ \Omega=\{(r,\theta):a<r<R\}.
+ \label{eq:ns}
+\end{equation}
+The cylinder diameter and the final streamwise speed define the length
+and velocity scales. The calculations use \(a=0.5\), \(R=6\),
+\(\nu=0.01\), and hence \(\mathrm{Re}=100\). The final time is
+\(T=72\). Introduce the logarithmic radial coordinate
+\(s=\log(r/a)\), its extent \(L=\log(R/a)\), and \(z=s/L\).
+The area measure becomes \(r^2\,ds\,d\theta\).
+
+For nonzero angular modes, a streamfunction gives
+\begin{equation}
+ u_r=\frac{\psi_\theta}{r},\qquad
+ u_\theta=-\frac{\psi_s}{r},\qquad
+ \omega=-\frac{\psi_{ss}+\psi_{\theta\theta}}{r^2}.
+ \label{eq:kinematics}
+\end{equation}
+The azimuthal mean is advanced separately as a real tangential velocity
+\(v(s,t)\); its radial velocity is zero and its vorticity is
+\((v+v_s)/r\). This representation preserves all sine and cosine
+components of every retained nonzero mode and does not impose a
+reflection or zero-circulation constraint. The pressure is eliminated
+from the nonzero-mode equations by taking the curl; the mean tangential
+momentum equation supplies the remaining velocity block.
+
+The initially stationary flow is driven by
+\begin{equation}
+ U(t)=1-e^{-(t/0.8)^3},\qquad
+ V(t)=\begin{cases}
+ 0.12\sin^4[\pi(t-4)/8],&4<t<12,\\
+ 0,&\text{otherwise}.
+ \end{cases}
+ \label{eq:driving}
+\end{equation}
+The finite-duration transverse pulse breaks reflection symmetry. At
+the inner boundary, \(\psi=\psi_s=0\). At the outer boundary, the
+nonzero modes satisfy
+\begin{equation}
+ \psi(L,\theta,t)=R[U(t)\sin\theta-V(t)\cos\theta],\qquad
+ \omega(L,\theta,t)=0.
+ \label{eq:outer-boundary}
+\end{equation}
+The separate mean block satisfies \(v(0,t)=0\) and
+\(v_s(L,t)+v(L,t)=0\). Thus the outer circle does not have a full
+velocity Dirichlet condition. It is part of the definition of the
+finite-domain problem, rather than an exact transparent boundary for
+unbounded cylinder flow.
+
+The prescribed boundary data are represented by a lifting
+\begin{equation}
+ \begin{gathered}
+ \psi_\ell(s,\theta,t)=\ell(s)[U(t)\sin\theta-V(t)\cos\theta],\\
+ \ell(s)=R[(1-\beta)z^2+\beta z^3],\quad
+ \beta=\frac{L^2-2}{4}.
+ \end{gathered}
+ \label{eq:lifting}
+\end{equation}
+It obeys \(\ell(0)=\ell_s(0)=0\), \(\ell(L)=R\), and
+\(\ell_{ss}(L)=R\). The last identity enforces zero outer vorticity
+for the lifted \(k=1\) mode. With the convention
+\(f=c_0+2\operatorname{Re}\sum_{k=1}^{K}c_ke^{ik\theta}\),
+the complex lifting amplitude is \(g(t)=-(V(t)+iU(t))/2\).
+The same convention is used in reconstruction, nonlinear projection,
+and error scoring; conjugate negative modes represent the complete
+real field.
+
+The finite outer radius is a material limitation. In the archived
+domain-size diagnostic, increasing \(R\) from 6 to 8 changed the
+unaligned vorticity by about \(50.39\%\) in the common \(r\leq4\)
+region, and also changed the shedding frequency. The numerical
+tolerance below is therefore a tolerance for the specified
+\(R=6\) problem. Domain truncation and discretization error are not
+interchangeable.
+
+\subsection{Random and deterministic radial trial functions}
+
+Write the nonzero streamfunction coefficients as
+\begin{equation}
+ \psi_k(s,t)=\sum_{j=1}^{d}F_j(s)x_{jk}(t)
+                +\delta_{k1}g(t)\ell(s),\qquad 1\leq k\leq K.
+ \label{eq:trial-expansion}
+\end{equation}
+The functions \(F_j\) are fixed before time integration. No neural
+network weights are trained along the trajectory. The RFM designation
+refers to the randomly chosen radial feature space, followed by a
+deterministic Galerkin evolution of its coefficients \cite{r1,r2,r3}.
+
+For an odd input size \(m=2p+1\), the raw random features are a constant
+and \(p\) sine--cosine pairs. Specifically,
+\begin{equation}
+ \begin{gathered}
+ b_j=\frac{62}{p}(j+\xi_j),\qquad
+ \xi_j\sim\operatorname{Uniform}(0.2,0.8),\\
+ q_{j,0}(z)=\cos[b_j(z-\tfrac12)],\quad
+ q_{j,1}(z)=\sin[b_j(z-\tfrac12)].
+ \end{gathered}
+ \label{eq:random-features}
+\end{equation}
+where \(j=0,\ldots,p-1\). The random draws use a fixed
+\texttt{NumPy default\_rng(seed)}. The registered seed set is
+\(7331,7687,8011,8353,9041\). The Legendre comparison replaces these
+raw functions by \(P_j(2z-1)\), \(j=0,\ldots,m-1\), while retaining
+the same boundary transformation, enrichment, quadrature, and time
+discretization. The reported cases use no radial coordinate warping.
+
+Boundary conditions are imposed analytically. For a raw function
+\(q\), let \(\chi(z)=16z^2(1-z)\) and
+\(b(z)=z^2(1-z)^2/2\), and define
+\begin{equation}
+ \mathcal Bq(z)=\chi(z)q(z)
+       -b(z)\left.\frac{d^2(\chi q)}{dz^2}\right|_{z=1}.
+ \label{eq:boundary-transform}
+\end{equation}
+Because \(b(0)=b'(0)=b(1)=0\) and \(b''(1)=1\), this function
+satisfies \(F(0)=F_s(0)=F(L)=F_{ss}(L)=0\). Consequently the
+homogeneous nonzero modes satisfy both no slip at the cylinder and
+zero outer vorticity for every \(k\). Derivatives with respect to
+\(s\) include the factors \(L^{-1}\) and \(L^{-2}\); the
+correction in \eqref{eq:boundary-transform} is expressed in \(z\).
+
+Both trial families receive the same six analytic outer-layer
+functions. For \(\delta=L-s\), these are
+\begin{equation}
+ E_\gamma(s)=z^2\left[\delta+
+       \left(\gamma+\frac{2}{L}\right)\delta^2\right]
+       e^{-\gamma\delta},\qquad
+ \gamma\in\{16,36,80,165,340,660\}.
+ \label{eq:layer-features}
+\end{equation}
+Their constant and quadratic Taylor coefficients at \(\delta=0\)
+vanish, giving the same outer homogeneous conditions; the factor
+\(z^2\) supplies the inner conditions. These functions resolve the
+outer-boundary layers of this finite-domain formulation. They are not
+a learned consequence of the random features.
+
+The mean block uses a deterministic polynomial space in both families.
+Its raw functions are
+\(z[(L+2)-(L+1)z]\) and
+\(z(1-z)^2P_j(2z-1)\), \(j=0,\ldots,m_0-2\), with \(m_0=24\).
+The mean enrichment is
+\(z[1+(\gamma+1+1/L)\delta]e^{-\gamma\delta}\).
+All satisfy the mean boundary conditions. The six enrichments give
+30 retained mean functions in the final configurations. Randomness is
+therefore restricted to the nonzero-mode radial trial space.
+
+\subsection{Quadrature, rank selection, and the meaning of model size}
+
+Radial integration uses positive composite Gauss weights on
+\([0,L-0.12]\), \([L-0.12,L-0.018]\), and \([L-0.018,L]\).
+With \(q\) nodes and \(b_q=\max(8,\lfloor q/6\rfloor)\), the
+three allocations are \(q-2b_q,b_q,b_q\). For the two principal
+Galerkin configurations, these are \(44/11/11\) and \(52/12/12\).
+The random trigonometric and exponential radial functions are not
+polynomials, so this quadrature is an approximation to the continuous
+weak form. Positivity statements below apply exactly to the
+quadrature-defined matrices; they are not quadrature-error estimates.
+
+Let \(\widetilde F,\widetilde D,\widetilde D_2\) be the values and
+first two \(s\)-derivatives of all raw, boundary-corrected and enriched
+functions at the radial nodes. With \(W=\operatorname{diag}(w_i)\),
+form
+\begin{equation}
+ \mathcal A=\operatorname{diag}(\sqrt{w_i}/r_i)
+              (\widetilde D_2-\widetilde F),\quad
+ S=\operatorname{diag}(\|\mathcal A_{:j}\|_2),\quad
+ \mathcal A S^{-1}=U\Sigma V^{\mathsf T}.
+ \label{eq:feature-svd}
+\end{equation}
+All retained raw columns must have nonzero norms. Keep singular values
+\(\sigma_j>10^{-10}\sigma_1\), and set
+\begin{equation}
+ C=S^{-1}V_d\Sigma_d^{-1},\qquad
+ F=\widetilde F C,\quad D=\widetilde D C,\quad
+ D_2=\widetilde D_2 C.
+ \label{eq:feature-transform}
+\end{equation}
+This is a discrete differential normalization with rank truncation,
+rather than an orthogonalization in the ordinary point-value norm.
+In exact arithmetic,
+\(\operatorname{diag}(\sqrt{w_i}/r_i)(D_2-F)=U_d\).
+It therefore normalizes the \(k=1\) dissipation Gram matrix to
+\(\nu I\). This identity describes the existing construction; it is
+not a newly measured optimization or a guarantee for all angular modes.
+The mean block analogously normalizes
+\(\operatorname{diag}(\sqrt{w_i})(\widetilde V+\widetilde V_s)\).
+
+An input label such as RFM37 counts raw random features, not unknowns.
+Enrichment adds columns and truncation can remove them. The actual
+nonzero-mode rank is \(d\), and the real coefficient count is
+\(2Kd+d_0\), where \(d_0=30\) is the mean rank. Fixed-rank contrasts
+and accuracy-matched contrasts answer different questions. In
+particular, a lower RFM input count is not evidence of a lower rank
+than a Legendre control. The seed and cutoff are part of the model
+identity and must remain fixed when comparing implementations.
+
+\section{Weak formulation and time-discrete algorithms}
+\label{sec:numerical-method}
+
+\subsection{Nonzero-mode mass, dissipation, and nonlinear flux}
+
+For the velocity field defined above, incompressibility gives the
+vorticity equation in conservative logarithmic coordinates:
+\begin{equation}
+ r^2\partial_t\omega
+  +\partial_s(r u_r\omega)+\partial_\theta(r u_\theta\omega)
+   =\nu(\omega_{ss}+\omega_{\theta\theta}).
+ \label{eq:vorticity-conservative}
+\end{equation}
+Test its \(k\)-th Fourier coefficient with a homogeneous radial basis
+function. One integration by parts in the mass term after inserting
+\(r^2\omega_k=-(\psi_{k,ss}-k^2\psi_k)\) yields the bilinear form
+\(\int(F_i'\psi_k'+k^2F_i\psi_k)\,ds\). Integrating the viscous
+term twice gives a negative Gram form. The boundary terms vanish
+because \(F_i=0\) at both ends, \(F_i'(0)=0\), and
+\(\omega_k(L)=0\). Applying the prescribed radial quadrature gives
+\begin{align}
+ M_k&=D^{\mathsf T}WD+k^2F^{\mathsf T}WF,
+       \label{eq:mass}\\
+ K_k&=\nu(D_2-k^2F)^{\mathsf T}
+        \operatorname{diag}(w_i/r_i^2)(D_2-k^2F).
+       \label{eq:dissipation}
+\end{align}
+For every real coefficient vector \(x\),
+\begin{equation}
+ \begin{aligned}
+ x^{\mathsf T}M_kx&=\|W^{1/2}Dx\|_2^2+k^2\|W^{1/2}Fx\|_2^2,\\
+ x^{\mathsf T}K_kx&=\nu\|
+    \operatorname{diag}(\sqrt{w_i}/r_i)(D_2-k^2F)x\|_2^2.
+ \end{aligned}
+ \label{eq:gram-positivity}
+\end{equation}
+Both matrices are symmetric positive semidefinite in exact
+arithmetic. Positive definiteness of \(M_k\) additionally requires
+full column rank of the stacked weighted value and derivative samples
+on the retained space. The compact form \eqref{eq:dissipation} is
+algebraically equivalent to the expanded expression used by the
+archived implementation. Its positivity does not remove finite
+precision cancellation, assembly asymmetry, or a poorly conditioned
+coordinate map.
+
+Let \(a_k\) and \(b_k\) be the Fourier coefficients of
+\(u_r\omega\) and \(u_\theta\omega\) evaluated at the radial
+nodes. Integration by parts in the two transport terms gives
+\begin{equation}
+ f_k=D^{\mathsf T}\operatorname{diag}(w_i r_i)a_k
+      -ikF^{\mathsf T}\operatorname{diag}(w_i r_i)b_k.
+ \label{eq:weak-flux}
+\end{equation}
+The products use the complete velocity, including the mean block and
+boundary lifting. They are evaluated in physical angle and projected
+back to the retained spectrum, coupling the otherwise independent
+linear mode blocks. This is the reason that making linear solves
+diagonal does not eliminate the nonlinear FFT work.
+
+For \(k=1\), the lifting projections are
+\begin{equation}
+ \begin{aligned}
+ M_\ell&=D^{\mathsf T}W\ell_s+F^{\mathsf T}W\ell,\\
+ K_\ell&=\nu(D_2-F)^{\mathsf T}
+       \operatorname{diag}(w_i/r_i^2)(\ell_{ss}-\ell).
+ \end{aligned}
+ \label{eq:lift-projections}
+\end{equation}
+They vanish from the equations of the other modes. Suppressing the
+mode index and allowing zero lifting vectors where appropriate, the
+semidiscrete system is
+\begin{equation}
+ m'(t)+Kx(t)+g(t)K_\ell=f(t),\qquad
+ m(t)=Mx(t)+g(t)M_\ell.
+ \label{eq:semidiscrete}
+\end{equation}
+The differentiated quantity is the complete weak mass \(m\). Treating
+it as \(Mx\) alone would omit the boundary acceleration. Several
+independent liftings can be included by replacing each \(gM_\ell\)
+and \(gK_\ell\) by the corresponding sum.
+
+\subsection{Why the mean block is a separate equation}
+
+Angular averaging of tangential momentum gives
+\begin{equation}
+ \partial_t v=-\langle u_r\omega\rangle_\theta
+       +\frac{\nu}{r^2}(v_{ss}-v).
+ \label{eq:mean-equation}
+\end{equation}
+Let \(V\) and \(V_s\) now denote the sampled mean basis and its
+derivative, rather than the transverse pulse in
+\eqref{eq:driving}. The mean matrices and source are
+\begin{equation}
+ \begin{aligned}
+ M_0&=V^{\mathsf T}\operatorname{diag}(w_i r_i^2)V,\qquad
+ K_0=\nu(V+V_s)^{\mathsf T}W(V+V_s),\\
+ f_0&=-V^{\mathsf T}\operatorname{diag}(w_i r_i^2)a_0.
+ \end{aligned}
+ \label{eq:mean-matrices}
+\end{equation}
+To check the dissipation form, expand
+\(\int(V+V_s)(v+v_s)\,ds\): its cross terms combine to
+\([Vv]_0^L\), which is exactly the boundary contribution obtained
+from \(-\int V(v_{ss}-v)\,ds\) using \(v_s(L)=-v(L)\) and
+\(v(0)=0\). There is no direct boundary lifting in this block.
+The negative radial-flux sign in \eqref{eq:mean-matrices} follows
+from tangential momentum. Setting \(k=0\) in
+\eqref{eq:mass}--\eqref{eq:weak-flux} would produce a different
+representation and is not the implemented mean equation.
+
+\subsection{Constant-step integration and a single bridge}
+\label{sec:time-phase}
+
+The baseline treats diffusion implicitly and the nonlinear weak flux
+by two-point extrapolation, using SBDF2 \cite{r9,r12}. After the
+implicit Euler start, a constant step \(h\) solves
+\begin{equation}
+ \begin{aligned}
+ (\tfrac32M+hK)x_{n+1}
+  ={}&2m_n-\tfrac12m_{n-1}+h(2f_n-f_{n-1})\\
+   &-g_{n+1}(\tfrac32M_\ell+hK_\ell).
+ \end{aligned}
+ \label{eq:uniform-sbdf}
+\end{equation}
+The initialization uses the stationary initial state and the
+prescribed smooth startup. Euler startup does not establish
+second-order convergence by itself; its consistency with the
+initial-value problem must be considered together with the following
+multistep evolution. In the implemented initial state the explicit
+nonlinear source is zero.
+
+The optimized schedule uses a constant step \(H\) until \(t_0=8\)
+and a larger constant step \(h\) afterward. Only the first update
+across this interface has unequal consecutive intervals. Write
+\(t_-=t_0-H\), \(t_+=t_0+h\), and \(\rho=h/H>0\). Define
+\begin{equation}
+ a_0=\frac{1+2\rho}{1+\rho},\qquad b_0=1+\rho,\qquad
+ b_1=\frac{\rho^2}{1+\rho}.
+ \label{eq:bridge-coefficients}
+\end{equation}
+The bridge is
+\begin{equation}
+ \begin{aligned}
+ (a_0M+hK)x_+={}&b_0m_0-b_1m_-+
+ h[(1+\rho)f_0-\rho f_-]\\
+ &-g_+(a_0M_\ell+hK_\ell).
+ \end{aligned}
+ \label{eq:bridge}
+\end{equation}
+In this subsection \(m_0\) and \(f_0\) refer to time \(t_0\),
+not to the azimuthal mean. Historical masses already contain their
+historical lifting values; the future lifting is subtracted once.
+At \(\rho=1\), \eqref{eq:bridge} reduces exactly to
+\eqref{eq:uniform-sbdf}.
+
+\paragraph{Proposition 1 (local consistency of the lifted bridge).}
+Assume \(m\in C^4\) and \(f\in C^3\) along a smooth exact
+semidiscrete solution in a neighborhood of the bridge. Assume also
+that \(\rho\) lies in a fixed compact subset of \((0,\infty)\).
+For \(\delta=\max(H,h)\), the derivative-form residual of
+\eqref{eq:bridge} is \(O(\delta^2)\), and its step-scaled
+equation residual is \(O(h\delta^2)\).
+
+\paragraph{Proof.}
+Differentiate the quadratic interpolant through the three masses at
+\(t_+\). Its derivative is
+\(Dm_+=(a_0m_+-b_0m_0+b_1m_-)/h\).
+The linear extrapolant of the two fluxes has value
+\((1+\rho)f_0-\rho f_-\) at the same endpoint. Taylor expansion
+about \(t_+\) gives
+\begin{align}
+ Dm_+-m'(t_+)
+   &=-\frac{h(h+H)}{6}m'''(t_+)+O(\delta^3),
+      \label{eq:bridge-derivative}\\
+ (1+\rho)f_0-\rho f_- - f(t_+)
+   &=-\frac{h(h+H)}{2}f''(t_+)+O(\delta^3).
+      \label{eq:bridge-extrapolation}
+\end{align}
+Substitute these in \eqref{eq:semidiscrete}, evaluate diffusion and
+lifting at \(t_+\), and collect the two residuals. Substitution of
+\(m_+=Mx_++g_+M_\ell\) gives the stated bridge. \hfill\(\square\)
+
+This proposition is local consistency, not unconditional stability
+or long-time convergence of the nonlinear Navier--Stokes solution.
+Those require additional regularity, startup, perturbation, and
+stability estimates. The finite-duration pulse is piecewise smooth;
+the displayed Taylor argument is local to the bridge at \(t=8\),
+which is away from the pulse endpoints. For the scalar zero equation
+\(y'=0\), the bridge differences satisfy
+\begin{equation}
+ y_+-y_0=\frac{\rho^2}{1+2\rho}(y_0-y_-).
+ \label{eq:zero-equation}
+\end{equation}
+The two registered ratios \(8/7\) and \(19/17\) give
+\(64/161\) and \(361/935\); the constant segments have factor
+\(1/3\). Thus the homogeneous differences are bounded on this
+particular grid. Explicit advection and mode coupling are absent
+from this check, so it does not supply a flow stability theorem.
+
+The work reduction follows from the schedule rather than from the
+trial family. At \(T=72\), changing the rate from 128 to 112 at
+\(t=8\) changes the step count from \(9216\) to \(8192\).
+Changing 152 to 136 changes \(10944\) to \(9920\). The initial
+nonlinear source is identically zero and the Euler state is constructed
+before the repeated updates. Nonlinear kernels evaluate the states
+at \(t_1,\ldots,t_{N_{\rm step}-1}\); the terminal state needs no
+subsequent evaluation. The respective
+recorded evaluation counts are \(9215\to8191\) and
+\(10943\to9919\). This count does not predict the complete solve
+time, which also includes additional phase preparation and startup.
+
+\subsection{Reuse of fixed spatial preparation}
+
+\paragraph{Proposition 2 (exact-arithmetic reuse).}
+Fix the geometry, viscosity, feature family, random seed, enrichments,
+quadrature, lifting, column scaling, and singular-value cutoff. If the
+basis transformation is formed before any step-dependent matrix and
+does not depend on the time step, then the retained bases, ranks,
+\(M,K,M_\ell,K_\ell\), and uncontracted nonlinear test operators
+can be prepared once for all time phases without changing the
+discrete update in exact arithmetic.
+
+\paragraph{Proof.}
+Equations \eqref{eq:feature-svd}--\eqref{eq:feature-transform} and
+\eqref{eq:mass}--\eqref{eq:mean-matrices} contain no time-step
+parameter. Phase dependence enters only through \(a_jM+h_jK\),
+its application or factorization, and the step-weighted right-hand
+side. Reusing the same inputs to these operations therefore gives
+the same linear equations. \hfill\(\square\)
+
+The existing assembly path accepts
+\(A_{\rm eff}=(3/2)M+h_{\rm eff}K\). For the bridge set
+\(c=(3/2)/a_0\) and \(h_{\rm eff}=ch\). Then
+\begin{equation}
+ A_{\rm eff}=c(a_0M+hK),\qquad
+ A_{\rm eff}^{-1}(c b)=(a_0M+hK)^{-1}b.
+ \label{eq:bridge-reuse}
+\end{equation}
+Historical mass coefficients are multiplied by \(c\), while a
+flux package already containing \(h_{\rm eff}\) must not receive
+that factor a second time. Previously precontracted nonlinear
+histories depend on the old inverse matrix and must be remapped from
+their original flux spectra at the interface. Reusing those old
+contracted vectors directly would change the algorithm.
+
+Exact-arithmetic reuse does not imply bitwise equality across
+implementations. The archive verifies byte-for-byte equality of 936
+arrays in 24 fixed comparisons, retaining the original floating-point
+expression grouping and environment. Changing the reduction order,
+library, spatial basis, lifting, or adaptation policy requires a new
+check. Shared preparation removes repeated spatial work but leaves
+the phase-specific factorizations, operator packages, transfers, and
+execution graphs; it is not by itself a timing result.
+
+\section{Common phase coordinates and the limits of algebraic improvement}
+\label{sec:phase-analysis}
+
+\subsection{Simultaneous congruence for one angular mode}
+
+For one fixed mode, let the phase matrices be
+\(A_j=a_jM+h_jK\), with \(a_j,h_j>0\). The two constant segments
+and the bridge have this form. We use a different symbol for the
+reference matrix, \(H_*\), to distinguish it from the early time
+step \(H\). Assume that \(M,K\) are real symmetric positive
+semidefinite and
+\(H_*=a_*M+h_*K\) is positive definite for \(a_*,h_*>0\).
+Equivalently, \(M\) and \(K\) have no common nonzero null vector.
+The standard symmetric-definite generalized eigenproblem
+\cite{r10} provides the following representation.
+
+\paragraph{Proposition 3 (common coordinates).}
+There exists a real invertible \(P\) such that
+\(P^{\mathsf T}H_*P=I\),
+\(P^{\mathsf T}MP=\operatorname{diag}(\lambda_i)\), and, with
+\(\theta_i=a_*\lambda_i\),
+\begin{equation}
+ \begin{gathered}
+ 0\leq\theta_i\leq1,\qquad
+ P^{\mathsf T}A_jP=\operatorname{diag}(d_{ji}),\\
+ d_{ji}=\frac{a_j}{a_*}\theta_i+
+             \frac{h_j}{h_*}(1-\theta_i)>0.
+ \end{gathered}
+ \label{eq:phase}
+\end{equation}
+
+\paragraph{Proof.}
+Write \(H_*=LL^{\mathsf T}\). The symmetric positive
+semidefinite matrix \(L^{-1}ML^{-\mathsf T}\) has an orthogonal
+eigenbasis \(Q\). For \(P=L^{-\mathsf T}Q\), its eigenvalues
+give \(P^{\mathsf T}MP=\operatorname{diag}(\lambda_i)\) and
+\(P^{\mathsf T}H_*P=I\). Further,
+\(h_*P^{\mathsf T}KP=I-a_*\operatorname{diag}(\lambda_i)\)
+is positive semidefinite, so \(0\leq a_*\lambda_i\leq1\).
+Substitute the linear combination defining \(A_j\) to obtain
+\eqref{eq:phase}. Every diagonal value is a convex combination of
+two positive numbers. \hfill\(\square\)
+
+Consequently,
+\begin{equation}
+ A_j^{-1}b=P\operatorname{diag}(d_{ji}^{-1})P^{\mathsf T}b.
+ \label{eq:phase-inverse}
+\end{equation}
+This is a congruence transformation, rather than a claim that the
+original-coordinate matrices commute. The construction also applies
+to the separate mean matrices under the same hypotheses. Although
+an Euler matrix has positive coefficients and fits the algebra, the
+archived common-phase prototype retains the original Euler startup;
+that phase was not independently promoted by the prototype tests.
+
+\subsection{A geometric anchor for a worst-case spectral bound}
+
+Set \(r_j=h_j/a_j\), \(\eta=h_*/a_*\),
+\(r_{\min}=\min_jr_j\), and \(r_{\max}=\max_jr_j\).
+After extracting \(a_j/a_*\) from \(d_{ji}\), its remaining
+factor is \(\theta_i+(r_j/\eta)(1-\theta_i)\), which lies
+between \(1\) and \(r_j/\eta\). Therefore
+\begin{equation}
+ \kappa_2(P^{\mathsf T}A_jP)
+   \leq B_j(\eta)=\max\{r_j/\eta,\eta/r_j\}.
+ \label{eq:bound}
+\end{equation}
+For a finite set of positive phases,
+\begin{equation}
+ \eta_* = \sqrt{r_{\min}r_{\max}},\qquad
+ \min_{\eta>0}\max_j B_j(\eta)
+       =\sqrt{r_{\max}/r_{\min}}.
+ \label{eq:anchor}
+\end{equation}
+Indeed, the worst bound is
+\(\max\{r_{\max}/\eta,\eta/r_{\min}\}\). The two positive
+terms have fixed product \(r_{\max}/r_{\min}\); their maximum is
+smallest when they are equal, proving \eqref{eq:anchor}.
+
+The distinction between the bound and the actual spectrum is
+essential. If the \(\theta_i\) do not approach both endpoints, the
+interval estimate is loose. The anchor minimizes that estimate, not
+necessarily the actual maximum condition number for the given
+matrices. Rescaling \(a_*,h_*\) together does not change this bound
+but does change diagonal magnitudes, so the rule does not imply
+that all denominators are close to one. It also does not improve
+\(\kappa_2(A_j)\) in the original coordinates or bound the errors
+of applying \(P\) and \(P^{\mathsf T}\).
+
+The geometric-anchor statement is an algebraic derivation, separately
+reviewed, and was not a timed candidate. The measured setup overhead
+of the earlier common-phase prototype cannot be assigned to this
+untested choice of anchor. Neither the derivation nor the prototype
+constitutes a random-feature approximation theorem or a stability
+theorem for the time integrator.
+
+\subsection{Why common coordinates need not yield a faster solver}
+
+Across angular modes, \(M_k=M^{(0)}+k^2M^{(1)}\) and
+\(K_k=K^{(0)}+k^2K^{(1)}+k^4K^{(2)}\). Polynomial dependence on
+\(k^2\) does not imply a common eigenbasis. In a fixed whitening
+metric, real symmetric coefficient matrices admit a common
+orthogonal diagonalization precisely when they commute pairwise.
+The archived normalized commutators, about \(0.051\)--\(0.076\),
+do not support replacing all modes by one exact common transform.
+
+Even within one mode, the storage contract matters. Suppose the
+device expects precontracted dense operators \(A_j^{-1}B\), where
+\(B\) contains mass and nonlinear projection columns. Keeping this
+interface requires
+\(P\operatorname{diag}(d_j^{-1})P^{\mathsf T}B\) for every phase.
+For rank \(d\), projection width proportional to \(q\), and
+\(p_{\rm ph}\) phases, this entails an \(O(d^3)\)
+eigendecomposition and approximately \(p_{\rm ph}+1\)
+\(O(d^2q)\) dense multiplications. Direct phase preparation uses
+\(p_{\rm ph}\) factorizations and phase-wise applications instead.
+The common representation still writes all phase packages. Operation
+counts, library throughput, conditioning, and memory layout therefore
+have to be evaluated together.
+
+A different design could keep the time-dependent coefficients in
+the \(P\) coordinates and use diagonal phase updates throughout.
+It would also require mode-dependent transformed reconstruction,
+lifting, nonlinear projection, and observation operators. The current
+trajectory evidence does not validate that design. It remains a
+specific engineering opportunity, rather than an inferred speedup
+from \eqref{eq:phase-inverse}.
+
+\subsection{Separate approximation, integration, and implementation errors}
+
+Four levels are relevant: the continuous finite-domain solution; a
+quadrature-defined spatial semidiscretization; its exact-arithmetic
+time-discrete solution; and the executed floating-point solution.
+They distinguish domain error, trial-space and quadrature error,
+time-discretization error, and implementation error. On a common
+physical reconstruction grid, the triangle inequality gives an
+additive decomposition in a common absolute norm. Relative error
+bounds require explicit denominator conversions; two percentages
+with different reference fields cannot simply be added.
+
+The observed field gates in this paper compare numerical trajectories
+to two resolved numerical references. The implementation gate compares
+GPU and CPU realizations of the same discrete method. Neither is a
+rigorous upper bound on error against the unknown continuous
+solution. In addition, a small velocity error does not control its
+spatial derivatives: \eqref{eq:kinematics} differentiates the
+streamfunction twice for vorticity. Vorticity and near-field gates
+must therefore be imposed independently.
+
+For completeness, a conditional perturbation estimate explains why
+small operator residuals still require trajectory checks. Consider
+two executions of the same step and lifting, with coefficient errors
+\(e_n\) and \(e_{n-1}\), and an additive algebraic residual
+\(r_{n+1}\) in the step-scaled linear equation. If the nonlinear
+map is Lipschitz with constant \(L_f\) on a region containing both
+trajectories, then a compatible coefficient norm gives
+\begin{equation}
+\begin{aligned}
+ \|e_{n+1}\|\leq\|A_n^{-1}\|\big[&
+ (b_0\|M\|+h(1+\rho)L_f)\|e_n\|\\
+ &+(b_1\|M\|+h\rho L_f)\|e_{n-1}\|
+ +\|r_{n+1}\|\big].
+\end{aligned}
+ \label{eq:perturbation-accounting}
+\end{equation}
+Subtracting the two updates and applying the norm and local Lipschitz
+inequality proves this estimate. It is only error bookkeeping for
+the same finite-dimensional scheme; its constants may be very
+pessimistic, and it does not establish a uniform long-time bound.
+It explains why agreement of an isolated FFT, small linear residuals,
+or a favorable transformed condition number cannot replace the
+physical accuracy checks at the full integration horizon.

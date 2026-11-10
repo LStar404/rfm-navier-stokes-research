@@ -1,0 +1,170 @@
+\appendix
+\section{Notation, scoring grids, and reproduction order}\label{sec:app-setup}
+
+Sections~\ref{sec:space-discretization} and \ref{sec:numerical-method} specify the model, boundary lifting, feature transformations, and weak equations. This appendix collects cross-section notation and the independent reconstruction grids. Input feature count, retained rank, quadrature size, and FFT length describe different dimensions of a solver.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Principal symbols and their computational meaning.}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$s,z,L$ & $s=\log(r/a)$, $L=\log(R/a)$, $z=s/L$ \\
+$m,d,d_0$ & Input radial feature count, retained nonzero-mode rank, separate mean rank (30) \\
+$K,N,q$ & Highest retained angular mode, angular FFT length, Galerkin radial quadrature count \\
+$n$ & FD radial intervals; $n+1$ nodes and $n-1$ interior unknowns \\
+$M_k,K_k$ & Nonzero-mode mass and viscous matrices \\
+$H,h,\rho$ & Time steps before and after the bridge and ratio $h/H$ \\
+$H_{\rm ref}$ & Phase whitening matrix $a_{\rm ref}M+h_{\rm ref}K$, also denoted $H$ in the analysis \\
+$N_{\rm nl},C_{\rm nl}$ & True nonlinear evaluation count and effective cost per evaluation \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Independent physical-error reconstruction grids.}
+\label{tab:app-score-grids}
+\begin{tabularx}{\linewidth}{@{}Xrrr@{}}
+\toprule
+Grid & Radial points & Angular points & Angular shift \\
+\midrule
+Gauss & 123 & 433 & 0.23 \\
+Uniform midpoint & 129 & 449 & 0.43 \\
+Layer-refined & 144 (96/24/24) & 457 & 0.31 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The weights include $r^2\,ds\,d\theta$, and the velocity norm combines $u_r,u_\theta$. The 19 physical checkpoints are 0.5, 1, 2, 4, 6, 8, 8.125, 8.5, 9, 10, 12, 16, 24, 36, 48, 54, 60, 66, and 72. Piecewise schedules additionally save the states at $8+1/\mathrm{late\_rate}$ and $8+2/\mathrm{late\_rate}$ for implementation consistency. These are not two extra reference-scored physical checkpoints. Probe locations are $(x/D,y/D)=(1.5,0),(2.5,0),(3.5,0)$. Samples are taken at intervals of $0.125$, giving 577 times including the zero initial state. Transverse velocity and vorticity at each location give six histories.
+
+Reproduction should first fix the archive identity, source files, and numerical references listed in Appendix~\ref{sec:app-evidence}. Check the geometry, seed, retained rank, time rates, and cache policy for each configuration. Reconstruct and score each field on every registered grid and time, then evaluate CPU/GPU implementation consistency and the piecewise triangle safeguard. Only qualified candidates proceed to independent timing; concurrent qualification elapsed times are not isolated timings. Batch completeness, terminal records, and external-load checks precede calculation of speed ratios. The revised standalone operator sample is evaluated separately: its checks cover synthetic fixed states and do not replace flow qualification.
+
+\section{Frozen-vorticity structure and scope}
+\label{sec:app-lamb}
+\setcounter{equation}{0}
+\renewcommand{\theequation}{B.\arabic{equation}}
+\renewcommand{\theHequation}{appendix.B.\arabic{equation}}
+
+In the real Fourier representation, the mean has weight \(1\), and the
+real and imaginary parts of each nonzero mode have weight \(2\). For
+frozen vorticity \(\omega^\ast\), the weak pairing is
+\[
+ \sum w\,\omega^\ast(u_\theta v_r-u_rv_\theta).
+\]
+Using the same quadrature and mutually adjoint reconstruction and
+projection maps, interchanging \(u\) and \(v\) reverses the sign.
+Consequently the homogeneous discrete matrix \(F\) satisfies
+\(F^{\mathsf T}=-F\). This property must be checked at the discrete level.
+
+The update with lifting, forcing, and residual work is
+\begin{equation}
+ \bigl[\tfrac32 M+hK-hF\bigr]x_{n+1}
+ =2Mx_n-\tfrac12 Mx_{n-1}+\mathcal{L}_{n+1}+\mathcal{R}_{n+1}.
+ \label{eq:lamb-step}
+\end{equation}
+Here \(\mathcal{L}\) contains boundary lifting and external forcing, and
+\(\mathcal{R}\) is the original left-hand side minus the right-hand side
+including \(\mathcal{L}\). Define
+\begin{equation}
+ \lVert x\rVert_M^2=x^{\mathsf T}Mx,\qquad
+ G(x,y)=\lVert x\rVert_M^2+\lVert 2x-y\rVert_M^2.
+ \label{eq:lamb-g}
+\end{equation}
+The \(K\)-weighted seminorm is defined analogously. At constant step
+size \(h\), pairing \eqref{eq:lamb-step} with \(4x_{n+1}\) gives
+\begin{equation}
+ \begin{aligned}
+ &G(x_{n+1},x_n)-G(x_n,x_{n-1})
+  +\lVert x_{n+1}-2x_n+x_{n-1}\rVert_M^2
+  +4h\lVert x_{n+1}\rVert_K^2\\
+ &\qquad
+  =4\langle x_{n+1},\mathcal{L}_{n+1}\rangle
+   +4\langle x_{n+1},\mathcal{R}_{n+1}\rangle .
+ \end{aligned}
+ \label{eq:lamb-energy}
+\end{equation}
+The identity follows by expanding
+\(4\langle x,\tfrac32 Mx-2My+\tfrac12 Mz\rangle\) and using skew symmetry
+to cancel the \(F\) contribution. The residual \(\mathcal{R}\) is already
+scaled as in \eqref{eq:lamb-step}, so its work term carries no additional
+factor of \(h\). With homogeneous boundary data, zero forcing, and an
+exact solve, \(\mathcal{L}=\mathcal{R}=0\) and \(G\) is nonincreasing.
+Driven cases retain the right-hand side. The quantity \(G\) describes
+the homogeneous velocity component. Total kinetic energy also includes
+the boundary lift, and vorticity and phase errors require separate
+evaluation.
+
+Let \(A=\tfrac32 M+hK=LL^{\mathsf T}\) and \(S=L^{-1}FL^{-\mathsf T}\).
+Then \(S^{\mathsf T}=-S\). In the symmetrically transformed coordinates,
+\(B=I-hS\) satisfies
+\[
+ B^{\mathsf T}B=BB^{\mathsf T}=I-h^2S^2,\qquad
+ \lVert Bz\rVert_2^2=\lVert z\rVert_2^2+h^2\lVert Sz\rVert_2^2.
+\]
+Hence \(\sigma_{\min}(B)\geq1\). This bound concerns the transformed
+matrix. GMRES iteration count, errors from applying the coordinate
+transforms, and physical accuracy require separate evaluation. The main
+text reports the observed coarse-step failures and added FFT workload.
+
+\section{Archive and verification records}
+\label{sec:app-evidence}
+
+All records below refer to commit \texttt{6f2b350}. The labels link to
+the original files. Path components \texttt{v7} and \texttt{v8} identify
+experimental revisions. Theoretical notes, numerical qualification,
+local timing, and full-batch timing serve distinct purposes.
+
+\begingroup
+\newcommand{\ArchiveRecord}[1]{%
+ \href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/#1}{\nolinkurl{#1}}}
+\begin{description}
+ \item[C1 Case and boundaries]
+  \ArchiveRecord{work/rfm_v6/full_case.py}
+ \item[C2 Spatial spaces and matrices]
+  \ArchiveRecord{work/rfm_v6/full_galerkin.py}
+ \item[C3 Bridge and lifting derivation]
+  \ArchiveRecord{work/rfm_v7/theory_sbdf2_single_bridge.txt}
+ \item[C4 Phase pencils and scope of the anchor result]
+  \ArchiveRecord{work/rfm_v8/theory_phase_pencil_scope_note.txt}
+ \item[C5 Measured phase setup times]
+  \ArchiveRecord{work/rfm_v8/galerkin_phase_pencil_audit_canonical_mean.json}
+ \item[C6 Final 39 configurations and two-cache-policy protocol]
+  \ArchiveRecord{work/rfm_v8/rank_fair_cache_qualification_output/protocol.json}
+ \item[C7 Final 78 numerical qualification runs]
+  \ArchiveRecord{work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json}
+ \item[C8 Rank expansion and failed candidates]
+  \ArchiveRecord{work/rfm_v8/rank_parity_expansion_output/summary.json}
+ \item[C9 Fused operator and short-run total cost]
+  \ArchiveRecord{work/rfm_v8/fused_march_t9_output/summary.json}
+ \item[C10 Isolation check for the historical startup improvement]
+  \ArchiveRecord{work/rfm_v8/thin_formal_high_verification.json}
+ \item[C11 Short-run Lamb accuracy and workload]
+  \ArchiveRecord{work/rfm_v8/lamb_t16_qualification_output/summary.json}
+ \item[C12 Disposition of the final full timing campaign]
+  \ArchiveRecord{work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json}
+\end{description}
+\endgroup
+
+Table~\ref{tab:accuracy} was recomputed group by group from all 78
+\texttt{independent\_score.json} files. Table~\ref{tab:workload} reads
+\texttt{metadata.nonlinear\_evaluations} from \texttt{result.json} in
+qualification slots \texttt{slot\_000}, \texttt{slot\_010},
+\texttt{slot\_026}, and \texttt{slot\_036}.
+Table~\ref{tab:fusion-events} uses fixed-state CUDA Graph event records,
+and Table~\ref{tab:phase-setup} uses the local phase-setup audit.
+Figures~\ref{fig:annulus-wake}, \ref{fig:wake-probes}, and
+\ref{fig:fusion-cost} retain the verified plotting and data sources from
+the same archive. Each performance interpretation applies within the
+scope of its own timing campaign.
+
+The revision additionally provides \nolinkurl{supplement/evidence_revision.json},
+which binds the principal numbers to checksums of all 78 score files and
+other source records. The directory \nolinkurl{supplement/operator_sample/}
+contains the standalone operator source, verification entry point, actual
+GPU receipt \nolinkurl{validation.json}, and source record
+\nolinkurl{provenance.json}. This directory and the new dataflow diagram
+are revision artifacts, not additional flow experiments in the fixed
+archive. The sample supplies no cuFFTDx performance comparison.
+The respective README files give manuscript build and sample commands.

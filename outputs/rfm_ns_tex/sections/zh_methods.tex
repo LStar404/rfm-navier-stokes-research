@@ -1,0 +1,338 @@
+\section{流动模型与固定试验空间}
+\label{sec:governing-equations}
+\label{sec:space-discretization}
+
+\subsection{受驱动的有限圆环问题}
+
+考虑二维不可压 Navier--Stokes 方程
+\begin{equation}
+ \partial_t\boldsymbol u+(\boldsymbol u\cdot\nabla)\boldsymbol u
+ =-\nabla p+\nu\Delta\boldsymbol u,\qquad
+ \nabla\cdot\boldsymbol u=0,\qquad
+ \Omega=\{(r,\theta):a<r<R\}.
+ \label{eq:ns}
+\end{equation}
+以圆柱直径和最终纵向来流速度为长度与速度尺度，取内半径 \(a=0.5\)、外半径 \(R=6\)、运动黏度 \(\nu=0.01\)，因此 \(Re=100\)，终止时间为 \(T=72\)。引入对数径向坐标 \(s=\log(r/a)\)，记 \(L=\log(R/a)\)、\(z=s/L\)，面积元为 \(r^2\,ds\,d\theta\)。
+
+非零角向模态采用流函数表示：
+\begin{equation}
+ u_r=\frac{\psi_\theta}{r},\qquad
+ u_\theta=-\frac{\psi_s}{r},\qquad
+ \omega=-\frac{\psi_{ss}+\psi_{\theta\theta}}{r^2}.
+ \label{eq:kinematics}
+\end{equation}
+角向均值则以独立的实切向速度 \(v(s,t)\) 推进，其径向速度为零、涡量为 \((v+v_s)/r\)。每个保留非零模态的正弦与余弦分量均参与演化，不施加反射对称或零环量约束。非零模态通过取旋度消去压力，独立的均值切向动量方程提供剩余的速度自由度。
+
+流动从静止启动，驱动为
+\begin{equation}
+ U(t)=1-e^{-(t/0.8)^3},\qquad
+ V(t)=\begin{cases}
+ 0.12\sin^4[\pi(t-4)/8],&4<t<12,\\
+ 0,&\text{其他时刻}.
+ \end{cases}
+ \label{eq:driving}
+\end{equation}
+有限时长的横向脉冲用于打破反射对称。内壁满足 \(\psi=\psi_s=0\)。外圆非零模态采用
+\begin{equation}
+ \psi(L,\theta,t)=R[U(t)\sin\theta-V(t)\cos\theta],\qquad
+ \omega(L,\theta,t)=0.
+ \label{eq:outer-boundary}
+\end{equation}
+均值块满足 \(v(0,t)=0\)、\(v_s(L,t)+v(L,t)=0\)。外边界并非完整速度 Dirichlet 条件，而是本有限域问题的组成部分，不能将其视为无限外域圆柱流动的精确透射边界。
+
+给定边界数据由提升函数表示：
+\begin{equation}
+ \psi_\ell=\ell(s)[U(t)\sin\theta-V(t)\cos\theta],\qquad
+ \ell(s)=R[(1-\beta)z^2+\beta z^3],\quad
+ \beta=\frac{L^2-2}{4}.
+ \label{eq:lifting}
+\end{equation}
+它满足 \(\ell(0)=\ell_s(0)=0\)、\(\ell(L)=R\)、\(\ell_{ss}(L)=R\)，最后一个恒等式保证 \(k=1\) 提升在外圆处的涡量为零。采用实场 Fourier 约定 \(f=c_0+2\operatorname{Re}\sum_{k=1}^{K}c_ke^{ik\theta}\) 时，复提升幅值为 \(g(t)=-(V(t)+iU(t))/2\)。物理重构、非线性投影和误差评价沿用同一约定，共轭负模完整表示实场。
+
+有限外半径构成实质性限制。归档的外域敏感性诊断将 \(R\) 从6增至8后，共同 \(r\le4\) 区域的未对齐最大涡量差约为50.39\%，脱落频率亦有变化。因此，后文精度门槛针对指定的 \(R=6\) 问题；外域截断误差和离散误差不能互相替代。
+
+\subsection{随机与确定性的径向试验函数}
+
+对非零角向模态作展开
+\begin{equation}
+ \psi_k(s,t)=\sum_{j=1}^{d}F_j(s)x_{jk}(t)
+                  +\delta_{k1}g(t)\ell(s),\qquad 1\le k\le K.
+ \label{eq:trial-expansion}
+\end{equation}
+所有 \(F_j\) 均在时间积分前固定。RFM 在此指随机选择径向特征空间，再以确定性的 Galerkin 方程推进系数，不包含沿轨迹训练网络权重的过程\cite{r1,r2,r3}。
+
+对奇数输入规模 \(m=2p+1\)，原始随机特征由常数和 \(p\) 对正弦、余弦组成：
+\begin{equation}
+ \begin{gathered}
+ b_j=\frac{62}{p}(j+\xi_j),\qquad
+ \xi_j\sim\operatorname{Uniform}(0.2,0.8),\qquad j=0,\ldots,p-1,\\
+ q_{j,0}(z)=\cos[b_j(z-\tfrac12)],\qquad
+ q_{j,1}(z)=\sin[b_j(z-\tfrac12)].
+ \end{gathered}
+ \label{eq:random-features}
+\end{equation}
+随机抽样使用固定的 \texttt{NumPy default\_rng(seed)}，登记种子为7331、7687、8011、8353、9041。Legendre 对照将原始特征换为 \(P_j(2z-1)\)、\(j=0,\ldots,m-1\)，并沿用相同边界变换、富集、求积和时间离散。本文报告的配置不使用径向坐标扭曲。
+
+边界条件通过解析变换施加。对原始函数 \(q\)，令 \(\chi(z)=16z^2(1-z)\)、\(b(z)=z^2(1-z)^2/2\)，定义
+\begin{equation}
+ \mathcal Bq(z)=\chi(z)q(z)
+       -b(z)\left.\frac{d^2(\chi q)}{dz^2}\right|_{z=1}.
+ \label{eq:boundary-transform}
+\end{equation}
+因为 \(b(0)=b'(0)=b(1)=0\)、\(b''(1)=1\)，所得函数满足 \(F(0)=F_s(0)=F(L)=F_{ss}(L)=0\)。故对每个 \(k\)，齐次模态同时满足圆柱处无滑移和外圆零涡量条件。式~\eqref{eq:boundary-transform}中的导数针对 \(z\)；换算为 \(s\) 导数时必须计入 \(L^{-1}\) 与 \(L^{-2}\)。
+
+两种试验族均加入相同的六个解析外侧边界层函数。记 \(\delta=L-s\)，则
+\begin{equation}
+ E_\gamma(s)=z^2\left[\delta+
+       \left(\gamma+\frac{2}{L}\right)\delta^2\right]e^{-\gamma\delta},
+ \qquad \gamma\in\{16,36,80,165,340,660\}.
+ \label{eq:layer-features}
+\end{equation}
+在 \(\delta=0\) 处，其 Taylor 展开的常数项和二次项均为零，因而具有相同的外边界齐次条件；\(z^2\) 因子提供内壁条件。这些函数用于解析本有限域边界条件产生的外侧薄层，不属于随机特征学习出的结构。
+
+均值块在两种试验族中均采用确定性多项式空间。原始函数为 \(z[(L+2)-(L+1)z]\) 及 \(z(1-z)^2P_j(2z-1)\)，其中 \(j=0,\ldots,m_0-2\)、\(m_0=24\)；富集为 \(z[1+(\gamma+1+1/L)\delta]e^{-\gamma\delta}\)。它们均满足均值边界条件。最终配置加入六个富集后保留30个均值函数，因此随机性只存在于非零模态的径向空间。
+
+\subsection{求积、秩选择与模型规模的含义}
+
+径向积分在 \([0,L-0.12]\)、\([L-0.12,L-0.018]\)、\([L-0.018,L]\) 三段采用正权 Gauss 求积。总节点数为 \(q\) 时，令 \(b_q=\max(8,\lfloor q/6\rfloor)\)，三段节点数分别为 \(q-2b_q,b_q,b_q\)。两个主要 Galerkin 配置分别使用44/11/11和52/12/12。由于随机三角函数及指数富集不是多项式，求积只近似连续弱式。下面的正性结论精确适用于求积定义的离散矩阵，并非径向求积误差估计。
+
+记 \(\widetilde F,\widetilde D,\widetilde D_2\) 为全部经过边界修正和富集的原始函数在求积节点的值及前两阶 \(s\) 导数，\(W=\operatorname{diag}(w_i)\)。构造
+\begin{equation}
+ \mathcal A=\operatorname{diag}(\sqrt{w_i}/r_i)
+       (\widetilde D_2-\widetilde F),\quad
+ S=\operatorname{diag}(\|\mathcal A_{:j}\|_2),\quad
+ \mathcal A S^{-1}=U\Sigma V^{\mathsf T}.
+ \label{eq:feature-svd}
+\end{equation}
+原始列范数必须非零。保留满足 \(\sigma_j>10^{-10}\sigma_1\) 的奇异值，定义
+\begin{equation}
+ C=S^{-1}V_d\Sigma_d^{-1},\qquad
+ F=\widetilde FC,\quad D=\widetilde DC,\quad D_2=\widetilde D_2C.
+ \label{eq:feature-transform}
+\end{equation}
+这是针对离散微分算子的归一化和秩截断，并非普通点值内积中的正交化。精确算术下有 \(\operatorname{diag}(\sqrt{w_i}/r_i)(D_2-F)=U_d\)，从而 \(k=1\) 的耗散 Gram 矩阵归一为 \(\nu I\)。此恒等式解释已有构造的性质，不是新实测的优化，也不保证全部角模均有相同条件性。均值空间相应地归一化 \(\operatorname{diag}(\sqrt{w_i})(\widetilde V+\widetilde V_s)\)。
+
+RFM37 等标签中的数字是原始随机特征数，不是未知量数。富集增加列，截断又可能删除列。若非零模态保留秩为 \(d\)，均值秩为 \(d_0\)，则实系数自由度为 \(2Kd+d_0\)，最终配置的 \(d_0=30\)。同秩比较和同精度比较回答不同问题。较小的 RFM 输入特征数不能证明其保留秩小于 Legendre 对照；比较不同实现时，种子和截断阈值也属于必须固定的模型身份。
+
+\section{弱形式与时间离散算法}
+\label{sec:numerical-method}
+
+\subsection{非零模态的质量、耗散和非线性通量}
+
+对上述速度场，不可压条件使涡量方程在对数径向坐标中写为守恒形式：
+\begin{equation}
+ r^2\partial_t\omega+\partial_s(r u_r\omega)
+ +\partial_\theta(r u_\theta\omega)
+ =\nu(\omega_{ss}+\omega_{\theta\theta}).
+ \label{eq:vorticity-conservative}
+\end{equation}
+对第 \(k\) 个 Fourier 系数以齐次径向基函数测试。代入 \(r^2\omega_k=-(\psi_{k,ss}-k^2\psi_k)\)，对质量项分部积分一次，得到 \(\int(F_i'\psi_k'+k^2F_i\psi_k)\,ds\)。对黏性项分部积分两次，得到负的 Gram 形式。边界项因 \(F_i\) 在两端为零、\(F_i'(0)=0\) 和 \(\omega_k(L)=0\) 而消失。施加给定径向求积后，矩阵为
+\begin{align}
+ M_k&=D^{\mathsf T}WD+k^2F^{\mathsf T}WF,
+ \label{eq:mass}\\
+ K_k&=\nu(D_2-k^2F)^{\mathsf T}
+        \operatorname{diag}(w_i/r_i^2)(D_2-k^2F).
+ \label{eq:dissipation}
+\end{align}
+对任意实系数向量 \(x\)，有
+\begin{equation}
+ \begin{aligned}
+ x^{\mathsf T}M_kx&=\|W^{1/2}Dx\|_2^2+k^2\|W^{1/2}Fx\|_2^2,\\
+ x^{\mathsf T}K_kx&=\nu\|
+ \operatorname{diag}(\sqrt{w_i}/r_i)(D_2-k^2F)x\|_2^2.
+ \end{aligned}
+ \label{eq:gram-positivity}
+\end{equation}
+因此两矩阵在精确算术下对称半正定。\(M_k\) 在保留空间上的正定性还要求加权点值和一阶导数样本叠置后具有满列秩。式~\eqref{eq:dissipation}的紧凑形式与归档代码采用的展开式在精确算术下等价，其正性不消除浮点相消、装配非对称或坐标变换病态。
+
+令 \(a_k,b_k\) 分别为求积节点上 \(u_r\omega,u_\theta\omega\) 的 Fourier 系数。对两个输运项分别分部积分，得到
+\begin{equation}
+ f_k=D^{\mathsf T}\operatorname{diag}(w_i r_i)a_k
+      -ikF^{\mathsf T}\operatorname{diag}(w_i r_i)b_k.
+ \label{eq:weak-flux}
+\end{equation}
+乘积使用包含均值块和边界提升的完整速度，在物理角坐标上计算后投影回保留频带。线性系统虽可逐角模独立求解，非线性乘积仍耦合所有模态，因此将线性求解对角化不会消除非线性 FFT 工作量。
+
+对 \(k=1\)，提升投影为
+\begin{equation}
+ \begin{aligned}
+ M_\ell&=D^{\mathsf T}W\ell_s+F^{\mathsf T}W\ell,\\
+ K_\ell&=\nu(D_2-F)^{\mathsf T}
+       \operatorname{diag}(w_i/r_i^2)(\ell_{ss}-\ell).
+ \end{aligned}
+ \label{eq:lift-projections}
+\end{equation}
+其他非零模态没有直接提升项。省略角模下标，并允许相应提升向量为零，半离散系统可统一表示为
+\begin{equation}
+ m'(t)+Kx(t)+g(t)K_\ell=f(t),\qquad
+ m(t)=Mx(t)+g(t)M_\ell.
+ \label{eq:semidiscrete}
+\end{equation}
+被求导的是完整弱质量 \(m\)，若只使用 \(Mx\)，将遗漏边界加速度。多个独立提升可把 \(gM_\ell\)、\(gK_\ell\) 分别换为相应求和。
+
+\subsection{均值块为何需要独立方程}
+
+对切向动量作角向平均，得到
+\begin{equation}
+ \partial_t v=-\langle u_r\omega\rangle_\theta
+       +\frac{\nu}{r^2}(v_{ss}-v).
+ \label{eq:mean-equation}
+\end{equation}
+本小节以 \(V,V_s\) 表示均值基的节点值及导数矩阵，区别于式~\eqref{eq:driving}中的横向脉冲。均值矩阵和右端为
+\begin{equation}
+ \begin{aligned}
+ M_0&=V^{\mathsf T}\operatorname{diag}(w_i r_i^2)V,\qquad
+ K_0=\nu(V+V_s)^{\mathsf T}W(V+V_s),\\
+ f_0&=-V^{\mathsf T}\operatorname{diag}(w_i r_i^2)a_0.
+ \end{aligned}
+ \label{eq:mean-matrices}
+\end{equation}
+检验耗散形式时，展开 \(\int(V+V_s)(v+v_s)\,ds\)，两个交叉项合为 \([Vv]_0^L\)。利用 \(v_s(L)=-v(L)\)、\(v(0)=0\)，这正是对 \(-\int V(v_{ss}-v)\,ds\) 分部积分产生的边界项。该块没有直接提升项，径向通量前的负号来自切向动量方程。直接在式~\eqref{eq:mass}--\eqref{eq:weak-flux}中令 \(k=0\) 会得到另一种表示，不是本实现采用的均值方程。
+
+\subsection{恒步积分与一次桥接}
+\label{sec:time-phase}
+
+基线采用 SBDF2：扩散隐式处理，非线性弱通量以两点外推处理\cite{r9,r12}。隐式 Euler 起步后，恒定步长 \(h\) 的更新为
+\begin{equation}
+ \begin{aligned}
+ (\tfrac32M+hK)x_{n+1}
+ ={}&2m_n-\tfrac12m_{n-1}+h(2f_n-f_{n-1})\\
+ &-g_{n+1}(\tfrac32M_\ell+hK_\ell).
+ \end{aligned}
+ \label{eq:uniform-sbdf}
+\end{equation}
+初始化使用静止初值和给定平滑来流。Euler 起步本身不构成二阶收敛证明，仍须结合初值问题和后续多步演化检查一致性；当前静止初态的显式非线性源为零。
+
+优化时间策略在 \(t_0=8\) 之前采用恒定步长 \(H\)，之后改用较大的恒定步长 \(h\)。仅跨越接口的首个更新具有不等的相邻时间间隔。记 \(t_-=t_0-H\)、\(t_+=t_0+h\)、\(\rho=h/H>0\)，定义
+\begin{equation}
+ a_0=\frac{1+2\rho}{1+\rho},\qquad
+ b_0=1+\rho,\qquad b_1=\frac{\rho^2}{1+\rho}.
+ \label{eq:bridge-coefficients}
+\end{equation}
+桥接更新为
+\begin{equation}
+ \begin{aligned}
+ (a_0M+hK)x_+={}&b_0m_0-b_1m_-+
+ h[(1+\rho)f_0-\rho f_-]\\
+ &-g_+(a_0M_\ell+hK_\ell).
+ \end{aligned}
+ \label{eq:bridge}
+\end{equation}
+本小节的 \(m_0,f_0\) 下标表示时刻 \(t_0\)，不表示角向均值。历史质量已含各自时刻的提升，未来提升仅减去一次。\(\rho=1\) 时，式~\eqref{eq:bridge}精确还原恒步式~\eqref{eq:uniform-sbdf}。
+
+\paragraph{命题1：含提升桥接的局部一致性。}
+设精确半离散解轨迹在桥接附近满足 \(m\in C^4\)、\(f\in C^3\)，且 \(\rho\) 属于 \((0,\infty)\) 的固定紧子集。令 \(\delta=\max(H,h)\)，则式~\eqref{eq:bridge}的导数型残差为 \(O(\delta^2)\)，乘步长后的方程残差为 \(O(h\delta^2)\)。
+
+\paragraph{证明。}
+对三个质量值作二次插值，在 \(t_+\) 求导，得到 \(Dm_+=(a_0m_+-b_0m_0+b_1m_-)/h\)。两份通量的线性外推在同一端点给出 \((1+\rho)f_0-\rho f_-\)。在 \(t_+\) 附近作 Taylor 展开，有
+\begin{align}
+ Dm_+-m'(t_+)
+ &=-\frac{h(h+H)}{6}m'''(t_+)+O(\delta^3),
+ \label{eq:bridge-derivative}\\
+ (1+\rho)f_0-\rho f_- - f(t_+)
+ &=-\frac{h(h+H)}{2}f''(t_+)+O(\delta^3).
+ \label{eq:bridge-extrapolation}
+\end{align}
+将其代入式~\eqref{eq:semidiscrete}，扩散与提升均在 \(t_+\) 取值，合并残差即得结论。再代入 \(m_+=Mx_++g_+M_\ell\) 得到桥接更新式。\hfill\(\square\)
+
+该命题仅为局部一致性，不是非线性 NS 的无条件稳定性或长期收敛证明。后者还需要正则性、起步、扰动传播和稳定性估计。有限时长脉冲仅分段光滑，上述 Taylor 论证局限于远离脉冲端点的 \(t=8\) 桥接邻域。对标量零方程 \(y'=0\)，桥接差分满足
+\begin{equation}
+ y_+-y_0=\frac{\rho^2}{1+2\rho}(y_0-y_-).
+ \label{eq:zero-equation}
+\end{equation}
+两档登记步长比分别为 \(8/7\) 和 \(19/17\)，对应差分因子为 \(64/161\) 和 \(361/935\)，恒步段因子为 \(1/3\)。这说明指定时间网格上的齐次差分有界。显式输运和模态耦合没有出现在该检验中，因此它不提供完整流动的稳定性定理。
+
+工作量减少来自时间策略，与基族无关。在 \(T=72\) 时，时间率于 \(t=8\) 从128改为112，将总步数由9216降至8192；从152改为136，将10944降至9920。初始非线性源恒为零，Euler 第一状态预先构造；重复核只在 $t_1,\ldots,t_{N_{\rm step}-1}$ 求值，终态不再评估。因此实际登记求值次数分别为 \(9215\to8191\) 和 \(10943\to9919\)。该计数不预测完整求解耗时，因为后者还包含额外相位准备和启动。
+
+\subsection{固定空间准备的复用}
+
+\paragraph{命题2：精确算术下的准备复用。}
+固定几何、黏度、特征族、随机种子、富集、求积、提升、列缩放和奇异值阈值。若基变换在步长相关矩阵之前形成且与时间步长无关，则保留基、秩、\(M,K,M_\ell,K_\ell\) 及未预收缩的非线性测试算子可仅准备一次，在精确算术下不改变各相位的离散更新。
+
+\paragraph{证明。}
+式~\eqref{eq:feature-svd}--\eqref{eq:feature-transform}和式~\eqref{eq:mass}--\eqref{eq:mean-matrices}均不含时间步长。相位依赖仅通过 \(a_jM+h_jK\)、其分解或应用及步长加权右端进入。复用这些运算的相同输入，仍给出相同线性方程。\hfill\(\square\)
+
+已有构造路径接受 \(A_{\rm eff}=(3/2)M+h_{\rm eff}K\)。对桥接取 \(c=(3/2)/a_0\)、\(h_{\rm eff}=ch\)，则
+\begin{equation}
+ A_{\rm eff}=c(a_0M+hK),\qquad
+ A_{\rm eff}^{-1}(cb)=(a_0M+hK)^{-1}b.
+ \label{eq:bridge-reuse}
+\end{equation}
+历史质量系数乘以 \(c\)，但已经含 \(h_{\rm eff}\) 的通量包不得重复乘该因子。原先预收缩的非线性历史依赖旧相位的逆矩阵，必须在接口处从原始通量谱重新映射；直接沿用旧收缩向量将改变算法。
+
+精确算术等价不保证跨实现的逐位相同。归档在24组固定比较中验证了936项数组的字节一致，保留了原浮点表达式分组和计算环境。改变求和顺序、库、试验空间、提升或自适应策略后，须重新验证。共享准备减少重复空间工作，但仍保留相位分解、算子包、传输和执行图，因而不是一项独立的端到端计时结论。
+
+\section{共同相位坐标与代数改良的边界}
+\label{sec:phase-analysis}
+
+\subsection{单一角模的同时同余变换}
+
+固定一个角模，各相位矩阵写成 \(A_j=a_jM+h_jK\)，其中 \(a_j,h_j>0\)。前后恒步相位及桥接均具有这一形式。为避免与前段步长 \(H\) 混淆，将参考矩阵记为 \(H_*\)。假设 \(M,K\) 实对称半正定，且对正数 \(a_*,h_*\)，\(H_*=a_*M+h_*K\) 正定；等价地，\(M,K\) 没有共同非零零空间向量。广义对称正定特征问题的经典工具\cite{r10}给出如下表示。
+
+\paragraph{命题3：共同相位坐标。}
+存在实可逆矩阵 \(P\)，使 \(P^{\mathsf T}H_*P=I\)、\(P^{\mathsf T}MP=\operatorname{diag}(\lambda_i)\)。令 \(\theta_i=a_*\lambda_i\)，则
+\begin{equation}
+ \begin{gathered}
+ 0\le\theta_i\le1,\qquad
+ P^{\mathsf T}A_jP=\operatorname{diag}(d_{ji}),\\
+ d_{ji}=\frac{a_j}{a_*}\theta_i+
+             \frac{h_j}{h_*}(1-\theta_i)>0.
+ \end{gathered}
+ \label{eq:phase}
+\end{equation}
+
+\paragraph{证明。}
+对 \(H_*=LL^{\mathsf T}\) 作 Cholesky 分解。对称半正定矩阵 \(L^{-1}ML^{-\mathsf T}\) 存在正交特征基 \(Q\)。取 \(P=L^{-\mathsf T}Q\)，便得到 \(P^{\mathsf T}MP=\operatorname{diag}(\lambda_i)\)、\(P^{\mathsf T}H_*P=I\)。又因 \(h_*P^{\mathsf T}KP=I-a_*\operatorname{diag}(\lambda_i)\) 半正定，故 \(0\le a_*\lambda_i\le1\)。代入 \(A_j\) 的线性组合即得式~\eqref{eq:phase}，其中每个对角值都是两个正数的凸组合。\hfill\(\square\)
+
+因此
+\begin{equation}
+ A_j^{-1}b=P\operatorname{diag}(d_{ji}^{-1})P^{\mathsf T}b.
+ \label{eq:phase-inverse}
+\end{equation}
+这是同余变换，不要求原坐标中的矩阵两两对易。相同假设下，独立均值矩阵也适用。Euler 矩阵虽具有正系数并符合代数形式，但归档的共同相位原型沿用了原 Euler 初始化，并未对该相位独立验证晋升。
+
+\subsection{最坏谱界的几何锚点}
+
+令 \(r_j=h_j/a_j\)、\(\eta=h_*/a_*\)、\(r_{\min}=\min_jr_j\)、\(r_{\max}=\max_jr_j\)。从 \(d_{ji}\) 提出 \(a_j/a_*\) 后，剩余因子为 \(\theta_i+(r_j/\eta)(1-\theta_i)\)，位于1与 \(r_j/\eta\) 之间，因而
+\begin{equation}
+ \kappa_2(P^{\mathsf T}A_jP)
+ \le B_j(\eta)=\max\{r_j/\eta,\eta/r_j\}.
+ \label{eq:bound}
+\end{equation}
+对有限正相位集合，有
+\begin{equation}
+ \eta_* = \sqrt{r_{\min}r_{\max}},\qquad
+ \min_{\eta>0}\max_jB_j(\eta)=\sqrt{r_{\max}/r_{\min}}.
+ \label{eq:anchor}
+\end{equation}
+证明只需注意最坏上界为 \(\max\{r_{\max}/\eta,\eta/r_{\min}\}\)。两项的乘积恒为 \(r_{\max}/r_{\min}\)，其最大值在两项相等时最小，遂得式~\eqref{eq:anchor}。
+
+上界与实际谱必须区分。如果 \(\theta_i\) 未接近区间两个端点，该界可能很松。几何锚点最小化的是这个界，未必最小化给定矩阵的实际最大条件数。同比缩放 \(a_*,h_*\) 不改变此界，却改变对角值大小，所以该规则不说明所有分母接近1；它也不改变原坐标的 \(\kappa_2(A_j)\)，不约束 \(P,P^{\mathsf T}\) 应用过程中的往返误差。
+
+几何锚点结论完成了代数推导和独立审读，未进入计时候选。早期共同相位原型测得的准备开销不能归于这一未经计时的锚点选择。推导和原型均不构成随机特征逼近理论，也不构成时间积分稳定性定理。
+
+\subsection{共同坐标为何不必然产生更快求解器}
+
+跨角模有 \(M_k=M^{(0)}+k^2M^{(1)}\)、\(K_k=K^{(0)}+k^2K^{(1)}+k^4K^{(2)}\)。对 \(k^2\) 的多项式依赖不蕴含共同特征基。在固定白化度量中，一组实对称系数矩阵能够被同时正交对角化，当且仅当它们两两对易。归档测得的归一化交换子约为0.051--0.076，不支持以单个精确共同变换替代所有角模。
+
+即使只考虑单一角模，设备端的数据接口仍决定收益。若设备需要预收缩稠密算子 \(A_j^{-1}B\)，其中 \(B\) 收集质量和非线性投影列，保持原接口仍须对每个相位形成 \(P\operatorname{diag}(d_j^{-1})P^{\mathsf T}B\)。对秩 \(d\)、与 \(q\) 成比例的投影宽度和 \(p_{\rm ph}\) 个相位，这需要一次 \(O(d^3)\) 特征分解及约 \(p_{\rm ph}+1\) 次 \(O(d^2q)\) 稠密乘法；直接路线则进行 \(p_{\rm ph}\) 次分解和各相位应用。共同表示仍须写出全部相位包。因此需要共同评估运算数、库吞吐、条件性和内存布局。
+
+另一种设计可令时间系数始终保存在 \(P\) 坐标中，各相位仅作对角更新。但这同时要求对每个角模改写重构、提升、非线性投影和观测算子。现有完整轨迹证据没有验证该设计，它是一条具体工程方向，不能从式~\eqref{eq:phase-inverse}直接推断速度优势。
+
+\subsection{区分逼近、积分与实现误差}
+
+误差需要在四个层次上讨论：连续有限域解、求积定义的空间半离散解、其精确算术时间离散解，以及实际浮点执行解。相应区别外域误差、试验空间与求积误差、时间离散误差和实现误差。对于共同物理重构网格，使用同一绝对范数可通过三角不等式得到加性分解；相对误差则必须明确换算分母，不能直接相加以不同参考场为分母的两个百分比。
+
+本文物理门槛是相对于两份高分辨数值参考的误差检查，实现门槛是同一离散方法的 GPU 与 CPU 差异。二者都不是对未知连续真解误差的严格上界。与此同时，较小速度误差不控制其空间导数；式~\eqref{eq:kinematics}中的涡量需要流函数二阶导数，因此涡量与近场门槛必须独立施加。
+
+一个条件性扰动估计可解释为何算子残差小仍须检查轨迹。考虑同一离散步和相同提升的两次执行，系数差分别为 \(e_n,e_{n-1}\)，乘步长后的线性方程中出现加性残差 \(r_{n+1}\)。若非线性映射在包含两条轨迹的区域内满足 Lipschitz 常数 \(L_f\)，则对相容的系数范数有
+\begin{equation}
+ \begin{aligned}
+ \|e_{n+1}\|\le\|A_n^{-1}\|\big[&
+ (b_0\|M\|+h(1+\rho)L_f)\|e_n\|\\
+ &+(b_1\|M\|+h\rho L_f)\|e_{n-1}\|
+ +\|r_{n+1}\|\big].
+ \end{aligned}
+ \label{eq:perturbation-accounting}
+\end{equation}
+将两更新式相减，再使用范数和局部 Lipschitz 不等式即可证明。该式只是同一有限维离散格式的扰动记账，其常数可能很保守，并不建立一致的长期误差界。它说明单次 FFT 一致、小线性残差或良好的变换后条件数，都不能替代完整积分时域上的物理精度检查。

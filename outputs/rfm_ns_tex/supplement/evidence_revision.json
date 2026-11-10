@@ -1,0 +1,3502 @@
+{
+  "schema": "rfm-paper-revision-v2-results-evidence-1",
+  "scope": "Read-only reanalysis of frozen Navier-Stokes evidence; no new CFD, GPU or performance run by this authoring task. New independent operator correctness artifact is maintained separately by the operator author.",
+  "archive_commit": "6f2b3500964d3d5153b8400018236c4702ef94f8",
+  "qualification": {
+    "numerical_identities": 39,
+    "cache_policies": 2,
+    "trajectories": 78,
+    "passed": 78,
+    "physical_checkpoints": 19,
+    "additional_piecewise_implementation_checkpoints": 2,
+    "probe_times": 577,
+    "physical_gate": 0.005,
+    "implementation_gate": 1e-05,
+    "max_physical": 0.004775428806959625,
+    "max_velocity_full_or_near": 0.0010496824092313156,
+    "max_triangle_guard": 0.00497729675053289,
+    "guard_margin_percentage_points": 0.002270324946710995,
+    "max_implementation": 3.572075683009756e-06,
+    "max_probes": 3.879179037889954e-06
+  },
+  "new_seed_table": [
+    {
+      "seed": 7331,
+      "rank": 38,
+      "arm": "uniform",
+      "vorticity_percent": 0.42718278400585286,
+      "guard_percent": 0,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_057/independent_score.json"
+    },
+    {
+      "seed": 7331,
+      "rank": 38,
+      "arm": "combined",
+      "vorticity_percent": 0.43151978178909883,
+      "guard_percent": 0.46394526062466646,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_058/independent_score.json"
+    },
+    {
+      "seed": 7687,
+      "rank": 38,
+      "arm": "uniform",
+      "vorticity_percent": 0.4279446867368469,
+      "guard_percent": 0,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_061/independent_score.json"
+    },
+    {
+      "seed": 7687,
+      "rank": 38,
+      "arm": "combined",
+      "vorticity_percent": 0.4322456802804728,
+      "guard_percent": 0.46470656033886887,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_062/independent_score.json"
+    },
+    {
+      "seed": 8011,
+      "rank": 38,
+      "arm": "uniform",
+      "vorticity_percent": 0.42818340806396443,
+      "guard_percent": 0,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_065/independent_score.json"
+    },
+    {
+      "seed": 8011,
+      "rank": 38,
+      "arm": "combined",
+      "vorticity_percent": 0.43245138192165933,
+      "guard_percent": 0.464943189583957,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_066/independent_score.json"
+    },
+    {
+      "seed": 8353,
+      "rank": 39,
+      "arm": "uniform",
+      "vorticity_percent": 0.3780311774013658,
+      "guard_percent": 0,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_069/independent_score.json"
+    },
+    {
+      "seed": 8353,
+      "rank": 39,
+      "arm": "combined",
+      "vorticity_percent": 0.38387462336736616,
+      "guard_percent": 0.4148012254169932,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_070/independent_score.json"
+    },
+    {
+      "seed": 9041,
+      "rank": 38,
+      "arm": "uniform",
+      "vorticity_percent": 0.42761127728413095,
+      "guard_percent": 0,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_073/independent_score.json"
+    },
+    {
+      "seed": 9041,
+      "rank": 38,
+      "arm": "combined",
+      "vorticity_percent": 0.4319101417452418,
+      "guard_percent": 0.4643724751316902,
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_074/independent_score.json"
+    }
+  ],
+  "work_count_table": [
+    {
+      "constant": {
+        "slot": 0,
+        "steps": 9216,
+        "nonlinear_evaluations": 9215,
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/result.json",
+        "sha256": "6260fcfd3b4981e981dfe911e80b4891f253fade5663d7413c633bd04e778b18"
+      },
+      "piecewise": {
+        "slot": 10,
+        "steps": 8192,
+        "nonlinear_evaluations": 8191,
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_010/result.json",
+        "sha256": "5f60cfbb418a6b435dab2076f319eebe66b09b37318adb00422cb0df30afb8bf"
+      },
+      "reduction_percent": 11.112316874660877
+    },
+    {
+      "constant": {
+        "slot": 26,
+        "steps": 10944,
+        "nonlinear_evaluations": 10943,
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_026/result.json",
+        "sha256": "3ec49701f61f0355ab874473ba435d6da4cf0144d8ece2cb3986c00d2edbd594"
+      },
+      "piecewise": {
+        "slot": 36,
+        "steps": 9920,
+        "nonlinear_evaluations": 9919,
+        "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_036/result.json",
+        "sha256": "0ee15fbfb5f2001038047027467a63bbacee08ce642d40977fe2a8bed66fd907"
+      },
+      "reduction_percent": 9.357580188248193
+    }
+  ],
+  "interpretation_constraints": [
+    "Two reference refinements are not independent continuum certificates or independent CFD implementations.",
+    "The 78 trajectories represent 39 configurations across two numerically identical cache policies, not 78 independent feature draws.",
+    "RFM35 seed8353 retains rank39; four others rank38. Accuracy differences confound seed and rank.",
+    "FD fourth order denotes radial spatial differencing; time is second-order SBDF2.",
+    "Local FFT and warp ratios must not be used as complete-solver speedups.",
+    "Final 160-slot timing campaign was not accepted; no final ranking or confidence intervals are estimated from its partial runs.",
+    "First-use/cache-hit policies do not clear driver/OS caches.",
+    "All newly expanded statistics are computed from archived records, separate from any new independent operator correctness example."
+  ],
+  "sources": {
+    "qualification_summary": {
+      "path": "work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json",
+      "sha256": "1da5cd2cf5771a701ba172a3e979b2c8003f84328810ade76a692756f33231df"
+    },
+    "qualification_protocol": {
+      "path": "work/rfm_v8/rank_fair_cache_qualification_output/protocol.json",
+      "sha256": "d5d7f3bcd7ab9d93106f8c22fd8672e00b70aba5564b888e658aaf73214c5af2"
+    },
+    "hardware_record": {
+      "path": "work/rfm_v8/thin_formal_high_output/execution_environment_guard.json",
+      "sha256": "fd13b2a0f7de88ed87d125ea3a5ff94058d869ba940760981804641bc9701a3a"
+    },
+    "cuda_native_compatibility": {
+      "path": "work/rfm_v7/cuda_environment_native.json",
+      "sha256": "a584b98a3c6ec61561bde138c3d1e705344f377abe4d07c8b945b8b5d0422a15"
+    },
+    "local_fft": {
+      "path": "work/rfm_v8/fused_nonlinear_fft_device_output/summary.json",
+      "sha256": "faaa4c1efa76c43bf3d7a29c5c1179e3087301b5721552487303ee1df3b5ddb7"
+    },
+    "fused_t9": {
+      "path": "work/rfm_v8/fused_march_t9_output/summary.json",
+      "sha256": "06fca774177fb54bd104568e34833ac94ad84bcc6301b133a2ba2c9fd23e2b2d"
+    },
+    "warp_local": {
+      "path": "work/rfm_v8/warp_observe_micro_retry_output/summary.json",
+      "sha256": "2a59a77bd56954369b3f1d25d4cef168fc5fbd4c6757662aa472ebe01b27fa89"
+    },
+    "warp_trajectories": {
+      "path": "work/rfm_v8/warp_observe_qualification_retry_output/summary.json",
+      "sha256": "b88f48242e47efad57eb7164725bd5b19587292f0205ae09a8ae6e43b72b26fd"
+    },
+    "phase_setup": {
+      "path": "work/rfm_v8/galerkin_phase_pencil_audit_canonical_mean.json",
+      "sha256": "c6bd5953254d07a00fb1373a0a511cb2bb27cd4a58f521163be730602e7227a8"
+    },
+    "lamb_t16": {
+      "path": "work/rfm_v8/lamb_t16_qualification_output/summary.json",
+      "sha256": "3f1049eee2d25e6a3d530cb15e1332b9ed4755d4b42f8f7f8a76be0f1bf6297d"
+    },
+    "nonlinear_candidates": {
+      "path": "work/rfm_v8/nonlinear_operator_findings.txt",
+      "sha256": "f32540d790b4ac6a88e7894230f666acba56b5a14c405c11408c9918ee3e3f12"
+    },
+    "cache_install": {
+      "path": "work/rfm_v8/stock_ptx_install_output/summary.json",
+      "sha256": "c9cbff3571456cc3873aad7ddccf06ebaab73041a638db3a663c654bf46b5015"
+    },
+    "historical_import_timing": {
+      "path": "work/rfm_v8/thin_formal_high_verification.json",
+      "sha256": "d340ef4976a5ef3a12d22e50164f465c04306640666fb86a8f991945e2aa9382"
+    },
+    "final_disposition": {
+      "path": "work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json",
+      "sha256": "a4c301338ccc67fbbf1c8ec664ad85d7f16d3a38b4e8ace4bc2a7627966ac4b4"
+    },
+    "final_window_verifier": {
+      "path": "work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/registered_window_verifier.json",
+      "sha256": "3ba60a99f68d6798dfba48fd06acf133576808dcdec514bc4b3769608f13fd42"
+    },
+    "domain_sensitivity": {
+      "path": "work/rfm_v7/domain_output/domain_sensitivity.json",
+      "sha256": "c0f9d621b5579eb26252282c787950bcc5925526e291db47c0c0a7c12085d266"
+    },
+    "prior_evidence_extraction": {
+      "path": "work/rfm_paper/evidence_notes.json",
+      "sha256": "c49c1401ca085bdac92981af300900a4802df53da86f17c9f6abedfc5c81d317"
+    },
+    "report_addendum": {
+      "path": "work/rfm_v8/report_final_round.json",
+      "sha256": "0e960895a5d1a67bebed75000c2a8d8bd2bc3d7717fbf30d7c68ab02c3f71d61"
+    }
+  },
+  "qualification_score_records": [
+    {
+      "index": 0,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 7331,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000270985219975666,
+          "vorticity": 0.004068758914672408,
+          "near_velocity": 0.00022290651085702024,
+          "near_vorticity": 0.002090197797672532
+        },
+        "time_fine": {
+          "velocity": 0.0002942847889852114,
+          "vorticity": 0.004093486319800329,
+          "near_velocity": 0.00025070107689948926,
+          "near_vorticity": 0.0020975826589571213
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.7561707577785884e-11,
+        "vorticity": 1.3463743244168423e-10,
+        "near_velocity": 3.108028225170734e-11,
+        "near_vorticity": 7.663879680348293e-11
+      },
+      "probes": {
+        "transverse": 1.0541257693925755e-10,
+        "vorticity": 1.2069761830275665e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_000/independent_score.json",
+      "sha256": "69f12e092d4a66b021eca1c80ea13bf3254d117441cd65b4cf4635f231e0fbaa"
+    },
+    {
+      "index": 1,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 7331,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000270985219975666,
+          "vorticity": 0.004068758914672408,
+          "near_velocity": 0.00022290651085702024,
+          "near_vorticity": 0.002090197797672532
+        },
+        "time_fine": {
+          "velocity": 0.0002942847889852114,
+          "vorticity": 0.004093486319800329,
+          "near_velocity": 0.00025070107689948926,
+          "near_vorticity": 0.0020975826589571213
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.7561707577785884e-11,
+        "vorticity": 1.3463743244168423e-10,
+        "near_velocity": 3.108028225170734e-11,
+        "near_vorticity": 7.663879680348293e-11
+      },
+      "probes": {
+        "transverse": 1.0541257693925755e-10,
+        "vorticity": 1.2069761830275665e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_001/independent_score.json",
+      "sha256": "286e19150d8cd51367ad4b2b987ae2602b80d6c8a8941d8f37a14d9d65d9cb61"
+    },
+    {
+      "index": 2,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 7687,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002702966743037608,
+          "vorticity": 0.00406854582994523,
+          "near_velocity": 0.000222012109786305,
+          "near_vorticity": 0.0020906004130947092
+        },
+        "time_fine": {
+          "velocity": 0.0002935712292866009,
+          "vorticity": 0.004093206085979003,
+          "near_velocity": 0.00024979578709106526,
+          "near_vorticity": 0.0020979577895879104
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.202338777306513e-10,
+        "vorticity": 5.697066041308898e-10,
+        "near_velocity": 1.3544443266027353e-10,
+        "near_vorticity": 3.320381388465617e-10
+      },
+      "probes": {
+        "transverse": 5.407869161582219e-10,
+        "vorticity": 5.852619106149422e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_002/independent_score.json",
+      "sha256": "caada9e35d76b28f2aafab72372fcf53fe4e2836a02f61b6babc8c91950d1669"
+    },
+    {
+      "index": 3,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 7687,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002702966743037608,
+          "vorticity": 0.00406854582994523,
+          "near_velocity": 0.000222012109786305,
+          "near_vorticity": 0.0020906004130947092
+        },
+        "time_fine": {
+          "velocity": 0.0002935712292866009,
+          "vorticity": 0.004093206085979003,
+          "near_velocity": 0.00024979578709106526,
+          "near_vorticity": 0.0020979577895879104
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.202338777306513e-10,
+        "vorticity": 5.697066041308898e-10,
+        "near_velocity": 1.3544443266027353e-10,
+        "near_vorticity": 3.320381388465617e-10
+      },
+      "probes": {
+        "transverse": 5.407869161582219e-10,
+        "vorticity": 5.852619106149422e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_003/independent_score.json",
+      "sha256": "e432e8ee841b806bfd384bc2e3efe250c40c6eb116347a05bbc120142f30ab48"
+    },
+    {
+      "index": 4,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 8011,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002693292269399539,
+          "vorticity": 0.004071430725761353,
+          "near_velocity": 0.0002208976048235798,
+          "near_vorticity": 0.002093124677556547
+        },
+        "time_fine": {
+          "velocity": 0.00029255424024031667,
+          "vorticity": 0.004095963040491825,
+          "near_velocity": 0.0002484145901417361,
+          "near_vorticity": 0.002100432991925024
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.8373035668241943e-11,
+        "vorticity": 1.0389679656141428e-10,
+        "near_velocity": 1.9701983070627988e-11,
+        "near_vorticity": 5.284280917554428e-11
+      },
+      "probes": {
+        "transverse": 7.488764924068006e-11,
+        "vorticity": 9.959105769682579e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_004/independent_score.json",
+      "sha256": "d5b57b3dd502daf4eae4a4687890e5623c41115382f541556559f1a68cc97ba8"
+    },
+    {
+      "index": 5,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 8011,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002693292269399539,
+          "vorticity": 0.004071430725761353,
+          "near_velocity": 0.0002208976048235798,
+          "near_vorticity": 0.002093124677556547
+        },
+        "time_fine": {
+          "velocity": 0.00029255424024031667,
+          "vorticity": 0.004095963040491825,
+          "near_velocity": 0.0002484145901417361,
+          "near_vorticity": 0.002100432991925024
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.8373035668241943e-11,
+        "vorticity": 1.0389679656141428e-10,
+        "near_velocity": 1.9701983070627988e-11,
+        "near_vorticity": 5.284280917554428e-11
+      },
+      "probes": {
+        "transverse": 7.488764924068006e-11,
+        "vorticity": 9.959105769682579e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_005/independent_score.json",
+      "sha256": "a4af73ec336b6510cf21cbe2881bcc15dc5a280f8a754e65d6a3f785f934105f"
+    },
+    {
+      "index": 6,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00027079182714700176,
+          "vorticity": 0.004067789366713891,
+          "near_velocity": 0.00022268877098946397,
+          "near_vorticity": 0.002089828457501037
+        },
+        "time_fine": {
+          "velocity": 0.0002940835542990209,
+          "vorticity": 0.0040925006561782695,
+          "near_velocity": 0.0002504770885659364,
+          "near_vorticity": 0.0020972081414060463
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.3026929256693778e-11,
+        "vorticity": 1.2653518591275727e-10,
+        "near_velocity": 2.4759636475203494e-11,
+        "near_vorticity": 6.370962871386266e-11
+      },
+      "probes": {
+        "transverse": 6.876254452563262e-11,
+        "vorticity": 1.0153467706427705e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_006/independent_score.json",
+      "sha256": "4f2aa92864cc6a9d64d662eed58fb3c5021a2d1e2675dd2affa3da28302c218a"
+    },
+    {
+      "index": 7,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00027079182714700176,
+          "vorticity": 0.004067789366713891,
+          "near_velocity": 0.00022268877098946397,
+          "near_vorticity": 0.002089828457501037
+        },
+        "time_fine": {
+          "velocity": 0.0002940835542990209,
+          "vorticity": 0.0040925006561782695,
+          "near_velocity": 0.0002504770885659364,
+          "near_vorticity": 0.0020972081414060463
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.3026929256693778e-11,
+        "vorticity": 1.2653518591275727e-10,
+        "near_velocity": 2.4759636475203494e-11,
+        "near_vorticity": 6.370962871386266e-11
+      },
+      "probes": {
+        "transverse": 6.876254452563262e-11,
+        "vorticity": 1.0153467706427705e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_007/independent_score.json",
+      "sha256": "14d372631d85f7b46ef46b71247546f62cd574cf3cc4bbdf96adcfcaf0308028"
+    },
+    {
+      "index": 8,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 9041,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002685108986166286,
+          "vorticity": 0.0040624907253319935,
+          "near_velocity": 0.0002201442449953407,
+          "near_vorticity": 0.0020860502157757014
+        },
+        "time_fine": {
+          "velocity": 0.0002917270847260359,
+          "vorticity": 0.004087023239752452,
+          "near_velocity": 0.0002475850852740851,
+          "near_vorticity": 0.0020933622261117657
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.9109340757778405e-10,
+        "vorticity": 8.964578852969674e-10,
+        "near_velocity": 2.183453625730056e-10,
+        "near_vorticity": 5.277659023765691e-10
+      },
+      "probes": {
+        "transverse": 8.476734271287138e-10,
+        "vorticity": 9.492922161374757e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_008/independent_score.json",
+      "sha256": "2fca11486982877487914f70f28a71c7a7f446640d8f55c2facef7d0324018dd"
+    },
+    {
+      "index": 9,
+      "name": "rfm37_k72",
+      "arm": "uniform",
+      "seed": 9041,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002685108986166286,
+          "vorticity": 0.0040624907253319935,
+          "near_velocity": 0.0002201442449953407,
+          "near_vorticity": 0.0020860502157757014
+        },
+        "time_fine": {
+          "velocity": 0.0002917270847260359,
+          "vorticity": 0.004087023239752452,
+          "near_velocity": 0.0002475850852740851,
+          "near_vorticity": 0.0020933622261117657
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.9109340757778405e-10,
+        "vorticity": 8.964578852969674e-10,
+        "near_velocity": 2.183453625730056e-10,
+        "near_vorticity": 5.277659023765691e-10
+      },
+      "probes": {
+        "transverse": 8.476734271287138e-10,
+        "vorticity": 9.492922161374757e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_009/independent_score.json",
+      "sha256": "dfd3e09e8bfa53f29f784e12b087668141af6886df9f340cc3b0c664810ef8eb"
+    },
+    {
+      "index": 10,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 7331,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0004202051194496677,
+          "vorticity": 0.004265926319507753,
+          "near_velocity": 0.00039592556185260604,
+          "near_vorticity": 0.0021509277551299377
+        },
+        "time_fine": {
+          "velocity": 0.0004467236297246263,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.002163198382631298
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044223173251238843,
+          "vorticity": 0.004754575373771616,
+          "near_velocity": 0.0003995072779700011,
+          "near_vorticity": 0.002346791617493505
+        },
+        "time_fine": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.002354178370394966
+        }
+      },
+      "implementation_worst": {
+        "velocity": 7.311622408958763e-11,
+        "vorticity": 3.417037621314909e-10,
+        "near_velocity": 8.091310823347866e-11,
+        "near_vorticity": 1.9708161014350327e-10
+      },
+      "probes": {
+        "transverse": 3.461020506825653e-10,
+        "vorticity": 3.756880903335348e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_010/independent_score.json",
+      "sha256": "38e5b56f56a33129a2d708e0feeef82bf0ef71c4e004306f295ee8ecd408c203"
+    },
+    {
+      "index": 11,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 7331,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0004202051194496677,
+          "vorticity": 0.004265926319507753,
+          "near_velocity": 0.00039592556185260604,
+          "near_vorticity": 0.0021509277551299377
+        },
+        "time_fine": {
+          "velocity": 0.0004467236297246263,
+          "vorticity": 0.004316803215784305,
+          "near_velocity": 0.000426865541595723,
+          "near_vorticity": 0.002163198382631298
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044223173251238843,
+          "vorticity": 0.004754575373771616,
+          "near_velocity": 0.0003995072779700011,
+          "near_vorticity": 0.002346791617493505
+        },
+        "time_fine": {
+          "velocity": 0.000465535291320849,
+          "vorticity": 0.004786465382099301,
+          "near_velocity": 0.00042977938001147837,
+          "near_vorticity": 0.002354178370394966
+        }
+      },
+      "implementation_worst": {
+        "velocity": 7.311622408958763e-11,
+        "vorticity": 3.417037621314909e-10,
+        "near_velocity": 8.091310823347866e-11,
+        "near_vorticity": 1.9708161014350327e-10
+      },
+      "probes": {
+        "transverse": 3.461020506825653e-10,
+        "vorticity": 3.756880903335348e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_011/independent_score.json",
+      "sha256": "24e532adff3bdaeaa8dd390990933b2c42876d52c01fb688dc04237c84856728"
+    },
+    {
+      "index": 12,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 7687,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00041942665568747445,
+          "vorticity": 0.0042627666829615695,
+          "near_velocity": 0.00039493543179286287,
+          "near_vorticity": 0.002151154052958285
+        },
+        "time_fine": {
+          "velocity": 0.000445938891162679,
+          "vorticity": 0.004313591965042518,
+          "near_velocity": 0.0004258738314391545,
+          "near_vorticity": 0.0021633980490853785
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004415410906604039,
+          "vorticity": 0.004751802277786102,
+          "near_velocity": 0.0003985443998711183,
+          "near_vorticity": 0.0023471899982162978
+        },
+        "time_fine": {
+          "velocity": 0.0004648196343674655,
+          "vorticity": 0.004783619496579643,
+          "near_velocity": 0.0004288075713453417,
+          "near_vorticity": 0.0023545492622146142
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.137550271987416e-11,
+        "vorticity": 1.5570924604253313e-10,
+        "near_velocity": 3.5568126883340745e-11,
+        "near_vorticity": 8.494924577722893e-11
+      },
+      "probes": {
+        "transverse": 1.0494250972134138e-10,
+        "vorticity": 1.29958995632906e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_012/independent_score.json",
+      "sha256": "f62afe7adfe215e4f75a7fb65f863a0469f1e74571e8f24104596cbd03c77536"
+    },
+    {
+      "index": 13,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 7687,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00041942665568747445,
+          "vorticity": 0.0042627666829615695,
+          "near_velocity": 0.00039493543179286287,
+          "near_vorticity": 0.002151154052958285
+        },
+        "time_fine": {
+          "velocity": 0.000445938891162679,
+          "vorticity": 0.004313591965042518,
+          "near_velocity": 0.0004258738314391545,
+          "near_vorticity": 0.0021633980490853785
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004415410906604039,
+          "vorticity": 0.004751802277786102,
+          "near_velocity": 0.0003985443998711183,
+          "near_vorticity": 0.0023471899982162978
+        },
+        "time_fine": {
+          "velocity": 0.0004648196343674655,
+          "vorticity": 0.004783619496579643,
+          "near_velocity": 0.0004288075713453417,
+          "near_vorticity": 0.0023545492622146142
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.137550271987416e-11,
+        "vorticity": 1.5570924604253313e-10,
+        "near_velocity": 3.5568126883340745e-11,
+        "near_vorticity": 8.494924577722893e-11
+      },
+      "probes": {
+        "transverse": 1.0494250972134138e-10,
+        "vorticity": 1.29958995632906e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_013/independent_score.json",
+      "sha256": "689d5cc0b592953127a65ef26a0f2cbc05b798a1ce284a0efc585a5e5f7ddc1d"
+    },
+    {
+      "index": 14,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 8011,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00041827079075212203,
+          "vorticity": 0.0042648281010941,
+          "near_velocity": 0.0003933480483719036,
+          "near_vorticity": 0.0021533667774705206
+        },
+        "time_fine": {
+          "velocity": 0.0004447683459945998,
+          "vorticity": 0.004312480556172424,
+          "near_velocity": 0.0004242832686984002,
+          "near_vorticity": 0.0021655590725919013
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004405678556331791,
+          "vorticity": 0.004751678621727986,
+          "near_velocity": 0.0003970084619671699,
+          "near_vorticity": 0.0023497072726921435
+        },
+        "time_fine": {
+          "velocity": 0.00046379684435537803,
+          "vorticity": 0.004783343683313102,
+          "near_velocity": 0.0004272550961926055,
+          "near_vorticity": 0.002357017457881236
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.313967352216288e-11,
+        "vorticity": 1.607077891621343e-10,
+        "near_velocity": 3.463164998139392e-11,
+        "near_vorticity": 8.543919564905317e-11
+      },
+      "probes": {
+        "transverse": 1.5861977755055488e-10,
+        "vorticity": 1.6428215544424522e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_014/independent_score.json",
+      "sha256": "2682d58ba03fd7210bf7f41a5494f9c19fb9ae5963046267c20f5bc84a0c59ff"
+    },
+    {
+      "index": 15,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 8011,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00041827079075212203,
+          "vorticity": 0.0042648281010941,
+          "near_velocity": 0.0003933480483719036,
+          "near_vorticity": 0.0021533667774705206
+        },
+        "time_fine": {
+          "velocity": 0.0004447683459945998,
+          "vorticity": 0.004312480556172424,
+          "near_velocity": 0.0004242832686984002,
+          "near_vorticity": 0.0021655590725919013
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004405678556331791,
+          "vorticity": 0.004751678621727986,
+          "near_velocity": 0.0003970084619671699,
+          "near_vorticity": 0.0023497072726921435
+        },
+        "time_fine": {
+          "velocity": 0.00046379684435537803,
+          "vorticity": 0.004783343683313102,
+          "near_velocity": 0.0004272550961926055,
+          "near_vorticity": 0.002357017457881236
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.313967352216288e-11,
+        "vorticity": 1.607077891621343e-10,
+        "near_velocity": 3.463164998139392e-11,
+        "near_vorticity": 8.543919564905317e-11
+      },
+      "probes": {
+        "transverse": 1.5861977755055488e-10,
+        "vorticity": 1.6428215544424522e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_015/independent_score.json",
+      "sha256": "fd806d2fb2609ec6573620c676d6551d8c0d773087a7168076169489b2b26ba7"
+    },
+    {
+      "index": 16,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00041998271066830394,
+          "vorticity": 0.00426468590945341,
+          "near_velocity": 0.00039564999783828295,
+          "near_vorticity": 0.002150529441620214
+        },
+        "time_fine": {
+          "velocity": 0.00044649910751338437,
+          "vorticity": 0.004315548678410277,
+          "near_velocity": 0.000426588798437408,
+          "near_vorticity": 0.00216279601933475
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044203727790478403,
+          "vorticity": 0.004753436892632072,
+          "near_velocity": 0.0003992479588135617,
+          "near_vorticity": 0.002346420616122963
+        },
+        "time_fine": {
+          "velocity": 0.0004653329931147776,
+          "vorticity": 0.004785305272943235,
+          "near_velocity": 0.000429515212108317,
+          "near_vorticity": 0.0023538021901396977
+        }
+      },
+      "implementation_worst": {
+        "velocity": 8.271861639149471e-11,
+        "vorticity": 3.882440993505446e-10,
+        "near_velocity": 9.136936295979346e-11,
+        "near_vorticity": 2.2126805559447627e-10
+      },
+      "probes": {
+        "transverse": 3.824587972430054e-10,
+        "vorticity": 4.3144305109155245e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_016/independent_score.json",
+      "sha256": "ae718394e4235f045f5f7cb25eee9e3ee77e874df44deb85d910803897415500"
+    },
+    {
+      "index": 17,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00041998271066830394,
+          "vorticity": 0.00426468590945341,
+          "near_velocity": 0.00039564999783828295,
+          "near_vorticity": 0.002150529441620214
+        },
+        "time_fine": {
+          "velocity": 0.00044649910751338437,
+          "vorticity": 0.004315548678410277,
+          "near_velocity": 0.000426588798437408,
+          "near_vorticity": 0.00216279601933475
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00044203727790478403,
+          "vorticity": 0.004753436892632072,
+          "near_velocity": 0.0003992479588135617,
+          "near_vorticity": 0.002346420616122963
+        },
+        "time_fine": {
+          "velocity": 0.0004653329931147776,
+          "vorticity": 0.004785305272943235,
+          "near_velocity": 0.000429515212108317,
+          "near_vorticity": 0.0023538021901396977
+        }
+      },
+      "implementation_worst": {
+        "velocity": 8.271861639149471e-11,
+        "vorticity": 3.882440993505446e-10,
+        "near_velocity": 9.136936295979346e-11,
+        "near_vorticity": 2.2126805559447627e-10
+      },
+      "probes": {
+        "transverse": 3.824587972430054e-10,
+        "vorticity": 4.3144305109155245e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_017/independent_score.json",
+      "sha256": "6d37bc96f3b923430fe660955307c6db047b968c7f437e27a019cbde741c6fbf"
+    },
+    {
+      "index": 18,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 9041,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0004174351675498372,
+          "vorticity": 0.004255951874520289,
+          "near_velocity": 0.0003924564534615607,
+          "near_vorticity": 0.002146338338518136
+        },
+        "time_fine": {
+          "velocity": 0.0004439339708668975,
+          "vorticity": 0.004303783219935802,
+          "near_velocity": 0.000423391891878003,
+          "near_vorticity": 0.002158549941674985
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004397490026543851,
+          "vorticity": 0.004742946671243773,
+          "near_velocity": 0.00039612157972732836,
+          "near_vorticity": 0.002342623235375441
+        },
+        "time_fine": {
+          "velocity": 0.0004629691699764299,
+          "vorticity": 0.004774596668432643,
+          "near_velocity": 0.0004263654110260547,
+          "near_vorticity": 0.0023499371236830866
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.208557101283523e-11,
+        "vorticity": 1.0560494220460987e-10,
+        "near_velocity": 2.29644402337704e-11,
+        "near_vorticity": 5.5305698146738615e-11
+      },
+      "probes": {
+        "transverse": 1.0025945323493014e-10,
+        "vorticity": 1.1645892875681428e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_018/independent_score.json",
+      "sha256": "e399e9a6fa7e0e79d8ce97e5bec2f03e9e764e48eba5ae0590b719c184dedd58"
+    },
+    {
+      "index": 19,
+      "name": "rfm37_k72",
+      "arm": "combined",
+      "seed": 9041,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0004174351675498372,
+          "vorticity": 0.004255951874520289,
+          "near_velocity": 0.0003924564534615607,
+          "near_vorticity": 0.002146338338518136
+        },
+        "time_fine": {
+          "velocity": 0.0004439339708668975,
+          "vorticity": 0.004303783219935802,
+          "near_velocity": 0.000423391891878003,
+          "near_vorticity": 0.002158549941674985
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004397490026543851,
+          "vorticity": 0.004742946671243773,
+          "near_velocity": 0.00039612157972732836,
+          "near_vorticity": 0.002342623235375441
+        },
+        "time_fine": {
+          "velocity": 0.0004629691699764299,
+          "vorticity": 0.004774596668432643,
+          "near_velocity": 0.0004263654110260547,
+          "near_vorticity": 0.0023499371236830866
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.208557101283523e-11,
+        "vorticity": 1.0560494220460987e-10,
+        "near_velocity": 2.29644402337704e-11,
+        "near_vorticity": 5.5305698146738615e-11
+      },
+      "probes": {
+        "transverse": 1.0025945323493014e-10,
+        "vorticity": 1.1645892875681428e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_019/independent_score.json",
+      "sha256": "f9660c08da265d4f4265897759fd0adbb08ae81bf742dffc9ea99f62ee477efe"
+    },
+    {
+      "index": 20,
+      "name": "leg35_k72_q66",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002500501887210621,
+          "vorticity": 0.004404271154899179,
+          "near_velocity": 0.00021890953895749545,
+          "near_vorticity": 0.002378548183414776
+        },
+        "time_fine": {
+          "velocity": 0.0002676332390441039,
+          "vorticity": 0.004420654551549681,
+          "near_velocity": 0.00023628275422163053,
+          "near_vorticity": 0.002382092766189029
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 6.948447674066338e-11,
+        "vorticity": 3.2544163456759155e-10,
+        "near_velocity": 7.853454655781094e-11,
+        "near_vorticity": 1.8992149472376223e-10
+      },
+      "probes": {
+        "transverse": 3.2075888401142025e-10,
+        "vorticity": 3.508047362978671e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_020/independent_score.json",
+      "sha256": "82b2a21cf158d7c615ef6778668905400f2cd4f6a9e0a1d3502c18e92c242226"
+    },
+    {
+      "index": 21,
+      "name": "leg35_k72_q66",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002500501887210621,
+          "vorticity": 0.004404271154899179,
+          "near_velocity": 0.00021890953895749545,
+          "near_vorticity": 0.002378548183414776
+        },
+        "time_fine": {
+          "velocity": 0.0002676332390441039,
+          "vorticity": 0.004420654551549681,
+          "near_velocity": 0.00023628275422163053,
+          "near_vorticity": 0.002382092766189029
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 6.948447674066338e-11,
+        "vorticity": 3.2544163456759155e-10,
+        "near_velocity": 7.853454655781094e-11,
+        "near_vorticity": 1.8992149472376223e-10
+      },
+      "probes": {
+        "transverse": 3.2075888401142025e-10,
+        "vorticity": 3.508047362978671e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_021/independent_score.json",
+      "sha256": "8af69f0c0cb13931d74bc71cab68893870451cd344eef6753212a536cb82675b"
+    },
+    {
+      "index": 22,
+      "name": "leg35_k72_q66",
+      "arm": "combined",
+      "seed": 17,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00038456854795127177,
+          "vorticity": 0.0045392738810991215,
+          "near_velocity": 0.00035045921992094345,
+          "near_vorticity": 0.0024108082996818687
+        },
+        "time_fine": {
+          "velocity": 0.00041042599162220667,
+          "vorticity": 0.004566492392510435,
+          "near_velocity": 0.0003788979921378435,
+          "near_vorticity": 0.0024168373272645503
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004145910832203907,
+          "vorticity": 0.004960904270045999,
+          "near_velocity": 0.0003642374057735677,
+          "near_vorticity": 0.0025697408399509894
+        },
+        "time_fine": {
+          "velocity": 0.0004357513208287623,
+          "vorticity": 0.00497729675053289,
+          "near_velocity": 0.0003899710379335722,
+          "near_vorticity": 0.0025732860999140533
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.3379022850589506e-11,
+        "vorticity": 1.1024959068220032e-10,
+        "near_velocity": 2.7391411834051445e-11,
+        "near_vorticity": 6.65880565528787e-11
+      },
+      "probes": {
+        "transverse": 1.0232090440971151e-10,
+        "vorticity": 1.155724849847778e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_022/independent_score.json",
+      "sha256": "6f1b4bc1899213c3f5a9e7de95f58a626c2dc24b9e0b17c938629e2e17704079"
+    },
+    {
+      "index": 23,
+      "name": "leg35_k72_q66",
+      "arm": "combined",
+      "seed": 17,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00038456854795127177,
+          "vorticity": 0.0045392738810991215,
+          "near_velocity": 0.00035045921992094345,
+          "near_vorticity": 0.0024108082996818687
+        },
+        "time_fine": {
+          "velocity": 0.00041042599162220667,
+          "vorticity": 0.004566492392510435,
+          "near_velocity": 0.0003788979921378435,
+          "near_vorticity": 0.0024168373272645503
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0004145910832203907,
+          "vorticity": 0.004960904270045999,
+          "near_velocity": 0.0003642374057735677,
+          "near_vorticity": 0.0025697408399509894
+        },
+        "time_fine": {
+          "velocity": 0.0004357513208287623,
+          "vorticity": 0.00497729675053289,
+          "near_velocity": 0.0003899710379335722,
+          "near_vorticity": 0.0025732860999140533
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.3379022850589506e-11,
+        "vorticity": 1.1024959068220032e-10,
+        "near_velocity": 2.7391411834051445e-11,
+        "near_vorticity": 6.65880565528787e-11
+      },
+      "probes": {
+        "transverse": 1.0232090440971151e-10,
+        "vorticity": 1.155724849847778e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_023/independent_score.json",
+      "sha256": "114c24b5d52f0d9cff20bf42645a77909d9aaa14bdb5d28e1b7b42a08c5dadac"
+    },
+    {
+      "index": 24,
+      "name": "fd176_k80",
+      "arm": "fd",
+      "seed": 17,
+      "rank": 176,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0008648420890619326,
+          "vorticity": 0.004087590798277695,
+          "near_velocity": 0.0010496824092313156,
+          "near_vorticity": 0.002547239707801601
+        },
+        "time_fine": {
+          "velocity": 0.0008365863687685574,
+          "vorticity": 0.003953538987371011,
+          "near_velocity": 0.0010188279019070058,
+          "near_vorticity": 0.0024715067805138892
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.656639611102271e-07,
+        "vorticity": 3.572075683009756e-06,
+        "near_velocity": 8.659240831362201e-07,
+        "near_vorticity": 2.0928641808573214e-06
+      },
+      "probes": {
+        "transverse": 3.5109957097049643e-06,
+        "vorticity": 3.879179037889954e-06
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_024/independent_score.json",
+      "sha256": "6a71272ffccddd7ec92adff8cad0e5f729a0468f3a9f9eb369fabbe1c67732f0"
+    },
+    {
+      "index": 25,
+      "name": "fd176_k80",
+      "arm": "fd",
+      "seed": 17,
+      "rank": 176,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0008648420890619326,
+          "vorticity": 0.004087590798277695,
+          "near_velocity": 0.0010496824092313156,
+          "near_vorticity": 0.002547239707801601
+        },
+        "time_fine": {
+          "velocity": 0.0008365863687685574,
+          "vorticity": 0.003953538987371011,
+          "near_velocity": 0.0010188279019070058,
+          "near_vorticity": 0.0024715067805138892
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.656639611102271e-07,
+        "vorticity": 3.572075683009756e-06,
+        "near_velocity": 8.659240831362201e-07,
+        "near_vorticity": 2.0928641808573214e-06
+      },
+      "probes": {
+        "transverse": 3.5109957097049643e-06,
+        "vorticity": 3.879179037889954e-06
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_025/independent_score.json",
+      "sha256": "3d96ed30b510a36e2f5e743f76931b631579ad7c8a8bd2f57b16f0611ecb6647"
+    },
+    {
+      "index": 26,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 7331,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016636394608305428,
+          "vorticity": 0.0032979272243951092,
+          "near_velocity": 0.00013248531863394833,
+          "near_vorticity": 0.0017907745341713128
+        },
+        "time_fine": {
+          "velocity": 0.00018191865479862614,
+          "vorticity": 0.0033137966265119854,
+          "near_velocity": 0.00014839839258224948,
+          "near_vorticity": 0.0017951544855081024
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 4.218790015514829e-11,
+        "vorticity": 1.992398551102041e-10,
+        "near_velocity": 4.819302361970611e-11,
+        "near_vorticity": 1.1770994458707706e-10
+      },
+      "probes": {
+        "transverse": 1.9330440304281496e-10,
+        "vorticity": 2.1832671240326117e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_026/independent_score.json",
+      "sha256": "2055d0dbc7248753db7f55bf5bf7ac23871710128c24af859d03475ed714250b"
+    },
+    {
+      "index": 27,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 7331,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016636394608305428,
+          "vorticity": 0.0032979272243951092,
+          "near_velocity": 0.00013248531863394833,
+          "near_vorticity": 0.0017907745341713128
+        },
+        "time_fine": {
+          "velocity": 0.00018191865479862614,
+          "vorticity": 0.0033137966265119854,
+          "near_velocity": 0.00014839839258224948,
+          "near_vorticity": 0.0017951544855081024
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 4.218790015514829e-11,
+        "vorticity": 1.992398551102041e-10,
+        "near_velocity": 4.819302361970611e-11,
+        "near_vorticity": 1.1770994458707706e-10
+      },
+      "probes": {
+        "transverse": 1.9330440304281496e-10,
+        "vorticity": 2.1832671240326117e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_027/independent_score.json",
+      "sha256": "ad53e79a61cafd74961210b35f376e3c7458f9ec3166cd7934f8bfcb08789d07"
+    },
+    {
+      "index": 28,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 7687,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016591374037009963,
+          "vorticity": 0.003303211992098708,
+          "near_velocity": 0.0001319335118232589,
+          "near_vorticity": 0.0017944748047744054
+        },
+        "time_fine": {
+          "velocity": 0.0001810990713224589,
+          "vorticity": 0.003318904266947242,
+          "near_velocity": 0.00014773228654358145,
+          "near_vorticity": 0.001798792006998707
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.1446333471282527e-10,
+        "vorticity": 5.437177478627922e-10,
+        "near_velocity": 1.3135445060352053e-10,
+        "near_vorticity": 3.212592430000622e-10
+      },
+      "probes": {
+        "transverse": 5.066118914002234e-10,
+        "vorticity": 5.661979699427246e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_028/independent_score.json",
+      "sha256": "3c917b4f686cb6c1f8b6362e45ac5f4e45c054e0f72b548e24cfd2291a065b2a"
+    },
+    {
+      "index": 29,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 7687,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016591374037009963,
+          "vorticity": 0.003303211992098708,
+          "near_velocity": 0.0001319335118232589,
+          "near_vorticity": 0.0017944748047744054
+        },
+        "time_fine": {
+          "velocity": 0.0001810990713224589,
+          "vorticity": 0.003318904266947242,
+          "near_velocity": 0.00014773228654358145,
+          "near_vorticity": 0.001798792006998707
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.1446333471282527e-10,
+        "vorticity": 5.437177478627922e-10,
+        "near_velocity": 1.3135445060352053e-10,
+        "near_vorticity": 3.212592430000622e-10
+      },
+      "probes": {
+        "transverse": 5.066118914002234e-10,
+        "vorticity": 5.661979699427246e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_029/independent_score.json",
+      "sha256": "e4060bb6d9b9bd3a740bec496fe9be4bd7b1c0621241ad6e0d1172d679dbf11d"
+    },
+    {
+      "index": 30,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 8011,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016569804737109325,
+          "vorticity": 0.003298559499675967,
+          "near_velocity": 0.00013179446236207294,
+          "near_vorticity": 0.0017915168408033193
+        },
+        "time_fine": {
+          "velocity": 0.00018089373750134749,
+          "vorticity": 0.0033142738303057573,
+          "near_velocity": 0.0001476093234323371,
+          "near_vorticity": 0.001795841510113047
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.3556899265222826e-10,
+        "vorticity": 6.37157511726736e-10,
+        "near_velocity": 1.517365999114558e-10,
+        "near_vorticity": 3.6666709567083497e-10
+      },
+      "probes": {
+        "transverse": 6.231258657613682e-10,
+        "vorticity": 6.775723976270734e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_030/independent_score.json",
+      "sha256": "69764fc8a8d21ffc14621187024373ed7f568a2a3b21055777f25b4b116cc540"
+    },
+    {
+      "index": 31,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 8011,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016569804737109325,
+          "vorticity": 0.003298559499675967,
+          "near_velocity": 0.00013179446236207294,
+          "near_vorticity": 0.0017915168408033193
+        },
+        "time_fine": {
+          "velocity": 0.00018089373750134749,
+          "vorticity": 0.0033142738303057573,
+          "near_velocity": 0.0001476093234323371,
+          "near_vorticity": 0.001795841510113047
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.3556899265222826e-10,
+        "vorticity": 6.37157511726736e-10,
+        "near_velocity": 1.517365999114558e-10,
+        "near_vorticity": 3.6666709567083497e-10
+      },
+      "probes": {
+        "transverse": 6.231258657613682e-10,
+        "vorticity": 6.775723976270734e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_031/independent_score.json",
+      "sha256": "879e30d71c83c9370e7fc7757701c52ec223c2248c9354d99ec4739dfe242afa"
+    },
+    {
+      "index": 32,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 8353,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016634126312011806,
+          "vorticity": 0.0032996098233867115,
+          "near_velocity": 0.00013238381027609394,
+          "near_vorticity": 0.001791867593041605
+        },
+        "time_fine": {
+          "velocity": 0.0001818325376476747,
+          "vorticity": 0.003315457234963842,
+          "near_velocity": 0.00014828394499111146,
+          "near_vorticity": 0.0017962380489015626
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.5059142567289018e-11,
+        "vorticity": 1.192067292609161e-10,
+        "near_velocity": 2.8046080207382837e-11,
+        "near_vorticity": 6.893863393251648e-11
+      },
+      "probes": {
+        "transverse": 1.14215794238721e-10,
+        "vorticity": 1.234071669540786e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_032/independent_score.json",
+      "sha256": "ef25fa797975c01d7beb4346db4a90930d664b2ec4956996b6bbad40f7deef26"
+    },
+    {
+      "index": 33,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 8353,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016634126312011806,
+          "vorticity": 0.0032996098233867115,
+          "near_velocity": 0.00013238381027609394,
+          "near_vorticity": 0.001791867593041605
+        },
+        "time_fine": {
+          "velocity": 0.0001818325376476747,
+          "vorticity": 0.003315457234963842,
+          "near_velocity": 0.00014828394499111146,
+          "near_vorticity": 0.0017962380489015626
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.5059142567289018e-11,
+        "vorticity": 1.192067292609161e-10,
+        "near_velocity": 2.8046080207382837e-11,
+        "near_vorticity": 6.893863393251648e-11
+      },
+      "probes": {
+        "transverse": 1.14215794238721e-10,
+        "vorticity": 1.234071669540786e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_033/independent_score.json",
+      "sha256": "af831c25064d2be6884dbc0391efb5df8b65db1e95a4e9e6440200dbc263fd90"
+    },
+    {
+      "index": 34,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 9041,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016581021803798262,
+          "vorticity": 0.003299066603065507,
+          "near_velocity": 0.00013186764245415393,
+          "near_vorticity": 0.0017918768319822689
+        },
+        "time_fine": {
+          "velocity": 0.00018102723600470246,
+          "vorticity": 0.003314794146411038,
+          "near_velocity": 0.00014768236023640093,
+          "near_vorticity": 0.0017962028533915564
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.1669711110459135e-11,
+        "vorticity": 5.572757188939607e-11,
+        "near_velocity": 1.2734003696141495e-11,
+        "near_vorticity": 3.097777896533543e-11
+      },
+      "probes": {
+        "transverse": 3.8209485162677465e-11,
+        "vorticity": 4.513805495235296e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_034/independent_score.json",
+      "sha256": "635e776bb76e2333ddd55cfa77d55549e1ebf1a77a19b606981510cc4e2923fc"
+    },
+    {
+      "index": 35,
+      "name": "rfm41_k80",
+      "arm": "uniform",
+      "seed": 9041,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016581021803798262,
+          "vorticity": 0.003299066603065507,
+          "near_velocity": 0.00013186764245415393,
+          "near_vorticity": 0.0017918768319822689
+        },
+        "time_fine": {
+          "velocity": 0.00018102723600470246,
+          "vorticity": 0.003314794146411038,
+          "near_velocity": 0.00014768236023640093,
+          "near_vorticity": 0.0017962028533915564
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.1669711110459135e-11,
+        "vorticity": 5.572757188939607e-11,
+        "near_velocity": 1.2734003696141495e-11,
+        "near_vorticity": 3.097777896533543e-11
+      },
+      "probes": {
+        "transverse": 3.8209485162677465e-11,
+        "vorticity": 4.513805495235296e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_035/independent_score.json",
+      "sha256": "b6ee8566fe8b619ead1e53564b67569827253c2508827ca769a245e46fbefc47"
+    },
+    {
+      "index": 36,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 7331,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000235340944087387,
+          "vorticity": 0.0033718606623331132,
+          "near_velocity": 0.0002030872919553416,
+          "near_vorticity": 0.0018126227216669864
+        },
+        "time_fine": {
+          "velocity": 0.00025948472466957227,
+          "vorticity": 0.0033988960033797077,
+          "near_velocity": 0.00023097918581715035,
+          "near_vorticity": 0.0018204363679918951
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00026236219040449526,
+          "vorticity": 0.0036657149622634972,
+          "near_velocity": 0.0002167052607167176,
+          "near_vorticity": 0.0019384330885285886
+        },
+        "time_fine": {
+          "velocity": 0.0002805582349019644,
+          "vorticity": 0.0036815901770747683,
+          "near_velocity": 0.00023956840535836271,
+          "near_vorticity": 0.0019428136838449126
+        }
+      },
+      "implementation_worst": {
+        "velocity": 6.054539805509361e-11,
+        "vorticity": 2.8432817731156897e-10,
+        "near_velocity": 6.794168872285734e-11,
+        "near_vorticity": 1.6659969264008353e-10
+      },
+      "probes": {
+        "transverse": 2.7194580569393045e-10,
+        "vorticity": 2.9798448133854335e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_036/independent_score.json",
+      "sha256": "c8df6668060e0781365a845784d9ec663ebced5f2fa8a2a4aec35429f6977054"
+    },
+    {
+      "index": 37,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 7331,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000235340944087387,
+          "vorticity": 0.0033718606623331132,
+          "near_velocity": 0.0002030872919553416,
+          "near_vorticity": 0.0018126227216669864
+        },
+        "time_fine": {
+          "velocity": 0.00025948472466957227,
+          "vorticity": 0.0033988960033797077,
+          "near_velocity": 0.00023097918581715035,
+          "near_vorticity": 0.0018204363679918951
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00026236219040449526,
+          "vorticity": 0.0036657149622634972,
+          "near_velocity": 0.0002167052607167176,
+          "near_vorticity": 0.0019384330885285886
+        },
+        "time_fine": {
+          "velocity": 0.0002805582349019644,
+          "vorticity": 0.0036815901770747683,
+          "near_velocity": 0.00023956840535836271,
+          "near_vorticity": 0.0019428136838449126
+        }
+      },
+      "implementation_worst": {
+        "velocity": 6.054539805509361e-11,
+        "vorticity": 2.8432817731156897e-10,
+        "near_velocity": 6.794168872285734e-11,
+        "near_vorticity": 1.6659969264008353e-10
+      },
+      "probes": {
+        "transverse": 2.7194580569393045e-10,
+        "vorticity": 2.9798448133854335e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_037/independent_score.json",
+      "sha256": "0f3ac75b8f3a3c52df05f05b38782641069d786ec960ba1f7b01fef723fec48a"
+    },
+    {
+      "index": 38,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 7687,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023428920736285323,
+          "vorticity": 0.0033765196952082865,
+          "near_velocity": 0.00020164248326348124,
+          "near_vorticity": 0.001816098926679073
+        },
+        "time_fine": {
+          "velocity": 0.0002583795012490273,
+          "vorticity": 0.003403369592857587,
+          "near_velocity": 0.00022950684358089249,
+          "near_vorticity": 0.0018238446069579982
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00026167518284573525,
+          "vorticity": 0.0036709945955239196,
+          "near_velocity": 0.00021583128806456172,
+          "near_vorticity": 0.001942132397229519
+        },
+        "time_fine": {
+          "velocity": 0.0002797237929057702,
+          "vorticity": 0.0036866926100803535,
+          "near_velocity": 0.00023826577735700964,
+          "near_vorticity": 0.0019464502316462878
+        }
+      },
+      "implementation_worst": {
+        "velocity": 1.323270212618753e-10,
+        "vorticity": 6.227546560541695e-10,
+        "near_velocity": 1.493478887319119e-10,
+        "near_vorticity": 3.612974060981494e-10
+      },
+      "probes": {
+        "transverse": 5.767002795101605e-10,
+        "vorticity": 6.631521843595243e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_038/independent_score.json",
+      "sha256": "56ed8afe6be7e5d936eceb33b35ee84ac241e6d1a15f33122e98b040243b2756"
+    },
+    {
+      "index": 39,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 7687,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023428920736285323,
+          "vorticity": 0.0033765196952082865,
+          "near_velocity": 0.00020164248326348124,
+          "near_vorticity": 0.001816098926679073
+        },
+        "time_fine": {
+          "velocity": 0.0002583795012490273,
+          "vorticity": 0.003403369592857587,
+          "near_velocity": 0.00022950684358089249,
+          "near_vorticity": 0.0018238446069579982
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00026167518284573525,
+          "vorticity": 0.0036709945955239196,
+          "near_velocity": 0.00021583128806456172,
+          "near_vorticity": 0.001942132397229519
+        },
+        "time_fine": {
+          "velocity": 0.0002797237929057702,
+          "vorticity": 0.0036866926100803535,
+          "near_velocity": 0.00023826577735700964,
+          "near_vorticity": 0.0019464502316462878
+        }
+      },
+      "implementation_worst": {
+        "velocity": 1.323270212618753e-10,
+        "vorticity": 6.227546560541695e-10,
+        "near_velocity": 1.493478887319119e-10,
+        "near_vorticity": 3.612974060981494e-10
+      },
+      "probes": {
+        "transverse": 5.767002795101605e-10,
+        "vorticity": 6.631521843595243e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_039/independent_score.json",
+      "sha256": "30853a0f1a71a0b277037c5709cdd1c5849f88da639cf6a9f2159d9b89cf69ad"
+    },
+    {
+      "index": 40,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 8011,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023408384501053157,
+          "vorticity": 0.003371953247411262,
+          "near_velocity": 0.00020154430666699253,
+          "near_vorticity": 0.0018131704319525451
+        },
+        "time_fine": {
+          "velocity": 0.00025818384541583206,
+          "vorticity": 0.003398839368318345,
+          "near_velocity": 0.00022941324037645687,
+          "near_vorticity": 0.0018209289319262253
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00026143203943058534,
+          "vorticity": 0.0036663419935257756,
+          "near_velocity": 0.00021567976467994554,
+          "near_vorticity": 0.0019391732454931065
+        },
+        "time_fine": {
+          "velocity": 0.00027949138825037736,
+          "vorticity": 0.0036820620695154124,
+          "near_velocity": 0.00023815121944449334,
+          "near_vorticity": 0.0019434985472973623
+        }
+      },
+      "implementation_worst": {
+        "velocity": 5.1973225518455e-11,
+        "vorticity": 2.48634542475984e-10,
+        "near_velocity": 6.012050949834549e-11,
+        "near_vorticity": 1.4930548454115994e-10
+      },
+      "probes": {
+        "transverse": 2.3959719607173087e-10,
+        "vorticity": 2.840537210413706e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_040/independent_score.json",
+      "sha256": "8fcdf4b6b5dfaeff990f739cd119bb788f07d25883d4cbfa1e9bc74dffc86884"
+    },
+    {
+      "index": 41,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 8011,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023408384501053157,
+          "vorticity": 0.003371953247411262,
+          "near_velocity": 0.00020154430666699253,
+          "near_vorticity": 0.0018131704319525451
+        },
+        "time_fine": {
+          "velocity": 0.00025818384541583206,
+          "vorticity": 0.003398839368318345,
+          "near_velocity": 0.00022941324037645687,
+          "near_vorticity": 0.0018209289319262253
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00026143203943058534,
+          "vorticity": 0.0036663419935257756,
+          "near_velocity": 0.00021567976467994554,
+          "near_vorticity": 0.0019391732454931065
+        },
+        "time_fine": {
+          "velocity": 0.00027949138825037736,
+          "vorticity": 0.0036820620695154124,
+          "near_velocity": 0.00023815121944449334,
+          "near_vorticity": 0.0019434985472973623
+        }
+      },
+      "implementation_worst": {
+        "velocity": 5.1973225518455e-11,
+        "vorticity": 2.48634542475984e-10,
+        "near_velocity": 6.012050949834549e-11,
+        "near_vorticity": 1.4930548454115994e-10
+      },
+      "probes": {
+        "transverse": 2.3959719607173087e-10,
+        "vorticity": 2.840537210413706e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_041/independent_score.json",
+      "sha256": "43350269c60cc18ba41cf4273bd1f79184c680b60ddc9fccce971294ad93a199"
+    },
+    {
+      "index": 42,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 8353,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023523990377361258,
+          "vorticity": 0.0033734575995503255,
+          "near_velocity": 0.00020291254946305697,
+          "near_vorticity": 0.0018136785420548272
+        },
+        "time_fine": {
+          "velocity": 0.0002593803632752088,
+          "vorticity": 0.003400466588644359,
+          "near_velocity": 0.00023080423856686516,
+          "near_vorticity": 0.0018214809166857053
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002622863518014682,
+          "vorticity": 0.0036673968901171014,
+          "near_velocity": 0.00021655824403010715,
+          "near_vorticity": 0.0019395263766278819
+        },
+        "time_fine": {
+          "velocity": 0.00028047182841152733,
+          "vorticity": 0.003683250113664431,
+          "near_velocity": 0.00023939829003846854,
+          "near_vorticity": 0.001943897477585447
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.9687865970345496e-11,
+        "vorticity": 1.4005336028974449e-10,
+        "near_velocity": 3.304005022966134e-11,
+        "near_vorticity": 8.062493329787341e-11
+      },
+      "probes": {
+        "transverse": 1.3971450748925999e-10,
+        "vorticity": 1.5029545494831758e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_042/independent_score.json",
+      "sha256": "a1acf2941fcff7537c2c70ac478a834651e31f2a5b06b6eaf67ef55b42c8a907"
+    },
+    {
+      "index": 43,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 8353,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00023523990377361258,
+          "vorticity": 0.0033734575995503255,
+          "near_velocity": 0.00020291254946305697,
+          "near_vorticity": 0.0018136785420548272
+        },
+        "time_fine": {
+          "velocity": 0.0002593803632752088,
+          "vorticity": 0.003400466588644359,
+          "near_velocity": 0.00023080423856686516,
+          "near_vorticity": 0.0018214809166857053
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002622863518014682,
+          "vorticity": 0.0036673968901171014,
+          "near_velocity": 0.00021655824403010715,
+          "near_vorticity": 0.0019395263766278819
+        },
+        "time_fine": {
+          "velocity": 0.00028047182841152733,
+          "vorticity": 0.003683250113664431,
+          "near_velocity": 0.00023939829003846854,
+          "near_vorticity": 0.001943897477585447
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.9687865970345496e-11,
+        "vorticity": 1.4005336028974449e-10,
+        "near_velocity": 3.304005022966134e-11,
+        "near_vorticity": 8.062493329787341e-11
+      },
+      "probes": {
+        "transverse": 1.3971450748925999e-10,
+        "vorticity": 1.5029545494831758e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_043/independent_score.json",
+      "sha256": "078e8d3e65d339bfa75b66d0ec75f02bb471af310325f78a5fe076b8fda36a16"
+    },
+    {
+      "index": 44,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 9041,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002342867661933374,
+          "vorticity": 0.0033725024696203867,
+          "near_velocity": 0.00020174288073781388,
+          "near_vorticity": 0.0018135339523748274
+        },
+        "time_fine": {
+          "velocity": 0.0002583933982486656,
+          "vorticity": 0.0033993994250103824,
+          "near_velocity": 0.00022961403261229852,
+          "near_vorticity": 0.0018212930798595314
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002615841946829166,
+          "vorticity": 0.0036668475218568516,
+          "near_velocity": 0.00021579804949704853,
+          "near_vorticity": 0.0019395326321396604
+        },
+        "time_fine": {
+          "velocity": 0.00027966487032926384,
+          "vorticity": 0.003682580831330375,
+          "near_velocity": 0.00023833654535876261,
+          "near_vorticity": 0.0019438592914705567
+        }
+      },
+      "implementation_worst": {
+        "velocity": 6.617789073019314e-11,
+        "vorticity": 3.1009230022711063e-10,
+        "near_velocity": 7.481642323233988e-11,
+        "near_vorticity": 1.810435302082565e-10
+      },
+      "probes": {
+        "transverse": 2.846438474846343e-10,
+        "vorticity": 3.1470707369562576e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_044/independent_score.json",
+      "sha256": "64801daf3217a671597c19208525a22a16d41e14ab42c16af2d1a450fc7606f7"
+    },
+    {
+      "index": 45,
+      "name": "rfm41_k80",
+      "arm": "combined",
+      "seed": 9041,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002342867661933374,
+          "vorticity": 0.0033725024696203867,
+          "near_velocity": 0.00020174288073781388,
+          "near_vorticity": 0.0018135339523748274
+        },
+        "time_fine": {
+          "velocity": 0.0002583933982486656,
+          "vorticity": 0.0033993994250103824,
+          "near_velocity": 0.00022961403261229852,
+          "near_vorticity": 0.0018212930798595314
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002615841946829166,
+          "vorticity": 0.0036668475218568516,
+          "near_velocity": 0.00021579804949704853,
+          "near_vorticity": 0.0019395326321396604
+        },
+        "time_fine": {
+          "velocity": 0.00027966487032926384,
+          "vorticity": 0.003682580831330375,
+          "near_velocity": 0.00023833654535876261,
+          "near_vorticity": 0.0019438592914705567
+        }
+      },
+      "implementation_worst": {
+        "velocity": 6.617789073019314e-11,
+        "vorticity": 3.1009230022711063e-10,
+        "near_velocity": 7.481642323233988e-11,
+        "near_vorticity": 1.810435302082565e-10
+      },
+      "probes": {
+        "transverse": 2.846438474846343e-10,
+        "vorticity": 3.1470707369562576e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_045/independent_score.json",
+      "sha256": "b1e1b800ef16f563fdbc797cacf0f85136661ab80da76f900f43509688699fdb"
+    },
+    {
+      "index": 46,
+      "name": "leg36_k80_q76",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00015610877378518547,
+          "vorticity": 0.0036148943515704156,
+          "near_velocity": 0.000132556338602528,
+          "near_vorticity": 0.0020458937649350845
+        },
+        "time_fine": {
+          "velocity": 0.000161324689460552,
+          "vorticity": 0.003620492654836971,
+          "near_velocity": 0.00013928203000243276,
+          "near_vorticity": 0.0020466994419239284
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.768974997782447e-11,
+        "vorticity": 8.328121439845701e-11,
+        "near_velocity": 2.0028455536317925e-11,
+        "near_vorticity": 4.816293454379412e-11
+      },
+      "probes": {
+        "transverse": 8.633207096481488e-11,
+        "vorticity": 9.753085919733029e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_046/independent_score.json",
+      "sha256": "96976e48a736f17c99fdf1d19146cdc02f097cf2ecd1c57317ac0ad745d2333c"
+    },
+    {
+      "index": 47,
+      "name": "leg36_k80_q76",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00015610877378518547,
+          "vorticity": 0.0036148943515704156,
+          "near_velocity": 0.000132556338602528,
+          "near_vorticity": 0.0020458937649350845
+        },
+        "time_fine": {
+          "velocity": 0.000161324689460552,
+          "vorticity": 0.003620492654836971,
+          "near_velocity": 0.00013928203000243276,
+          "near_vorticity": 0.0020466994419239284
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.768974997782447e-11,
+        "vorticity": 8.328121439845701e-11,
+        "near_velocity": 2.0028455536317925e-11,
+        "near_vorticity": 4.816293454379412e-11
+      },
+      "probes": {
+        "transverse": 8.633207096481488e-11,
+        "vorticity": 9.753085919733029e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_047/independent_score.json",
+      "sha256": "7da87f0f18267902b2ef622aadd0b65b49389f6bd8ca04d2f91e7cce2b549a59"
+    },
+    {
+      "index": 48,
+      "name": "leg36_k80_q76",
+      "arm": "combined",
+      "seed": 17,
+      "rank": 40,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018437511765531222,
+          "vorticity": 0.003649728770994646,
+          "near_velocity": 0.00016207322376070565,
+          "near_vorticity": 0.0020537828704709597
+        },
+        "time_fine": {
+          "velocity": 0.0001971721162988658,
+          "vorticity": 0.0036633798859253166,
+          "near_velocity": 0.00017373776742428832,
+          "near_vorticity": 0.002056300648698358
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00023638021491750725,
+          "vorticity": 0.0039348594848170725,
+          "near_velocity": 0.00019692645546197515,
+          "near_vorticity": 0.002155919250893017
+        },
+        "time_fine": {
+          "velocity": 0.0002405042117203254,
+          "vorticity": 0.0039404595714263345,
+          "near_velocity": 0.00020343800666219094,
+          "near_vorticity": 0.002156725016017977
+        }
+      },
+      "implementation_worst": {
+        "velocity": 1.0087241075363146e-11,
+        "vorticity": 4.7913489243362246e-11,
+        "near_velocity": 1.2544591892657643e-11,
+        "near_vorticity": 3.0317655259314817e-11
+      },
+      "probes": {
+        "transverse": 4.364697388362206e-11,
+        "vorticity": 5.5668703340459075e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_048/independent_score.json",
+      "sha256": "600680f52f4c43137c949e11dd42997fe8539fd753166626a6ea1fb00fcbc7df"
+    },
+    {
+      "index": 49,
+      "name": "leg36_k80_q76",
+      "arm": "combined",
+      "seed": 17,
+      "rank": 40,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018437511765531222,
+          "vorticity": 0.003649728770994646,
+          "near_velocity": 0.00016207322376070565,
+          "near_vorticity": 0.0020537828704709597
+        },
+        "time_fine": {
+          "velocity": 0.0001971721162988658,
+          "vorticity": 0.0036633798859253166,
+          "near_velocity": 0.00017373776742428832,
+          "near_vorticity": 0.002056300648698358
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00023638021491750725,
+          "vorticity": 0.0039348594848170725,
+          "near_velocity": 0.00019692645546197515,
+          "near_vorticity": 0.002155919250893017
+        },
+        "time_fine": {
+          "velocity": 0.0002405042117203254,
+          "vorticity": 0.0039404595714263345,
+          "near_velocity": 0.00020343800666219094,
+          "near_vorticity": 0.002156725016017977
+        }
+      },
+      "implementation_worst": {
+        "velocity": 1.0087241075363146e-11,
+        "vorticity": 4.7913489243362246e-11,
+        "near_velocity": 1.2544591892657643e-11,
+        "near_vorticity": 3.0317655259314817e-11
+      },
+      "probes": {
+        "transverse": 4.364697388362206e-11,
+        "vorticity": 5.5668703340459075e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_049/independent_score.json",
+      "sha256": "abd0956d01712f1011e26df14d5ad805e075c0e54ab63b4dfd3cf9de946e3ea7"
+    },
+    {
+      "index": 50,
+      "name": "leg35_k80_q76",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018427271382597378,
+          "vorticity": 0.004146889628861679,
+          "near_velocity": 0.00016051846047242704,
+          "near_vorticity": 0.0023675089917786656
+        },
+        "time_fine": {
+          "velocity": 0.0001895865020368743,
+          "vorticity": 0.004151973774644447,
+          "near_velocity": 0.00016743342613952485,
+          "near_vorticity": 0.002368509693982854
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 5.27312618066167e-12,
+        "vorticity": 2.4468623869526402e-11,
+        "near_velocity": 4.705850100357653e-12,
+        "near_vorticity": 1.25193707546893e-11
+      },
+      "probes": {
+        "transverse": 3.2301744652401924e-11,
+        "vorticity": 3.557308879075097e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_050/independent_score.json",
+      "sha256": "a463e549b462e9ba6a7347555654de7c78f6069b2a2382ba9a00a7cfcee1929c"
+    },
+    {
+      "index": 51,
+      "name": "leg35_k80_q76",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018427271382597378,
+          "vorticity": 0.004146889628861679,
+          "near_velocity": 0.00016051846047242704,
+          "near_vorticity": 0.0023675089917786656
+        },
+        "time_fine": {
+          "velocity": 0.0001895865020368743,
+          "vorticity": 0.004151973774644447,
+          "near_velocity": 0.00016743342613952485,
+          "near_vorticity": 0.002368509693982854
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 5.27312618066167e-12,
+        "vorticity": 2.4468623869526402e-11,
+        "near_velocity": 4.705850100357653e-12,
+        "near_vorticity": 1.25193707546893e-11
+      },
+      "probes": {
+        "transverse": 3.2301744652401924e-11,
+        "vorticity": 3.557308879075097e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_051/independent_score.json",
+      "sha256": "db019b66a31c69b924effcd854f8f1363bc303d2e46208bbbe3c0e774d8ef4f0"
+    },
+    {
+      "index": 52,
+      "name": "leg35_k80_q76",
+      "arm": "combined",
+      "seed": 17,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021147048398046468,
+          "vorticity": 0.00417918488111436,
+          "near_velocity": 0.00018960569137330756,
+          "near_vorticity": 0.002375716189621969
+        },
+        "time_fine": {
+          "velocity": 0.0002234542353162063,
+          "vorticity": 0.004191380361719105,
+          "near_velocity": 0.00020076303210562232,
+          "near_vorticity": 0.0023781950191437383
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002629908869865107,
+          "vorticity": 0.004466969754600283,
+          "near_velocity": 0.0002218852969003295,
+          "near_vorticity": 0.002477636827486692
+        },
+        "time_fine": {
+          "velocity": 0.00026777359888802566,
+          "vorticity": 0.004472169550547655,
+          "near_velocity": 0.00022909773990757986,
+          "near_vorticity": 0.0024786376395459614
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.86253284079835e-11,
+        "vorticity": 1.8093980789283052e-10,
+        "near_velocity": 4.425023874642088e-11,
+        "near_vorticity": 1.0740329436367091e-10
+      },
+      "probes": {
+        "transverse": 1.762500808956946e-10,
+        "vorticity": 1.9998881054008077e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_052/independent_score.json",
+      "sha256": "971fed8506f314c67749fd4ee641e417005b08ce430fbd81c87c02c822954690"
+    },
+    {
+      "index": 53,
+      "name": "leg35_k80_q76",
+      "arm": "combined",
+      "seed": 17,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021147048398046468,
+          "vorticity": 0.00417918488111436,
+          "near_velocity": 0.00018960569137330756,
+          "near_vorticity": 0.002375716189621969
+        },
+        "time_fine": {
+          "velocity": 0.0002234542353162063,
+          "vorticity": 0.004191380361719105,
+          "near_velocity": 0.00020076303210562232,
+          "near_vorticity": 0.0023781950191437383
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002629908869865107,
+          "vorticity": 0.004466969754600283,
+          "near_velocity": 0.0002218852969003295,
+          "near_vorticity": 0.002477636827486692
+        },
+        "time_fine": {
+          "velocity": 0.00026777359888802566,
+          "vorticity": 0.004472169550547655,
+          "near_velocity": 0.00022909773990757986,
+          "near_vorticity": 0.0024786376395459614
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.86253284079835e-11,
+        "vorticity": 1.8093980789283052e-10,
+        "near_velocity": 4.425023874642088e-11,
+        "near_vorticity": 1.0740329436367091e-10
+      },
+      "probes": {
+        "transverse": 1.762500808956946e-10,
+        "vorticity": 1.9998881054008077e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_053/independent_score.json",
+      "sha256": "8bb2eb7497c9d9ed4d93bcbb4c2353fa982745553fdaaf4f2a5910019e6d55c1"
+    },
+    {
+      "index": 54,
+      "name": "fd184_k80",
+      "arm": "fd",
+      "seed": 17,
+      "rank": 184,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0006429559012944665,
+          "vorticity": 0.003065184582065558,
+          "near_velocity": 0.0007899592485334769,
+          "near_vorticity": 0.0019147930190420198
+        },
+        "time_fine": {
+          "velocity": 0.0006148337433707033,
+          "vorticity": 0.002933967470902926,
+          "near_velocity": 0.0007592007529842566,
+          "near_vorticity": 0.0018393075759725794
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.9254990576585908e-08,
+        "vorticity": 6.53924572388093e-08,
+        "near_velocity": 2.5626026736681563e-08,
+        "near_vorticity": 3.165704180511096e-08
+      },
+      "probes": {
+        "transverse": 3.645047534436244e-08,
+        "vorticity": 4.0161638359751254e-08
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_054/independent_score.json",
+      "sha256": "087765b47200e941390b1a5cd38d4172676d17c1446a7b4aafc1945cd1a2933f"
+    },
+    {
+      "index": 55,
+      "name": "fd184_k80",
+      "arm": "fd",
+      "seed": 17,
+      "rank": 184,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0006429559012944665,
+          "vorticity": 0.003065184582065558,
+          "near_velocity": 0.0007899592485334769,
+          "near_vorticity": 0.0019147930190420198
+        },
+        "time_fine": {
+          "velocity": 0.0006148337433707033,
+          "vorticity": 0.002933967470902926,
+          "near_velocity": 0.0007592007529842566,
+          "near_vorticity": 0.0018393075759725794
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.9254990576585908e-08,
+        "vorticity": 6.53924572388093e-08,
+        "near_velocity": 2.5626026736681563e-08,
+        "near_vorticity": 3.165704180511096e-08
+      },
+      "probes": {
+        "transverse": 3.645047534436244e-08,
+        "vorticity": 4.0161638359751254e-08
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_055/independent_score.json",
+      "sha256": "bf509ae71495fe899f2fece633e5048d02f9376ce888feb502def88d6abcd0f0"
+    },
+    {
+      "index": 56,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 7331,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018863541809121135,
+          "vorticity": 0.004266871042120197,
+          "near_velocity": 0.00013323918619386832,
+          "near_vorticity": 0.002326545061744991
+        },
+        "time_fine": {
+          "velocity": 0.00019334117629273603,
+          "vorticity": 0.0042718278400585286,
+          "near_velocity": 0.00013909386980797352,
+          "near_vorticity": 0.0023271256656947135
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.617122734260174e-11,
+        "vorticity": 3.6042511762372123e-10,
+        "near_velocity": 8.789405872204772e-11,
+        "near_vorticity": 2.1433320512057357e-10
+      },
+      "probes": {
+        "transverse": 3.1876954815481957e-10,
+        "vorticity": 3.65107847798201e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_056/independent_score.json",
+      "sha256": "3b3e18812eaafe9f9f6a151612575a7e01b98fdb85b5873a9bd5dbb8830348b5"
+    },
+    {
+      "index": 57,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 7331,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018863541809121135,
+          "vorticity": 0.004266871042120197,
+          "near_velocity": 0.00013323918619386832,
+          "near_vorticity": 0.002326545061744991
+        },
+        "time_fine": {
+          "velocity": 0.00019334117629273603,
+          "vorticity": 0.0042718278400585286,
+          "near_velocity": 0.00013909386980797352,
+          "near_vorticity": 0.0023271256656947135
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.617122734260174e-11,
+        "vorticity": 3.6042511762372123e-10,
+        "near_velocity": 8.789405872204772e-11,
+        "near_vorticity": 2.1433320512057357e-10
+      },
+      "probes": {
+        "transverse": 3.1876954815481957e-10,
+        "vorticity": 3.65107847798201e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_057/independent_score.json",
+      "sha256": "3f623fe65f59c5119a2b3bb451dd79be623178d85fd97552d3de92d8190df8b6"
+    },
+    {
+      "index": 58,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 7331,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002171337124543068,
+          "vorticity": 0.004301245545353221,
+          "near_velocity": 0.00016503985906198205,
+          "near_vorticity": 0.0023344629401473977
+        },
+        "time_fine": {
+          "velocity": 0.0002308712856101713,
+          "vorticity": 0.004315197817890988,
+          "near_velocity": 0.00017942228604282546,
+          "near_vorticity": 0.002336553860806528
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00027862786947083245,
+          "vorticity": 0.004634493987332652,
+          "near_velocity": 0.00021002956928229432,
+          "near_vorticity": 0.0024632305828002276
+        },
+        "time_fine": {
+          "velocity": 0.00028297846624149,
+          "vorticity": 0.0046394526062466645,
+          "near_velocity": 0.00021487770643934965,
+          "near_vorticity": 0.0024642860354537545
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.951787407609957e-11,
+        "vorticity": 1.8941168336669712e-10,
+        "near_velocity": 4.600463818714229e-11,
+        "near_vorticity": 1.1144705850586687e-10
+      },
+      "probes": {
+        "transverse": 1.4757708030197734e-10,
+        "vorticity": 1.661346754186661e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_058/independent_score.json",
+      "sha256": "acd28aac5c583ecbc527d05a85951c1165c3f152459e18675836601dd612790b"
+    },
+    {
+      "index": 59,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 7331,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.0002171337124543068,
+          "vorticity": 0.004301245545353221,
+          "near_velocity": 0.00016503985906198205,
+          "near_vorticity": 0.0023344629401473977
+        },
+        "time_fine": {
+          "velocity": 0.0002308712856101713,
+          "vorticity": 0.004315197817890988,
+          "near_velocity": 0.00017942228604282546,
+          "near_vorticity": 0.002336553860806528
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00027862786947083245,
+          "vorticity": 0.004634493987332652,
+          "near_velocity": 0.00021002956928229432,
+          "near_vorticity": 0.0024632305828002276
+        },
+        "time_fine": {
+          "velocity": 0.00028297846624149,
+          "vorticity": 0.0046394526062466645,
+          "near_velocity": 0.00021487770643934965,
+          "near_vorticity": 0.0024642860354537545
+        }
+      },
+      "implementation_worst": {
+        "velocity": 3.951787407609957e-11,
+        "vorticity": 1.8941168336669712e-10,
+        "near_velocity": 4.600463818714229e-11,
+        "near_vorticity": 1.1144705850586687e-10
+      },
+      "probes": {
+        "transverse": 1.4757708030197734e-10,
+        "vorticity": 1.661346754186661e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_059/independent_score.json",
+      "sha256": "10da2db2494a6a42fa41662449840d17f6d2fffb6601d5491f3e66ed59f3cb84"
+    },
+    {
+      "index": 60,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 7687,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018890990727727286,
+          "vorticity": 0.004274583669744404,
+          "near_velocity": 0.00013363003790600855,
+          "near_vorticity": 0.0023335327010031463
+        },
+        "time_fine": {
+          "velocity": 0.00019349597739409184,
+          "vorticity": 0.004279446867368469,
+          "near_velocity": 0.0001394184854882647,
+          "near_vorticity": 0.002334094745830198
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.648623248807725e-11,
+        "vorticity": 2.1085560963958047e-10,
+        "near_velocity": 3.086198388550058e-11,
+        "near_vorticity": 1.2624820897528994e-10
+      },
+      "probes": {
+        "transverse": 9.492158555993896e-11,
+        "vorticity": 1.3957713415177742e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_060/independent_score.json",
+      "sha256": "8bde6f57bf35f4670c51dc22ed3eb5209ffaae1c57b22a582a3efea5fda46b4b"
+    },
+    {
+      "index": 61,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 7687,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018890990727727286,
+          "vorticity": 0.004274583669744404,
+          "near_velocity": 0.00013363003790600855,
+          "near_vorticity": 0.0023335327010031463
+        },
+        "time_fine": {
+          "velocity": 0.00019349597739409184,
+          "vorticity": 0.004279446867368469,
+          "near_velocity": 0.0001394184854882647,
+          "near_vorticity": 0.002334094745830198
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 2.648623248807725e-11,
+        "vorticity": 2.1085560963958047e-10,
+        "near_velocity": 3.086198388550058e-11,
+        "near_vorticity": 1.2624820897528994e-10
+      },
+      "probes": {
+        "transverse": 9.492158555993896e-11,
+        "vorticity": 1.3957713415177742e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_061/independent_score.json",
+      "sha256": "f0248b954cec53c9dbac7e70cdae33d82097142be87266368d84d493db5f3fa3"
+    },
+    {
+      "index": 62,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 7687,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021702666019912727,
+          "vorticity": 0.004308612473217995,
+          "near_velocity": 0.00016501810662139627,
+          "near_vorticity": 0.002341390323640158
+        },
+        "time_fine": {
+          "velocity": 0.00023067558281343137,
+          "vorticity": 0.004322456802804728,
+          "near_velocity": 0.00017931077359174523,
+          "near_vorticity": 0.002343458256146308
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002788558491277718,
+          "vorticity": 0.004642200627281474,
+          "near_velocity": 0.00021039173871878104,
+          "near_vorticity": 0.0024675215087953707
+        },
+        "time_fine": {
+          "velocity": 0.00028303385157772156,
+          "vorticity": 0.0046470656033886885,
+          "near_velocity": 0.0002150094914147843,
+          "near_vorticity": 0.002468548881776672
+        }
+      },
+      "implementation_worst": {
+        "velocity": 6.963467918827078e-11,
+        "vorticity": 3.4402852767932253e-10,
+        "near_velocity": 7.715366064878026e-11,
+        "near_vorticity": 1.9303559780975975e-10
+      },
+      "probes": {
+        "transverse": 2.7471754366352313e-10,
+        "vorticity": 2.999889977424295e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_062/independent_score.json",
+      "sha256": "961223739300a64af2eb97262ea65a4fda198ac41744c7e74cc1931263238dea"
+    },
+    {
+      "index": 63,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 7687,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021702666019912727,
+          "vorticity": 0.004308612473217995,
+          "near_velocity": 0.00016501810662139627,
+          "near_vorticity": 0.002341390323640158
+        },
+        "time_fine": {
+          "velocity": 0.00023067558281343137,
+          "vorticity": 0.004322456802804728,
+          "near_velocity": 0.00017931077359174523,
+          "near_vorticity": 0.002343458256146308
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002788558491277718,
+          "vorticity": 0.004642200627281474,
+          "near_velocity": 0.00021039173871878104,
+          "near_vorticity": 0.0024675215087953707
+        },
+        "time_fine": {
+          "velocity": 0.00028303385157772156,
+          "vorticity": 0.0046470656033886885,
+          "near_velocity": 0.0002150094914147843,
+          "near_vorticity": 0.002468548881776672
+        }
+      },
+      "implementation_worst": {
+        "velocity": 6.963467918827078e-11,
+        "vorticity": 3.4402852767932253e-10,
+        "near_velocity": 7.715366064878026e-11,
+        "near_vorticity": 1.9303559780975975e-10
+      },
+      "probes": {
+        "transverse": 2.7471754366352313e-10,
+        "vorticity": 2.999889977424295e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_063/independent_score.json",
+      "sha256": "c96c09177a1c8c1443980f89c3e650675aed8f74f6f3da6694dd2d6e51ecc0d7"
+    },
+    {
+      "index": 64,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 8011,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000188859515019963,
+          "vorticity": 0.0042770599880518215,
+          "near_velocity": 0.00013360711638203695,
+          "near_vorticity": 0.0023367987457990915
+        },
+        "time_fine": {
+          "velocity": 0.0001933135049862318,
+          "vorticity": 0.004281834080639644,
+          "near_velocity": 0.00013947062666099538,
+          "near_vorticity": 0.0023373412081516753
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 5.137692681027039e-11,
+        "vorticity": 2.4070883774975967e-10,
+        "near_velocity": 5.847852531186248e-11,
+        "near_vorticity": 1.4170181328766606e-10
+      },
+      "probes": {
+        "transverse": 2.1843378348921595e-10,
+        "vorticity": 2.3728075234965845e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_064/independent_score.json",
+      "sha256": "e06b8132ed59afe75e95e8189ad64694861b3293dec9c786484d0c5c5fe78501"
+    },
+    {
+      "index": 65,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 8011,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.000188859515019963,
+          "vorticity": 0.0042770599880518215,
+          "near_velocity": 0.00013360711638203695,
+          "near_vorticity": 0.0023367987457990915
+        },
+        "time_fine": {
+          "velocity": 0.0001933135049862318,
+          "vorticity": 0.004281834080639644,
+          "near_velocity": 0.00013947062666099538,
+          "near_vorticity": 0.0023373412081516753
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 5.137692681027039e-11,
+        "vorticity": 2.4070883774975967e-10,
+        "near_velocity": 5.847852531186248e-11,
+        "near_vorticity": 1.4170181328766606e-10
+      },
+      "probes": {
+        "transverse": 2.1843378348921595e-10,
+        "vorticity": 2.3728075234965845e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_065/independent_score.json",
+      "sha256": "0531864706960ccf27098c852438264a6efa019072734641e2c86650ee886012"
+    },
+    {
+      "index": 66,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 8011,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021657245635133283,
+          "vorticity": 0.004310762394499861,
+          "near_velocity": 0.00016460878526928773,
+          "near_vorticity": 0.0023445796328641225
+        },
+        "time_fine": {
+          "velocity": 0.00023013576975447462,
+          "vorticity": 0.004324513819216593,
+          "near_velocity": 0.00017883111934441774,
+          "near_vorticity": 0.0023466259121228024
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00027873071758637935,
+          "vorticity": 0.004644656051481294,
+          "near_velocity": 0.00021025494327276198,
+          "near_vorticity": 0.0024681343800038295
+        },
+        "time_fine": {
+          "velocity": 0.00028271258394314776,
+          "vorticity": 0.00464943189583957,
+          "near_velocity": 0.00021472877938339655,
+          "near_vorticity": 0.0024691327582233333
+        }
+      },
+      "implementation_worst": {
+        "velocity": 1.8877869499850463e-11,
+        "vorticity": 8.959708844197084e-11,
+        "near_velocity": 2.2449563160732958e-11,
+        "near_vorticity": 5.332316076250501e-11
+      },
+      "probes": {
+        "transverse": 7.20222056933325e-11,
+        "vorticity": 8.720612785805695e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_066/independent_score.json",
+      "sha256": "e1ebad1b7096264e9241ea224b7fc33b258d501af31bd3e454566d266b119718"
+    },
+    {
+      "index": 67,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 8011,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021657245635133283,
+          "vorticity": 0.004310762394499861,
+          "near_velocity": 0.00016460878526928773,
+          "near_vorticity": 0.0023445796328641225
+        },
+        "time_fine": {
+          "velocity": 0.00023013576975447462,
+          "vorticity": 0.004324513819216593,
+          "near_velocity": 0.00017883111934441774,
+          "near_vorticity": 0.0023466259121228024
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.00027873071758637935,
+          "vorticity": 0.004644656051481294,
+          "near_velocity": 0.00021025494327276198,
+          "near_vorticity": 0.0024681343800038295
+        },
+        "time_fine": {
+          "velocity": 0.00028271258394314776,
+          "vorticity": 0.00464943189583957,
+          "near_velocity": 0.00021472877938339655,
+          "near_vorticity": 0.0024691327582233333
+        }
+      },
+      "implementation_worst": {
+        "velocity": 1.8877869499850463e-11,
+        "vorticity": 8.959708844197084e-11,
+        "near_velocity": 2.2449563160732958e-11,
+        "near_vorticity": 5.332316076250501e-11
+      },
+      "probes": {
+        "transverse": 7.20222056933325e-11,
+        "vorticity": 8.720612785805695e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_067/independent_score.json",
+      "sha256": "ce4c99ad2bd438b81fb4e1b2aa337ba0dc0941a34a4b728a12060b49bbf0c4a5"
+    },
+    {
+      "index": 68,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016800576902494942,
+          "vorticity": 0.0037715780903886664,
+          "near_velocity": 0.00012389292643853766,
+          "near_vorticity": 0.0020603040799129636
+        },
+        "time_fine": {
+          "velocity": 0.00017693958813088021,
+          "vorticity": 0.0037803117740136585,
+          "near_velocity": 0.00013410588993939855,
+          "near_vorticity": 0.002062391953016066
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.334852972657986e-11,
+        "vorticity": 3.4840085446175393e-10,
+        "near_velocity": 8.555173801970069e-11,
+        "near_vorticity": 2.0692723197235408e-10
+      },
+      "probes": {
+        "transverse": 3.2317936938554656e-10,
+        "vorticity": 3.6645302975324216e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_068/independent_score.json",
+      "sha256": "92f786529750162b0879ad7811d6a1d672f9dcfc5ca590e7a0b344938e09570c"
+    },
+    {
+      "index": 69,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00016800576902494942,
+          "vorticity": 0.0037715780903886664,
+          "near_velocity": 0.00012389292643853766,
+          "near_vorticity": 0.0020603040799129636
+        },
+        "time_fine": {
+          "velocity": 0.00017693958813088021,
+          "vorticity": 0.0037803117740136585,
+          "near_velocity": 0.00013410588993939855,
+          "near_vorticity": 0.002062391953016066
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.334852972657986e-11,
+        "vorticity": 3.4840085446175393e-10,
+        "near_velocity": 8.555173801970069e-11,
+        "near_vorticity": 2.0692723197235408e-10
+      },
+      "probes": {
+        "transverse": 3.2317936938554656e-10,
+        "vorticity": 3.6645302975324216e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_069/independent_score.json",
+      "sha256": "83bd1da7b731671826104bf118ced2c138f5e6aefcdc46983b5740150f49f248"
+    },
+    {
+      "index": 70,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021018338154719717,
+          "vorticity": 0.003819948324768526,
+          "near_velocity": 0.0001684425043024987,
+          "near_vorticity": 0.0020738599997381043
+        },
+        "time_fine": {
+          "velocity": 0.0002302447492002054,
+          "vorticity": 0.0038387462336736617,
+          "near_velocity": 0.00018681031085808386,
+          "near_vorticity": 0.002078984345201869
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002589462590009703,
+          "vorticity": 0.004139275378484151,
+          "near_velocity": 0.00020066537412836174,
+          "near_vorticity": 0.0022080322363380854
+        },
+        "time_fine": {
+          "velocity": 0.0002689539379096396,
+          "vorticity": 0.004148012254169932,
+          "near_velocity": 0.0002125115440806892,
+          "near_vorticity": 0.0022101204150219993
+        }
+      },
+      "implementation_worst": {
+        "velocity": 8.976717994272823e-11,
+        "vorticity": 4.219103631725082e-10,
+        "near_velocity": 1.0168171275723713e-10,
+        "near_vorticity": 2.439687161315948e-10
+      },
+      "probes": {
+        "transverse": 3.957279400582643e-10,
+        "vorticity": 4.3441517092765206e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_070/independent_score.json",
+      "sha256": "77cc3da6d44119b9c74041393f25ecd6290fc813e6f3029179ff110c15be495f"
+    },
+    {
+      "index": 71,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 8353,
+      "rank": 39,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021018338154719717,
+          "vorticity": 0.003819948324768526,
+          "near_velocity": 0.0001684425043024987,
+          "near_vorticity": 0.0020738599997381043
+        },
+        "time_fine": {
+          "velocity": 0.0002302447492002054,
+          "vorticity": 0.0038387462336736617,
+          "near_velocity": 0.00018681031085808386,
+          "near_vorticity": 0.002078984345201869
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002589462590009703,
+          "vorticity": 0.004139275378484151,
+          "near_velocity": 0.00020066537412836174,
+          "near_vorticity": 0.0022080322363380854
+        },
+        "time_fine": {
+          "velocity": 0.0002689539379096396,
+          "vorticity": 0.004148012254169932,
+          "near_velocity": 0.0002125115440806892,
+          "near_vorticity": 0.0022101204150219993
+        }
+      },
+      "implementation_worst": {
+        "velocity": 8.976717994272823e-11,
+        "vorticity": 4.219103631725082e-10,
+        "near_velocity": 1.0168171275723713e-10,
+        "near_vorticity": 2.439687161315948e-10
+      },
+      "probes": {
+        "transverse": 3.957279400582643e-10,
+        "vorticity": 4.3441517092765206e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_071/independent_score.json",
+      "sha256": "152321ae8ba50c2a6f56c37a2bd1900361c2219564bd51477cf09bc0ec86d87c"
+    },
+    {
+      "index": 72,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 9041,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018873762437453883,
+          "vorticity": 0.004271259706862815,
+          "near_velocity": 0.000133366096954319,
+          "near_vorticity": 0.0023307046341195826
+        },
+        "time_fine": {
+          "velocity": 0.0001932983013035108,
+          "vorticity": 0.0042761127728413095,
+          "near_velocity": 0.00013919257866566267,
+          "near_vorticity": 0.0023312651920638612
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.808579904937699e-11,
+        "vorticity": 9.938092151894814e-11,
+        "near_velocity": 1.972074922798143e-11,
+        "near_vorticity": 4.9542586895975354e-11
+      },
+      "probes": {
+        "transverse": 7.021281105971499e-11,
+        "vorticity": 9.477757549121086e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_072/independent_score.json",
+      "sha256": "b3aeb058f071314da4767565c0d6a062aabd3db2a1d6b34fb29edc7dab391ffb"
+    },
+    {
+      "index": 73,
+      "name": "rfm35_k80",
+      "arm": "uniform",
+      "seed": 9041,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00018873762437453883,
+          "vorticity": 0.004271259706862815,
+          "near_velocity": 0.000133366096954319,
+          "near_vorticity": 0.0023307046341195826
+        },
+        "time_fine": {
+          "velocity": 0.0001932983013035108,
+          "vorticity": 0.0042761127728413095,
+          "near_velocity": 0.00013919257866566267,
+          "near_vorticity": 0.0023312651920638612
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 1.808579904937699e-11,
+        "vorticity": 9.938092151894814e-11,
+        "near_velocity": 1.972074922798143e-11,
+        "near_vorticity": 4.9542586895975354e-11
+      },
+      "probes": {
+        "transverse": 7.021281105971499e-11,
+        "vorticity": 9.477757549121086e-11
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_073/independent_score.json",
+      "sha256": "24a31d951cfa7d082a63a623626379a08f481a059a797e31406626cb3411a076"
+    },
+    {
+      "index": 74,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 9041,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021678559795837942,
+          "vorticity": 0.004305260215624356,
+          "near_velocity": 0.00016473682158472158,
+          "near_vorticity": 0.0023385467055321418
+        },
+        "time_fine": {
+          "velocity": 0.0002304239016739538,
+          "vorticity": 0.004319101417452418,
+          "near_velocity": 0.00017903382060266163,
+          "near_vorticity": 0.0023406149601310866
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002786931692435414,
+          "vorticity": 0.004638869908953612,
+          "near_velocity": 0.00021010254827639048,
+          "near_vorticity": 0.002464768011187197
+        },
+        "time_fine": {
+          "velocity": 0.0002828302343137804,
+          "vorticity": 0.004643724751316902,
+          "near_velocity": 0.00021468467438520478,
+          "near_vorticity": 0.0024657912056088556
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.8777139947094888e-11,
+        "vorticity": 1.425083914662316e-10,
+        "near_velocity": 3.1587589789827884e-11,
+        "near_vorticity": 8.055684070150999e-11
+      },
+      "probes": {
+        "transverse": 1.4139678739294076e-10,
+        "vorticity": 1.8219237365397495e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_074/independent_score.json",
+      "sha256": "b27129aababfc85e145d777dd1aa2911232b7f19c38c6e358a29bc771e4a9f6c"
+    },
+    {
+      "index": 75,
+      "name": "rfm35_k80",
+      "arm": "combined",
+      "seed": 9041,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00021678559795837942,
+          "vorticity": 0.004305260215624356,
+          "near_velocity": 0.00016473682158472158,
+          "near_vorticity": 0.0023385467055321418
+        },
+        "time_fine": {
+          "velocity": 0.0002304239016739538,
+          "vorticity": 0.004319101417452418,
+          "near_velocity": 0.00017903382060266163,
+          "near_vorticity": 0.0023406149601310866
+        }
+      },
+      "guard_worst": {
+        "angular_fine": {
+          "velocity": 0.0002786931692435414,
+          "vorticity": 0.004638869908953612,
+          "near_velocity": 0.00021010254827639048,
+          "near_vorticity": 0.002464768011187197
+        },
+        "time_fine": {
+          "velocity": 0.0002828302343137804,
+          "vorticity": 0.004643724751316902,
+          "near_velocity": 0.00021468467438520478,
+          "near_vorticity": 0.0024657912056088556
+        }
+      },
+      "implementation_worst": {
+        "velocity": 2.8777139947094888e-11,
+        "vorticity": 1.425083914662316e-10,
+        "near_velocity": 3.1587589789827884e-11,
+        "near_vorticity": 8.055684070150999e-11
+      },
+      "probes": {
+        "transverse": 1.4139678739294076e-10,
+        "vorticity": 1.8219237365397495e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_075/independent_score.json",
+      "sha256": "04191593ce8f693c88f75537c704917b7ce08b64ba27577a5e1d826468b6fc70"
+    },
+    {
+      "index": 76,
+      "name": "leg34_k80_q76",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 38,
+      "policy": "empty_first",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00022292398225942707,
+          "vorticity": 0.004769199520275367,
+          "near_velocity": 0.00020030787111338265,
+          "near_vorticity": 0.002712980496145267
+        },
+        "time_fine": {
+          "velocity": 0.00023014618850970467,
+          "vorticity": 0.004775428806959625,
+          "near_velocity": 0.00020857565654806484,
+          "near_vorticity": 0.00271448726892632
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.027015061818057e-11,
+        "vorticity": 3.291204520148025e-10,
+        "near_velocity": 7.945804626015837e-11,
+        "near_vorticity": 1.9282420817237615e-10
+      },
+      "probes": {
+        "transverse": 3.23757742588934e-10,
+        "vorticity": 3.601003062751265e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_076/independent_score.json",
+      "sha256": "81713e24c0d64d01693db502d3279c82a0c7b6f07058fb2c7496bb1bbd40dea6"
+    },
+    {
+      "index": 77,
+      "name": "leg34_k80_q76",
+      "arm": "uniform",
+      "seed": 17,
+      "rank": 38,
+      "policy": "strict_hit",
+      "qualified": true,
+      "physical_worst": {
+        "angular_fine": {
+          "velocity": 0.00022292398225942707,
+          "vorticity": 0.004769199520275367,
+          "near_velocity": 0.00020030787111338265,
+          "near_vorticity": 0.002712980496145267
+        },
+        "time_fine": {
+          "velocity": 0.00023014618850970467,
+          "vorticity": 0.004775428806959625,
+          "near_velocity": 0.00020857565654806484,
+          "near_vorticity": 0.00271448726892632
+        }
+      },
+      "guard_worst": {},
+      "implementation_worst": {
+        "velocity": 7.027015061818057e-11,
+        "vorticity": 3.291204520148025e-10,
+        "near_velocity": 7.945804626015837e-11,
+        "near_vorticity": 1.9282420817237615e-10
+      },
+      "probes": {
+        "transverse": 3.23757742588934e-10,
+        "vorticity": 3.601003062751265e-10
+      },
+      "source": "work/rfm_v8/rank_fair_cache_qualification_output/slot_077/independent_score.json",
+      "sha256": "1f8c608cd76b56bbf810e7a07e9116e9887235ebb9020b3400434ff8dca30730"
+    }
+  ]
+}

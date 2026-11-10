@@ -1,5 +1,22 @@
 # 不可压缩 Navier–Stokes 可复核研究
 
+<!-- paper-revision-2 -->
+## 最新论文 / Revised manuscripts (2026-11-10)
+
+- [中文论文（31页）](../outputs/RFM_NS_中文论文.pdf)
+- [English manuscript (29 pages)](../outputs/RFM_NS_English_Manuscript.pdf)
+- [完整 LaTeX 源码包 / LaTeX source archive](../outputs/RFM_NS_LaTeX.zip)
+- [在线阅读源码与构建说明](../outputs/rfm_ns_tex/README.md)
+- [独立 GPU 算子示例](../outputs/rfm_operator_sample/README.md) · [下载](../outputs/RFM_NS_Operator_Sample.zip)
+- [本次上传文件与校验和](../PAPER_REVISION_MANIFEST.json)
+
+中英文稿分别包含4幅图、12张表、44个带标签公式和19条文献。扩充了数学推导、底层CUDA/C实现、同精度比较与失败证据。本轮新增36个GPU固定态算子用例及9项非法输入检查；没有新增完整NS轨迹或计时排名。尚未证明相对同等优化传统CFD的稳定整体优势，独立算子示例也未提交上游PR。
+
+Both manuscripts expand the numerical derivations, low-level CUDA/C implementations, matched-accuracy controls, and limitations. The new standalone checks are separate from the frozen NS evidence; no new full-flow timing result or upstream PR is claimed.
+
+`MANIFEST.json` retains the frozen v8 inventory. `PAPER_REVISION_MANIFEST.json` inventories this manuscript addition; the underlying v8 evidence is unchanged. Supplemental evidence hashes identify the original source bytes used in the paper audit. Where the publication uses separately named redacted derivatives, consult the existing v8 path-redaction map rather than treating an original hash as authentication of different bytes.
+<!-- /paper-revision-2 -->
+
 **最新入口：[v8：算子改良与同精度公平比较](../START_HERE_v8.md)。**
 
 本仓库保存 Re=100 有限完整圆环绕流中的 RFM、Legendre–Galerkin 与径向四阶差分研究代码、理论、冻结协议、原始数据和失败记录。

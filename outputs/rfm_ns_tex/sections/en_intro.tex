@@ -1,0 +1,50 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Neural features provide alternatives to polynomial trial spaces for partial differential equations. A flow solver, however, combines a representation, spatial projection, time integration, linear algebra, nonlinear transforms, and runtime management. A speedup observed after changing several of these components cannot be attributed automatically to random features. This study examines that attribution problem for a fixed random feature Galerkin discretization of two-dimensional unsteady incompressible flow, and asks how its mathematical structure translates into measurable computational savings.
+
+Unsteady wakes make the comparison demanding. Velocity involves first derivatives of the streamfunction, whereas vorticity involves second derivatives; a small velocity error can therefore coexist with a substantially larger vorticity error. Alternating shedding also accumulates phase error. Independently shifting each trajectory in time can make plots agree without recovering the original initial-boundary-value solution. Meanwhile, a small GPU operator may take only tens of microseconds, even when compilation, module loading, FFT planning, and context initialization consume a substantial fraction of the full solve. We consequently require common physical accuracy, original time coordinates, and explicit end-to-end cost boundaries.
+
+The test problem is a finite annulus at $Re=100$, integrated to $T=72$ without imposed reflection symmetry. The radial approximations use fixed random trigonometric features, deterministic Legendre features, or fourth-order spatial finite differences. All retain the full real Fourier representation in angle and solve the same physical problem with second-order time integration. Legendre--Galerkin is itself a traditional CFD baseline and must be included in that category. The fixed-feature solver is distinct from a PINN that trains a representation of an entire trajectory by residual minimization.
+
+Three questions organize the study. First, how much actual work can piecewise time steps and smaller retained spaces remove while preserving both velocity and vorticity accuracy? Second, which costs do common phase coordinates, FFT fusion, and parallel observation change, and can other implementation costs offset the algebraic savings? Third, does the available evidence establish an overall advantage over strong deterministic baselines under matched accuracy, initialization policies, and timing boundaries? These questions require discrete analysis, operator experiments, and complete isolated runs, respectively; one local speedup cannot answer all three.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Classification of the work and its evidential limits. A numerical adaptation is distinct from a new basic algorithm; a local speedup is distinct from a full-solve advantage.}
+\label{tab:contribution-map}
+\begin{tabularx}{\linewidth}{@{}>{\raggedright\arraybackslash}p{.20\linewidth}XXX@{}}
+\toprule
+Component & Category & Available evidence & Limit \\
+\midrule
+Lifting and one variable-step bridge & Numerical-method adaptation & Consistency derivation and trajectory qualification & No unconditional stability theorem for the full NS system \\
+Common phase coordinates and anchor & Linear algebra analysis & Same-mode identities and a spectral bound & Bound minimization does not minimize measured runtime \\
+Retained radial spaces and Legendre control & Discretization and validation & Five fixed seeds and reduced deterministic spaces & No universal random-feature advantage \\
+Fused FFT, warp observations, C kernels & Low-level implementation & Source, local tests, short trajectories & Application kernels, not a third-party FFT library patch \\
+Shared setup, caching, startup path & Runtime engineering & Stage records and cache equivalence & Final isolated ranking remains unestablished \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The principal results are verifiable workload reductions and performance attribution. The two time schedules remove approximately $11.11\%$ and $9.36\%$ of true nonlinear evaluations. All 78 GPU trajectories, covering 39 configurations under two cache policies, satisfy the registered numerical criteria. The specialized fused FFT is effective on fixed states and during short trajectory advancement, yet increases the cost of the first complete solve. The final isolated timing campaign failed its acceptance criteria, and its remaining records are not used to rank methods. These limits position the paper as numerical computation and application-level high-performance computing research. The evidence does not establish a general convergence theory or a universal speed advantage over traditional CFD.
+
+\section{Related work and scope}
+\label{sec:related-work}
+
+\subsection{Random features, projection solvers, and trained representations}
+
+The random feature method fixes nonlinear features and determines their combination coefficients for PDE approximation\cite{r1}. Local extreme learning machines combine fixed hidden layers with domain decomposition\cite{r2}; randomized neural network Petrov--Galerkin methods have been applied to elasticity and Navier--Stokes equations\cite{r3}. High-precision RFM, randomized preconditioning, and orthogonal feature learning address accuracy, conditioning, and representation quality\cite{r4,r5,r6}. Random features combined with Galerkin projection, preconditioning, or orthogonalization are consequently not standalone novelty claims of this work.
+
+Time-dependent RFM can also use space-time features and partitions of unity, with global or blockwise least-squares solves\cite{r15}. The present implementation takes a different route: random features define only the radial trial space, Fourier modes represent angle, and a stepwise IMEX scheme advances time. It neither learns temporal features nor repeatedly minimizes a trajectory-wide residual. Error statements for block propagation in space-time least squares therefore require a separate derivation before being applied to this SBDF2 evolution, and performance results do not transfer automatically between the formulations.
+
+PINNs use automatic differentiation to construct residual losses and train network parameters\cite{r7}. Causal training changes the treatment of temporal learning, while PirateNets use adaptive residual connections to improve deep PINN optimization\cite{r8,r16}. A comparison with such methods must account for training, restarts, sampling, inference, and derivative reconstruction according to the intended use. Published errors and times from different geometries, boundaries, horizons, or hardware cannot be inserted into an accuracy-matched table here. No complete trained-model comparison on this same problem and tolerance is available in the present evidence. These references delimit the scope rather than establish a speed ranking.
+
+\subsection{Time discretization and linear algebra}
+
+IMEX multistep methods and variable-step extensions are established approaches\cite{r9,r12}. The second-order coefficients used here belong to that framework. Our analysis concerns their compatibility with the discrete mass, boundary lifting, contracted flux histories, and a single step-size transition in this implementation. Likewise, whitening and diagonalizing a symmetric definite generalized eigenproblem use standard linear algebra\cite{r10}. The relevant questions are whether multiple time phases of one angular mode can share coordinates, what an anchor selection actually optimizes, and why fewer factorizations can still increase setup cost when the original device interface is retained.
+
+\subsection{GPU fusion and application performance}
+
+FFT dealiasing, Hermitian representations of real fields, and mixed-radix transforms are established techniques\cite{r11,r13}. cuFFTDx already provides device FFTs, fused convolution examples, and comparisons with cuFFT\cite{r17}; warp exchange and reduction use standard CUDA programming mechanisms\cite{r18}. The engineering work here implements and checks these mechanisms for a particular FP64 multifield flux layout, including channel-scale sensitivity, startup overhead, and unsuccessful candidates. It does not introduce the general idea of FFT fusion as a new FFT algorithm.
+
+High-level languages can organize high-performance flow solvers whose computational kernels execute in compiled libraries or native implementations\cite{r14}. We therefore discuss bottlenecks through data movement, synchronization, matrix layout, and lifecycle cost. Choosing C, CUDA, or another host language should follow the measured cost fraction and the work that can actually be removed. The same reasoning applies to an upstream contribution: the present changes are application-side kernels, with no modification of third-party library source. A reusable upstream sample needs independent correctness, an equivalent library-based comparison, and a reproducible build; a local application speedup alone does not constitute a library performance fix.

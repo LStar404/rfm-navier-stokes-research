@@ -1,0 +1,117 @@
+\appendix
+\section{符号、误差网格与复现顺序}\label{sec:app-setup}
+
+模型、边界提升、特征变换与弱式的完整定义见第\ref{sec:space-discretization}节及第\ref{sec:numerical-method}节。这里集中给出跨章节符号和不参与求解的误差重构网格，避免把输入特征数、实际秩、求积数和 FFT 长度混为同一分辨率。
+
+\begin{table}[!htbp]
+\centering\small
+\caption{主要符号及其计算含义}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+符号 & 含义 \\
+\midrule
+$s,z,L$ & $s=\log(r/a)$，$L=\log(R/a)$，$z=s/L$ \\
+$m,d,d_0$ & 输入径向特征数、实际非零模保留秩、独立均值秩（30） \\
+$K,N,q$ & 最大保留角模、角向 FFT 长度、Galerkin 径向求积节点数 \\
+$n$ & FD 径向区间数；节点 $n+1$、内部未知数 $n-1$ \\
+$M_k,K_k$ & 非零角模的质量矩阵和黏性矩阵 \\
+$H,h,\rho$ & 桥接前后时间步及其比值 $h/H$ \\
+$H_{\rm ref}$ & 如用作相位白化矩阵，表示 $a_{\rm ref}M+h_{\rm ref}K$；正文亦记 $H$ \\
+$N_{\rm nl},C_{\rm nl}$ & 真实非线性求值次数及一次评估的有效成本 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{独立物理误差重构网格}
+\label{tab:app-score-grids}
+\begin{tabularx}{\linewidth}{@{}Xrrr@{}}
+\toprule
+网格 & 径向节点 & 角向节点 & 角向偏移参数 \\
+\midrule
+Gauss & 123 & 433 & 0.23 \\
+等间隔中点 & 129 & 449 & 0.43 \\
+分段层加密 & 144（96/24/24） & 457 & 0.31 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+评价权包含 $r^2\,ds\,d\theta$，速度范数联合使用 $u_r,u_\theta$。19个物理误差检查时刻为0.5、1、2、4、6、8、8.125、8.5、9、10、12、16、24、36、48、54、60、66、72。分段方案另保存 $8+1/\mathrm{late\_rate}$ 和 $8+2/\mathrm{late\_rate}$ 两个状态用于实现一致性检查，不能将它们称为新增的双参考物理评分时刻。探针位于 $(x/D,y/D)=(1.5,0),(2.5,0),(3.5,0)$，按 $\Delta t=0.125$ 保存，含初始零值共577点；各点保存横向速度和涡量，共六条历史。
+
+复现时先固定附录\ref{sec:app-evidence}中的归档身份、源文件和两份数值参考，再核对每个配置的几何、种子、保留秩、时间率和缓存政策。重构物理场后逐网格、逐时刻评分，检查同离散 CPU/GPU 一致性与分段三角保护。只有通过这些门槛的候选才能进入独立计时；数值资格批次中的并发耗时不能充当隔离计时。计时协议的完整性、终态记录与外部负载检查应先于速度比计算。最后另行运行修订版的独立算子样例，其合格标志仅覆盖合成固定状态，不替代以上流动验证。
+
+\section{冻结涡量结构与适用范围}\label{sec:app-lamb}
+
+\setcounter{equation}{0}
+\renewcommand{\theequation}{B.\arabic{equation}}
+\renewcommand{\theHequation}{appendix.B.\arabic{equation}}
+
+在正确实 Fourier 权重下，均值权为1，非零模实虚部权各为2。固定涡量 \(\omega^*\) 的弱配对为 \(\sum_i w_i\omega_i^*(u_{\theta,i}v_{r,i}-u_{r,i}v_{\theta,i})\)。同一求积及互为伴随的重构和投影使交换 u、v 后变号，因此齐次离散矩阵 \(F^\top=-F\)。该结构需要离散检查，不能只从连续方程能量性质推定。
+
+\begin{equation}
+\label{eq:lamb-update}
+[(3/2)M+hK-hF]x_{n+1}=2Mx_n-\tfrac12 Mx_{n-1}+L_{n+1}+R_{n+1}.
+\end{equation}
+
+L 含边界提升及外力，R 定义为原方程左端减去含 L 的原右端。定义加权半范数及 G 如下：
+
+\begin{equation}
+\label{eq:lamb-norm}
+\|x\|_M^2=x^\top Mx,\qquad G(x,y)=\|x\|_M^2+\|2x-y\|_M^2.
+\end{equation}
+
+\(K\) 加权半范数同理。固定步长下将式~\eqref{eq:lamb-update} 与 \(4x_{n+1}\) 配对，得到
+
+\begin{equation}
+\label{eq:lamb-energy}
+\begin{aligned}&G(x_{n+1},x_n)-G(x_n,x_{n-1})+\|x_{n+1}-2x_n+x_{n-1}\|_M^2+4h\|x_{n+1}\|_K^2\\&\qquad=4\langle x_{n+1},L_{n+1}\rangle+4\langle x_{n+1},R_{n+1}\rangle.\end{aligned}
+\end{equation}
+
+恒等式由 \(4\langle x,(3/2)Mx-2My+(1/2)Mz\rangle\) 展开得到，\(F\) 项抵消。\(R\) 已处于式~\eqref{eq:lamb-update} 的步长尺度，右侧残差做功不再乘 \(h\)。无外力、齐次边界且精确求解时，\(L=R=0\)，\(G\) 单调不增。驱动问题需要保留右端。\(G\) 衡量齐次速度部分的离散能量。
+
+再令 \(A=(3/2)M+hK=LL^\top\)、\(S=L^{-1}FL^{-\top}\)，则 \(S^\top=-S\)。对称变换后的 \(B=I-hS\) 满足 \(B^\top B=BB^\top=I-h^2S^2\)，故对任意 z 有 \(\|Bz\|_2^2=\|z\|_2^2+h^2\|Sz\|_2^2\)，进而 \(\sigma_{\min}(B)\ge1\)。该保证只在变换坐标中成立，不保证 GMRES 次数、变换往返误差或物理精度改善。正文报告的粗步失败与增加的 FFT 工作量因此必须保留。
+
+\section{主要证据与复核入口}\label{sec:app-evidence}
+
+以下记录均对应固定提交6f2b350。标签链接直达原始文件。路径中的 v7、v8 表示实验版本而非独立论文结果。理论说明、数值资格、局部计时与完整批次的作用不同。
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v6/full_case.py}{C1 算例与边界}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v6/full_case.py}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v6/full_galerkin.py}{C2 空间与矩阵}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v6/full_galerkin.py}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v7/theory_sbdf2_single_bridge.txt}{C3 桥接与提升推导}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v7/theory_sbdf2_single_bridge.txt}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/theory_phase_pencil_scope_note.txt}{C4 相位矩阵及锚点边界}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/theory_phase_pencil_scope_note.txt}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/galerkin_phase_pencil_audit_canonical_mean.json}{C5 相位准备实测}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/galerkin_phase_pencil_audit_canonical_mean.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/rank_fair_cache_qualification_output/protocol.json}{C6 最终39配置及双缓存协议}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/rank_fair_cache_qualification_output/protocol.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json}{C7 最终78条数值资格}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/rank_fair_cache_qualification_output/qualification_summary.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/rank_parity_expansion_output/summary.json}{C8 秩扩展与失败候选}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/rank_parity_expansion_output/summary.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/fused_march_t9_output/summary.json}{C9 融合算子与短程总成本}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/fused_march_t9_output/summary.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/thin_formal_high_verification.json}{C10 历史启动改进隔离核验}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/thin_formal_high_verification.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/lamb_t16_qualification_output/summary.json}{C11 Lamb短程精度及工作量}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/lamb_t16_qualification_output/summary.json}}\par\smallskip
+
+\noindent\href{https://github.com/LStar404/rfm-navier-stokes-research/blob/6f2b3500964d3d5153b8400018236c4702ef94f8/work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json}{C12 最终完整计时结案}\par\nopagebreak
+{\small\nolinkurl{work/rfm_v8/rank_fair_cache_recovery_formal_final_closure/final_closure.json}}\par\smallskip
+
+表~\ref{tab:accuracy}由全部78份 independent\_score.json 逐组重算。表~\ref{tab:workload}计数取资格输出 slot\_000、slot\_010、slot\_026、slot\_036 的 result.json 中 metadata.nonlinear\_evaluations。表~\ref{tab:fusion-events}采用固定态图事件记录，表~\ref{tab:phase-setup}采用局部相位准备审计。图~\ref{fig:annulus-wake}至图~\ref{fig:fusion-cost}沿用同一归档内已核验的绘图与数据来源。所有速度解释均保留各自计时范围，不跨批次拼接为新的排名。
+
+修订补充材料另含 \nolinkurl{supplement/evidence_revision.json}，将关键数字绑定到78份评分和其他原始文件的校验和。\nolinkurl{supplement/operator_sample/} 提供独立算子源码、验证入口、实际 GPU 结果 \nolinkurl{validation.json} 与来源记录 \nolinkurl{provenance.json}。该目录与新增的数据流示意图属于本次修订，不是上述固定提交中的新增流场实验；样例没有给出 cuFFTDx 性能比较。构建论文和运行样例的命令见各目录的 README。
